@@ -1,0 +1,5 @@
+apps/api/node_modules/
+apps/api/dist/
+apps/api/*.tsbuildinfo
+apps/api/.env
+infra/.env
