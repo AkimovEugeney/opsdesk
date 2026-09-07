@@ -61,7 +61,7 @@ Jira is the operational board when the Atlassian integration is available. Use t
 
 Repository documents remain the source of truth for learning behaviour, curriculum, learner state, architecture, ADRs and detailed learning evidence. Jira does not replace them. When a ticket exists in both places, record the stable Jira key in the repository ticket and avoid copying long learning records into Jira.
 
-Do not create a Jira issue merely because a possible task was imagined. First agree the Sprint Goal, candidate scope, refinement and learner estimate; then create or update the operational issue. Update Jira after meaningful operational changes: agreed scope, start, blocker, review, completion or carry-over. If Jira is unavailable, use `work/tickets/` and `work/sprints/` as the operational representation and record the fallback in the ticket.
+Do not create a Jira issue merely because a possible task was imagined. Once a candidate is accepted for an active sprint, create its Jira issue with the visible scope, assign it to the active sprint and report its key before implementation starts; refine its description and estimate as those are agreed. Update Jira after meaningful operational changes: agreed scope, start, blocker, review, completion or carry-over. If Jira is unavailable, use `work/tickets/` and `work/sprints/` as the operational representation and record the fallback in the ticket.
 
 ## GitHub, pull requests and CI
 
