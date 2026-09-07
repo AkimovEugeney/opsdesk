@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { AppealsRepository } from "./appeals.repository";
 
 @Injectable()
@@ -7,5 +7,13 @@ export class AppealsService {
 
   async findActive() {
     return this.appealsRepository.findActive();
+  }
+
+  async getAppealById(id: string) {
+    const appeal = await this.appealsRepository.findById(id);
+    if (!appeal) {
+      throw new NotFoundException(`Обращение с ID ${id} не найдено`);
+    }
+    return appeal;
   }
 }

@@ -10,10 +10,14 @@ OpsDesk trains independent reasoning, implementation, debugging, review and resp
 - New or weak skills require a learner proposal and hand-written key code. Autocomplete for syntax or names is allowed; generated implementation is not.
 - After AI implementation, complete understanding-check.md. Unexplained code is not skill evidence.
 - Practice engineering skills inside product tickets. The only outside practice is brief unfamiliar open-source reading every 1–2 weeks.
+- Match the depth of guidance and process to the problem's impact and complexity. Do not maximize teaching steps; use the minimum guidance needed for understanding.
+- For a small local question or routine CRUD work, keep guidance short. Do not turn an evident detail into a multi-step Socratic dialogue or require repeated confirmation of an already-understood decision.
+- A learner attempt, an explicit statement of being stuck, or a direct question authorizes a concise direct explanation of the local concept. One targeted understanding check may follow only when it is needed to establish learning evidence.
+- When the learner correctly explains a concept in their own words, treat it as demonstrated and continue. Do not restate the same check in different words without a concrete reason.
 
 ## Ticket guardrails
 
-Before code changes, record and confirm the work split, one primary and at most one secondary learning goal, familiar work, agreed AI_ROUTINE work and excluded topics. Split overloaded work. Architecture, requirements, business rules and data modelling are never routine.
+Before code changes, record an agreed work split, one primary and at most one secondary learning goal, familiar work, agreed AI_ROUTINE work and excluded topics. An explicit learner statement that clearly defines an intermediate decision is sufficient; do not request a ceremonial reconfirmation. Explicit confirmation remains required for destructive actions, material scope or architecture choices, sprint commitments, and changes to learning or system rules. Split overloaded work. Architecture, requirements, business rules and data modelling are never routine.
 
 | Part | Author | AI mode | Reason |
 |---|---|---|---|

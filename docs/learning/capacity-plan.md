@@ -21,7 +21,8 @@
 
 | Iteration | Capacity target | Completed | Remaining to target | Status |
 |---|---:|---:|---:|---|
-| 2026-08-12 — 2026-08-18 | 8–12 h | 3.25 h | 4.75–8.75 h | In progress |
+| 2026-08-12 — 2026-08-18 | 8–12 h | 3.25 h | 4.75–8.75 h unused | Closed |
+| 2026-09-07 — 2026-09-13 | 3–6 h | 0 h | 3–6 h | Active |
 
 Completed time consists of OPS-000 (0.75 h) and OPS-001 (2.5 h).
 

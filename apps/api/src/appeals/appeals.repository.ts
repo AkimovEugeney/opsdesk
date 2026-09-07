@@ -1,5 +1,18 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma/prisma.service";
+import { type AppealStatus } from "../generated/prisma/enums";
+
+type AppealDetailsRow = {
+  id: number;
+  status: AppealStatus;
+  title: string;
+  description: string;
+  createdAt: Date;
+  closedAt: Date | null;
+  clientName: string;
+  ownerName: string | null;
+};
+
 
 @Injectable()
 export class AppealsRepository {
@@ -28,4 +41,28 @@ export class AppealsRepository {
   appeal."createdAt" DESC
   `;
   }
+
+  async findById(id: string) {
+    const rows = await this.prisma.$queryRaw<AppealDetailsRow[]>`
+    SELECT
+        appeal."id",
+        appeal."status",
+        appeal."title",
+        appeal."description",
+        appeal."createdAt",
+        appeal."closedAt",
+        client."name" AS "clientName",
+        owner."name" AS "ownerName"
+    FROM "Appeal" AS appeal
+    JOIN "User" AS client
+        ON client."id" = appeal."clientId"
+    LEFT JOIN "User" AS owner
+        ON owner."id" = appeal."ownerId"
+    WHERE appeal."id" = ${id}
+  `;
+
+  return rows[0] ?? null;
+  }
+
+
 }
