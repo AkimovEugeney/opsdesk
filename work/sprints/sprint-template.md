@@ -1,6 +1,7 @@
 # Weekly iteration: [YYYY-MM-DD — YYYY-MM-DD]
 
 - Status: Planning | Active | Review pending | Closed
+- Jira sprint: [link, or `Repository fallback — Jira unavailable`]
 
 ## Sprint Goal
 
@@ -18,6 +19,14 @@
 | — | — | Provisional / Confirmed before implementation | — | — |
 
 [Preserve the agreed plan. Prepare detailed tickets when needed; do not pre-solve technical tasks.]
+
+## Operational links
+
+| Repository ticket | Jira issue | Branch / PR | CI |
+|---|---|---|---|
+| — | — | — | — |
+
+[Use Jira and GitHub links when available. Keep learning evidence in the repository.]
 
 ## Known risks / unknowns
 

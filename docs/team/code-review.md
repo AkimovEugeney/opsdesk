@@ -1,39 +1,21 @@
 # Code review
 
-Review checks the ticket's visible requirements, product rules, accepted ADRs, correctness, tests, error handling, security, performance and accessibility when applicable.
+Review visible requirements, product rules, accepted ADRs, correctness, tests, error handling, security, performance, accessibility and maintainability when relevant. Label findings blocking, suggestion, question or nit; state impact and expected resolution, not “best practice” alone.
 
-The author self-reviews first. A reviewer records actionable findings with context and expected impact. The author resolves or explains each finding; unresolved trade-offs are documented in the ticket or an ADR when required.
+The author self-reviews first and states what they checked. The reviewer records actionable findings. The author explains each comment, replies, agrees or argues with evidence, and makes learner-owned changes under the active AI mode. Do not implement review comments automatically.
 
-The PR description must state the problem, scope, validation performed, risks and any follow-up work.
+The PR description states the problem, scope, validation, risks and follow-up. Review commit purpose and diff alignment under commit-messages.md.
 
-## Independent review
+## Review format
 
-An independent Codex review in a separate chat is required for:
+Independent review in a separate chat is required for medium or large changes, new business logic, database or architecture changes, and maintainability/code-quality goals. Record the decision before implementation.
 
-- medium or large changes;
-- new business logic;
-- database changes;
-- architecture changes;
-- tickets whose primary or secondary learning goal is maintainability or code quality.
+For a small routine change outside those categories, self-review plus same-session Codex review is sufficient. Escalate if the diff reveals new rules, data changes, unexpected complexity or material risk. The same-session review still applies all relevant quality checks; it is not called independent.
 
-Use the ticket's scope and learning goal to classify the review before implementation. Record the decision and reason in the ticket. The reviewer receives the ticket, requirements log, diff and validation evidence; record the result and link the review record. Switching from implementer to reviewer in the same chat does not establish independence.
+The independent reviewer receives the ticket, requirements log, diff and validation evidence. A role switch in the implementation chat does not establish independence.
 
-For a small routine change outside these categories, self-review and a same-session Codex review are sufficient. The same-session review still checks the applicable requirements and quality criteria; it is not called independent review. Escalate it to an independent review when the diff reveals new business rules, data changes, unexpected complexity or a material risk.
+## Maintainability
 
-## Maintainability review
+Check names and intent, responsibilities, coupling, duplication, side effects, control flow, errors, local consistency, justified abstractions and AI-added complexity. Distinguish a deliberate scope/time trade-off from an accidental quality problem. Explain consequences for maintenance, testing, extension or regression risk and distinguish required fixes from optional suggestions.
 
-Assess whether another engineer could safely understand and modify the code later:
-
-- names and intent;
-- function and module responsibilities;
-- unnecessary coupling and duplicated business logic;
-- hidden side effects and control-flow complexity;
-- error handling and consistency with surrounding code;
-- whether abstractions serve current requirements;
-- unnecessary complexity introduced by AI-generated code.
-
-Do not demand theoretical perfection. Distinguish a deliberate trade-off due to scope, time or product constraints from accidental poor quality caused by a gap in understanding. Ask for the author's reasoning when the intent is unclear.
-
-Explain the engineering consequence of a finding, such as duplicated rules on the next entry point or an error path that hides failure; do not present personal style as a correctness requirement. Suggest the smallest justified improvement and distinguish required fixes from optional suggestions.
-
-Record accepted trade-offs with their reason, impact and a condition for revisiting them in the ticket or ADR when required. An unexplained defect is not an accepted trade-off. In `LEARN_MANUAL`, give review feedback without replacing the learner's implementation with a ready-made solution.
+Record accepted trade-offs with reason, impact and revisit condition in the ticket or ADR. In LEARN_MANUAL, review without replacing the learner's code with a ready-made solution.

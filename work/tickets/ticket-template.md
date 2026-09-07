@@ -1,10 +1,12 @@
 # [TICKET-ID] Title
 
+- User-facing brief language: Russian. Keep internal process instructions and source records in English.
 - Status: Draft | Ready | In progress | In review | Done
 - Estimate: [hours]
 - Actual time: [hours, completed after work]
 - Branch: [branch name]
 - Pull request: [link]
+- Jira issue: [key and link, or `Repository fallback — Jira unavailable`]
 - Iteration: [link to current weekly sprint; preserve carry-over history]
 
 ## Business value
@@ -85,7 +87,9 @@ Create and link a separate `OPS-XXX-requirements-log.md` before clarification be
 - Review decision: [Why this format is appropriate for the ticket scope and learning goals].
 - Tests: [result]
 - Self-review: [result]
+- Commit history: [learner's rationale for the number and grouping of commits; link or summary].
 - Codex review: [result]
+- CI: [required checks and result; local equivalent if hosting integration is unavailable].
 - Understanding check: [result]
 
 ## Outcome and learning evidence

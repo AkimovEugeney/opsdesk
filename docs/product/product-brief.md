@@ -1,72 +1,43 @@
-# Product Brief OpsDesk
+# OpsDesk Product Brief
 
-- Статус: Подтверждён
-- Версия: MVP
+- Status: Approved
+- Version: MVP
 
-## Бизнес-цель
+## Business goal
 
-OpsDesk объединяет обработку клиентских обращений и внутренних инцидентов в одном рабочем пространстве. Система помогает видеть, кто отвечает за работу, что происходит сейчас, какой результат получен и не нарушен ли срок реакции или решения.
+OpsDesk combines customer requests and internal incidents in one workspace. Teams can see ownership, current state, outcome and whether response or resolution targets are being met.
 
-## Пользователи
+## Users
 
-| Пользователь | Задача в продукте |
+| User | Product responsibility |
 |---|---|
-| Клиент | Создать обращение, передать контекст и получать информацию о ходе работы. |
-| Оператор | Принять, уточнить, классифицировать и сопровождать клиентское обращение. |
-| Участник инцидента | Сообщить о внутренней проблеме и фиксировать рабочую информацию по ней. |
-| Ответственный за инцидент | Координировать обработку инцидента и его завершение. |
-| Руководитель команды | Видеть нагрузку, ответственность и результат работы команды. |
-| Администратор | Поддерживать пользователей и справочную информацию продукта. |
+| Customer | Create a request, provide context and receive progress information. |
+| Operator | Receive, clarify, classify and work on customer requests. |
+| Incident reporter | Report an internal problem and record operational context. |
+| Incident responder | Coordinate incident handling and closure. |
+| Team lead | See team load, ownership and outcomes. |
+| Administrator | Maintain users and product reference data. |
 
-## Основные процессы
+## Core workflows
 
-### Клиентское обращение
+- Customer request: a customer submits a request; an operator clarifies and assigns it; the responsible team works it to a recorded outcome; the customer receives material updates.
+- Internal incident: a team member reports an incident; a responder coordinates handling and mitigation; the team records material updates and the outcome before closure.
+- Operational view: the team sees active work, owner, state, target and material history; the team lead uses it to manage distribution and timeliness.
 
-Клиент создаёт обращение. Оператор принимает его, при необходимости получает уточнение, назначает ответственность и ведёт работу до зафиксированного результата. Клиент получает информацию о существенных изменениях и итоговом решении.
+## MVP scope
 
-### Внутренний инцидент
+Includes request and incident handling, ownership changes, current state and material updates, target tracking, an active-work list for search and prioritization, and notifications about material changes.
 
-Сотрудник регистрирует инцидент. Ответственный организует обработку, фиксирует существенные обновления и результат устранения. Инцидент завершается только после документирования результата.
+Excludes deep analytics, arbitrary reports, omnichannel support, automated classification, broad workflow automation, separate mobile products and integrations that are not needed for the core workflow.
 
-### Контроль работы
+## Stable product rules
 
-Команда видит активные обращения и инциденты, их текущего владельца, состояние, рабочий срок и историю существенных действий. Руководитель использует эту картину для контроля распределения и своевременности работы.
+Stable rules live in product-rules.md. This brief does not repeat them.
 
-## Границы MVP
+## Out of scope for this brief
 
-MVP включает:
+This document does not define frontend, backend, API, database, storage, technical architecture, integration contracts or notification implementation. Those decisions belong in tickets and ADRs after learner-led design.
 
-- регистрацию и сопровождение клиентских обращений;
-- регистрацию и сопровождение внутренних инцидентов;
-- назначение текущего владельца и изменение ответственности;
-- отображение текущего состояния, существенных обновлений и результата;
-- контроль согласованного рабочего срока;
-- рабочий список для поиска и приоритизации активной работы;
-- информирование заинтересованных пользователей о существенных изменениях.
+## Requirement changes
 
-MVP не включает:
-
-- глубокую аналитику и произвольные отчёты;
-- внешние каналы омниканальной поддержки;
-- автоматическую интеллектуальную классификацию;
-- расширенную автоматизацию процессов;
-- отдельные продукты для мобильных устройств;
-- интеграции, не необходимые для базового рабочего процесса.
-
-## Устойчивые бизнес-правила
-
-1. Клиентское обращение и внутренний инцидент — разные типы работы и не смешиваются в пользовательском представлении.
-2. У каждого активного элемента работы есть один явно видимый текущий владелец.
-3. Существенное изменение состояния, владельца, срока или результата фиксируется в истории.
-4. Клиент видит только информацию, относящуюся к его обращению; внутренние детали инцидента не раскрываются клиентам.
-5. Завершённый элемент работы сохраняет зафиксированный результат и историю для последующего разбора.
-6. Рабочий срок отсчитывается по согласованным для элемента условиям и остаётся значимым, пока работа активна.
-7. Повторное информирование не должно создавать повторное действие или искажать историю работы.
-
-## Вне рамок этого документа
-
-Этот Product Brief не определяет frontend, backend, API, базу данных, модель хранения, техническую архитектуру, интеграционные контракты или способ реализации уведомлений. Эти решения появляются только в рабочих тикетах и ADR после проектирования пользователем.
-
-## Изменение требований
-
-Этот документ является источником устойчивых продуктовых требований. Уточнения к конкретному рабочему тикету фиксируются в его requirements log и имеют приоритет только для этого тикета.
+This brief is the source for stable product intent. Ticket-specific clarifications belong in the ticket requirements log and override this brief only for that ticket.

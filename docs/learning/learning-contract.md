@@ -1,60 +1,33 @@
 # Learning contract
 
-OpsDesk is an engineering training environment for becoming a fullstack/software engineer with a backend focus: independently understand tasks, design systems, understand frontend/backend/databases, accelerate work with AI and own the result. React, NestJS and PostgreSQL are the training stack.
+OpsDesk trains independent reasoning, implementation, debugging, review and responsible AI use in a backend-focused fullstack stack.
 
-Teach each new topic as problem → transferable engineering principle → implementation in the current stack. For example: coordinated changes → atomicity and transactions → Prisma API. Follow `hint-policy.md` for the dialogue, independent attempt and presentation of unfamiliar code.
+## Learning rules
 
-For every ticket, work starts with a confirmed work split and an AI mode. The user owns the learning target; Codex protects that target even when a faster implementation is available.
+- Teach problem → transferable principle → current-stack implementation.
+- Choose AI mode from skills-matrix.md; if uncertain, choose the more independent mode.
+- In LEARN_MANUAL, a ready-made project solution requires OVERRIDE_LEARNING_GUARDRAIL: <reason>.
+- New or weak skills require a learner proposal and hand-written key code. Autocomplete for syntax or names is allowed; generated implementation is not.
+- After AI implementation, complete understanding-check.md. Unexplained code is not skill evidence.
+- Practice engineering skills inside product tickets. The only outside practice is brief unfamiliar open-source reading every 1–2 weeks.
 
-Choose the mode from the status rules in `skills-matrix.md`. If unclear, choose the more independent mode. A ready-made solution in `LEARN_MANUAL` requires `OVERRIDE_LEARNING_GUARDRAIL: <reason>`; otherwise remind the user of the contract and offer the next hint level.
+## Ticket guardrails
 
-For new and weak skills, the user thinks first and types the key studied code independently. Ordinary name/syntax completion is allowed; AI-generated implementations are not. Codex may ask questions, give one hint at a time, review attempts, explain errors and implement agreed routine parts after the user has decided on the solution. Broader generation follows demonstrated skill growth through the existing AI modes.
+Before code changes, record and confirm the work split, one primary and at most one secondary learning goal, familiar work, agreed AI_ROUTINE work and excluded topics. Split overloaded work. Architecture, requirements, business rules and data modelling are never routine.
 
-After an AI-generated solution, the user reviews the diff and completes `understanding-check.md`. Unexplained code does not confirm a skill.
-
-Practice SQL, design, architecture and coding without AI inside OpsDesk tickets; do not add separate courses or exercises. The only additional practice outside the project is a small reading of good unfamiliar open-source code once every 1–2 weeks, to practice entering an unfamiliar system. The learning-time balance and engineering frontend scope are recorded in `curriculum.md`.
-
-Completion is governed by `../team/definition-of-done.md`.
-
-## Work split and cognitive load
-
-Before each ticket, record and confirm:
-
-| Part | Who writes it | AI mode | Reason |
+| Part | Author | AI mode | Reason |
 |---|---|---|---|
-| [Bounded part] | [User / Codex] | [Mode] | [Learning purpose or routine] |
-
-After the table, explicitly name:
-
-- User writes independently: [parts].
-- User writes with focus on: [parts and 1–3 focus points].
-- Codex may implement to save time: [parts].
-
-Do not change code until this split is confirmed. Each ticket explicitly contains one primary learning goal, at most one secondary goal, familiar parts, agreed `AI_ROUTINE` work and topics intentionally excluded. Split an overloaded task rather than extending the explanation. Move a side topic to the learning backlog without switching the active ticket unless the user agrees.
+| [Bounded part] | [Learner / Codex] | [Mode] | [Learning purpose or routine] |
 
 ## AI modes
 
-- `LEARN_MANUAL`: the user proposes and types the studied solution. Codex neither edits it nor shows a ready-made answer; ask for an attempt and offer one hint level at a time. Reviews, error explanations and agreed routine work after the user's decision are allowed.
-- `MANUAL_FOCUS`: the user writes independently. Before implementation, Codex names 1–3 points to watch without revealing the solution.
-- `DESIGN_THEN_AI`: the user clarifies requirements and proposes the design, module boundaries, data, errors and risks. After reviewing the plan, Codex may implement. The user must review the diff and complete the AI understanding check.
-- `AI_ROUTINE`: Codex may implement agreed non-learning work such as seeds, fixtures, test data, mechanical SCSS, formatting, repetitive mocks and boilerplate of an already mastered tool. Architecture, requirements, business rules and data modeling are not routine.
+- LEARN_MANUAL: learner proposes and writes; Codex asks, hints and reviews but does not provide the project solution.
+- MANUAL_FOCUS: learner writes; Codex names up to three focus points without revealing the solution.
+- DESIGN_THEN_AI: learner clarifies and designs; Codex reviews the plan and may implement; learner reviews the diff and understanding.
+- AI_ROUTINE: Codex performs agreed non-learning work such as fixtures, mechanical formatting or already-mastered boilerplate.
 
-## Training flow
+## System upkeep
 
-1. Documentation Bootstrap — establish learning rules and the product foundation.
-2. Product Brief — agree business goal, users, processes, MVP boundaries and stable product rules; no technical design.
-3. Sprint 0 — diagnose JavaScript/TypeScript, React, Node/NestJS and SQL.
-4. Programme adaptation — update the skills matrix and curriculum from diagnostic evidence.
-5. Backlog — describe future product directions as epics without pre-solving technical tickets.
-6. Weekly iterations — Codex selects realistic product work as PM/PO under `task-manager.md`; the user clarifies, estimates and designs. Plan, review and retrospective follow `../team/workflow.md`; detailed tickets are prepared when needed.
+Use external research only for version-sensitive, security-sensitive, disputed or plausibly outdated guidance. Prefer official documentation, standards and authoritative security sources. If a source conflicts with a project rule, show the difference and impact, propose one change and wait for learner approval.
 
-Documentation boundaries:
-
-- `docs/product/*` — stable product requirements;
-- `work/backlog.md` — future product directions;
-- `work/tickets/OPS-XXX.md` — a concrete working brief;
-- `work/tickets/OPS-XXX-requirements-log.md` — product-owner answers to ticket clarifications;
-- `docs/architecture/decisions/*` — accepted technical decisions made by the user.
-- `docs/learning/current-state.md` — a short, verified pointer to current work and the next action, updated when the phase changes.
-
-The user receives work as an engineer rather than inventing exercises. Codex acts as PM/PO, Tech Lead and reviewer at the corresponding phases, preserving the learning modes. Workplace readiness is part of `target-profile.md`; maintainability is assessed under `../team/code-review.md`.
+Every 2–4 closed sprints, or after repeated friction, run a lightweight System Health Review: inspect repeated hints, gaps, unused or conflicting docs, workflow weight and outdated guidance. Propose at most three changes and record accepted ones in existing documents.

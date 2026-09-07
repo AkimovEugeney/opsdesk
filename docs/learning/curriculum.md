@@ -35,23 +35,11 @@ SQL, design, architecture and coding without AI stay inside OpsDesk tickets; no 
 
 ## Adaptive schedule
 
-| Week | Focus after diagnosis | Planned outcome | Evidence |
-|---|---|---|---|
-| 1 | Sprint 0 and programme adaptation | Diagnostic completed and evidence recorded | OPS-000 |
-| 2 | SQL foundations and NestJS request path | Independently build and query one small vertical backend slice | SQL and NestJS marked NEW in OPS-000 |
-| 3 | React integration with the backend slice | Use typed HTTP state and error handling in a small screen | React and TypeScript marked PRACTICING in OPS-000 |
-| 4 | To be determined | — | — |
-| 5 | To be determined | — | — |
-| 6 | To be determined | — | — |
-| 7 | To be determined | — | — |
-| 8 | To be determined | — | — |
-| 9 | To be determined | — | — |
-| 10 | To be determined | — | — |
-| 11 | To be determined | — | — |
-| 12 | To be determined | — | — |
-| 13 | To be determined | — | — |
-| 14 | To be determined | — | — |
-| 15 | To be determined | — | — |
-| 16 | To be determined | — | — |
+| Phase | Focus | Evidence |
+|---|---|---|
+| 1 | Sprint 0 and programme adaptation | OPS-000 |
+| 2 | SQL foundations and NestJS request path | SQL and NestJS evidence |
+| 3 | React integration with typed HTTP state | React and TypeScript evidence |
+| 4+ | Adaptive backend, database, systems and engineering-frontend slices | Select from current skills and product work |
 
-Do not turn this framework into detailed weekly tasks before Sprint 0 is reviewed.
+Do not turn this framework into a fixed weekly syllabus. Select the next slice just in time from product work, current evidence and capacity.

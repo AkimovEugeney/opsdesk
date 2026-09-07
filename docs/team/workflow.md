@@ -1,15 +1,16 @@
 # Team workflow
 
-Work runs in weekly iterations with one business Sprint Goal. Each ticket is estimated by the learner in hours before implementation and is implemented on its own branch. Codex selects product work as PM/PO under `../learning/task-manager.md`; the learner receives tasks as an engineer.
+Work runs in weekly iterations with one business Sprint Goal. Each ticket is estimated by the learner in hours before implementation and is implemented on its own branch. Codex selects product work as PM/PO under `../learning/task-manager.md`; the learner receives tasks as an engineer. Use the applicable process guide in `.skills/` at each phase.
 
 1. Select a ticket for the iteration and confirm its work split and learning mode.
 2. Record an hour estimate before implementation.
 3. Create a branch for the ticket.
-4. Implement, test and self-review.
-5. Open a pull request with the PR description completed.
-6. Conduct review and resolve agreed feedback.
-7. Record actual time and learning evidence.
-8. Hold a sprint review and retrospective, recording explicit decisions about unfinished work.
+4. Implement and create coherent commits under `commit-messages.md`.
+5. Test and self-review, including commit history.
+6. Open a pull request with the PR description completed and explain the commit grouping.
+7. Conduct review and resolve agreed feedback.
+8. Record actual time and learning evidence.
+9. Hold a sprint review and retrospective, recording explicit decisions about unfinished work.
 
 ## Weekly planning
 
@@ -24,11 +25,13 @@ The learner owns the estimate; Codex may question an obvious inconsistency but m
 
 ## During the iteration
 
-On «Приступаем» or «Продолжаем», identify the sprint, active ticket and phase through `../learning/current-state.md`. Continue unfinished work before selecting new work. Act as PO for requirements, Tech Lead for design, and reviewer after implementation; preserve the ticket's learning mode and confirmed work split.
+On a start/resume request, identify the sprint, active ticket and phase through `../learning/current-state.md`. Continue unfinished work before selecting new work. Act as PO for requirements, Tech Lead for design, and reviewer after implementation; preserve the ticket's learning mode and confirmed work split.
 
 At a session boundary or reported change, record the actual state, blockers and next action. Do not require daily reports or stand-ups.
 
 If work is blocked or likely to miss the week, surface the risk and ask what caused it. Record the learner's explanation, remaining work and a decision to clarify, split, reduce agreed scope explicitly or carry over. Never silently rewrite scope or classify unfinished acceptance criteria as completed.
+
+For a requirement change, record the Product Owner's business reason, original agreement, new agreement, impact on scope/estimate/architecture/Sprint Goal and carry-over decision. The learner assesses the impact before the plan changes. Do not introduce changes merely to create a learning exercise.
 
 A new calendar week does not complete the old sprint automatically. If its review is missing, perform it before planning new commitments, using recorded results. Reuse an existing review/retro rather than repeating it; resolve only missing information. Do not invent hours, completion percentages or reasons for an absence. A long pause does not create a backlog of fictional sprints or an obligation to catch up on missed hours.
 
@@ -51,3 +54,21 @@ Missing a ticket is not automatically a failed sprint. Assess the business goal 
 Update the sprint record, capacity tracking, learning log, skills matrix and `current-state.md` from demonstrated evidence. Only then mark the iteration closed. Do not upgrade a skill merely because the sprint finished.
 
 Do not use story points, velocity, mandatory daily stand-ups or a minimum number of hours per day. Track real time; do not pad hours to meet a quota.
+
+## Jira operational board
+
+Jira is the operational board when the Atlassian integration is available. Use the simple workflow `To Do → In Progress → In Review → Done` for backlog, priorities, sprint membership, ticket status, blockers, visible acceptance criteria and meaningful operational comments. Do not put hidden learning goals, AI modes or solution hints in Jira.
+
+Repository documents remain the source of truth for learning behaviour, curriculum, learner state, architecture, ADRs and detailed learning evidence. Jira does not replace them. When a ticket exists in both places, record the stable Jira key in the repository ticket and avoid copying long learning records into Jira.
+
+Do not create a Jira issue merely because a possible task was imagined. First agree the Sprint Goal, candidate scope, refinement and learner estimate; then create or update the operational issue. Update Jira after meaningful operational changes: agreed scope, start, blocker, review, completion or carry-over. If Jira is unavailable, use `work/tickets/` and `work/sprints/` as the operational representation and record the fallback in the ticket.
+
+## GitHub, pull requests and CI
+
+For a meaningful ticket, follow: Jira issue (or repository fallback) → learner-proposed branch name → implementation → coherent learner-written commits → self-review → pull request → CI → review → learner-owned fixes → approval → merge → Jira Done.
+
+When GitHub is callable, use its repository context, branch, pull request, review comments, CI status and GitHub Actions output. GitHub does not authorize writing learner-owned implementation or bypassing AI modes. While Git workflow skills are new, ask the learner to propose the branch name, PR title and concise description first; review one concrete issue at a time and provide an example only after an attempt. Reduce prompts from recorded evidence.
+
+The project CI configuration defines its required checks. Current CI runs the API TypeScript build because the repository currently provides no lint or test scripts. Add lint and test checks when corresponding project scripts exist; do not claim checks that the project cannot run. A red required CI check blocks Done.
+
+For failing CI, apply `.skills/debugging-incident`: first inspect the failing step and error, state a possible cause and localize it, then fix. When GitHub is unavailable, inspect local Git state, `git diff`, the relevant local command output and repository review records. Continue learning rather than waiting for a plugin.

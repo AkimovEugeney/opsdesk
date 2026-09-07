@@ -15,9 +15,15 @@
 | transactions | UNKNOWN | — |
 | testing | UNKNOWN | — |
 | architecture | UNKNOWN | — |
-| Git | UNKNOWN | — |
+| Git | UNKNOWN | Commit-message practice starts in `LEARN_MANUAL`; propose messages and explain commit boundaries before requesting review. |
+| ticket refinement | UNKNOWN | Follow `.skills/ticket-refinement`; identify ambiguity, dependencies and risks before estimating. |
+| sprint planning | UNKNOWN | Follow `.skills/sprint-planning`; plan against real capacity and one Sprint Goal. |
+| implementation review | UNKNOWN | Follow `.skills/implementation-review`; lead self-review before Codex findings. |
+| PR review response | UNKNOWN | Follow `.skills/pr-review`; understand, answer and resolve or challenge review comments. |
+| debugging / incident | UNKNOWN | Follow `.skills/debugging-incident`; collect evidence and test hypotheses before fixing. |
+| sprint retrospective | UNKNOWN | Follow `.skills/sprint-retro`; explain planned versus actual and select a process improvement. |
 | Docker | UNKNOWN | — |
-| CI/CD | UNKNOWN | — |
+| CI/CD | UNKNOWN | Read the failing step and error, form a hypothesis and localize the cause before fixing. |
 
 Statuses: `UNKNOWN`, `NEW`, `PRACTICING`, `CONFIRMED`, `ROUTINE`.
 

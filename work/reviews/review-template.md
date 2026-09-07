@@ -12,6 +12,11 @@
 
 - [Tests and other evidence]
 
+## Commit history
+
+- Author's grouping rationale: [why this number and grouping of commits].
+- Review: [message clarity, diff alignment and boundary feedback].
+
 ## Findings
 
 | Priority | Location | Finding | Resolution |
