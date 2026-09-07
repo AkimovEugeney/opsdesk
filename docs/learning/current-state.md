@@ -2,12 +2,13 @@
 
 Last checked: 2026-09-07. This snapshot points to recorded evidence; it does not replace ticket status or skill assessment.
 
-- Active ticket: none recorded. `OPS-002` has not been created.
-- Current phase: reconcile previous iteration records, then plan the next weekly iteration.
-- Active primary/secondary skill and AI/SQL mode: not selected; set them with the next ticket from `skills-matrix.md`.
+- Active ticket: [OPS-002](../../work/tickets/OPS-002.md), In progress; Jira SCRUM-5 is `В работе`, implementation complete locally, validation and review remain.
+- Current phase: Sprint 1 active; manually verify OPS-002, then self-review and request final review.
+- Active primary/secondary skill and AI/SQL mode: NestJS / HTTP; `LEARN_MANUAL` / `ORM_SUFFICIENT`.
 - Process skills: refinement, planning, self-review, PR response, incident debugging and retro are `UNKNOWN`; use their `.skills/` guides explicitly until evidence accumulates.
-- Operational tooling: Jira/GitHub connectors are not currently callable in this session. Use repository tickets/sprints and local Git until an integration is available; [GitHub Actions CI](../../.github/workflows/ci.yml) is configured for the API build.
-- Latest iteration: [2026-08-12 — 2026-08-18](../../work/sprints/2026-08-12-sprint-0.md). Actuals and retro are recorded; [capacity-plan.md](capacity-plan.md) still marks it “In progress”. No later iteration is recorded.
+- Operational tooling: Jira is callable; OPS-002 is tracked as SCRUM-5. Local Git is available; [GitHub Actions CI](../../.github/workflows/ci.yml) is configured for the API build.
+- Latest closed iteration: [2026-08-12 — 2026-08-18](../../work/sprints/2026-08-12-sprint-0.md). Actuals, review and retro are recorded; capacity was 3.25 h against the 8–12 h plan, with no cause recorded for unused capacity.
+- Active iteration: [2026-09-07 — 2026-09-13](../../work/sprints/2026-09-07-sprint-1.md), available capacity 3–6 h and planned total 0.5 h.
 
 ## Recent evidence
 
@@ -19,8 +20,8 @@ Last checked: 2026-09-07. This snapshot points to recorded evidence; it does not
 
 - OPS-001 has no pre-work estimate; do not reconstruct one. Its branch and PR fields remain placeholders, and review independence is not separately evidenced in the ticket.
 - [Learning log](learning-log.md) contains only OPS-000; OPS-001 evidence is recorded in its ticket and skills matrix.
-- The previous week's capacity was 8–12 h; confirm available time for the next week during planning. No reason for the elapsed gap or additional work hours is recorded.
+- The reason for unused capacity in Sprint 0 is not recorded; it does not affect the current plan.
 
-Next action on the next start request: briefly reconcile the previous iteration's closure and missing records using existing evidence, ask only for unresolved facts, then propose one product sprint goal under [task-manager.md](task-manager.md) and [team workflow](../team/workflow.md).
+Next action: learner performs manual HTTP acceptance verification for OPS-002, then self-review and final review.
 
-System Health Review: not due until 2–4 closed sprints or material repeated process friction. Its rules are in [learning contract](learning-contract.md).
+System Health Review: completed 2026-09-07 after repeated process friction. Guidance, confirmation and review rules were made proportional to task impact in [learning contract](learning-contract.md), [hint policy](hint-policy.md), [task manager](task-manager.md) and [code review](../team/code-review.md).
