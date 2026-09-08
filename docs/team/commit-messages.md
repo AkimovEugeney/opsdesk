@@ -18,7 +18,7 @@ Examples: feat(appeals): add appeal details page; fix(auth): prevent redirect lo
 
 One commit is one coherent, reviewable thought. Keep dependent changes together when splitting would make a commit incomplete or untestable. Split independent behaviours, unrelated refactoring, documentation or separable tests when that improves review or revertability. Do not make mechanical micro-commits for trivial edits. A single clean commit is valid for one bounded change.
 
-Before the PR, the learner explains the number and grouping of commits. The reviewer checks purpose, diff alignment and absence of unrelated changes.
+Before a PR, when one is used, the learner explains the number and grouping of commits. The reviewer checks purpose, diff alignment and absence of unrelated changes.
 
 ## Timing
 
@@ -31,3 +31,7 @@ While Git is UNKNOWN, NEW or PRACTICING, Codex explicitly marks:
 Natural boundaries include a completed vertical behavior, separately validated bug fix, isolated refactor, documentation change or focused test change. Ask before switching to unrelated work or starting a risky follow-up.
 
 Do not ask after every edit, during an unfinished learning block or merely because time passed. Do not wait for the whole ticket when independently reviewable work is ready.
+
+## Small-ticket delivery
+
+For a short, bounded learning ticket, use one coherent commit directly on the current branch after the checks pass. Ask the learner for the commit message and its rationale; this is useful Git practice. A separate branch, PR and merge phase are not required for that ticket. Do not turn Git ceremony into part of every 15–20 minute exercise.
