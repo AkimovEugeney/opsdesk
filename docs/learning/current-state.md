@@ -2,12 +2,12 @@
 
 Last checked: 2026-09-08. This snapshot points to recorded evidence; it does not replace ticket status or skill assessment.
 
-- Active work: [OPS-004](../../work/tickets/OPS-004.md) / SCRUM-7 is In Progress: learner implementation and reported acceptance/build checks are complete; branch and commit review remain. Learner estimate is 10 min; LEARN_MANUAL / ORM_SUFFICIENT work split is recorded. [OPS-003](../../work/tickets/OPS-003.md) / Jira SCRUM-6 remains blocked; auth foundation is deferred pending readiness.
+- Active work: [OPS-004](../../work/tickets/OPS-004.md) / SCRUM-7 is ready to close: implementation, reported acceptance/build checks, same-session review, a focused commit and merge to `master` are complete. Record actual time before its Jira Done transition. [OPS-003](../../work/tickets/OPS-003.md) / Jira SCRUM-6 remains blocked; auth foundation is deferred pending readiness.
 - Target and route: [middle fullstack capability map](target-profile.md#observable-capability-map) → [adaptive stages](curriculum.md#adaptive-route-to-the-target). Current learning stage: `read_foundations`; diagnosis completed, two read outcomes recorded. Write flows, access and fullstack integration remain ahead, selected by prerequisites rather than calendar weeks.
 - Current phase: Sprint 1 active; OPS-002 / Jira SCRUM-5 is recorded merged and Done. Select a manageable next learning slice using readiness; do not automatically start the auth prerequisite bundle.
 - Active primary/secondary skill and AI/SQL mode: HTTP input validation; missing-record versus invalid-input behavior as consolidation. LEARN_MANUAL / ORM_SUFFICIENT.
 - Process skills: refinement, planning, self-review, PR response, incident debugging and retro are `UNKNOWN`; use their `.skills/` guides explicitly until evidence accumulates.
-- Operational tooling: Jira checked 2026-09-08: SCRUM-5 is Done; SCRUM-6 is in the active sprint with workflow status To Do. Its stale description was synchronized with agreed OPS-003 requirements and a blocked label was added; no workflow transition was performed. SCRUM-4 is an empty subtask with no established learning scope and is not selected. SCRUM-7 tracks OPS-004 in the active sprint and is In Progress. Local Git and the API build CI are available.
+- Operational tooling: Jira checked 2026-09-08: SCRUM-5 is Done; SCRUM-6 is in the active sprint with workflow status To Do. Its stale description was synchronized with agreed OPS-003 requirements and a blocked label was added; no workflow transition was performed. SCRUM-4 is an empty subtask with no established learning scope and is not selected. SCRUM-7 tracks OPS-004 in the active sprint and remains In Progress only until the actual time is recorded. Local Git and the API build CI are available.
 - Latest closed iteration: [2026-08-12 — 2026-08-18](../../work/sprints/2026-08-12-sprint-0.md). Actuals, review and retro are recorded; capacity was 3.25 h against the 8–12 h plan, with no cause recorded for unused capacity.
 - Active iteration: [2026-09-07 — 2026-09-13](../../work/sprints/2026-09-07-sprint-1.md), available capacity 3–6 h; prerequisite and SCRUM-6 are not yet estimated.
 
@@ -25,7 +25,7 @@ Last checked: 2026-09-08. This snapshot points to recorded evidence; it does not
 - OPS-002 actual time and PR link remain unrecorded; broad skill statuses do not establish recall of individual concepts.
 - The reason for unused capacity in Sprint 0 is not recorded; it does not affect the current plan.
 
-Next action: OPS-004 is on `fix/appeal-id-check`. Learner explains commit grouping and proposes the message before committing. Routine command runs are Codex AI_ROUTINE when environment access permits; learner defines new behavior cases and investigates unexpected output. No opening recall block. OPS-003 remains blocked; no ADMIN/JWT product-model decision is recorded as accepted.
+Next action: ask for OPS-004 actual time once, then mark OPS-004/SCRUM-7 Done and choose the next feasible product slice through task-manager.md. Do not give an opening quiz or repeat Pipe/layer questions. Routine command runs are Codex AI_ROUTINE when environment access permits; learner defines new behavior cases and investigates unexpected output. OPS-003 remains blocked; no ADMIN/JWT product-model decision is recorded as accepted.
 
 System Health Review: completed 2026-09-07 after repeated process friction. Guidance, confirmation and review rules were made proportional to task impact in [learning contract](learning-contract.md), [hint policy](hint-policy.md), [task manager](task-manager.md) and [code review](../team/code-review.md).
 
