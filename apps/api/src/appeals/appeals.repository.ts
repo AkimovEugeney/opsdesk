@@ -42,7 +42,7 @@ export class AppealsRepository {
   `;
   }
 
-  async findById(id: string) {
+  async findById(id: number) {
     const rows = await this.prisma.$queryRaw<AppealDetailsRow[]>`
     SELECT
         appeal."id",

@@ -9,7 +9,7 @@ export class AppealsService {
     return this.appealsRepository.findActive();
   }
 
-  async getAppealById(id: string) {
+  async getAppealById(id: number) {
     const appeal = await this.appealsRepository.findById(id);
     if (!appeal) {
       throw new NotFoundException(`Обращение с ID ${id} не найдено`);
