@@ -1,4 +1,4 @@
-import { BadRequestException, Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { AppealsService } from './appeals.service';
 
 @Controller('appeals')
@@ -6,8 +6,8 @@ export class AppealsController {
     constructor(private readonly appealsService: AppealsService) {}
 
     @Get()
-    getActiveAppeals() {
-        return this.appealsService.findActive()
+    getActiveAppeals(@Query('search') search?: string) {
+        return this.appealsService.findActive(search)
     }
 
     @Get(':id')

@@ -5,7 +5,11 @@ import { AppealsRepository } from "./appeals.repository";
 export class AppealsService {
   constructor(private readonly appealsRepository: AppealsRepository) {}
 
-  async findActive() {
+  async findActive(search?: string) {
+    const normalizedSearch = search?.trim() || undefined
+    if(normalizedSearch) {
+      return this.appealsRepository.findActive(normalizedSearch);
+    }
     return this.appealsRepository.findActive();
   }
 

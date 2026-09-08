@@ -13,11 +13,17 @@ type AppealDetailsRow = {
   ownerName: string | null;
 };
 
+function escapeLikeLiteral(value: string): string {
+  return value.replace(/\\/g, "\\\\").replace(/%/g, "\\%").replace(/_/g, "\\_");
+}
 
 @Injectable()
 export class AppealsRepository {
   constructor(private readonly prisma: PrismaService) {}
-  async findActive() {
+
+  async findActive(search?: string) {
+    const pattern = search ? `%${escapeLikeLiteral(search)}%` : "%";
+
     return this.prisma.$queryRaw`
     SELECT
         appeal."id",
@@ -33,6 +39,7 @@ export class AppealsRepository {
     LEFT JOIN "User" AS owner
         ON owner."id" = appeal."ownerId"
     WHERE appeal."status" IN ('NEW', 'IN_PROGRESS')
+    AND appeal."title" ILIKE ${pattern} ESCAPE '\'
     ORDER BY
   CASE appeal."status"
     WHEN 'NEW' THEN 1
@@ -61,8 +68,6 @@ export class AppealsRepository {
     WHERE appeal."id" = ${id}
   `;
 
-  return rows[0] ?? null;
+    return rows[0] ?? null;
   }
-
-
 }
