@@ -1,6 +1,22 @@
 # Target profile
 
-Target: a fullstack/software engineer with a backend focus who can independently understand a task, design a system, understand frontend/backend/database behavior, use AI to accelerate work and take responsibility for the result.
+Target: a middle fullstack/software engineer with a backend focus who can independently own a bounded product task from clarification through design, implementation, validation and delivery, use AI to accelerate work and take responsibility for the result. "Middle" is the programme's capability target, not an automatic title awarded by elapsed time or ticket count.
+
+## Observable capability map
+
+These capability IDs connect this target to `curriculum.md` and `learning-state.json`. Depth means applying and explaining a pattern when needed, not memorizing its name or implementing every pattern in advance.
+
+| ID | Expected capability and engineering patterns | Evidence of readiness |
+|---|---|---|
+| runtime | Trace JS/TS/Node execution, promises, errors, closures and reference changes; use types and narrowing to express contracts. | Diagnose a concrete async/type/state bug, predict the behavior and verify a correction. |
+| api | Design HTTP inputs/outputs, validation and error behavior; separate transport, business decisions and persistence; use dependency injection and cohesive modules when useful. | Independently deliver and change a bounded API flow, including malformed input and missing-data behavior, explaining relevant boundaries without a definition recital. |
+| data | Model keys, nullability, relations and constraints; use SELECT/JOIN/INSERT/UPDATE, migrations, transactions and indexes at practical depth. | Write/explain core queries, preserve invariants during a write, and investigate a wrong or slow query using evidence. Exact database/ORM syntax may be looked up. |
+| access | Distinguish identity from permission; enforce access using a trusted current user, with appropriate validation and failure paths. | Implement or change a bounded protected action and verify both allowed and denied cases. Security-sensitive details are checked against authoritative references. |
+| frontend | Build React data flow with clear state ownership, forms and async request states; understand rendering, browser/network behavior and relevant accessibility. | Deliver a usable UI-to-database slice and diagnose a stale-state, request or rendering problem. Visual styling is not a separate mastery gate. |
+| quality | Select useful unit/integration/HTTP tests; reproduce defects, inspect logs, isolate causes; reason about transactions, concurrency, idempotency and retries where applicable. | Demonstrate a failure, choose a proportionate fix/test, and explain what is still not guaranteed. Do not demand distributed-system expertise. |
+| delivery | Clarify product intent, estimate/decompose, make explicit trade-offs, review changes, use Git/CI and basic deployment; control AI-generated work. | Own a changed requirement through a reviewable delivery, communicate a blocker, and debug an unfamiliar/AI-generated part without surrendering judgment to the tool. |
+
+Assess these through several real product changes with reduced support, including changed conditions and a debugging/review episode. A single successful recall confirms only its narrow concept. Use recorded evidence to choose the next gap; do not run a seven-area entrance exam on every visit. Team process supports technical learning and motivation rather than displacing them.
 
 React, NestJS and PostgreSQL are the current training stack, not a professional identity. The transferable capabilities are to:
 

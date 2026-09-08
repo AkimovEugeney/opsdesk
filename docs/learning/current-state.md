@@ -1,26 +1,32 @@
 # Current learning state
 
-Last checked: 2026-09-07. This snapshot points to recorded evidence; it does not replace ticket status or skill assessment.
+Last checked: 2026-09-08. This snapshot points to recorded evidence; it does not replace ticket status or skill assessment.
 
-- Active ticket: none recorded. `OPS-002` has not been created.
-- Current phase: reconcile previous iteration records, then plan the next weekly iteration.
-- Active primary/secondary skill and AI/SQL mode: not selected; set them with the next ticket from `skills-matrix.md`.
+- Active work: [OPS-004](../../work/tickets/OPS-004.md) / SCRUM-7 is In Progress: learner implementation and reported acceptance/build checks are complete; branch and commit review remain. Learner estimate is 10 min; LEARN_MANUAL / ORM_SUFFICIENT work split is recorded. [OPS-003](../../work/tickets/OPS-003.md) / Jira SCRUM-6 remains blocked; auth foundation is deferred pending readiness.
+- Target and route: [middle fullstack capability map](target-profile.md#observable-capability-map) → [adaptive stages](curriculum.md#adaptive-route-to-the-target). Current learning stage: `read_foundations`; diagnosis completed, two read outcomes recorded. Write flows, access and fullstack integration remain ahead, selected by prerequisites rather than calendar weeks.
+- Current phase: Sprint 1 active; OPS-002 / Jira SCRUM-5 is recorded merged and Done. Select a manageable next learning slice using readiness; do not automatically start the auth prerequisite bundle.
+- Active primary/secondary skill and AI/SQL mode: HTTP input validation; missing-record versus invalid-input behavior as consolidation. LEARN_MANUAL / ORM_SUFFICIENT.
 - Process skills: refinement, planning, self-review, PR response, incident debugging and retro are `UNKNOWN`; use their `.skills/` guides explicitly until evidence accumulates.
-- Operational tooling: Jira/GitHub connectors are not currently callable in this session. Use repository tickets/sprints and local Git until an integration is available; [GitHub Actions CI](../../.github/workflows/ci.yml) is configured for the API build.
-- Latest iteration: [2026-08-12 — 2026-08-18](../../work/sprints/2026-08-12-sprint-0.md). Actuals and retro are recorded; [capacity-plan.md](capacity-plan.md) still marks it “In progress”. No later iteration is recorded.
+- Operational tooling: Jira checked 2026-09-08: SCRUM-5 is Done; SCRUM-6 is in the active sprint with workflow status To Do. Its stale description was synchronized with agreed OPS-003 requirements and a blocked label was added; no workflow transition was performed. SCRUM-4 is an empty subtask with no established learning scope and is not selected. SCRUM-7 tracks OPS-004 in the active sprint and is In Progress. Local Git and the API build CI are available.
+- Latest closed iteration: [2026-08-12 — 2026-08-18](../../work/sprints/2026-08-12-sprint-0.md). Actuals, review and retro are recorded; capacity was 3.25 h against the 8–12 h plan, with no cause recorded for unused capacity.
+- Active iteration: [2026-09-07 — 2026-09-13](../../work/sprints/2026-09-07-sprint-1.md), available capacity 3–6 h; prerequisite and SCRUM-6 are not yet estimated.
 
 ## Recent evidence
 
 - [OPS-000](../../work/tickets/OPS-000.md): recorded Done; diagnosis completed, actual 0.75 h.
 - [OPS-001](../../work/tickets/OPS-001.md): recorded Done; `GET /appeals`, actual 2.5 h. Traced Controller → Service → Repository → database and explained `LEFT JOIN`.
 - [Skills matrix](skills-matrix.md): NestJS and SQL are `PRACTICING`; HTTP, browser, transactions and indexes remain `UNKNOWN`.
+- [Local learning ledger](learning-state.json) preserves the OPS-000 baseline and later evidence. [Operating rules](skills-matrix.md#operating-the-local-learning-ledger) describe automatic counts and optional practice opportunities. Basic layer definitions are parked; Prisma API spelling is lookup-only. Dates and counters are read from the tool rather than duplicated here.
+- [Learning log](learning-log.md): OPS-001/002 records and supplied dialogue evidence reconciled without inventing independent mastery or original dates. Learner requests teaching before unfamiliar code and selective spaced practice.
 
 ## Gaps to reconcile
 
 - OPS-001 has no pre-work estimate; do not reconstruct one. Its branch and PR fields remain placeholders, and review independence is not separately evidenced in the ticket.
-- [Learning log](learning-log.md) contains only OPS-000; OPS-001 evidence is recorded in its ticket and skills matrix.
-- The previous week's capacity was 8–12 h; confirm available time for the next week during planning. No reason for the elapsed gap or additional work hours is recorded.
+- OPS-002 actual time and PR link remain unrecorded; broad skill statuses do not establish recall of individual concepts.
+- The reason for unused capacity in Sprint 0 is not recorded; it does not affect the current plan.
 
-Next action on the next start request: briefly reconcile the previous iteration's closure and missing records using existing evidence, ask only for unresolved facts, then propose one product sprint goal under [task-manager.md](task-manager.md) and [team workflow](../team/workflow.md).
+Next action: OPS-004 is on `fix/appeal-id-check`. Learner explains commit grouping and proposes the message before committing. Routine command runs are Codex AI_ROUTINE when environment access permits; learner defines new behavior cases and investigates unexpected output. No opening recall block. OPS-003 remains blocked; no ADMIN/JWT product-model decision is recorded as accepted.
 
-System Health Review: not due until 2–4 closed sprints or material repeated process friction. Its rules are in [learning contract](learning-contract.md).
+System Health Review: completed 2026-09-07 after repeated process friction. Guidance, confirmation and review rules were made proportional to task impact in [learning contract](learning-contract.md), [hint policy](hint-policy.md), [task manager](task-manager.md) and [code review](../team/code-review.md).
+
+System Health Review: completed 2026-09-08 after learner feedback and two supplied dialogues, then refined to connect the middle target, adaptive route and executable learning ledger. The latest clarification replaces opening recall with task-first, optional, naturally observed practice. Decisions are in the [learning log](learning-log.md#accepted-system-changes--2026-09-08). Verify their effect through actual sessions rather than declaring teaching quality solved by documentation alone.

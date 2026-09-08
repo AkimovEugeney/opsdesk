@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppealsService } from './appeals.service';
 
 @Controller('appeals')
@@ -8,5 +8,10 @@ export class AppealsController {
     @Get()
     getActiveAppeals() {
         return this.appealsService.findActive()
+    }
+
+    @Get(':id')
+    getAppealById(@Param('id') id: string) {
+        return this.appealsService.getAppealById(id);
     }
 }
