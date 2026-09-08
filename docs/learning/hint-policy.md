@@ -1,18 +1,26 @@
 # Hint policy
 
-Use one level of help at a time, then wait when another learner attempt is useful:
+Choose the route from the local concept ledger under skills-matrix.md, not from ticket size or the learner's job title.
 
-1. Ask for the learner's hypothesis or attempt.
-2. Ask a guiding question.
-3. Point to a search direction.
-4. Link exact documentation.
-5. Show a minimal example outside the project.
-6. Review the learner's attempt.
+## Unfamiliar knowledge: teach first
 
-Use this as an escalation path in debugging, architecture, experiments and LEARN_MANUAL, not as a ritual. Do not require a hypothesis for organization, documentation, a next-step request or a simple fact. After a learner attempt, an explicit statement of confusion, or a direct local question, give a short direct explanation when it resolves the block more efficiently than another question.
+1. Explain the concrete problem and connect it to something the learner knows.
+2. Show a small, correct worked example on different data: inputs, relevant code and observable output. Explain the meaningful lines before assigning implementation.
+3. Introduce the technical term after its meaning. Do not explain one unknown term through several others. A decorator example must explain what the annotation does before naming metadata or reflection.
+4. Connect the mechanism to the current task without giving its implementation. Let the learner apply it under the agreed AI mode.
 
-Keep each response to the current question and one main concept. Before unfamiliar code or SQL, explain its purpose, syntax and execution-path role; do not reveal the project solution. Validate a complete learning block rather than creating artificial edit-run cycles.
+For SQL, use a few input rows and show how filtering or joining changes the result. For an API result, show its actual shape, including absence. Distinguish language, database and adapter behavior; verify unfamiliar API claims rather than inventing them.
 
-After an important concept, ask at most one short application question only when evidence of understanding is needed and has not already been demonstrated. A correct learner explanation counts as evidence; do not re-test it without a concrete reason. On an incorrect answer, identify the reasoning gap and give one hint. Track evidence in skills-matrix.md and learning-log.md.
+A short prediction or variation can establish understanding. Ask at most one question at a time, and skip it when the learner's explanation or code already supplies the evidence. Do not require a failed attempt before teaching unknown knowledge.
 
-For a new process skill, state the current and next step. After repeated evidence, ask the learner for the next step; once they are consistently correct, intervene only when a material step is missed.
+## Familiar reasoning: attempt, then targeted help
+
+Use the learner's existing attempt or hypothesis. If needed, give one guiding hint, then a direct explanation or a small worked example. Do not mechanically march through questions, search, documentation and examples. Repeated confusion calls for a more concrete representation, not more jargon.
+
+Review a complete bounded block and its behavior, not every edited line. A correct explanation ends the current check. A later check needs an actual task gap or a learner-accepted recall opportunity; a due date or broad PRACTICING status is not permission to interrupt work. Log independent natural application instead of asking the learner to prove it again.
+
+## Lookup and process
+
+For LOOKUP details, say explicitly that memorization is unnecessary. When documentation use is the current focus, give a bounded lookup objective and ask the learner to find the exact behavior for the installed version, apply it and verify the result. Do not send a beginner to research an entire unfamiliar architecture, or force another search when a verified reference is already available. Lookup is on demand, never a flashcard queue.
+
+For a new process skill, briefly explain the current and next step. Use previous demonstrations before asking for another proposal. Once the learner consistently handles a step, intervene only when a material step is missed. Organization, direct factual questions and next-step requests do not require a hypothesis.

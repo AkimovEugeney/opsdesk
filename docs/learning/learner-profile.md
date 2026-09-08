@@ -28,3 +28,12 @@ Build confidence entering a typical middle-level development team: receive produ
 ## Assessment rule
 
 None of the listed skills is confirmed by this profile. Sprint 0 determines the actual starting level; its evidence updates `skills-matrix.md` and the curriculum.
+
+## Teaching preferences — updated 2026-09-08
+
+- The learner describes backend and SQL as being learned from the beginning despite prior exposure. Teach new mechanisms with plain explanations and worked examples before independent code; do not assume middle-level backend vocabulary from frontend employment.
+- Preserve manual work that builds understanding of fundamental logic and queries. Avoid memorizing API spelling or hand-writing every piece of boilerplate; explicitly distinguish WRITE, UNDERSTAND and LOOKUP targets.
+- The learner reports insufficient retention support and requests spaced practice of important unsettled concepts. Use the queue in skills-matrix.md, not a repeated generic checklist.
+- Basic controller/service/repository responsibilities have been discussed many times and feel firmly understood. Park these definition questions now; the learner's report supports ending repetitive prompts, not automatically confirming all NestJS or architecture skills.
+- The programme should feel like active mentoring during the task, with feedback on code and mechanisms, not only task assignment and a closing interview. Keep team process proportional so explanation and practice have room.
+- Latest clarification: begin or resume product work promptly. No compulsory opening quiz, repeated reminders or catch-up exam. Natural independent reuse counts as repetition; optional short recall may be offered at a pause/end, and the learner can choose a topic, report confidence or postpone. Codex owns tracking, counters and dates. Motivation and uninterrupted work are explicit teaching constraints.

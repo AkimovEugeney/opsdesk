@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "tracking_started_on": "2026-09-08",
+  "goal": "Middle fullstack engineer with a backend focus: own a bounded product outcome from clarification to validated delivery, using AI responsibly.",
+  "current_stage": "read_foundations",
+  "capabilities": {
+    "runtime": "JavaScript/TypeScript/Node execution and debugging",
+    "api": "HTTP contracts and backend application design",
+    "data": "SQL, data modelling and database integrity",
+    "access": "Authentication and authorization",
+    "frontend": "React, browser behavior and fullstack integration",
+    "quality": "Testing, diagnostics, reliability and performance",
+    "delivery": "Product reasoning, Git/review, deployment and AI ownership"
+  },
+  "stages": {
+    "diagnosis": "Baseline diagnosis (OPS-000): recorded, do not repeat by default",
+    "read_foundations": "Current: deepen small read flows, input/output behavior and SQL",
+    "write_foundations": "Next candidates: validated writes, simple relations and migrations",
+    "identity_access": "When ready: current user, authentication and bounded access rules",
+    "fullstack_flow": "Integrate a usable React to database workflow; can overlap earlier stages",
+    "reliability": "Integrity under failure/concurrency, useful tests and query performance",
+    "independent_delivery": "Own a changed product task, diagnose incidents and validate AI work"
+  },
+  "milestones": [
+    {
+      "source": "work/tickets/OPS-000.md",
+      "outcome": "Diagnostic completed; original evidence in learning-log.md",
+      "on": "2026-08-12"
+    },
+    {
+      "source": "work/tickets/OPS-001.md",
+      "outcome": "Active appeal list delivered; exact completion date unrecorded",
+      "on": null
+    },
+    {
+      "source": "work/tickets/OPS-002.md",
+      "outcome": "Detail read delivered; manual validation date recorded",
+      "on": "2026-09-07"
+    }
+  ],
+  "concepts": {
+    "layer-responsibilities": {
+      "title": "Basic controller/service/repository responsibilities",
+      "capabilities": [
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "parked",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "Correct traces in OPS-000/001 and repeated use in OPS-002. Learner requests no further definition quizzes; familiar explanation is assumed. Broad architecture is not confirmed.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-001.md"
+        ]
+      }
+    },
+    "raw-result-contract": {
+      "title": "Raw query rows versus single-record object/null contract",
+      "capabilities": [
+        "api",
+        "data"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "active",
+        "next_review_on": "2026-09-09",
+        "historical_repetition_count": null,
+        "summary": "Explained after worked example and supplied conversion in pasted OPS-002 dialogue; delayed independent transfer unrecorded.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "nullish-defaults": {
+      "title": "Nullish versus falsy defaulting",
+      "capabilities": [
+        "runtime"
+      ],
+      "target": "WRITE",
+      "baseline": {
+        "status": "NEW",
+        "retention": "active",
+        "next_review_on": "2026-09-09",
+        "historical_repetition_count": null,
+        "summary": "Explanation received; learner expressed concern about forgetting. Independent application unrecorded.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "sql-select-filter": {
+      "title": "SELECT projection and WHERE filtering",
+      "capabilities": [
+        "data"
+      ],
+      "target": "WRITE",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "active",
+        "next_review_on": "2026-09-11",
+        "historical_repetition_count": null,
+        "summary": "Queries written in OPS-000/001; precise historical repetition count and help are not recorded.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-001.md"
+        ]
+      }
+    },
+    "sql-left-join": {
+      "title": "LEFT JOIN with missing related rows",
+      "capabilities": [
+        "data"
+      ],
+      "target": "WRITE",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "active",
+        "next_review_on": "2026-09-15",
+        "historical_repetition_count": null,
+        "summary": "Worked example followed by query in diagnosis; query and explanation in OPS-001. Delayed independent transfer unverified.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-001.md"
+        ]
+      }
+    },
+    "http-missing-record": {
+      "title": "Meaning and behavior of a missing-record HTTP response",
+      "capabilities": [
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "NEW",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-002 records working 404; full independent rationale not captured.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-002.md"
+        ]
+      }
+    },
+    "http-input-validation": {
+      "title": "Validation of untrusted HTTP input",
+      "capabilities": [
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "Not demonstrated; candidate for the next read-flow slice.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "prisma-reference": {
+      "title": "Prisma signatures, options, generics and CLI syntax",
+      "capabilities": [
+        "api",
+        "data"
+      ],
+      "target": "LOOKUP",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "lookup",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "Exact spelling is reference material, not a memory goal. Verify actual behavior; SQL and result contracts have separate concepts.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "js-closures": {
+      "title": "Closure state and separate invocations",
+      "capabilities": [
+        "runtime"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "NEW",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-000: explained independent closure state after guided examples.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-000.md"
+        ]
+      }
+    },
+    "js-async-order": {
+      "title": "Promise and timer execution order",
+      "capabilities": [
+        "runtime"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "NEW",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-000: initially missed async ordering; revisit when async task needs it.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-000.md"
+        ]
+      }
+    },
+    "ts-null-narrowing": {
+      "title": "Nullable types and narrowing",
+      "capabilities": [
+        "runtime"
+      ],
+      "target": "WRITE",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-000: wrote null-safe function using optional chaining.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-000.md"
+        ]
+      }
+    },
+    "react-state-hooks": {
+      "title": "State updates and unconditional hook calls",
+      "capabilities": [
+        "frontend"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "PRACTICING",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-000: implemented counter; explained functional updates and corrected hook-order reasoning after guidance.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-000.md"
+        ]
+      }
+    },
+    "async-error-handling": {
+      "title": "Handling an awaited rejected operation",
+      "capabilities": [
+        "runtime",
+        "quality"
+      ],
+      "target": "WRITE",
+      "baseline": {
+        "status": "NEW",
+        "retention": "active",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "OPS-000: identified unhandled rejection and chose try/catch with await.",
+        "sources": [
+          "docs/learning/learning-log.md",
+          "work/tickets/OPS-000.md"
+        ]
+      }
+    },
+    "authentication": {
+      "title": "Authentication and current-user context",
+      "capabilities": [
+        "access",
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No sufficient recorded evidence yet; teach the concrete part when it becomes relevant.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "authorization": {
+      "title": "Authorization and access-rule enforcement",
+      "capabilities": [
+        "access"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No sufficient recorded evidence yet; teach the concrete part when it becomes relevant.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "testing-behavior": {
+      "title": "Tests of observable behavior and failure paths",
+      "capabilities": [
+        "quality"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No sufficient recorded evidence yet; teach the concrete part when it becomes relevant.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "git-delivery": {
+      "title": "Coherent commits and reviewable delivery",
+      "capabilities": [
+        "delivery"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No sufficient recorded evidence yet; teach the concrete part when it becomes relevant.",
+        "sources": [
+          "docs/learning/learning-log.md"
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "id": "ops-004-baseline-invalid-id-2026-09-08",
+      "concept": "http-input-validation",
+      "context": "OPS-004-baseline",
+      "source": "learner curl /appeals/abc output",
+      "note": "Learner reproduced current malformed-ID path: PostgreSQL rejects abc for integer ID and API returns 500.",
+      "kind": "introduced",
+      "verified": false,
+      "on": "2026-09-08",
+      "until": null
+    },
+    {
+      "id": "ops-004-validation-boundary-explained-2026-09-08",
+      "concept": "http-input-validation",
+      "context": "OPS-004-orientation",
+      "source": "learner response and mentor explanation",
+      "note": "Learner correctly kept malformed input out of the database but initially placed request-shape validation in service; explained controller pipeline versus service business rules and database integrity.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-08",
+      "until": null
+    },
+    {
+      "id": "ops-004-pipe-location-confirmed-2026-09-08",
+      "concept": "http-input-validation",
+      "context": "OPS-004-orientation",
+      "source": "learner answer after worked explanation",
+      "note": "Learner correctly identified Pipe as the final handler for malformed route input immediately after explanation; guided same-day confirmation, not delayed independent recall.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-08",
+      "until": null
+    },
+    {
+      "id": "ops-004-first-validation-attempt-gap-2026-09-08",
+      "concept": "http-input-validation",
+      "context": "OPS-004-controller-diff",
+      "source": "observed learner controller diff",
+      "note": "Learner added ParseIntPipe and range rejection but kept the transformed id typed as string and used Number(id); output contract has not yet propagated to the service boundary.",
+      "kind": "gap",
+      "verified": false,
+      "on": "2026-09-08",
+      "until": null
+    },
+    {
+      "id": "ops-004-validation-implemented-2026-09-08",
+      "concept": "http-input-validation",
+      "context": "OPS-004-appeal-detail-validation",
+      "source": "learner report: acceptance curl matrix and API build passed",
+      "note": "Learner implemented ParseIntPipe, positive int32 range validation, and propagated number through controller/service/repository; reported abc, fractional, invalid range, missing and existing cases plus build passed.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-08",
+      "until": null
+    }
+  ]
+}

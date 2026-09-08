@@ -7,6 +7,10 @@
 
 [One observable business outcome for the week]
 
+## Learning goal
+
+[One concise capability to develop, visible to the learner. Link the relevant concepts and recall queue in docs/learning/skills-matrix.md; do not copy dates or plan a fixed curriculum.]
+
 ## Capacity
 
 - Available: [confirmed hours for this week; see docs/learning/capacity-plan.md].
@@ -30,7 +34,7 @@
 
 ## Known risks / unknowns
 
-- [Already discovered or visible in the brief; do not reveal unasked technical traps.]
+- [Known product and learner prerequisites, including gaps discovered during readiness checks.]
 
 ## Progress and plan changes
 
@@ -59,6 +63,7 @@
 - What slowed us down?
 - Where did estimates miss, and why?
 - What engineering/process lesson follows?
+- What was retained and independently applied after a delay? Which important concepts need teaching or a rescheduled recall? Reuse evidence; do not add a generic quiz.
 - What one concrete change will we make next sprint?
 
 ## Carry-over decisions

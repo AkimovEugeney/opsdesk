@@ -8,11 +8,13 @@
 
 ## Design before implementation
 
-Before a backend task is implemented, the user first proposes the data model and business rules. For meaningful changes, also propose transaction boundary, error behavior and trade-offs. Codex critiques the proposal before implementation.
+Before a backend task is implemented, the learner proposes the relevant data model and application of agreed business rules after unfamiliar prerequisites have been explained under `docs/learning/hint-policy.md`. Do not redesign an unchanged schema for a small read task. For meaningful changes, discuss error behavior and relevant integrity trade-offs. Codex teaches missing concepts and critiques the proposal without writing the studied solution.
 
 ## Data integrity
 
 Every write flow must deliberately consider transactions, concurrent requests and idempotency where retries or duplicate delivery are plausible. Do not assume ORM usage automatically provides the required guarantees.
+
+Codex checks these risks during readiness review; the learner is not expected to know untaught mechanisms. If safe implementation requires several major unknown concepts, defer or split the feature. Preserve integrity and access requirements rather than bypassing them to fit a lesson.
 
 ## SQL learning mode
 

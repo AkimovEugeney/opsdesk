@@ -21,9 +21,9 @@
 
 - [Requirement]
 
-The brief contains enough information to understand the business goal, but intentionally leaves open questions that a middle developer must discover and clarify.
+The brief contains enough information to understand the business goal. Leave realistic open questions only when they are within the learner's reach; use the readiness check in `docs/learning/task-manager.md`.
 
-Before clarification, Codex does not reveal disputed access rights, concurrency scenarios, boundary states, partial-failure behavior, technical architecture, data model, API contract or the questions the developer is expected to ask. Prepare and persist consistent PO answers before presenting the brief under `docs/learning/task-manager.md`, and record answers in the requirements log when asked; answers are never invented retrospectively.
+Prepare consistent PO answers before presenting the brief and record clarification decisions in the requirements log; never invent answers retrospectively. Explain unfamiliar prerequisite knowledge and disclose missing infrastructure before dependent work. The intended project solution stays undisclosed; the learning purpose and teaching examples do not.
 
 ## Acceptance criteria
 
@@ -39,11 +39,15 @@ Before clarification, Codex does not reveal disputed access rights, concurrency 
 
 ## Primary skill
 
-[One skill from skills matrix]
+[One concrete concept and retention target from skills-matrix.md; state the purpose to the learner.]
 
 ## Secondary skills
 
-- [At most one additional learning goal, or none]
+- [At most one consolidation goal, or none; at most one major new concept in the whole ticket.]
+
+## Readiness
+
+- [Relevant existing code/infrastructure and learner prerequisite evidence; gaps and decision to proceed, teach first, split or defer. Link the concept register for due repeats instead of duplicating its schedule.]
 
 ## Familiar parts
 
