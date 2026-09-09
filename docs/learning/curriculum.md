@@ -14,6 +14,16 @@ Choose proportions that total 100%, for example 65/25/10. Count work by its prim
 
 Every new topic follows problem → plain explanation and worked example → transferable principle → learner implementation in NestJS/React/PostgreSQL. For familiar reasoning, the learner attempts first. Choose WRITE, UNDERSTAND or LOOKUP per concept in `skills-matrix.md`; AI delegation is a separate work-split decision. Engineering reasoning and manual coding often develop in the same activity, not competing time quotas.
 
+## Engineering depth inside product work
+
+Keep one fullstack project. For a relevant topic, extend the normal delivery path with a proportionate engineering loop: make it work, identify how it can fail or be abused, preserve the important invariant, then verify the behavior and inspect the diff as a reviewer would. This is part of the ticket, not a separate security, architecture or audit course.
+
+- **Identity and access:** normal login/current-user flow → stolen or forged identity and missing permission → trusted identity boundary and denied path → allowed/denied checks plus review of a foreign implementation.
+- **Database writes:** correct update → concurrent requests or duplicate action → transaction, constraint or idempotency boundary → reproduce/observe the race and explain what remains unguaranteed.
+- **API work:** useful contract → malformed input, unauthorized call or abusive repetition → validation, access rule, rate/volume decision or logging appropriate to the risk → behavior checks and an API review against the contract.
+
+Do not force every item into every small read ticket. Select one concrete risk only when it exposes the current concept or product consequence; record it in the ticket's risk and validation sections.
+
 ## Engineering frontend inside project tickets
 
 Restore the fundamentals through relevant fullstack features, rather than a separate frontend course:

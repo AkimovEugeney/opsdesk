@@ -64,6 +64,7 @@ Prepare consistent PO answers before presenting the brief and record clarificati
 ## Risks
 
 - [Risk already visible or discovered by the learner; do not reveal the intended technical solution]
+- [When relevant: one failure, abuse or race scenario; the invariant to preserve; and the planned verification or review evidence. Omit when no material scenario applies.]
 
 ## Work split
 
