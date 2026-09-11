@@ -52,6 +52,24 @@ Choose a target from frequency, transfer to other tools and the cost of misunder
 
 `AI_ROUTINE` remains a work-allocation mode, not a fourth memory level. Mechanical, non-learning work can be delegated under the agreed split. LOOKUP does not authorize delegating business rules, data modelling or unfamiliar reasoning. Conversely, hand-writing a whole library integration is not required just to understand its contract.
 
+## Decision ownership and AI delegation
+
+Retention target answers what must remain available in the learner's mind; decision ownership answers who must reason about the change before code is generated. Apply both per bounded part of a ticket, not as a permanent label for an entire technology.
+
+| Band | Learner responsibility | Typical examples | Appropriate AI use |
+|---|---|---|---|
+| Red — engineer-owned | Make the first proposal and, while learning, implement the key logic. Explain the invariant, trade-off and failure path. | Requirements, architecture boundaries, domain/business rules, API contract, schema/constraints/indexes, SQL semantics, transactions, concurrency/idempotency, auth/authz/ownership, security threats, destructive migrations and external side effects. | Teach, challenge assumptions, review, test and propose alternatives. Do not silently decide the unresolved part. |
+| Yellow — learn mechanism, then delegate | Learn the lifecycle/contract and write or modify it enough times to demonstrate independent use. Retain why it is needed and how to verify it, not decorator or library spelling. | Nest controller/DTO/pipe/guard/interceptor/filter/module, ORM usage, test shape, Docker/CI basics, React forms/data fetching and request-state wiring. | After evidence is sufficient, use DESIGN_THEN_AI for implementation from the learner's brief; review the changed behavior and integration points. |
+| Green — delegate and verify | State the intended output and inspect only the relevant contract/diff. Learn a detail only when it becomes a blocker or exposes a misconception. | Repetitive CRUD shells, mappings/types, Swagger annotations, fixtures/mock data, formatting/imports/renames, CSS, routine configuration and rare framework syntax. | AI_ROUTINE or a bounded DESIGN_THEN_AI request. Do not treat generated output as correct without running the agreed checks. |
+
+Red does not require memorizing syntax or refusing tools. A learner may use documentation for a database API while still independently deciding that a unique constraint, transaction or authorization check is necessary. Yellow may become Green only for the demonstrated local mechanism; a new security, data-integrity or business decision remains Red.
+
+### AI handoff and review loop
+
+For `DESIGN_THEN_AI`, use separate passes: (1) learner supplies the implementation brief, (2) Codex identifies ambiguities/risks and implements only after they are resolved, (3) learner compares the diff and behavior to the brief, and (4) Codex may perform an adversarial review and test-design pass. The implementation brief states: context; requested behavior; inputs/outputs; invariants and authorization/data boundaries; error and edge cases; prohibited changes; and observable Definition of Done.
+
+Review generated code by risk, not line count. Always inspect the paths that read or mutate protected data, enforce authorization, cross a trust boundary, run concurrently, call an external system, handle failure/retry, or can disclose sensitive data. Verify happy path plus the relevant denied/invalid/not-found/duplicate/race/dependency-failure cases. The learner accepts the final solution only when they can explain why its critical choices are correct and where they would investigate a failure.
+
 ## Recorded concepts and practice history
 
 [learning-state.json](learning-state.json) is the single machine-readable source for concrete concepts, baseline evidence, practice events, repeat counts, optional review dates and parked state. The domain table above is an orientation summary, not a second schedule. [learning-log.md](learning-log.md) preserves the original diagnosis and meaningful narrative outcomes. Do not copy mutable dates/counters into tickets or a second table.

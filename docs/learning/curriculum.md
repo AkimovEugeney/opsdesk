@@ -12,7 +12,7 @@ Use this approximate learning-time balance across several tickets, not as a quot
 
 Choose proportions that total 100%, for example 65/25/10. Count work by its primary learning focus rather than counting the same time twice.
 
-Every new topic follows problem → plain explanation and worked example → transferable principle → learner implementation in NestJS/React/PostgreSQL. For familiar reasoning, the learner attempts first. Choose WRITE, UNDERSTAND or LOOKUP per concept in `skills-matrix.md`; AI delegation is a separate work-split decision. Engineering reasoning and manual coding often develop in the same activity, not competing time quotas.
+Every new topic follows problem → plain explanation and worked example → transferable principle → learner implementation in NestJS/React/PostgreSQL. For familiar reasoning, the learner attempts first. Choose WRITE, UNDERSTAND or LOOKUP per concept and a Red/Yellow/Green decision-ownership band in `skills-matrix.md`; AI delegation is a separate work-split decision. Engineering reasoning and manual coding often develop in the same activity, not competing time quotas. Progress aims at learner-owned design and risk judgment first, then AI-assisted implementation and focused verification—not permanent manual typing.
 
 ## Engineering depth inside product work
 

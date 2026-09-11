@@ -40,3 +40,7 @@ The teacher maintains this state on actual observations; the learner is not aske
 ### Follow-up: engineering depth stays inside OpsDesk — 2026-09-09
 
 The learner clarified that the existing NestJS, PostgreSQL, Prisma and architecture route remains unchanged. Each relevant topic now carries a proportionate engineering loop inside its product ticket: implementation, a concrete break/abuse/race scenario, the protecting invariant, and observable verification or review of another implementation. Authentication, database writes and public APIs are the common triggers; routine low-risk CRUD does not receive a synthetic security checklist. This change adds no separate project, product scope or automatic auth commitment.
+
+### Follow-up: decision ownership and AI-assisted delivery — 2026-09-11
+
+The learner requested a clearer distinction between durable engineering judgment, mechanisms to learn before delegation, and lookup/delegable framework work. The system now combines the existing WRITE/UNDERSTAND/LOOKUP retention targets with Red/Yellow/Green decision-ownership bands. Red keeps requirements, data integrity, authorization, concurrency, security and architecture decisions learner-owned; Yellow requires enough manual practice to understand a mechanism before `DESIGN_THEN_AI`; Green permits delegation with bounded verification. `DESIGN_THEN_AI` now requires a concise implementation brief and risk-weighted review of the critical paths. This changes learning workflow only; it creates no product scope or mandatory topic catalogue.

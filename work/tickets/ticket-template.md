@@ -72,11 +72,23 @@ Prepare consistent PO answers before presenting the brief and record clarificati
 |---|---|---|---|
 | — | — | — | — |
 
+For each material part, mark the decision-ownership band from `skills-matrix.md`: Red (engineer-owned), Yellow (learn then delegate) or Green (delegate and verify).
+
 State explicitly after the table:
 
 - User writes independently: [parts].
 - User writes with focus on: [parts and 1–3 focus points].
 - Codex may implement to save time: [parts].
+
+## AI implementation brief and focused review
+
+Required when `DESIGN_THEN_AI` implements a material change; omit for manual-only or mechanical routine work.
+
+- Context and requested behavior: [bounded change]
+- Inputs/outputs and invariants: [contract, data/access boundary]
+- Edge/failure cases and excluded scope: [what must happen / what must not change]
+- Definition of Done: [observable checks]
+- Focused review: [data, authorization, concurrency, external side effects, errors/logging and/or other relevant critical paths]
 
 ## Requirements log
 

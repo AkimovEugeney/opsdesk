@@ -6,12 +6,14 @@ For a small manual ticket, zero extra questions is valid when evidence is suffic
 
 Match the check to the retention target: WRITE needs independent key logic or a meaningful modification; UNDERSTAND needs a concrete explanation/prediction; LOOKUP needs correct reference use and behavior verification only when relevant. Syntax recall is not a proxy for engineering understanding.
 
-After an AI-generated solution, including `DESIGN_THEN_AI`, review the diff and establish evidence for these four points. Reuse answers already demonstrated instead of asking them again:
+After an AI-generated solution, including `DESIGN_THEN_AI`, review the diff against the recorded implementation brief and establish evidence for these four points. Reuse answers already demonstrated instead of asking them again:
 
 1. What did AI change?
 2. Why does the solution work?
 3. Where can it break?
 4. What will I check first when debugging a bug?
+
+The review is risk-weighted: inspect data mutation, authorization, trust boundaries, concurrency, external side effects, retries/errors and sensitive logs whenever present. Verify the happy path and the relevant invalid, denied, missing, duplicate, race or dependency-failure path. An adversarial AI review can suggest checks, but it does not replace learner judgment or executed evidence.
 
 If the learner cannot explain an important part of the solution, teach the missing knowledge, then check its application once. Resolve material understanding gaps before completing the check; do not use assisted answers as evidence of independent mastery.
 

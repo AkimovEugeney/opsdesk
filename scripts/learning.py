@@ -5,11 +5,15 @@ import argparse
 from collections import Counter
 from contextlib import contextmanager
 from datetime import date, timedelta
-import fcntl
 import json
 import os
 from pathlib import Path
 import tempfile
+
+if os.name == "nt":
+    import msvcrt
+else:
+    import fcntl
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_STATE = ROOT / "docs/learning/learning-state.json"
@@ -151,8 +155,20 @@ def status(state, today, intent="continue", relevant=()):
 def locked(path):
     # Stable separate inode: all CLI writers share this lock across atomic replaces.
     with path.with_suffix(".lock").open("a") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
-        yield
+        if os.name == "nt":
+            lock.seek(0)
+            lock.write("\0")
+            lock.flush()
+            lock.seek(0)
+            msvcrt.locking(lock.fileno(), msvcrt.LK_LOCK, 1)
+            try:
+                yield
+            finally:
+                lock.seek(0)
+                msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            yield
 
 
 def save(path, state):
