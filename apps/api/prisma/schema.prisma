@@ -20,13 +20,16 @@ enum AppealStatus {
 }
 
 model User {
-    id        Int      @id @default(autoincrement())
-    name      String
-    role      UserRole
-    createdAt DateTime @default(now())
+    id           Int      @id @default(autoincrement())
+    name         String
+    role         UserRole
+    email        String   @unique
+    passwordHash String
+    createdAt    DateTime @default(now())
 
-    clientAppeals Appeal[] @relation("AppealClient")
-    ownedAppeals  Appeal[] @relation("AppealOwner")
+    clientAppeals Appeal[]  @relation("AppealClient")
+    ownedAppeals  Appeal[]  @relation("AppealOwner")
+    sessions      Session[]
 }
 
 model Appeal {
@@ -40,5 +43,13 @@ model Appeal {
     updatedAt   DateTime     @updatedAt
     closedAt    DateTime?
     ownerId     Int?
-    owner       User?         @relation("AppealOwner", fields: [ownerId], references: [id])
+    owner       User?        @relation("AppealOwner", fields: [ownerId], references: [id])
+}
+
+model Session {
+    id             String   @id
+    createdAt      DateTime @default(now())
+    lastActivityAt DateTime
+    userId         Int
+    user           User     @relation(fields: [userId], references: [id])
 }
