@@ -9,7 +9,7 @@
 | HTTP | UNKNOWN | — |
 | Node.js | NEW | Identified unhandled rejected Promise and selected `try/catch`; practice event-loop ordering. |
 | NestJS | PRACTICING | Implemented read flows in OPS-001/002. Basic layer responsibilities are familiar and parked below; this does not establish guards, DI internals or auth knowledge. |
-| SQL | PRACTICING | Wrote an active-appeals query with two joins, status filtering and custom `CASE` ordering for OPS-001; explained `LEFT JOIN` behaviour. |
+| SQL | PRACTICING | Wrote an active-appeals query with two joins, status filtering and custom `CASE` ordering for OPS-001; explained `LEFT JOIN` behaviour. OPS-005 added literal case-insensitive title matching with escaped `%` and `_` plus an optional filter; the learner explained both the escaping and the no-criterion path. |
 | PostgreSQL | UNKNOWN | — |
 | indexes | UNKNOWN | — |
 | transactions | UNKNOWN | — |

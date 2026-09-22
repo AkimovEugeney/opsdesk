@@ -22,9 +22,10 @@
 | Iteration | Capacity target | Completed | Remaining to target | Status |
 |---|---:|---:|---:|---|
 | 2026-08-12 — 2026-08-18 | 8–12 h | 3.25 h | 4.75–8.75 h unused | Closed |
-| 2026-09-07 — 2026-09-13 | 3–6 h | 0 h | 3–6 h | Active |
+| 2026-09-07 — 2026-09-13 | 3–6 h | 0.75 h recorded | 2.25–5.25 h unused | Closed 2026-09-22, after its window |
+| 2026-09-21 — 2026-09-27 | 5–8 h | 0 h | — | Active (committed 3–4 h for OPS-006) |
 
-Completed time consists of OPS-000 (0.75 h) and OPS-001 (2.5 h).
+Completed time consists of OPS-000 (0.75 h), OPS-001 (2.5 h), OPS-004 (0.25 h) and OPS-005 (0.50 h). OPS-002 actual time was never recorded and is not reconstructed. Recorded iteration totals: Sprint 0 3.25 h, Sprint 1 0.75 h. The cause of unused capacity is still not recorded; it is a retro item rather than a planning quota.
 
 ## Ticket estimate policy
 
