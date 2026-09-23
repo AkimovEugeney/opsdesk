@@ -1,0 +1,3 @@
+export const COOKIE_NAME = 'sid'
+export const SESSION_IDLE_TIMEOUT_MS = 1800000
+export const SESSION_ABSOLUTE_TIMEOUT_MS = 28800000

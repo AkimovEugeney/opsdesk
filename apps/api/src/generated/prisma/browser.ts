@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type Appeal = Prisma.AppealModel
+/**
+ * Model Session
+ * 
+ */
+export type Session = Prisma.SessionModel

@@ -447,6 +447,39 @@
       "verified": false,
       "on": "2026-09-22",
       "until": null
+    },
+    {
+      "id": "ops-006-prisma-query-shape-first-use-2026-09-23",
+      "concept": "prisma-reference",
+      "context": "OPS-006-query-shape",
+      "source": "learner report in session; mentor worked example",
+      "note": "First use of the Prisma query API in this project. The step asked for where/select before any worked example; the learner reported never having written it, and the first attempt was then corrected over three turns of syntax explanation. Recorded as introduced, with a worked example supplied on a different model; the exact spelling stays LOOKUP and is never tested.",
+      "kind": "introduced",
+      "verified": false,
+      "on": "2026-09-23",
+      "until": null
+    },
+    {
+      "id": "ops-006-auth-me-controller",
+      "concept": "authentication",
+      "context": "OPS-006 login slice - GET /auth/me controller",
+      "source": "work/tickets/OPS-006.md",
+      "note": "Learner wrote GET /auth/me in AuthController: read sid from request.cookies by COOKIE_NAME, throw UnauthorizedException('Session not found') when it is absent, and delegate the timeout and activity logic to AuthService.getCurrentUser instead of duplicating it. Decorator spelling and the express Request type were supplied by the mentor as LOOKUP; the branch decision was the learner's. API build passes. HTTP behavior is not observed yet - the local database daemon is down - so this is same-session assisted implementation, not independent evidence.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-23",
+      "until": null
+    },
+    {
+      "id": "ops-006-behavior-cases-expiry",
+      "concept": "authentication",
+      "context": "OPS-006 - learner-defined behavior matrix and expiry expectations",
+      "source": "work/tickets/OPS-006.md",
+      "note": "Learner chose the verification cases for the login slice and predicted their outcomes: 400 with one shared body for a missing or non-string email/password, one identical 401 for a wrong password and an unknown email, 401 for a missing or unknown session cookie, 200 with id/name/role for the current user, 401 for both expiry paths, and an unchanged appeals list. Predicted that an expired session is not extended (lastActivityAt stays as it was), which the mentor-run fixtures confirmed: lastActivityAt aged 31 min -> 401 with the row identical before and after, control at 29 min -> 200 with lastActivityAt advanced, createdAt aged 9 h with fresh activity -> 401 with the row untouched. One divergence found by the run: successful login answers 201 while the agreed contract says 200, which the learner aligns. Decorator spelling and expiry fixtures were mentor-supplied; the case set and the expected outcomes were the learner's.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-23",
+      "until": null
     }
   ]
 }
