@@ -1,18 +1,20 @@
 # Team workflow
 
-Work runs in weekly iterations with one business Sprint Goal. Each ticket is estimated by the learner in hours before implementation and is implemented on its own branch. Codex selects product work as PM/PO under `../learning/task-manager.md`; the learner receives tasks as an engineer. Use the applicable process guide in `.skills/` at each phase.
+Work runs in weekly iterations with one business Sprint Goal. Each ticket is estimated by the learner in hours before implementation. Select and record its delivery route once: branch/PR, or the small-ticket direct/local route under `commit-messages.md`; record whether Jira is used. Codex selects product work as PM/PO under `../learning/task-manager.md`; the learner receives tasks as an engineer. Use the applicable process guide in `.skills/` at each phase.
 
 Mentoring continues throughout these phases. Check readiness and explain unknown concepts before asking for design or estimates. Process depth follows change impact; teaching depth follows learner knowledge. For a small bounded task, combine brief clarification, estimate/work split and lightweight review rather than adding a separate ceremony for each step; preserve relevant validation and ownership.
 
 1. Select a ticket for the iteration and confirm its work split and learning mode.
 2. Record an hour estimate before implementation.
-3. Create a branch for the ticket.
+3. Create a branch if the selected route uses one.
 4. Implement and create coherent commits under `commit-messages.md`.
 5. Test and self-review, including commit history.
-6. Open a pull request with the PR description completed and explain the commit grouping.
+6. Open a pull request if the selected route uses one, with its description completed; otherwise record scope, validation and risks in the ticket. Review commit grouping using any explanation already demonstrated.
 7. Conduct review and resolve agreed feedback.
 8. Record actual time and learning evidence.
 9. Hold a sprint review and retrospective, recording explicit decisions about unfinished work.
+
+Selecting a route, reviewing a diff or approving a message is not permission to execute Git changes. Obtain explicit permission for the intended staging, commit, push, merge or history-changing operation; an audit/review request grants none. Never repair unauthorized history without separate permission. Both routes retain the review and evidence gates in `code-review.md` and `definition-of-done.md`.
 
 ## Weekly planning
 
@@ -59,17 +61,17 @@ Do not use story points, velocity, mandatory daily stand-ups or a minimum number
 
 ## Jira operational board
 
-Jira is the operational board when the Atlassian integration is available. Use the simple workflow `To Do → In Progress → In Review → Done` for backlog, priorities, sprint membership, ticket status, blockers, visible acceptance criteria and meaningful operational comments. Keep learning goals, recall records and AI modes in the repository and learning conversation; do not copy solution hints into Jira.
+Jira is the operational board when the selected ticket route uses it and the Atlassian integration is available. Use the simple workflow `To Do → In Progress → In Review → Done` for backlog, priorities, sprint membership, ticket status, blockers, visible acceptance criteria and meaningful operational comments. Keep learning goals, recall records and AI modes in the repository and learning conversation; do not copy solution hints into Jira.
 
 Repository documents remain the source of truth for learning behaviour, curriculum, learner state, architecture, ADRs and detailed learning evidence. Jira does not replace them. When a ticket exists in both places, record the stable Jira key in the repository ticket and avoid copying long learning records into Jira.
 
-Do not create a Jira issue merely because a possible task was imagined. Once a candidate is accepted for an active sprint, create its Jira issue with the visible scope, assign it to the active sprint and report its key before implementation starts; refine its description and estimate as those are agreed. Update Jira after meaningful operational changes: agreed scope, start, blocker, review, completion or carry-over. If Jira is unavailable, use `work/tickets/` and `work/sprints/` as the operational representation and record the fallback in the ticket.
+Do not create a Jira issue merely because a possible task was imagined. For an accepted candidate whose route uses Jira, create its issue with the visible scope, assign it to the active sprint and report its key before implementation starts; refine its description and estimate as those are agreed. Update Jira after meaningful operational changes: agreed scope, start, blocker, review, completion or carry-over. Short just-in-time tickets may remain repository-local even when Jira is available. For that route or when Jira is unavailable, use `work/tickets/` and `work/sprints/` as the operational representation and record the choice or fallback in the ticket.
 
 ## GitHub, pull requests and CI
 
-For a meaningful ticket, follow: Jira issue (or repository fallback) → learner-proposed branch name → implementation → coherent learner-written commits → self-review → pull request → CI → review → learner-owned fixes → approval → merge → Jira Done.
+For the branch/PR route, follow: Jira issue (or repository-local ticket) → learner-proposed branch name → implementation → coherent learner-written commits → self-review → pull request → CI → review → learner-owned fixes → approval → merge → ticket Done. For the small-ticket direct/local route, omit the separate branch, PR and merge, not relevant checks or required review; mark Jira Done only when a Jira issue exists. Git execution still requires explicit permission.
 
-When GitHub is callable, use its repository context, branch, pull request, review comments, CI status and GitHub Actions output. GitHub does not authorize writing learner-owned implementation or bypassing AI modes. While Git workflow skills are new, ask the learner to propose the branch name, PR title and concise description first; review one concrete issue at a time and provide an example only after an attempt. Reduce prompts from recorded evidence.
+When GitHub is callable, use its repository context, branch, pull request, review comments, CI status and GitHub Actions output as applicable to the selected route. GitHub does not authorize writing learner-owned implementation or bypassing AI modes. While Git workflow skills are new and the route uses a branch/PR, ask the learner to propose the branch name, PR title and concise description first; review one concrete issue at a time and provide an example only after an attempt. Reduce prompts from recorded evidence.
 
 The project CI configuration defines its required checks. Current CI runs the API TypeScript build because the repository currently provides no lint or test scripts. Add lint and test checks when corresponding project scripts exist; do not claim checks that the project cannot run. A red required CI check blocks Done.
 

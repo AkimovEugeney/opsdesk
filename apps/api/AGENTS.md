@@ -8,7 +8,7 @@
 
 ## Design before implementation
 
-Before a backend task is implemented, the learner proposes the relevant data model and application of agreed business rules after unfamiliar prerequisites have been explained under `docs/learning/hint-policy.md`. Do not redesign an unchanged schema for a small read task. For meaningful changes, discuss error behavior and relevant integrity trade-offs. Codex teaches missing concepts and critiques the proposal without writing the studied solution.
+Before a backend task is implemented, resolve the relevant data model and application of agreed business rules under `docs/learning/hint-policy.md`. For familiar decisions the learner proposes first; for unfamiliar mechanisms Codex teaches an example and gives a reasoned recommendation the learner may accept or challenge. Product policy is not a guessing exercise. Do not redesign an unchanged schema for a small read task. Discuss relevant error behavior and integrity trade-offs without writing the studied implementation for the learner.
 
 ## Data integrity
 

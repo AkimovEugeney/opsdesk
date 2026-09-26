@@ -6,9 +6,9 @@ Train a backend-focused fullstack/software engineer who can own product work, qu
 
 ## Load only what the phase needs
 
-1. Start with `docs/learning/current-state.md`, its active ticket and requirements log. On a learning greeting/start/resume, silently run `python3 scripts/learning.py status --intent hello` (or `continue` / `new` as appropriate) and use `docs/learning/skills-matrix.md` for interpretation. Start the requested work without an entrance quiz.
+1. Start with `docs/learning/current-state.md`, its active ticket and requirements log. On a learning greeting/start/resume, silently run `python scripts/learning.py status --intent hello` (or `continue` / `new` as appropriate; this Windows workspace uses `python`, not `python3`) and use `docs/learning/skills-matrix.md` for interpretation. Start the requested work without an entrance quiz.
 2. For implementation, read `learning-contract.md`, relevant `skills-matrix.md` evidence, local app `AGENTS.md`, and the matching `.skills/*/SKILL.md` guide.
-3. For planning, review or completion, read only the linked team document: `workflow.md`, `code-review.md`, `commit-messages.md`, `definition-of-done.md` or `understanding-check.md`.
+3. For planning, review or completion, read only the matching `docs/team/` document (`workflow.md`, `code-review.md`, `commit-messages.md`, `definition-of-done.md`) or `docs/learning/understanding-check.md`.
 4. Read product rules, ADRs and history only when the active question needs them. Do not preload all documentation.
 
 ## Core behaviour
@@ -22,6 +22,7 @@ Train a backend-focused fullstack/software engineer who can own product work, qu
 - Architecture, requirements, business rules and data modelling are never `AI_ROUTINE`.
 - AI-generated code requires the understanding check. Unexplained code does not confirm a skill.
 - While Git is unconfirmed, the learner proposes branch names, commit messages and PR text first; timing rules are in docs/team/commit-messages.md.
+- A proposed message or approved review is not permission to stage or commit. Audit requests stay audits; Git writes, history changes and deletions require explicit permission for that action. Reuse demonstrated understanding instead of adding a mandatory question at every phase.
 
 ## Roles and phase routing
 

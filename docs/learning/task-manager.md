@@ -4,12 +4,14 @@ Codex is a mentor throughout the work, with PM/PO, Tech Lead, reviewer and incid
 
 ## Start or resume
 
-1. Read current-state.md, active ticket, requirements log and sprint. Silently run `python3 scripts/learning.py status --intent hello`, `continue` or `new` to match the request. Use skills-matrix.md for evidence and retention rules; follow the relevant target-profile/curriculum links when choosing work. Do not restart OPS-000 or ask the learner to reconstruct their history.
+1. Read current-state.md, active ticket, requirements log and sprint. Silently run `python scripts/learning.py status --intent hello`, `continue` or `new` to match the request (this Windows workspace uses `python`). Use skills-matrix.md for evidence and retention rules; follow the relevant target-profile/curriculum links when choosing work. Do not restart OPS-000 or ask the learner to reconstruct their history.
 2. Respond to intent first: a greeting gets a brief orientation, "continue" resumes the exact unfinished step, and "new work" leads to an appropriate candidate. A due recall never blocks these. If the sprint needs closure, reuse records for a short closure instead of starting a lengthy retrospective interview.
 3. Check task prerequisites. A blocked candidate does not force immediate study of all its dependencies. Teach a specific gap only when it is needed for the requested work, or choose a feasible slice using the current stage and evidence.
 4. Weave relevant practice into the task. At a natural pause or session end, optionally offer a brief recap only for an important gap not already exercised. Respect "later", "I remember" and "let's code"; do not repeat an offer declined in this session. Apply the matching .skills guide without replacing learner intent with process.
 
 Keep current-state.md as a short pointer to phase, ticket, sprint, evidence, blockers and next action. It does not replace primary records.
+
+Keep product decisions in the requirements log, criterion-to-observation coverage in one ticket validation record, and demonstrated learning in the ledger; link these from current-state instead of copying detailed histories. Reconcile actual time with the sprint/capacity records at material phase changes, not after every command. An audit request follows the audit, not a pending commit or the next product slice.
 
 ## Automatic evidence maintenance
 

@@ -19,13 +19,15 @@
 
 ## Current iteration
 
-| Iteration | Capacity target | Completed | Remaining to target | Status |
+| Iteration | Capacity target | Recorded actual | Remaining to target | Status |
 |---|---:|---:|---:|---|
 | 2026-08-12 — 2026-08-18 | 8–12 h | 3.25 h | 4.75–8.75 h unused | Closed |
 | 2026-09-07 — 2026-09-13 | 3–6 h | 0.75 h recorded | 2.25–5.25 h unused | Closed 2026-09-22, after its window |
-| 2026-09-21 — 2026-09-27 | 5–8 h | 0 h | — | Active (committed 3–4 h for OPS-006) |
+| 2026-09-21 — 2026-09-27 | 5–8 h | 3.5 h | 1.5–4.5 h unassigned, not a quota | Active (OPS-006 estimate 3–4 h; verification/review pending) |
 
-Completed time consists of OPS-000 (0.75 h), OPS-001 (2.5 h), OPS-004 (0.25 h) and OPS-005 (0.50 h). OPS-002 actual time was never recorded and is not reconstructed. Recorded iteration totals: Sprint 0 3.25 h, Sprint 1 0.75 h. The cause of unused capacity is still not recorded; it is a retro item rather than a planning quota.
+Recorded time consists of OPS-000 (0.75 h), OPS-001 (2.5 h), OPS-004 (0.25 h), OPS-005 (0.50 h) and [OPS-006](../../work/tickets/OPS-006.md) (3 h 30 min so far, not a Done claim). OPS-002 actual time was never recorded and is not reconstructed. Recorded iteration totals: Sprint 0 3.25 h, Sprint 1 0.75 h, Sprint 2 3.5 h so far. The cause of unused capacity in closed iterations is still not recorded; it is a retro item rather than a planning quota.
+
+OPS-006's [actual-time record](../../work/tickets/OPS-006-requirements-log.md) is the learner's report: 3 h 30 min total; approximately 1 h 30 min useful implementation/review/learning and 2 h mentor friction. The split is an estimate, not instrumented timing; retain the full total and record later verification/review time separately when reported.
 
 ## Ticket estimate policy
 

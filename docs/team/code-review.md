@@ -2,17 +2,19 @@
 
 Review visible requirements, product rules, accepted ADRs, correctness, tests, error handling, security, performance, accessibility and maintainability when relevant. Review against the codebase, not an isolated snippet: inspect relevant neighbouring modules for naming, DTO/type, endpoint, error-handling and style conventions before recommending a change. Prefer project consistency to a theoretical preference. Label findings blocking, suggestion, question or nit; state impact and expected resolution, not “best practice” alone.
 
-The author self-reviews first and states what they checked. The reviewer records actionable findings. The author explains each comment, replies, agrees or argues with evidence, and makes learner-owned changes under the active AI mode. Do not implement review comments automatically.
+The author self-reviews first; reuse already demonstrated checks and explanations, asking only for material missing coverage. The reviewer records actionable findings. The author replies, agrees or argues with evidence, and makes learner-owned changes under the active AI mode; paraphrasing every comment is not required. Ask only about a material unresolved misunderstanding, not wording already explained correctly. Do not implement review comments automatically.
 
-The PR description states the problem, scope, validation, risks and follow-up. Review commit purpose and diff alignment under commit-messages.md.
+The PR description, or the repository ticket on the direct/local route, states the problem, scope, validation, risks and follow-up. Review commit purpose and diff alignment under commit-messages.md. Review requests and approved messages do not authorize staging, committing or other Git changes.
 
 ## Review format
 
-Independent review in a separate chat is required for medium or large changes, new business logic, database or architecture changes, and maintainability/code-quality goals. Record the decision before implementation.
+Independent review in a separate chat is required for medium or large changes, new business logic, database or architecture changes, maintainability/code-quality goals, and material security, authentication or authorization risks. Record the decision and reason before implementation. A direct/local delivery route or local-only data does not exempt authentication or material database/security risk from independent review.
 
 For a small routine change outside those categories, self-review plus same-session Codex review is sufficient. Escalate if the diff reveals new rules, data changes, unexpected complexity or material risk. The same-session review still applies all relevant quality checks; it is not called independent.
 
 The independent reviewer receives the ticket, requirements log, diff and validation evidence. A role switch in the implementation chat does not establish independence.
+
+Map acceptance criteria to observed evidence and remaining gaps under `definition-of-done.md`. Inspect the actual changed set, including untracked files; do not equate a command launch or a partial diff check with success. Reuse relevant checks for the same code state and rerun affected cases after changes. The OPS-006 same-session review does not satisfy its independent-review requirement; the audit's missing acceptance evidence and review follow-ups remain open until actually checked.
 
 ## Maintainability
 

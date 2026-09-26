@@ -18,7 +18,13 @@ Examples: feat(appeals): add appeal details page; fix(auth): prevent redirect lo
 
 One commit is one coherent, reviewable thought. Keep dependent changes together when splitting would make a commit incomplete or untestable. Split independent behaviours, unrelated refactoring, documentation or separable tests when that improves review or revertability. Do not make mechanical micro-commits for trivial edits. A single clean commit is valid for one bounded change.
 
-Before a PR, when one is used, the learner explains the number and grouping of commits. The reviewer checks purpose, diff alignment and absence of unrelated changes.
+Keep independent process/teaching-policy documentation changes separate from feature commits by default; ticket-specific evidence may accompany the feature. Record a reason for any deliberate exception rather than silently mixing scopes.
+
+Before a PR, when one is used, review the learner's explanation of the number and grouping of commits; reuse an explanation already demonstrated rather than asking for repetition. The reviewer checks purpose, diff alignment and absence of unrelated changes.
+
+## Permission
+
+A proposed message, its rationale, passing checks or an approved delivery route does not authorize Git execution. Obtain explicit permission for the intended staging, commit, push, merge or history-changing operation. A review/audit request grants none, and an unauthorized commit must not be reset, reverted or rewritten without separate permission. “Time to commit” below is a readiness signal, not authorization.
 
 ## Timing
 
@@ -34,4 +40,4 @@ Do not ask after every edit, during an unfinished learning block or merely becau
 
 ## Small-ticket delivery
 
-For a short, bounded learning ticket, use one coherent commit directly on the current branch after the checks pass. Ask the learner for the commit message and its rationale; this is useful Git practice. A separate branch, PR and merge phase are not required for that ticket. Do not turn Git ceremony into part of every 15–20 minute exercise.
+For a short, bounded learning ticket, select and record the direct/local route once: one coherent commit on the current branch after the checks and required review pass, executed only with explicit permission. Ask the learner for the commit message and its rationale if not already demonstrated; this is useful Git practice, not a mandatory recital. A separate branch, PR and merge phase are not required, and short just-in-time tickets may remain repository-local without Jira. This route does not waive `code-review.md` or `definition-of-done.md`. Do not turn Git ceremony into part of every 15–20 minute exercise.
