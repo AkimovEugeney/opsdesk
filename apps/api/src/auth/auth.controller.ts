@@ -29,7 +29,7 @@ export class AuthController {
     response.cookie(COOKIE_NAME, loginResult.sessionId, {
       httpOnly: true,
       sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.SESSION_COOKIE_SECURE !== 'false',
       maxAge: SESSION_ABSOLUTE_TIMEOUT_MS,
       path: '/',
     })

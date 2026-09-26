@@ -4,6 +4,9 @@ import { verifyPassword } from './password'
 import { generateSessionId } from './session-id'
 import { isSessionExpired } from './session-timeout'
 
+const DUMMY_PASSWORD_HASH =
+  '$argon2id$v=19$m=65536,p=4,t=3$VQeHSnD7gBbypltXIM34UQ$LVzHYldhI15pF3Q8uO9tkxDPM0OSY3jq2FOer8M2wv0'
+
 @Injectable()
 export class AuthService {
   constructor(private readonly prismaService: PrismaService) {}
@@ -12,10 +15,11 @@ export class AuthService {
     const loginTextError = 'Invalid email or password'
 
     const user = await this.findUserByEmail(email)
-    if (!user) throw new UnauthorizedException(loginTextError)
-
-    const isPasswordValid = await verifyPassword(password, user.passwordHash)
-    if (!isPasswordValid) throw new UnauthorizedException(loginTextError)
+    const passwordHash = user?.passwordHash ?? DUMMY_PASSWORD_HASH
+    const isPasswordValid = await verifyPassword(password, passwordHash)
+    if (!user || !isPasswordValid) {
+      throw new UnauthorizedException(loginTextError)
+    }
 
     const sessionId = await this.createSession(user.id)
     return {
@@ -43,7 +47,15 @@ export class AuthService {
     if (isSessionExpired(session.createdAt, session.lastActivityAt, nowDate))
       throw new UnauthorizedException('Session not found')
 
-    await this.prismaService.session.update({ where: { id: sessionId }, data: {lastActivityAt: nowDate} })
+    const updateResult = await this.prismaService.session.updateMany({
+      where: { id: sessionId },
+      data: { lastActivityAt: nowDate },
+    })
+
+    if (updateResult.count === 0) {
+      throw new UnauthorizedException('Session not found')
+    }
+
     return session.user
   }
 
