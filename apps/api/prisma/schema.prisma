@@ -19,6 +19,10 @@ enum AppealStatus {
     CLOSED
 }
 
+enum Permissions {
+    CAN_MANAGE_APPEALS
+}
+
 model User {
     id           Int      @id @default(autoincrement())
     name         String
@@ -26,6 +30,7 @@ model User {
     email        String   @unique
     passwordHash String
     createdAt    DateTime @default(now())
+    permissions Permissions[] @default([])
 
     clientAppeals Appeal[]  @relation("AppealClient")
     ownedAppeals  Appeal[]  @relation("AppealOwner")

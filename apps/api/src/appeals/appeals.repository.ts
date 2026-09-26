@@ -1,30 +1,30 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
-import { type AppealStatus } from "../generated/prisma/enums";
+import { Injectable } from '@nestjs/common'
+import { AppealStatus } from '../generated/prisma/enums'
+import { PrismaService } from '../prisma/prisma.service'
 
 type AppealDetailsRow = {
-  id: number;
-  status: AppealStatus;
-  title: string;
-  description: string;
-  createdAt: Date;
-  closedAt: Date | null;
-  clientName: string;
-  ownerName: string | null;
-};
+  id: number
+  status: AppealStatus
+  title: string
+  description: string
+  createdAt: Date
+  closedAt: Date | null
+  clientName: string
+  ownerName: string | null
+}
 
 function escapeLikeLiteral(value: string): string {
-  return value.replace(/\\/g, "\\\\").replace(/%/g, "\\%").replace(/_/g, "\\_");
+  return value.replace(/\\/g, '\\\\').replace(/%/g, '\\%').replace(/_/g, '\\_')
 }
 
 @Injectable()
 export class AppealsRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prismaService: PrismaService) {}
 
   async findActive(search?: string) {
-    const pattern = search ? `%${escapeLikeLiteral(search)}%` : "%";
+    const pattern = search ? `%${escapeLikeLiteral(search)}%` : '%'
 
-    return this.prisma.$queryRaw`
+    return this.prismaService.$queryRaw`
     SELECT
         appeal."id",
         appeal."status",
@@ -46,11 +46,35 @@ export class AppealsRepository {
     WHEN 'IN_PROGRESS' THEN 2
   END,
   appeal."createdAt" DESC
-  `;
+  `
+  }
+
+ async updateAppealOwner(appealId: number, ownerId: number) {
+  return this.prismaService.appeal.update({
+    where: {
+      id: appealId,
+      status: { in: [AppealStatus.NEW, AppealStatus.IN_PROGRESS] },
+    },
+    data: { ownerId, status: AppealStatus.IN_PROGRESS },
+    select: { id: true, status: true, ownerId: true, updatedAt: true },
+  })
+}
+
+  async findUserRoleById(userId: number) {
+    return this.prismaService.user.findUnique({
+      where: { id: userId },
+      select: { id: true, role: true },
+    })
+  }
+  async findAssignmentStateById(appealId: number) {
+    return await this.prismaService.appeal.findUnique({
+      where: { id: appealId },
+      select: { id: true, status: true },
+    })
   }
 
   async findById(id: number) {
-    const rows = await this.prisma.$queryRaw<AppealDetailsRow[]>`
+    const rows = await this.prismaService.$queryRaw<AppealDetailsRow[]>`
     SELECT
         appeal."id",
         appeal."status",
@@ -66,8 +90,8 @@ export class AppealsRepository {
     LEFT JOIN "User" AS owner
         ON owner."id" = appeal."ownerId"
     WHERE appeal."id" = ${id}
-  `;
+  `
 
-    return rows[0] ?? null;
+    return rows[0] ?? null
   }
 }

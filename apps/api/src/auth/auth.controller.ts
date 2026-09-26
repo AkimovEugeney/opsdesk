@@ -37,9 +37,14 @@ export class AuthController {
   }
 
   @Get('me')
-  getMe(@Req() request: Request) {
+  async getMe(@Req() request: Request) {
     const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
     if (!sessionId) throw new UnauthorizedException('Session not found')
-    return this.authService.getCurrentUser(sessionId)
+    const currentUser = await this.authService.getCurrentUser(sessionId)
+    return {
+      id: currentUser.id,
+      name: currentUser.name,
+      role: currentUser.role,
+    }
   }
 }

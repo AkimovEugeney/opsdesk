@@ -24,3 +24,10 @@ export const AppealStatus = {
 } as const
 
 export type AppealStatus = (typeof AppealStatus)[keyof typeof AppealStatus]
+
+
+export const Permissions = {
+  CAN_MANAGE_APPEALS: 'CAN_MANAGE_APPEALS'
+} as const
+
+export type Permissions = (typeof Permissions)[keyof typeof Permissions]

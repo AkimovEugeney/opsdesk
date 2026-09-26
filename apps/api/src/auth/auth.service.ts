@@ -39,7 +39,7 @@ export class AuthService {
       select: {
         createdAt: true,
         lastActivityAt: true,
-        user: { select: { id: true, name: true, role: true } },
+        user: { select: { id: true, name: true, role: true, permissions: true } },
       },
     })
 
