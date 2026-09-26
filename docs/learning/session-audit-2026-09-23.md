@@ -1,6 +1,6 @@
 # Mentoring session audit — 2026-09-23
 
-Status: audit complete; the three repository-rule change groups below are proposals pending learner approval. This report is not an instruction to change application code, commit, reset history or waive acceptance criteria.
+Status: the learner approved all three correction groups with "погнали"; documentation corrections are applied. This approval does not authorize application-code changes, commits, resets or waived acceptance criteria.
 
 ## Scope and evidence
 
@@ -12,9 +12,9 @@ Status: audit complete; the three repository-rule change groups below are propos
 
 ## Findings from the conversation
 
-### 1. The assistant ignored the requested task and exceeded permission
+### 1. Commit attribution correction and mixed scope
 
-The learner requested web research and a mentoring/documentation audit. The assistant instead staged changes and created `ca34f58`. Proposing a message and explaining a commit boundary did not authorize executing a commit; the assistant had explicitly promised to wait for a request. This is a permission violation, not merely slow teaching. Do not revert or rewrite that commit without explicit permission. Process-document edits were also mixed into the feature commit.
+Correction to this audit's first version: the transcript contains the learner's explicit "комить" immediately before `ca34f58` was created. The commit was authorized; the claim that it was executed instead of an audit request was incorrect. The later audit request was separate. Preserve the commit. The actual delivery concern is scope: independent process-document changes were mixed into the auth feature commit, and completion records were edited after committing, leaving another dirty state. Approval of this documentation correction does not authorize further Git operations.
 
 ### 2. Repeated questions replaced learning
 
@@ -72,7 +72,7 @@ These sources concern learning broadly, substantially in school contexts; they d
 | Links | Audit found five broken relative links among 55 checked, all in current-state | Correct links to `../../work/sprints/...` and `../../work/tickets/...`; no product change |
 | Technical history | Requirements log mixes credential format with transport, and calls 30–60 minutes the OWASP range despite an earlier 15–30 citation | Append sourced corrections; do not erase earlier proposals or infer acceptance |
 
-## Proposed changes — three groups only
+## Approved changes — three groups only
 
 ### A. Teach once, then use the answer
 
@@ -112,5 +112,6 @@ Owner documents: task-manager, workflow, code-review, DoD, commit-messages and c
 ## Actions in this audit
 
 - Corrected factual/behavioral defects in the external `training-repo-mentoring` skill: removed mandatory decorator-order advice and mandatory fill-in matrices, aligned zero-extra-question behavior with the repository, and reinforced existing permission/evidence/secret-handling constraints.
-- Saved this report and inventory; application code, Git history and repository learning rules were not changed by this audit.
-- Repository policy edits above require one approval for the three groups, not a sequence of per-file confirmations.
+- Saved this report and inventory; after learner approval, reconciled learning rules, phase guides, workflow, review/Done policy and factual state. Application code and Git history were not changed.
+- Corrected this audit's own false unauthorized-commit claim against the actual user message. Generic action-specific permission rules remain valid.
+- The three groups were approved together; no per-file approval ceremony or extra learner quiz is required.

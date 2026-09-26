@@ -14,7 +14,7 @@ For a small routine change outside those categories, self-review plus same-sessi
 
 The independent reviewer receives the ticket, requirements log, diff and validation evidence. A role switch in the implementation chat does not establish independence.
 
-Map acceptance criteria to observed evidence and remaining gaps under `definition-of-done.md`. Inspect the actual changed set, including untracked files; do not equate a command launch or a partial diff check with success. Reuse relevant checks for the same code state and rerun affected cases after changes. The OPS-006 same-session review does not satisfy its independent-review requirement; the audit's missing acceptance evidence and review follow-ups remain open until actually checked.
+Map acceptance criteria to observed evidence and remaining gaps under `definition-of-done.md`. Inspect the actual changed set, including untracked files; do not equate a command launch or a partial diff check with success. Reuse relevant checks for the same code state and rerun affected cases after changes. Record case-specific gaps in the ticket, not in this policy.
 
 ## Maintainability
 
