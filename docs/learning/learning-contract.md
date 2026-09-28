@@ -39,6 +39,14 @@ Before code changes, check readiness under task-manager.md and record an agreed 
 - AI_ROUTINE: Codex performs agreed non-learning work such as fixtures, mechanical formatting or already-mastered boilerplate. It may also run repeatable validation commands—local build, deterministic HTTP smoke requests and available CI checks—then summarize their output. The learner owns the initial choice of meaningful cases for a new behavior and interpretation/debugging of unexpected results; typing the same commands repeatedly is not a learning requirement. If Codex cannot access the running environment, a concise learner-reported result is sufficient evidence; do not require pasted output for every successful request.
 - Batch independent inspection and validation. Verify a coherent learner artifact once per relevant code state, then rerun affected cases rather than restarting the entire teaching sequence. Mentor tooling failures are diagnosed and corrected by the mentor; learner debugging practice applies to agreed product problems, not accidental broken probes. Never trade away risk-relevant checks for speed.
 
+## Frontend allocation
+
+- The programme remains backend-focused. Frontend tickets restore middle-level engineering judgment, not the ability to hand-write static shells faster than AI.
+- Treat page titles, metadata, static labels, basic empty-state copy, CSS/layout, framework scaffolding, imports and routine configuration as Green / `AI_ROUTINE` unless a concrete observed gap makes one of them the learning mechanism.
+- Reserve learner manual work for a named capability that needs practice or recovery: data-flow and state ownership, Server/Client rendering boundaries, forms, async request states, browser/network/CORS/cookie behavior, accessibility, rendering/performance diagnosis, or debugging a real regression. State the exact mechanism and why manual work is needed before handing it over.
+- For familiar frontend implementation, prefer `DESIGN_THEN_AI`: the learner owns the data source, transformations, state owner, update path, failure path, trust boundary and verification; Codex may write the routine component code after that brief and the learner reviews the diff and behavior.
+- A static page may establish project infrastructure, but it is not by itself a learner coding task or evidence of frontend depth. Do not spend learner time on title/list markup when a product slice can instead exercise an engineering concern.
+
 ## System upkeep
 
 Use external research only for version-sensitive, security-sensitive, disputed or plausibly outdated guidance. Prefer official documentation, standards and authoritative security sources. If a source conflicts with a project rule, show the difference and impact, propose one change and wait for learner approval.

@@ -32,7 +32,7 @@ React, NestJS and PostgreSQL are the current training stack, not a professional 
 - work with Git, Docker and basic CI;
 - explain decisions in a middle-level interview.
 
-Frontend remains part of the system: restore JS/TS and React fundamentals through data flow, browser behavior, async scenarios, performance and debugging in project features. Relearning layout, SCSS or UI libraries is not a separate learning goal.
+Frontend remains part of the system: restore JS/TS and React fundamentals through data flow, browser behavior, async scenarios, performance and debugging in project features. Relearning layout, SCSS, UI libraries, static titles and metadata is not a separate learning goal; these are normally delegated after the learner defines the relevant product and engineering boundaries.
 
 Learning-time balance across tickets: 60–70% backend/database/architecture/HTTP/concurrency/system reasoning, 20–30% engineering frontend and 10% integration/debugging/infrastructure. See `curriculum.md` for the frontend scope and how this fits the existing concept limit.
 

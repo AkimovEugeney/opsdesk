@@ -39,7 +39,7 @@ Restore the fundamentals through relevant fullstack features, rather than a sepa
 
 These are selection guides, not a checklist for one ticket: preserve one primary and at most one secondary learning goal, with at most one major new concept at the current level. For a relevant integration slice, practice the appropriate part of API design, request handling, state, rendering or Network inspection. Spread unfamiliar parts over tickets; do not require a repeated full-path explanation already covered by evidence.
 
-Layout, SCSS, Tailwind, decorative UI and UI-library details receive attention only when the product task needs them.
+Layout, SCSS, Tailwind, decorative UI, UI-library details, page titles and static list markup receive attention only when the product task needs them. They are normally delegated; learner manual work is reserved for a concrete frontend capability gap or an engineering concern from the list above.
 
 SQL, design, architecture and manual coding develop through OpsDesk tickets. Short worked examples and spaced recall may use different data outside project code, without a separate exercise track. Optional unfamiliar open-source reading remains available once every 1–2 weeks when useful.
 

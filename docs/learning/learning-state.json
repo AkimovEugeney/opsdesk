@@ -529,6 +529,83 @@
       "verified": true,
       "on": "2026-09-28",
       "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-allowed-test-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner created the first service-level allowed-assignment test from a worked stub example. The test instantiates the real AppealsService with a controlled repository stub and asserts the returned assignment result. Codex reran npm test (1/1 pass) and npm run build. This is assisted implementation; no independent understanding or broad skill upgrade is claimed.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-forbidden-test-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner added a forbidden-client service test using a repository stub whose every method throws if called. The test asserts ForbiddenException with status 403, so a passing run demonstrates the early authorization path did not reach the repository. Codex reran npm test (2/2 pass) and npm run build. The implementation follows a supplied worked example and is recorded as assisted.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-p2025-test-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner added a deterministic service test where the repository stub passes all preconditions and only updateAppealOwner throws a real PrismaClientKnownRequestError with code P2025. The assertion observes ConflictException with status 409. Codex reran npm test (3/3 pass) and npm run build. The implementation follows a supplied worked example and is recorded as assisted.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-unexpected-error-tests-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner added an unexpected-error service test that asserts a generic repository error is rethrown by identity, then added a second concrete Prisma P2023 rethrow case. Codex reran npm test (5/5 pass) and npm run build. The implementation follows a supplied worked example; the additional P2023 case is code present and behavior observed, not independent reasoning evidence.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-error-boundary-assisted-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner repeated the taught rule that P2023 is rethrown while only conditional-update P2025 maps to 409. The response used the supplied wording, so it is recorded as assisted recognition rather than independent understanding evidence.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-007-error-boundary-independent-1",
+      "concept": "testing-behavior",
+      "context": "OPS-007",
+      "source": "work/tickets/OPS-007.md",
+      "note": "Learner independently explained that mapping every repository failure to 409 would falsely tell an operator there is a data-change conflict when the database may be unavailable for unrelated reasons. This demonstrates the impact of preserving unexpected errors. The relevant 5-test service matrix and build were observed.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "2026-09-28-ops-008-static-state-boundary-1",
+      "concept": "react-state-hooks",
+      "context": "OPS-008",
+      "source": "work/tickets/OPS-008.md",
+      "note": "Learner corrected an unnecessary useState hook from the static Next page and independently identified that useState becomes necessary when a component has changing local state. The final page rendered as a server component; apps/web build and lint passed, and the production server returned the Russian empty state. This is one observed frontend application, not broad Next.js mastery.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-28",
+      "until": null
     }
   ]
 }

@@ -1,0 +1,11 @@
+# OPS-007 Requirements log
+
+| Date | Question / clarification | Product-owner answer | Source |
+|---|---|---|---|
+| 2026-09-28 | What business behavior needs regression coverage first? | Cover the protected assignment's allowed path, a forbidden actor, the deterministic conditional-update conflict, and preservation of unexpected database failures. This is a small service-test slice, not a new endpoint or a replacement for OPS-003's HTTP verification. | Product Owner decision / OPS-003 follow-up |
+| 2026-09-28 | Why is deterministic `P2025` coverage not an HTTP test? | The existing route rejects an already closed appeal before its conditional write, so it cannot reliably create the race outcome. A repository stub may deterministically reject only the conditional update with `P2025`; this establishes the service's error-mapping contract. | Existing implementation constraint |
+| 2026-09-28 | Which minimal test runner should the ticket use? | Use built-in `node:test` with existing Node/TypeScript support. Node `v22.23.2`, `@types/node` and `ts-node` are already installed; Jest, Vitest and Nest testing utilities are not. Avoid adding a framework solely for four service tests. The exact executable command remains a probe/LOOKUP task. | Mentor recommendation accepted by learner |
+| 2026-09-28 | What does the `P2025` test observe? | It directly calls `AppealsService.approveOwner` with a controlled repository stub. After successful authorization/state/owner preconditions, only `updateAppealOwner` rejects with `P2025`; the test expects `ConflictException` with HTTP status `409`, not an HTTP request. | Teaching clarification; learner identified exception type/status |
+| 2026-09-28 | What does the unexpected-error test observe? | At the service boundary, a non-`P2025` error is rethrown unchanged. A framework may later render an unhandled error as HTTP `500`, but that mapping is outside this service test and must not be asserted here. | Mentor clarification after learner initially conflated service and HTTP boundaries |
+| 2026-09-28 | Learner estimate | 3–4 h. | Learner decision after runner/scope orientation |
+| 2026-09-28 | Actual time and delivery route | Actual: 1 h. Deliver directly/local without staging, commit, push or history changes; the learner did not request a Git operation. | Learner report / delivery decision |
