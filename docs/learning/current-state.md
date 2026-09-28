@@ -1,46 +1,34 @@
 # Current learning state
 
-Last checked: 2026-09-26. This snapshot points to recorded evidence; it does not replace ticket status or skill assessment.
+Last reconciled: 2026-09-27. This is a pointer, not a second ledger or requirements log.
 
-- Audit follow-up: the learner approved the three process-correction groups in the [session audit](session-audit-2026-09-23.md). OPS-006 was reconciled after its initial overclaim: final acceptance evidence, independent follow-up review and delivery commits now exist. Documentation corrections remain separate from the auth delivery commits.
+## Active work
 
-- Active work: [OPS-005](../../work/tickets/OPS-005.md) is Done, closed 2026-09-22 — implementation and validation committed as `8b7a6eb`, actual time 30 min, understanding check answered correctly in the learner's own words. [Sprint 1](../../work/sprints/2026-09-07-sprint-1.md) is closed. [OPS-004](../../work/tickets/OPS-004.md) / SCRUM-7 is Done. [OPS-003](../../work/tickets/OPS-003.md) / Jira SCRUM-6 remains blocked; its identity prerequisite became the active Sprint 2 ticket [OPS-006](../../work/tickets/OPS-006.md).
-- Target and route: [middle fullstack capability map](target-profile.md#observable-capability-map) → [adaptive stages](curriculum.md#adaptive-route-to-the-target). Current learning stage: `read_foundations`; two read outcomes and one input-validation repeat are recorded. Write flows, access and fullstack integration remain ahead, selected by prerequisites rather than calendar weeks.
-- Current phase: [Sprint 2](../../work/sprints/2026-09-21-sprint-2.md) closed 2026-09-26 within its window. [OPS-006](../../work/tickets/OPS-006.md) is Done in `ca34f58` and `13002d1`; its auth slice implements `POST /auth/login` and `GET /auth/me`, an opaque httpOnly `sid`, 30-minute idle and 8-hour absolute timeouts. Build, fresh HTTP matrix and independent follow-up review are recorded in the ticket.
-- Engineering lens: retain the existing fullstack route. For relevant access, database and API work, use the proportionate in-ticket loop of failure/abuse/race, invariant, verification and reviewer perspective; do not create separate security or architecture projects. Apply the Red/Yellow/Green decision-ownership bands alongside WRITE/UNDERSTAND/LOOKUP: design critical properties before AI implementation, then verify generated code by risk.
-- Active primary/secondary skill and AI/SQL mode: `authentication` — identity and trusted current user, `access`/`api`, target UNDERSTAND — was the single new mechanism for OPS-006; its ticket records `LEARN_MANUAL` with bounded `AI_ROUTINE` mechanics and confirmed `ORM_SUFFICIENT`. OPS-005 recorded `sql-text-matching` as PRACTICING and gave `sql-select-filter` its first independent application on a changed condition.
-- Process skills: refinement, planning, self-review, PR response, incident debugging and retro are `UNKNOWN`. Sprint 1's review, retro and Sprint 2 planning were recorded by the mentor from existing records in this session; that is bookkeeping, not learner evidence, so those rows stay `UNKNOWN` until the learner demonstrates the process. Use their `.skills/` guides explicitly until then.
-- Operational tooling: Jira checked 2026-09-08: SCRUM-5 and SCRUM-7 are Done; SCRUM-6 is blocked with a synchronized description; SCRUM-4 is an empty subtask and is not selected; SCRUM-8 is in the backlog. No Jira sprint was created for Sprint 2 — short just-in-time tickets stay repository-local. Local Git and the API build CI are available; the API has no test suite and `apps/web` holds only `AGENTS.md`.
-- Latest closed iteration: [2026-09-07 — 2026-09-13](../../work/sprints/2026-09-07-sprint-1.md). The Sprint Goal was achieved by OPS-002; OPS-004 and OPS-005 were additional agreed read scope. Recorded actual 0.75 h against 3–6 h capacity; OPS-002 actual time was never recorded; both estimated tickets overran their estimate by about 50%, including teaching and validation.
-- Latest iteration: [2026-09-21 — 2026-09-27](../../work/sprints/2026-09-21-sprint-2.md), closed 2026-09-26; capacity 5–8 h, recorded actual 3 h 30 min. Sprint 2 closure, capacity row and carry-over are reconciled. [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md) is Active with 3–4 h confirmed capacity; OPS-003 / SCRUM-6 defines a senior operator as an operator with `canManageAppeals` in a possibly empty permissions list. Its first implementation slice is the learner-owned schema edit and reviewed migration.
+- Ticket: [OPS-003](../../work/tickets/OPS-003.md) / SCRUM-6 — protected assignment of an appeal owner; status **Ready for delivery — acceptance, review and understanding complete**.
+- Code present: permission enum/list and migration, trusted current-user permissions, `PATCH /appeals/:id/owner`, authorization, assignee checks and conditional persistence update are in `eb5c86e`.
+- Build verified now: `apps/api` `npm run build` passes.
+- Verified HTTP matrix: allowed assignment `200` with persisted `IN_PROGRESS`/owner; client `403`; missing session `401`; malformed id `400`; already closed appeal `409`. Temporary local data, sessions and permission were removed after the run.
+- Historical defect: the source now catches only conditional-update `P2025` and rethrows other errors. The exact race branch is still not reproducible over HTTP because an already closed appeal is rejected by the earlier state check.
+- Learner predicted the core matrix correctly; authorization has one observed application, not broad mastery.
+- Verified remaining matrix: missing appeal `404`, missing owner `404`, selected client as owner `400`; rejected requests left the fixture appeal `NEW` without owner. Cleanup was verified.
+- Independent review is approved with no blocking findings. A deterministic `P2025` service test is a non-blocking candidate for the planned testing slice; probe-file hygiene stays a separate delivery decision.
+- Understanding check passed: the learner distinguished state conflict from unexpected server failure and explained why other database errors must propagate.
+- Next action: make an explicit delivery decision; no staging, commit or history change is authorized yet. Do not redo migration, permissions or endpoint scaffolding.
 
-## Recent evidence
+## Learning evidence
 
-- [OPS-000](../../work/tickets/OPS-000.md): recorded Done; diagnosis completed, actual 0.75 h.
-- [OPS-001](../../work/tickets/OPS-001.md): recorded Done; `GET /appeals`, actual 2.5 h. Traced Controller → Service → Repository → database and explained `LEFT JOIN`.
-- [OPS-002](../../work/tickets/OPS-002.md): recorded Done and merged; the Goal outcome of Sprint 1. Its actual time is unavailable.
-- [OPS-004](../../work/tickets/OPS-004.md): input validation applied independently on a changed condition — `ParseIntPipe`, range check and propagation through the layers; actual 0.25 h against a 0.17 h estimate. This is the first verified changed-condition repeat of the validation concept.
-- [OPS-005](../../work/tickets/OPS-005.md): Done 2026-09-22. The learner implemented query-parameter handling and literal case-insensitive SQL matching, reported the HTTP acceptance matrix, and explained both the escaping and the no-criterion path; same-session review found no blocking findings.
-- [OPS-006](../../work/tickets/OPS-006.md): Done in `ca34f58` and `13002d1`; understanding check passed 2026-09-23 and was not repeated. The [requirements log](../../work/tickets/OPS-006-requirements-log.md) records the full HTTP evidence, review findings and approved fixes. Same-session review is distinct from the completed independent follow-up review.
-- [Skills matrix](skills-matrix.md): NestJS and SQL are `PRACTICING`; HTTP, browser, transactions, indexes, testing, architecture and access remain `UNKNOWN`.
-- [Local learning ledger](learning-state.json) preserves the OPS-000 baseline and later evidence. [Operating rules](skills-matrix.md#operating-the-local-learning-ledger) describe automatic counts and optional practice opportunities. Basic layer definitions are parked; Prisma API spelling is lookup-only. Dates and counters are read from the tool rather than duplicated here.
-- [Learning log](learning-log.md): OPS-001/002 records and supplied dialogue evidence reconciled without inventing independent mastery or original dates. Learner requests teaching before unfamiliar code and selective spaced practice.
+- Current stage: `identity_access`; OPS-006 provides authenticated current-user context and OPS-003 is the first protected write. Stage means current work, not mastery.
+- `authentication` has learner-owned prediction evidence from OPS-006; `authorization` remains unconfirmed until the learner explains/applies the protected-write invariant and behavior is observed.
+- The ledger in [learning-state.json](learning-state.json) is the sole source for concrete learning evidence, retention and dates. Existing SQL and read-flow evidence remains preserved.
 
-## Gaps to reconcile
+## Near route — planning signals, not commitments
 
-- OPS-001 has no pre-work estimate; do not reconstruct one. Its branch and PR fields remain placeholders, and review independence is not separately evidenced in the ticket.
-- OPS-002 actual time and PR link remain unrecorded; broad skill statuses do not establish recall of individual concepts.
-- The reason for unused capacity is still not recorded, now for two closed iterations. Sprint 1 also shows a closure delay of nine days and a planned-tickets table that missed an agreed ticket until closure.
-- Internal recall opportunities dated 2026-09-09, 2026-09-11 and 2026-09-15 were never exercised because no product work ran in that period. They stay internal opportunities and do not block the next task.
-- OPS-006 actual time: 3 h 30 min against a 3–4 h estimate. Learner estimates ~1 h 30 min was implementation, review and learning, while ~2 h was mentor-process friction; the total stays recorded as actual and the split remains a process-improvement signal.
-- OPS-006 fresh HTTP evidence now covers all three fixture logins, matching current-user projections, both secure-cookie modes, both appeal read endpoints, expiry behavior and scoped application logging. Independent follow-up review approved the three fixes: HTTPS-safe cookie configuration, timing-independent unknown-user rejection and a missing-session update race mapped to `401`. SQL mode is confirmed `ORM_SUFFICIENT`; no manual-SQL acceptance work is required.
+1. Finish and verify OPS-003 (remaining estimate unknown; retain original learner estimate of 3–4 h).
+2. Add the first repeatable tests for allowed assignment, denial and conflict (mentor preliminary range: 3–5 h; estimate belongs to the learner at refinement).
+3. Connect a small React view to the verified API (mentor preliminary range: 4–6 h; estimate belongs to the learner at refinement).
 
-Next action: learner implements the protected `PATCH /appeals/:id/owner` action through controller → service → repository, using the enriched server-side current-user context. Authorization remains the single major new concept. Do not repeat the OPS-006 trust-boundary or expiry check. Prisma spelling stays LOOKUP.
+## Source map and history
 
-Future candidate: learner requested a bounded next-sprint DTO + Nest `ValidationPipe` validation slice. It is deferred from OPS-003 so that authorization remains the sole major new mechanism; assess existing endpoint error-contract impact before any global activation.
-
-System Health Review: completed 2026-09-07 after repeated process friction. Guidance, confirmation and review rules were made proportional to task impact in [learning contract](learning-contract.md), [hint policy](hint-policy.md), [task manager](task-manager.md) and [code review](../team/code-review.md).
-
-System Health Review: completed 2026-09-08 after learner feedback and two supplied dialogues, then refined to connect the middle target, adaptive route and executable learning ledger. The latest clarification replaces opening recall with task-first, optional, naturally observed practice. Decisions are in the [learning log](learning-log.md#accepted-system-changes--2026-09-08). Verify their effect through actual sessions rather than declaring teaching quality solved by documentation alone.
-
-System Health Review: completed 2026-09-23 after friction reported by the learner in the OPS-006 scaffolding session — commands handed over unprobed, work serialised into per-line questions, a first-use library API treated as material to derive, and one instruction reversed a turn later. Three changes were accepted and applied: probed commands delivered with the working directory and one expected observation; connected 2–4 action steps instead of a question per line; first-use teaching of library API surfaces, with environment prerequisites owned by the mentor. Findings are in the [learning log](learning-log.md#system-health-review--2026-09-23) and the ticket record in the [OPS-006 requirements log](../../work/tickets/OPS-006-requirements-log.md).
+- Current requirements, decisions, validation and remaining defects: [OPS-003](../../work/tickets/OPS-003.md) and its [requirements log](../../work/tickets/OPS-003-requirements-log.md).
+- Sprint/capacity are planning and time records: [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md), [capacity plan](capacity-plan.md). No missing actual time is reconstructed.
+- Historical sprint, learning-log and session-audit entries are retained as history; they do not set active status.

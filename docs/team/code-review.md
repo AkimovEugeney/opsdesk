@@ -8,11 +8,16 @@ The PR description, or the repository ticket on the direct/local route, states t
 
 ## Review format
 
-Independent review in a separate chat is required for medium or large changes, new business logic, database or architecture changes, maintainability/code-quality goals, and material security, authentication or authorization risks. Record the decision and reason before implementation. A direct/local delivery route or local-only data does not exempt authentication or material database/security risk from independent review.
+Every task receives correctness review. A separate review chat is required only when the change can materially affect more than its local happy path:
 
-For a small routine change outside those categories, self-review plus same-session Codex review is sufficient. Escalate if the diff reveals new rules, data changes, unexpected complexity or material risk. The same-session review still applies all relevant quality checks; it is not called independent.
+- an access boundary, session, permission, secret or protected-data projection changes (wrong actor or disclosure scenario);
+- existing data is deleted or transformed with loss/relationship risk (migration or rollback scenario);
+- concurrent/retried work or an external action can cause a double effect (race/retry scenario);
+- a shared mechanism or contract can break several working flows (consumer regression scenario).
 
-The independent reviewer receives the ticket, requirements log, diff and validation evidence. A role switch in the implementation chat does not establish independence.
+Record before implementation: **what can fail → in which scenario → consequence**. A database, a new method or business logic alone is not a reason for separate review. For all other bounded work, self-review plus same-session review is sufficient. Escalate only when the actual diff reveals one of these risks.
+
+The independent reviewer receives the ticket, requirements log, diff and validation evidence. A role switch in the implementation chat does not establish independence. Run one independent pass; after fixes, recheck the changed findings and affected paths only. Repeat the full pass only for a new material risk. Suggestions do not block Done; defects and unverified material risks do.
 
 Map acceptance criteria to observed evidence and remaining gaps under `definition-of-done.md`. Inspect the actual changed set, including untracked files; do not equate a command launch or a partial diff check with success. Reuse relevant checks for the same code state and rerun affected cases after changes. Record case-specific gaps in the ticket, not in this policy.
 

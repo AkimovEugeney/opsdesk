@@ -2,7 +2,7 @@
   "schema_version": 1,
   "tracking_started_on": "2026-09-08",
   "goal": "Middle fullstack engineer with a backend focus: own a bounded product outcome from clarification to validated delivery, using AI responsibly.",
-  "current_stage": "read_foundations",
+  "current_stage": "identity_access",
   "capabilities": {
     "runtime": "JavaScript/TypeScript/Node execution and debugging",
     "api": "HTTP contracts and backend application design",
@@ -16,7 +16,7 @@
     "diagnosis": "Baseline diagnosis (OPS-000): recorded, do not repeat by default",
     "read_foundations": "Current: deepen small read flows, input/output behavior and SQL",
     "write_foundations": "Next candidates: validated writes, simple relations and migrations",
-    "identity_access": "When ready: current user, authentication and bounded access rules",
+    "identity_access": "Current: authenticated current user and bounded access rules for protected writes",
     "fullstack_flow": "Integrate a usable React to database workflow; can overlap earlier stages",
     "reliability": "Integrity under failure/concurrency, useful tests and query performance",
     "independent_delivery": "Own a changed product task, diagnose incidents and validate AI work"
@@ -36,6 +36,11 @@
       "source": "work/tickets/OPS-002.md",
       "outcome": "Detail read delivered; manual validation date recorded",
       "on": "2026-09-07"
+    },
+    {
+      "source": "work/tickets/OPS-003.md",
+      "outcome": "Stage moved to identity_access: OPS-006 supplies current-user authentication and OPS-003 is the active protected write; authorization understanding and behavior are still unconfirmed",
+      "on": "2026-09-27"
     }
   ],
   "concepts": {
@@ -479,6 +484,50 @@
       "kind": "independent",
       "verified": true,
       "on": "2026-09-23",
+      "until": null
+    },
+    {
+      "id": "ops-003-concurrent-update-remediation-2026-09-27",
+      "concept": "authorization",
+      "context": "OPS-003-concurrent-close-remediation",
+      "source": "apps/api/src/appeals/appeals.service.ts",
+      "note": "Learner added a narrow catch around the conditional assignment update: P2025 becomes ConflictException and other errors are rethrown. API TypeScript build passed; Docker is stopped, so HTTP behavior and persistence are not yet observed.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-27",
+      "until": null
+    },
+    {
+      "id": "ops-003-authorization-http-matrix-2026-09-28",
+      "concept": "authorization",
+      "context": "OPS-003-protected-write-http-matrix",
+      "source": "work/tickets/OPS-003-requirements-log.md",
+      "note": "Learner predicted the allowed assignment, forbidden client, closed appeal and missing-session outcomes before the run. Temporary fixtures then verified 200 with persisted owner/IN_PROGRESS, 403, 409 and 401; malformed id returned 400. The exact P2025 race branch remains unobserved.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "ops-003-authorization-error-contract-2026-09-28",
+      "concept": "authorization",
+      "context": "OPS-003-missing-and-invalid-owner-cases",
+      "source": "work/tickets/OPS-003-requirements-log.md",
+      "note": "Learner predicted 404 for a missing appeal and missing owner, and 400 for an existing client selected as owner. Temporary-fixture HTTP checks verified all three; rejected writes left the NEW appeal without an owner.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-28",
+      "until": null
+    },
+    {
+      "id": "ops-003-narrow-error-mapping-understanding-2026-09-28",
+      "concept": "authorization",
+      "context": "OPS-003-understanding-check",
+      "source": "work/tickets/OPS-003-requirements-log.md",
+      "note": "Learner explained that P2025 after the conditional update is a state conflict because the appeal no longer has an allowed status, while catching all errors would hide a database or infrastructure failure under a false 409. This reasoning follows the implemented narrow catch and observed matrix.",
+      "kind": "independent",
+      "verified": true,
+      "on": "2026-09-28",
       "until": null
     }
   ]

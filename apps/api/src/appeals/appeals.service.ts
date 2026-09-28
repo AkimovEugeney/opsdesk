@@ -5,6 +5,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common'
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client'
 import { AppealStatus, Permissions, UserRole } from '../generated/prisma/enums'
 import { AppealsRepository } from './appeals.repository'
 
@@ -45,7 +46,14 @@ export class AppealsService {
       throw new BadRequestException('Owner must be an operator')
     }
 
-    return this.appealsRepository.updateAppealOwner(id, ownerId)
+    try {
+      return await this.appealsRepository.updateAppealOwner(id, ownerId)
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError && error.code === 'P2025') {
+        throw new ConflictException('State changed before update')
+      }
+      throw error
+    }
   }
 
   async findActive(search?: string) {

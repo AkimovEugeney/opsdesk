@@ -6,15 +6,15 @@
 | TypeScript | PRACTICING | Wrote null-safe function with optional chaining and narrowing. |
 | React | PRACTICING | Implemented `useState`; explained functional updates and the unconditional hook rule after guidance. |
 | browser | UNKNOWN | — |
-| HTTP | UNKNOWN | — |
+| HTTP | UNKNOWN | Individual endpoint behavior may be verified without upgrading this broad row. |
 | Node.js | NEW | Identified unhandled rejected Promise and selected `try/catch`; practice event-loop ordering. |
-| NestJS | PRACTICING | Implemented read flows in OPS-001/002. Basic layer responsibilities are familiar and parked below; this does not establish guards, DI internals or auth knowledge. |
+| NestJS | PRACTICING | Read flows and an auth/protected-write slice exist. Basic layer responsibilities are familiar and parked below; code presence does not establish guards, DI internals, authorization reasoning or endpoint behavior. |
 | SQL | PRACTICING | Wrote an active-appeals query with two joins, status filtering and custom `CASE` ordering for OPS-001; explained `LEFT JOIN` behaviour. OPS-005 added literal case-insensitive title matching with escaped `%` and `_` plus an optional filter; the learner explained both the escaping and the no-criterion path. |
 | PostgreSQL | UNKNOWN | — |
 | indexes | UNKNOWN | — |
 | transactions | UNKNOWN | — |
-| testing | UNKNOWN | — |
-| architecture | UNKNOWN | — |
+| testing | UNKNOWN | Next likely slice: repeatable allowed, denied and conflict checks after OPS-003 is verified. |
+| architecture | UNKNOWN | Teach through concrete boundaries, data ownership, dependencies, invariants and consequences in the active ticket. |
 | Git | UNKNOWN | Commit-message practice starts in `LEARN_MANUAL`; propose messages and explain commit boundaries before requesting review. |
 | ticket refinement | UNKNOWN | Follow `.skills/ticket-refinement`; identify ambiguity, dependencies and risks before estimating. |
 | sprint planning | UNKNOWN | Follow `.skills/sprint-planning`; plan against real capacity and one Sprint Goal. |
