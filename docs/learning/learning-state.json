@@ -617,6 +617,17 @@
       "verified": false,
       "on": "2026-09-30",
       "until": null
+    },
+    {
+      "id": "OPS-010-close-flow-assisted-2026-10-01",
+      "concept": "authorization",
+      "context": "OPS-010",
+      "source": "learner code; API build; unauthenticated invalid-body HTTP smoke",
+      "note": "Learner implemented the close-flow structure with current-owner comparison and conditional repository update after guided examples. API build passed and whitespace-only outcome returned 400; owner/forbidden/concurrent behavior is not yet observed and automated close tests remain pending.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-01",
+      "until": null
     }
   ]
 }

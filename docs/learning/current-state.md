@@ -10,7 +10,8 @@ Last reconciled: 2026-09-30. This is a pointer, not a second ledger or requireme
 - Routine frontend foundation: `apps/web` is a Next.js TypeScript App Router project. Build/lint passed; the local page rendered the static Russian title and empty state. The existing dev server on port 3001 belongs to a separate process and was not stopped.
 - Learning evidence: learner independently identified that `useState` is for changing local state; the `react-state-hooks` application is recorded and status remains `PRACTICING`.
 - Routine setup: `class-validator` and `class-transformer` installed. Local `ValidationPipe` behavior was verified by HTTP smoke checks; build and 5 existing service tests passed. `npm install` reported 6 high-severity audit findings; no audit fix was run.
-- Active refinement: [OPS-010](../../work/tickets/OPS-010.md) — close an in-progress appeal with a recorded outcome. Learner estimate: 2–3 h. Implementation has not started.
+- Active ticket: [OPS-010](../../work/tickets/OPS-010.md) — close an in-progress appeal with a recorded outcome. Estimate: 2–3 h; implementation exists, but close-flow tests and authenticated runtime validation remain pending.
+- Next session task: only add the deterministic service-test matrix in `apps/api/test/appeals.service.test.ts` for client `403`, non-owner `403`, owner success and `P2025 → 409`; then run `npm test && npm run build`. No schema/repository/service/controller change is planned before that evidence.
 
 ## Learning evidence
 
