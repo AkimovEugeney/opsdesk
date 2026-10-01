@@ -65,17 +65,20 @@ export class AppealsController {
     })
   }
 
-  @Patch('/appeals/:id/close')
+  @Patch(':id/close')
   async closeAppeal(
     @Req() request: Request,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', new ParseIntPipe()) id: number,
     @Body(
       new ValidationPipe({
-        transform: false,
+        transform: true,
       }),
     )
     body: CloseAppealDto,
   ) {
+    if (id <= 0 || id > 2147483647) {
+      throw new BadRequestException('Id is not valid')
+    }
     const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
     if (!sessionId) throw new UnauthorizedException('Session not found')
     const currentUser = await this.authService.getCurrentUser(sessionId)
