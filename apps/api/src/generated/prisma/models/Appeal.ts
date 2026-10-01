@@ -44,6 +44,7 @@ export type AppealMinAggregateOutputType = {
   title: string | null
   description: string | null
   clientId: number | null
+  outcome: string | null
   createdAt: Date | null
   updatedAt: Date | null
   closedAt: Date | null
@@ -56,6 +57,7 @@ export type AppealMaxAggregateOutputType = {
   title: string | null
   description: string | null
   clientId: number | null
+  outcome: string | null
   createdAt: Date | null
   updatedAt: Date | null
   closedAt: Date | null
@@ -68,6 +70,7 @@ export type AppealCountAggregateOutputType = {
   title: number
   description: number
   clientId: number
+  outcome: number
   createdAt: number
   updatedAt: number
   closedAt: number
@@ -94,6 +97,7 @@ export type AppealMinAggregateInputType = {
   title?: true
   description?: true
   clientId?: true
+  outcome?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -106,6 +110,7 @@ export type AppealMaxAggregateInputType = {
   title?: true
   description?: true
   clientId?: true
+  outcome?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -118,6 +123,7 @@ export type AppealCountAggregateInputType = {
   title?: true
   description?: true
   clientId?: true
+  outcome?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -217,6 +223,7 @@ export type AppealGroupByOutputType = {
   title: string
   description: string
   clientId: number
+  outcome: string | null
   createdAt: Date
   updatedAt: Date
   closedAt: Date | null
@@ -252,6 +259,7 @@ export type AppealWhereInput = {
   title?: Prisma.StringFilter<"Appeal"> | string
   description?: Prisma.StringFilter<"Appeal"> | string
   clientId?: Prisma.IntFilter<"Appeal"> | number
+  outcome?: Prisma.StringNullableFilter<"Appeal"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"Appeal"> | Date | string | null
@@ -266,6 +274,7 @@ export type AppealOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  outcome?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -283,6 +292,7 @@ export type AppealWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Appeal"> | string
   description?: Prisma.StringFilter<"Appeal"> | string
   clientId?: Prisma.IntFilter<"Appeal"> | number
+  outcome?: Prisma.StringNullableFilter<"Appeal"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"Appeal"> | Date | string | null
@@ -297,6 +307,7 @@ export type AppealOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  outcome?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -317,6 +328,7 @@ export type AppealScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Appeal"> | string
   description?: Prisma.StringWithAggregatesFilter<"Appeal"> | string
   clientId?: Prisma.IntWithAggregatesFilter<"Appeal"> | number
+  outcome?: Prisma.StringNullableWithAggregatesFilter<"Appeal"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Appeal"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Appeal"> | Date | string
   closedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Appeal"> | Date | string | null
@@ -327,6 +339,7 @@ export type AppealCreateInput = {
   status: $Enums.AppealStatus
   title: string
   description: string
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -340,6 +353,7 @@ export type AppealUncheckedCreateInput = {
   title: string
   description: string
   clientId: number
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -350,6 +364,7 @@ export type AppealUpdateInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -363,6 +378,7 @@ export type AppealUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   clientId?: Prisma.IntFieldUpdateOperationsInput | number
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -375,6 +391,7 @@ export type AppealCreateManyInput = {
   title: string
   description: string
   clientId: number
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -385,6 +402,7 @@ export type AppealUpdateManyMutationInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -396,6 +414,7 @@ export type AppealUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   clientId?: Prisma.IntFieldUpdateOperationsInput | number
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -418,6 +437,7 @@ export type AppealCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -436,6 +456,7 @@ export type AppealMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -448,6 +469,7 @@ export type AppealMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  outcome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -548,6 +570,10 @@ export type EnumAppealStatusFieldUpdateOperationsInput = {
   set?: $Enums.AppealStatus
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
@@ -564,6 +590,7 @@ export type AppealCreateWithoutClientInput = {
   status: $Enums.AppealStatus
   title: string
   description: string
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -575,6 +602,7 @@ export type AppealUncheckedCreateWithoutClientInput = {
   status: $Enums.AppealStatus
   title: string
   description: string
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -595,6 +623,7 @@ export type AppealCreateWithoutOwnerInput = {
   status: $Enums.AppealStatus
   title: string
   description: string
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -607,6 +636,7 @@ export type AppealUncheckedCreateWithoutOwnerInput = {
   title: string
   description: string
   clientId: number
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -647,6 +677,7 @@ export type AppealScalarWhereInput = {
   title?: Prisma.StringFilter<"Appeal"> | string
   description?: Prisma.StringFilter<"Appeal"> | string
   clientId?: Prisma.IntFilter<"Appeal"> | number
+  outcome?: Prisma.StringNullableFilter<"Appeal"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Appeal"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"Appeal"> | Date | string | null
@@ -674,6 +705,7 @@ export type AppealCreateManyClientInput = {
   status: $Enums.AppealStatus
   title: string
   description: string
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -686,6 +718,7 @@ export type AppealCreateManyOwnerInput = {
   title: string
   description: string
   clientId: number
+  outcome?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -695,6 +728,7 @@ export type AppealUpdateWithoutClientInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -706,6 +740,7 @@ export type AppealUncheckedUpdateWithoutClientInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -717,6 +752,7 @@ export type AppealUncheckedUpdateManyWithoutClientInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -727,6 +763,7 @@ export type AppealUpdateWithoutOwnerInput = {
   status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -739,6 +776,7 @@ export type AppealUncheckedUpdateWithoutOwnerInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   clientId?: Prisma.IntFieldUpdateOperationsInput | number
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -750,6 +788,7 @@ export type AppealUncheckedUpdateManyWithoutOwnerInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   clientId?: Prisma.IntFieldUpdateOperationsInput | number
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -763,6 +802,7 @@ export type AppealSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   title?: boolean
   description?: boolean
   clientId?: boolean
+  outcome?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -777,6 +817,7 @@ export type AppealSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   title?: boolean
   description?: boolean
   clientId?: boolean
+  outcome?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -791,6 +832,7 @@ export type AppealSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   title?: boolean
   description?: boolean
   clientId?: boolean
+  outcome?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -805,13 +847,14 @@ export type AppealSelectScalar = {
   title?: boolean
   description?: boolean
   clientId?: boolean
+  outcome?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
   ownerId?: boolean
 }
 
-export type AppealOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "status" | "title" | "description" | "clientId" | "createdAt" | "updatedAt" | "closedAt" | "ownerId", ExtArgs["result"]["appeal"]>
+export type AppealOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "status" | "title" | "description" | "clientId" | "outcome" | "createdAt" | "updatedAt" | "closedAt" | "ownerId", ExtArgs["result"]["appeal"]>
 export type AppealInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   client?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   owner?: boolean | Prisma.Appeal$ownerArgs<ExtArgs>
@@ -837,6 +880,7 @@ export type $AppealPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     title: string
     description: string
     clientId: number
+    outcome: string | null
     createdAt: Date
     updatedAt: Date
     closedAt: Date | null
@@ -1271,6 +1315,7 @@ export interface AppealFieldRefs {
   readonly title: Prisma.FieldRef<"Appeal", 'String'>
   readonly description: Prisma.FieldRef<"Appeal", 'String'>
   readonly clientId: Prisma.FieldRef<"Appeal", 'Int'>
+  readonly outcome: Prisma.FieldRef<"Appeal", 'String'>
   readonly createdAt: Prisma.FieldRef<"Appeal", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Appeal", 'DateTime'>
   readonly closedAt: Prisma.FieldRef<"Appeal", 'DateTime'>

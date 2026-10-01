@@ -44,6 +44,7 @@ model Appeal {
     description String
     client      User         @relation("AppealClient", fields: [clientId], references: [id])
     clientId    Int
+    outcome     String?
     createdAt   DateTime     @default(now())
     updatedAt   DateTime     @updatedAt
     closedAt    DateTime?

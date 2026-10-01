@@ -8,7 +8,7 @@
 | browser | UNKNOWN | — |
 | HTTP | UNKNOWN | Individual endpoint behavior may be verified without upgrading this broad row. |
 | Node.js | NEW | Identified unhandled rejected Promise and selected `try/catch`; practice event-loop ordering. |
-| NestJS | PRACTICING | Read flows and an auth/protected-write slice exist. Basic layer responsibilities are familiar and parked below; code presence does not establish guards, DI internals, authorization reasoning or endpoint behavior. |
+| NestJS | PRACTICING | Read flows and an auth/protected-write slice exist. OPS-009 added one assisted local DTO/ValidationPipe application with observed invalid-input behavior; this does not establish broad pipe, guard, DI or endpoint mastery. |
 | SQL | PRACTICING | Wrote an active-appeals query with two joins, status filtering and custom `CASE` ordering for OPS-001; explained `LEFT JOIN` behaviour. OPS-005 added literal case-insensitive title matching with escaped `%` and `_` plus an optional filter; the learner explained both the escaping and the no-criterion path. |
 | PostgreSQL | UNKNOWN | — |
 | indexes | UNKNOWN | — |

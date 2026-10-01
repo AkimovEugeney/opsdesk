@@ -29,7 +29,7 @@ export class AppealsService {
       throw new ForbiddenException('Appeal management is forbidden')
     }
 
-    const appeal = await this.appealsRepository.findAssignmentStateById(id)
+    const appeal = await this.appealsRepository.findStateById(id)
 
     if (!appeal) {
       throw new NotFoundException('Appeal not found')
@@ -70,5 +70,32 @@ export class AppealsService {
       throw new NotFoundException(`Обращение с ID ${id} не найдено`)
     }
     return appeal
+  }
+
+  async closeAppeal(id: number, outcome: string, currentUser: { id: number; role: UserRole }) {
+    if (currentUser.role !== UserRole.OPERATOR) {
+      throw new ForbiddenException('Appeal closing is forbidden')
+    }
+    const appeal = await this.appealsRepository.findStateById(id)
+    if (!appeal) {
+      throw new NotFoundException('Appeal not found')
+    }
+
+    if (appeal.ownerId !== currentUser.id) {
+      throw new ForbiddenException('Appeal closing is forbidden')
+    }
+
+    if (appeal.status !== AppealStatus.IN_PROGRESS) {
+      throw new ConflictException('Appeal cannot be closed')
+    }
+
+    try {
+      return await this.appealsRepository.closeAppeal(id, currentUser.id, outcome)
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError && error.code === 'P2025') {
+        throw new ConflictException('State changed before close')
+      }
+      throw error
+    }
   }
 }

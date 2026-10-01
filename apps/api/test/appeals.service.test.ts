@@ -19,7 +19,7 @@ test('allows a permitted operator to assign an appeal owner', async () => {
   }
 
   const repositoryStub = {
-    findAssignmentStateById: async () => ({
+    findStateById: async () => ({
       id: 7,
       status: AppealStatus.NEW,
     }),
@@ -45,7 +45,7 @@ test('allows a permitted operator to assign an appeal owner', async () => {
 
 test('rejects a client before repository access', async () => {
   const repositoryStub = {
-    findAssignmentStateById: async () => {
+    findStateById: async () => {
       throw new Error('repository must not be called')
     },
     findUserRoleById: async () => {
@@ -82,7 +82,7 @@ test('maps conditional update P2025 to conflict', async () => {
   )
 
   const repositoryStub = {
-    findAssignmentStateById: async () => ({
+    findStateById: async () => ({
       id: 7,
       status: AppealStatus.NEW,
     }),
@@ -115,7 +115,7 @@ test('rethrows an unexpected repository error', async () => {
   const databaseError = new Error("database unavailable")
 
   const repositoryStub = {
-    findAssignmentStateById: async () => ({
+    findStateById: async () => ({
       id: 7,
       status: AppealStatus.NEW,
     }),
@@ -154,7 +154,7 @@ test('rethrows an unexpected repository error (2)', async () => {
   )
 
   const repositoryStub = {
-    findAssignmentStateById: async () => ({
+    findStateById: async () => ({
       id: 7,
       status: AppealStatus.NEW,
     }),

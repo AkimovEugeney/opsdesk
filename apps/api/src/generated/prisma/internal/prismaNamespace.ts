@@ -699,6 +699,7 @@ export const AppealScalarFieldEnum = {
   title: 'title',
   description: 'description',
   clientId: 'clientId',
+  outcome: 'outcome',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   closedAt: 'closedAt',

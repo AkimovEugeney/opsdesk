@@ -9,6 +9,7 @@ type AppealDetailsRow = {
   description: string
   createdAt: Date
   closedAt: Date | null
+  outcome: string | null
   clientName: string
   ownerName: string | null
 }
@@ -49,16 +50,30 @@ export class AppealsRepository {
   `
   }
 
- async updateAppealOwner(appealId: number, ownerId: number) {
-  return this.prismaService.appeal.update({
-    where: {
-      id: appealId,
-      status: { in: [AppealStatus.NEW, AppealStatus.IN_PROGRESS] },
-    },
-    data: { ownerId, status: AppealStatus.IN_PROGRESS },
-    select: { id: true, status: true, ownerId: true, updatedAt: true },
-  })
-}
+  async closeAppeal(id: number, ownerId: number, outcome: string) {
+    return await this.prismaService.appeal.update({
+      where: { id, ownerId, status: AppealStatus.IN_PROGRESS },
+      data: { status: AppealStatus.CLOSED, closedAt: new Date(), outcome },
+      select: {
+        id: true,
+        status: true,
+        outcome: true,
+        closedAt: true,
+        updatedAt: true,
+      },
+    })
+  }
+
+  async updateAppealOwner(appealId: number, ownerId: number) {
+    return this.prismaService.appeal.update({
+      where: {
+        id: appealId,
+        status: { in: [AppealStatus.NEW, AppealStatus.IN_PROGRESS] },
+      },
+      data: { ownerId, status: AppealStatus.IN_PROGRESS },
+      select: { id: true, status: true, ownerId: true, updatedAt: true },
+    })
+  }
 
   async findUserRoleById(userId: number) {
     return this.prismaService.user.findUnique({
@@ -66,10 +81,10 @@ export class AppealsRepository {
       select: { id: true, role: true },
     })
   }
-  async findAssignmentStateById(appealId: number) {
+  async findStateById(appealId: number) {
     return await this.prismaService.appeal.findUnique({
       where: { id: appealId },
-      select: { id: true, status: true },
+      select: { id: true, status: true, ownerId: true },
     })
   }
 
@@ -82,6 +97,7 @@ export class AppealsRepository {
         appeal."description",
         appeal."createdAt",
         appeal."closedAt",
+        appeal."outcome",
         client."name" AS "clientName",
         owner."name" AS "ownerName"
     FROM "Appeal" AS appeal

@@ -9,11 +9,14 @@ import {
   Query,
   Req,
   UnauthorizedException,
+  ValidationPipe,
 } from '@nestjs/common'
 import { Request } from 'express'
 import { AuthService } from '../auth/auth.service'
 import { COOKIE_NAME } from '../auth/session.constants'
 import { AppealsService } from './appeals.service'
+import { AssignOwnerDto } from './dto/assign-owner.dto'
+import { CloseAppealDto } from './dto/close-appeal.dto'
 
 @Controller('appeals')
 export class AppealsController {
@@ -39,19 +42,18 @@ export class AppealsController {
   async approveOwner(
     @Req() request: Request,
     @Param('id', new ParseIntPipe()) id: number,
-    @Body('ownerId') ownerId: number,
+    @Body(
+      new ValidationPipe({
+        transform: false,
+        exceptionFactory: () => new BadRequestException('ownerId must be a positive integer'),
+      }),
+    )
+    body: AssignOwnerDto,
   ) {
     if (id <= 0 || id > 2147483647) {
       throw new BadRequestException('Id is not valid')
     }
-    if (
-      typeof ownerId !== 'number' ||
-      !Number.isInteger(ownerId) ||
-      ownerId <= 0 ||
-      ownerId > 2147483647
-    ) {
-      throw new BadRequestException('ownerId must be a positive integer')
-    }
+    const { ownerId } = body
     const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
     if (!sessionId) throw new UnauthorizedException('Session not found')
     const currentUser = await this.authService.getCurrentUser(sessionId)
@@ -60,6 +62,26 @@ export class AppealsController {
       id: currentUser.id,
       role: currentUser.role,
       permissions: currentUser.permissions,
+    })
+  }
+
+  @Patch('/appeals/:id/close')
+  async closeAppeal(
+    @Req() request: Request,
+    @Param('id', ParseIntPipe) id: number,
+    @Body(
+      new ValidationPipe({
+        transform: false,
+      }),
+    )
+    body: CloseAppealDto,
+  ) {
+    const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
+    if (!sessionId) throw new UnauthorizedException('Session not found')
+    const currentUser = await this.authService.getCurrentUser(sessionId)
+    return this.appealsService.closeAppeal(id, body.outcome, {
+      id: currentUser.id,
+      role: currentUser.role,
     })
   }
 }

@@ -1,16 +1,16 @@
 # Current learning state
 
-Last reconciled: 2026-09-28. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-09-30. This is a pointer, not a second ledger or requirements log.
 
 ## Active work
 
-- Ticket: [OPS-008](../../work/tickets/OPS-008.md) — static active-appeals frontend foundation; status **Done — direct/local delivery recorded**.
+- OPS-009 is Done — local DTO validation for protected owner assignment; learner actual 20 min; direct/local delivery without Git operations.
 - OPS-003 remains Done — direct/local delivery through existing commit `3e0cafb`; no new Git operation is requested.
 - OPS-007 remains Done — direct/local delivery; its `node:test` matrix passed 5/5 and API build passed.
 - Routine frontend foundation: `apps/web` is a Next.js TypeScript App Router project. Build/lint passed; the local page rendered the static Russian title and empty state. The existing dev server on port 3001 belongs to a separate process and was not stopped.
 - Learning evidence: learner independently identified that `useState` is for changing local state; the `react-state-hooks` application is recorded and status remains `PRACTICING`.
-- Delivery: learner reported 10 min actual; direct/local route without Git operations. The learner separately attributed 30 min to Codex routine setup, excluded from learner capacity actual.
-- Next action: choose and refine a backend-focused product slice. When frontend is involved, select a concrete middle-level engineering concern (data flow, async lifecycle, browser boundary, performance/accessibility or debugging), not static markup; resolve CORS and session/auth boundaries rather than inventing client identity.
+- Routine setup: `class-validator` and `class-transformer` installed. Local `ValidationPipe` behavior was verified by HTTP smoke checks; build and 5 existing service tests passed. `npm install` reported 6 high-severity audit findings; no audit fix was run.
+- Active refinement: [OPS-010](../../work/tickets/OPS-010.md) — close an in-progress appeal with a recorded outcome. Learner estimate: 2–3 h. Implementation has not started.
 
 ## Learning evidence
 

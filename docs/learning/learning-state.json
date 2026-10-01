@@ -606,6 +606,17 @@
       "verified": true,
       "on": "2026-09-28",
       "until": null
+    },
+    {
+      "id": "OPS-009-local-dto-validation-assisted-2026-09-30",
+      "concept": "http-input-validation",
+      "context": "OPS-009",
+      "source": "learner controller/DTO edit; local HTTP smoke and API build",
+      "note": "Learner replaced the manual ownerId positive-int32 guard with a local DTO and ValidationPipe, kept the boundary scoped to PATCH owner assignment, and observed invalid JSON values return 400. Exact ValidationPipe configuration and response-body remediation were mentor-supplied; this is assisted application, not an independent mastery claim.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-09-30",
+      "until": null
     }
   ]
 }
