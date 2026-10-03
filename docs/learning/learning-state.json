@@ -696,6 +696,17 @@
       "verified": false,
       "on": "2026-10-03",
       "until": null
+    },
+    {
+      "id": "ops-013-author-from-session-assisted-2026-10-03",
+      "concept": "authorization",
+      "context": "OPS-013-create-appeal",
+      "source": "learner code; observed HTTP matrix with temporary sessions",
+      "note": "The learner implemented POST /appeals ahead of any agreed contract and made the central decision himself: the author of the new appeal comes from the authenticated session and never from the request body. The observed matrix proved it - a body carrying clientId, ownerId and status was stored under the session author as NEW with no owner - and the route answered 401 without a session and 403 for an operator without creating a row. Review corrections were needed in the supporting parts: the role check had to be taught (403 rather than 401, and the throw form), the repository returned the raw stored row until an explicit projection was added, and the create handler used transform: false so the DTO trim never reached storage. Recorded as assisted for that reason, not as independent mastery.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-03",
+      "until": null
     }
   ]
 }
