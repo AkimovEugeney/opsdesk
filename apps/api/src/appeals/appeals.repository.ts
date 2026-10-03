@@ -50,6 +50,24 @@ export class AppealsRepository {
   `
   }
 
+  async createAppeal(clientId: number, title: string, description: string) {
+    return await this.prismaService.appeal.create({
+      data: {
+        clientId,
+        title,
+        description,
+        status: AppealStatus.NEW,
+      },
+      select: {
+        id: true,
+        status: true,
+        title: true,
+        description: true,
+        createdAt: true
+      },
+    })
+  }
+
   async closeAppeal(id: number, ownerId: number, outcome: string) {
     return await this.prismaService.appeal.update({
       where: { id, ownerId, status: AppealStatus.IN_PROGRESS },

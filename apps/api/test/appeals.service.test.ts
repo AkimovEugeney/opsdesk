@@ -181,3 +181,151 @@ test('rethrows an unexpected repository error (2)', async () => {
     (error: unknown) =>  error === p2023,
   )
 })
+
+test('rejects a client from closing before repository access', async () => {
+  const repositoryStub = {
+    findStateById: async () => {
+      throw new Error('repository must not be called')
+    },
+    closeAppeal: async () => {
+      throw new Error('repository must not be called')
+    },
+  }
+
+  const service = new AppealsService(
+    repositoryStub as unknown as AppealsRepository,
+  )
+
+  await assert.rejects(
+    () =>
+      service.closeAppeal(7, 'Issue resolved', {
+        id: 3,
+        role: UserRole.CLIENT,
+      }),
+    (error: unknown) =>
+      error instanceof ForbiddenException && error.getStatus() === 403,
+  )
+})
+
+test('rejects a different operator from closing an appeal', async () => {
+  const repositoryStub = {
+    findStateById: async () => ({
+      id: 7,
+      status: AppealStatus.IN_PROGRESS,
+      ownerId: 2,
+    }),
+    closeAppeal: async () => {
+      throw new Error('repository must not be called')
+    },
+  }
+
+  const service = new AppealsService(
+    repositoryStub as unknown as AppealsRepository,
+  )
+
+  await assert.rejects(
+    () =>
+      service.closeAppeal(7, 'Issue resolved', {
+        id: 1,
+        role: UserRole.OPERATOR,
+      }),
+    (error: unknown) =>
+      error instanceof ForbiddenException && error.getStatus() === 403,
+  )
+})
+
+test('allows the current owner to close an in-progress appeal', async () => {
+  const expectedResult = {
+    id: 7,
+    status: AppealStatus.CLOSED,
+    outcome: 'Issue resolved',
+    closedAt: new Date('2026-10-03T12:00:00.000Z'),
+    updatedAt: new Date('2026-10-03T12:00:00.000Z'),
+  }
+  let closeArguments: [number, number, string] | undefined
+
+  const repositoryStub = {
+    findStateById: async () => ({
+      id: 7,
+      status: AppealStatus.IN_PROGRESS,
+      ownerId: 2,
+    }),
+    closeAppeal: async (id: number, ownerId: number, outcome: string) => {
+      closeArguments = [id, ownerId, outcome]
+      return expectedResult
+    },
+  }
+
+  const service = new AppealsService(
+    repositoryStub as unknown as AppealsRepository,
+  )
+
+  const result = await service.closeAppeal(7, 'Issue resolved', {
+    id: 2,
+    role: UserRole.OPERATOR,
+  })
+
+  assert.deepEqual(closeArguments, [7, 2, 'Issue resolved'])
+  assert.deepEqual(result, expectedResult)
+})
+
+test('maps close conditional update P2025 to conflict', async () => {
+  const p2025 = new PrismaClientKnownRequestError(
+    'Record to update not found',
+    {
+      code: 'P2025',
+      clientVersion: '7.9.1',
+    },
+  )
+  const repositoryStub = {
+    findStateById: async () => ({
+      id: 7,
+      status: AppealStatus.IN_PROGRESS,
+      ownerId: 2,
+    }),
+    closeAppeal: async () => {
+      throw p2025
+    },
+  }
+
+  const service = new AppealsService(
+    repositoryStub as unknown as AppealsRepository,
+  )
+
+  await assert.rejects(
+    () =>
+      service.closeAppeal(7, 'Issue resolved', {
+        id: 2,
+        role: UserRole.OPERATOR,
+      }),
+    (error: unknown) =>
+      error instanceof ConflictException && error.getStatus() === 409,
+  )
+})
+
+test('rethrows an unexpected close repository error', async () => {
+  const databaseError = new Error('database unavailable')
+  const repositoryStub = {
+    findStateById: async () => ({
+      id: 7,
+      status: AppealStatus.IN_PROGRESS,
+      ownerId: 2,
+    }),
+    closeAppeal: async () => {
+      throw databaseError
+    },
+  }
+
+  const service = new AppealsService(
+    repositoryStub as unknown as AppealsRepository,
+  )
+
+  await assert.rejects(
+    () =>
+      service.closeAppeal(7, 'Issue resolved', {
+        id: 2,
+        role: UserRole.OPERATOR,
+      }),
+    (error: unknown) => error === databaseError,
+  )
+})

@@ -6,6 +6,7 @@ import {
   Param,
   ParseIntPipe,
   Patch,
+  Post,
   Query,
   Req,
   UnauthorizedException,
@@ -17,6 +18,7 @@ import { COOKIE_NAME } from '../auth/session.constants'
 import { AppealsService } from './appeals.service'
 import { AssignOwnerDto } from './dto/assign-owner.dto'
 import { CloseAppealDto } from './dto/close-appeal.dto'
+import { CreateAppealDto } from './dto/create-appeal.dto'
 
 @Controller('appeals')
 export class AppealsController {
@@ -83,6 +85,25 @@ export class AppealsController {
     if (!sessionId) throw new UnauthorizedException('Session not found')
     const currentUser = await this.authService.getCurrentUser(sessionId)
     return this.appealsService.closeAppeal(id, body.outcome, {
+      id: currentUser.id,
+      role: currentUser.role,
+    })
+  }
+
+  @Post()
+  async createAppeal(
+    @Req() request: Request,
+    @Body(
+      new ValidationPipe({
+        transform: true,
+      }),
+    )
+    dto: CreateAppealDto,
+  ) {
+    const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
+    if (!sessionId) throw new UnauthorizedException('Session not found')
+    const currentUser = await this.authService.getCurrentUser(sessionId)
+    return this.appealsService.createAppeal(dto.title, dto.description, {
       id: currentUser.id,
       role: currentUser.role,
     })

@@ -346,6 +346,41 @@
         ]
       }
     },
+    "session-termination": {
+      "title": "Terminating a session: server-side invalidation and cookie expiry",
+      "capabilities": [
+        "access",
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "Introduced in OPS-012; no earlier evidence exists and none is reconstructed.",
+        "sources": [
+          "work/tickets/OPS-012.md"
+        ]
+      }
+    },
+    "nest-response-ownership": {
+      "title": "Who sends the HTTP response: framework response ownership and @Res passthrough",
+      "capabilities": [
+        "api"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "Introduced in OPS-012 when the handler had to write a Set-Cookie header while the framework still applied the status.",
+        "sources": [
+          "work/tickets/OPS-012.md"
+        ]
+      }
+    },
     "git-delivery": {
       "title": "Coherent commits and reviewable delivery",
       "capabilities": [
@@ -627,6 +662,39 @@
       "kind": "assisted",
       "verified": false,
       "on": "2026-10-01",
+      "until": null
+    },
+    {
+      "id": "ops-012-session-termination-assisted-2026-10-03",
+      "concept": "session-termination",
+      "context": "OPS-012-logout",
+      "source": "apps/api/src/auth/auth.controller.ts and auth.service.ts; runtime matrix with temporary sessions",
+      "note": "Learner wrote the logout route and the service method from a settled contract. Review corrected a missing await in the service, a state-changing GET instead of POST, an unnecessary 401 when no cookie was present, and an ordering where the cookie was expired before the delete. After the corrections the runtime matrix passed: 204 with an expired cookie, 401 on reuse of the same cookie, the row deleted, another session of the same user unaffected, and both the no-cookie and unknown-value cases answered 204 with the same expiry; temporary sessions were restored (22 -> 24 -> 22). Recorded as assisted: the contract was mentor-settled and several corrections were required, so this is not independent learner reasoning evidence.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-03",
+      "until": null
+    },
+    {
+      "id": "ops-012-response-ownership-assisted-2026-10-03",
+      "concept": "nest-response-ownership",
+      "context": "OPS-012-logout",
+      "source": "learner code; observed 204 with Set-Cookie; mentor explanation after the learner reported no understanding",
+      "note": "Learner used @Res({ passthrough: true }) with @HttpCode(204) and the runtime returned 204 while the handler wrote only the cookie header. The mechanism was new: the first mentor explanation opened with framework internals and the learner reported that nothing was clear, which is recorded as a mentor process error; after one plain sentence plus a three-line comparison of the handler variants the learner applied it correctly. Assisted application, not independent mastery.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-03",
+      "until": null
+    },
+    {
+      "id": "ops-012-failure-path-asymmetry-assisted-2026-10-03",
+      "concept": "session-termination",
+      "context": "OPS-012-understanding-check",
+      "source": "learner answer in session; observed 500-without-Set-Cookie run",
+      "note": "Asked what the API answers with an unavailable store, what happens to the browser cookie and why, the learner answered that the request fails before the cookie clearing and a 500 is returned. Both parts are correct. The unstated consequence, supplied by the mentor, is that the browser keeps its cookie and the session stays live, so the client must not be told it logged out. Because the rule was stated earlier in the same session, this is assisted recognition, not independent reasoning.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-03",
       "until": null
     }
   ]

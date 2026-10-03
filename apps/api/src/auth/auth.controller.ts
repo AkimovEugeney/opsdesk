@@ -47,4 +47,14 @@ export class AuthController {
       role: currentUser.role,
     }
   }
+
+  @Post('/logout')
+  @HttpCode(204)
+  async logout(@Res({ passthrough: true }) response: Response, @Req() request: Request) {
+    const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
+    if (sessionId) {
+      await this.authService.logout(sessionId)
+    }
+    response.clearCookie(COOKIE_NAME, { path: '/' })
+  }
 }

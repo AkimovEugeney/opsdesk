@@ -59,6 +59,10 @@ export class AuthService {
     return session.user
   }
 
+  async logout(sessionId: string) {
+    await this.prismaService.session.deleteMany({where: {id: sessionId}})
+  }
+
   async findUserByEmail(email: string) {
     return this.prismaService.user.findUnique({
       where: { email },

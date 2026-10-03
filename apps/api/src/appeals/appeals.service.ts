@@ -98,4 +98,11 @@ export class AppealsService {
       throw error
     }
   }
+
+  async createAppeal(title: string, description: string, user: {id: number, role: string}) {
+    if (user.role != UserRole.CLIENT) {
+       throw new ForbiddenException('');
+    }
+    return await  this.appealsRepository.createAppeal(user.id, title,description)
+  }
 }

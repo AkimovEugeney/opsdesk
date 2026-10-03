@@ -24,7 +24,7 @@
 | 2026-08-12 — 2026-08-18 | 8–12 h | 3.25 h | 4.75–8.75 h unused | Closed |
 | 2026-09-07 — 2026-09-13 | 3–6 h | 0.75 h recorded | 2.25–5.25 h unused | Closed 2026-09-22, after its window |
 | 2026-09-21 — 2026-09-27 | 5–8 h | 3.5 h | 1.5–4.5 h unassigned, not a quota | Closed 2026-09-26; OPS-006 Done |
-| 2026-09-28 — 2026-10-04 | 3–4 h | 5 h 30 min | 1 h 30 min above the original OPS-003 plan | Active — OPS-003 and unplanned OPS-007/008/009 Done; capacity review remains at iteration close |
+| 2026-09-28 — 2026-10-04 | 3–4 h | 7 h | 3 h above the original OPS-003 plan | Active — OPS-003 and unplanned OPS-007/008/009/012 delivered or validated; OPS-010 and OPS-012 await completion records; capacity review remains at iteration close |
 
 Recorded time consists of OPS-000 (0.75 h), OPS-001 (2.5 h), OPS-004 (0.25 h), OPS-005 (0.50 h) and [OPS-006](../../work/tickets/OPS-006.md) (3 h 30 min). OPS-002 actual time was never recorded and is not reconstructed. Recorded iteration totals: Sprint 0 3.25 h, Sprint 1 0.75 h, Sprint 2 3.5 h. Sprint 2's unassigned capacity is recorded as available time, not a missed quota; its primary process finding is the learner-reported mentor friction inside the recorded actual.
 
