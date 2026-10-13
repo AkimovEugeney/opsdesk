@@ -48,7 +48,7 @@ export class AuthController {
     }
   }
 
-  @Post('/logout')
+  @Post('logout')
   @HttpCode(204)
   async logout(@Res({ passthrough: true }) response: Response, @Req() request: Request) {
     const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]

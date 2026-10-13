@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-09-30. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-10-03. This is a pointer, not a second ledger or requirements log.
 
 ## Active work
 
@@ -15,7 +15,8 @@ Last reconciled: 2026-09-30. This is a pointer, not a second ledger or requireme
 - Direction: deepen backend work, then return to the frontend in roughly four learner sessions. Backend gaps grounded in the code: no session termination anywhere (`logout`/`clearCookie` absent), no `POST /appeals` so the `CLIENT` role has no product action, and only one test file (`apps/api/test/appeals.service.test.ts`) with no HTTP-level coverage.
 - OPS-012 is Done — direct/local delivery. Logout implemented, verified at runtime (`204` with an expired cookie, `401` on reuse of `GET /auth/me`, `PATCH /appeals/:id/close` and `PATCH /appeals/:id/owner`, other sessions untouched, and `500` without a cookie header when the store was unreachable), independently reviewed with PASS and the understanding check passed; learner actual 30 min. Open without blocking: no durable automated coverage, and the expired-row variant of the ended-session case.
 - OPS-013 is Done — direct/local delivery. `POST /appeals` created by a client; four divergences fixed; every acceptance criterion observed, including the `description`, missing-field and invalid-cookie cases that the independent reviewer found unproven; review verdict PASS. Learner reported 15 min for the implementation only — fix and verification time is unrecorded. Still open without blocking: no automated coverage for the create path, the reviewer's style suggestions, and one contract question (whether `description` should keep the 200-character limit or follow the close flow's 2000).
-- Next session task: confirm the next iteration's capacity, close Sprint 3 within its window (2026-10-04), then plan the next slice.
+- Sprint 3 is Closed 2026-10-03, inside its window: 7 tickets, recorded 7 h 15 min against a confirmed 3–4 h; four runtime matrices with cleanup verified and two independent reviews (both PASS). Full record in [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md).
+- Next session task: confirm the learner's capacity for the next iteration (2026-10-05 — 2026-10-11), then close OPS-010 with its single understanding check and plan the next slice.
 
 ## Learning evidence
 

@@ -10,7 +10,6 @@ import {
   Query,
   Req,
   UnauthorizedException,
-  ValidationPipe,
 } from '@nestjs/common'
 import { Request } from 'express'
 import { AuthService } from '../auth/auth.service'
@@ -44,12 +43,7 @@ export class AppealsController {
   async approveOwner(
     @Req() request: Request,
     @Param('id', new ParseIntPipe()) id: number,
-    @Body(
-      new ValidationPipe({
-        transform: false,
-        exceptionFactory: () => new BadRequestException('ownerId must be a positive integer'),
-      }),
-    )
+    @Body()
     body: AssignOwnerDto,
   ) {
     if (id <= 0 || id > 2147483647) {
@@ -71,11 +65,7 @@ export class AppealsController {
   async closeAppeal(
     @Req() request: Request,
     @Param('id', new ParseIntPipe()) id: number,
-    @Body(
-      new ValidationPipe({
-        transform: true,
-      }),
-    )
+    @Body()
     body: CloseAppealDto,
   ) {
     if (id <= 0 || id > 2147483647) {
@@ -93,11 +83,7 @@ export class AppealsController {
   @Post()
   async createAppeal(
     @Req() request: Request,
-    @Body(
-      new ValidationPipe({
-        transform: true,
-      }),
-    )
+    @Body()
     dto: CreateAppealDto,
   ) {
     const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
