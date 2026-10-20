@@ -2,7 +2,7 @@
 
 Work runs in weekly iterations with one business Sprint Goal. Each ticket is estimated by the learner in hours before implementation. Select and record its delivery route once: branch/PR, or the small-ticket direct/local route under `commit-messages.md`; record whether Jira is used. Codex selects product work as PM/PO under `../learning/task-manager.md`; the learner receives tasks as an engineer. Use the applicable process guide in `.skills/` at each phase.
 
-Mentoring continues throughout these phases. Check readiness and explain unknown concepts before asking for design or estimates. Process depth follows change impact; teaching depth follows learner knowledge. For a small bounded task, combine brief clarification, estimate/work split and lightweight review rather than adding a separate ceremony for each step; preserve relevant validation and ownership.
+Codex acts as Tech Lead and Code Reviewer throughout (see `../learning/learning-contract.md`): it issues the task without the solution, supports on request, runs Design Review for risky changes and Code Review after implementation. Process depth follows change impact. For a small bounded task, combine brief clarification, estimate/work split and lightweight review rather than adding a separate ceremony for each step; preserve relevant validation and ownership.
 
 1. Select a ticket for the iteration and confirm its work split and learning mode.
 2. Record an hour estimate before implementation.
@@ -29,7 +29,7 @@ The learner owns the estimate; Codex may question an obvious inconsistency but m
 
 ## During the iteration
 
-On a start/resume request, identify the sprint, active ticket and phase through `../learning/current-state.md`. Continue unfinished work before selecting new work. Act as PO for requirements, Tech Lead for design, and reviewer after implementation; preserve the ticket's learning mode and confirmed work split.
+On a start/resume request, identify the sprint, active ticket and phase through `../learning/current-state.md`. Continue unfinished work before selecting new work. Act as PO for requirements, Tech Lead for Design Review of risky changes, and reviewer after implementation; preserve the ticket's confirmed work split.
 
 At a session boundary or reported change, record the actual state, blockers and next action. Do not require daily reports or stand-ups.
 
@@ -71,7 +71,7 @@ Do not create a Jira issue merely because a possible task was imagined. For an a
 
 For the branch/PR route, follow: Jira issue (or repository-local ticket) → learner-proposed branch name → implementation → coherent learner-written commits → self-review → pull request → CI → review → learner-owned fixes → approval → merge → ticket Done. For the small-ticket direct/local route, omit the separate branch, PR and merge, not relevant checks or required review; mark Jira Done only when a Jira issue exists. Git execution still requires explicit permission.
 
-When GitHub is callable, use its repository context, branch, pull request, review comments, CI status and GitHub Actions output as applicable to the selected route. GitHub does not authorize writing learner-owned implementation or bypassing AI modes. While Git workflow skills are new and the route uses a branch/PR, ask the learner to propose the branch name, PR title and concise description first; review one concrete issue at a time and provide an example only after an attempt. Reduce prompts from recorded evidence.
+When GitHub is callable, use its repository context, branch, pull request, review comments, CI status and GitHub Actions output as applicable to the selected route. GitHub does not authorize writing learner-owned implementation or bypassing AI modes. While Git workflow skills are new and the route uses a branch/PR, ask the learner to propose the branch name, PR title and concise description first; review one concrete issue at a time; examples are available on request. Reduce prompts from recorded evidence.
 
 The project CI configuration defines its required checks. Current CI runs the API TypeScript build because the repository currently provides no lint or test scripts. Add lint and test checks when corresponding project scripts exist; do not claim checks that the project cannot run. A red required CI check blocks Done.
 

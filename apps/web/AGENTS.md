@@ -8,7 +8,7 @@
 
 ## Design before implementation
 
-For each significant UI task, the user first describes the data flow: source of data, transformations, ownership, updates and failure path. Codex reviews that proposal before writing implementation code.
+For a significant UI task, the user describes the data flow (source, transformations, ownership, updates, failure path) and Codex reviews that proposal when the task has a real state, trust-boundary or contract risk. Small tasks need no separate design step. Codex does not write the studied implementation without permission.
 
 ## State classification
 

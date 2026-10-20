@@ -6,10 +6,10 @@ A ticket is complete only when:
 - relevant tests pass;
 - self-review is complete, reusing demonstrated checks rather than requiring another recital;
 - commit messages and boundaries are reviewed under `commit-messages.md`, when the ticket contains commits;
-- the review required by `code-review.md` is complete: independent review where required, otherwise same-session Codex review;
+- Code Review under `code-review.md` has no open BLOCKER; the required review type is complete: independent review where required, otherwise same-session Codex review;
 - configured required CI checks are green; if the hosting integration is unavailable, equivalent local checks and their output are recorded;
-- the user satisfies `../learning/understanding-check.md`, reusing existing evidence; zero extra questions is valid;
-- the skills matrix and learning log are updated;
+- understanding is evidenced by the learner's own design, code, debugging and reaction to review under `../learning/understanding-check.md`; there is no separate exam and zero extra questions is valid;
+- material new learning observations are recorded in the ledger/log once, without duplicate or ceremonial entries;
 - actual time is recorded;
 - the selected delivery route is recorded: when a PR is used it is reviewed and its description is complete; otherwise scope, validation, risks and review evidence are recorded in the repository ticket. Branch/PR/Jira ceremony is conditional, not the quality gates above.
 

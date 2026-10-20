@@ -12,7 +12,7 @@ Use this approximate learning-time balance across several tickets, not as a quot
 
 Choose proportions that total 100%, for example 65/25/10. Count work by its primary learning focus rather than counting the same time twice.
 
-Every new topic follows problem → plain explanation and worked example → transferable principle → learner implementation in NestJS/React/PostgreSQL. For familiar reasoning, the learner attempts first. Choose WRITE, UNDERSTAND or LOOKUP per concept and a Red/Yellow/Green decision-ownership band in `skills-matrix.md`; AI delegation is a separate work-split decision. Engineering reasoning and manual coding often develop in the same activity, not competing time quotas. Progress aims at learner-owned design and risk judgment first, then AI-assisted implementation and focused verification—not permanent manual typing.
+Work follows the model in `learning-contract.md`: a real product task, the learner's own solution, help and explanations on request, Code Review. External courses (for example the NestJS course in progress) are a parallel knowledge source, not a schedule to mirror; use what the learner reports when choosing tasks. Choose WRITE, UNDERSTAND or LOOKUP per concept and a Red/Yellow/Green decision-ownership band in `skills-matrix.md` when it helps; AI delegation is a separate work-split decision. Engineering reasoning and manual coding often develop in the same activity, not competing time quotas. Progress aims at learner-owned design and risk judgment first, then AI-assisted implementation and focused verification—not permanent manual typing.
 
 ## Engineering depth inside product work
 
@@ -41,13 +41,13 @@ These are selection guides, not a checklist for one ticket: preserve one primary
 
 Layout, SCSS, Tailwind, decorative UI, UI-library details, page titles and static list markup receive attention only when the product task needs them. They are normally delegated; learner manual work is reserved for a concrete frontend capability gap or an engineering concern from the list above.
 
-SQL, design, architecture and manual coding develop through OpsDesk tickets. Short worked examples and spaced recall may use different data outside project code, without a separate exercise track. Optional unfamiliar open-source reading remains available once every 1–2 weeks when useful.
+SQL, design, architecture and manual coding develop through OpsDesk tickets. Examples on different data are available on request, without a separate exercise track. Optional unfamiliar open-source reading remains available once every 1–2 weeks when useful.
 
 ## Readiness and progression
 
 Use task-manager.md to check both product and learner prerequisites before choosing a slice. For the current backend starting level, prefer useful practice of input/output contracts, HTTP behavior, basic SELECT/INSERT/UPDATE, simple relations, validation and error handling over a bundled auth/permissions programme. These are candidate areas, not a requirement to cover all of them before any auth topic.
 
-Move to the next major topic when its actual prerequisites have been applied and explained independently on changed conditions, with delayed evidence for important foundations, and no unresolved gap blocks the proposed work. Do not require all broad skills to be CONFIRMED or finish every recall interval before progressing. A prerequisite that is still unknown needs teaching or a smaller slice, not a blind design exercise. Curiosity about an advanced topic is welcome without automatically adding it to the sprint.
+Move to the next major topic when its actual prerequisites have been applied and explained independently on changed conditions, and no unresolved gap blocks the proposed work. Do not require all broad skills to be CONFIRMED or finish every recall interval before progressing. A prerequisite that is still unknown needs a smaller slice, or an explanation on request; do not hide it. Curiosity about an advanced topic is welcome without automatically adding it to the sprint.
 
 Each sprint has a concise learning goal alongside its product goal, visible to the learner. Select repeats from the concept queue, including important neglected items; do not default to the same easy layer definitions. Review progress through independent transfer, retained ideas and reduced conceptual help, rather than completed endpoint count.
 
@@ -66,9 +66,3 @@ Stages are a dependency guide, not fixed weeks or a compulsory linear course. St
 | independent_delivery | Own a bounded cross-stack change, a requirement change and unfamiliar/AI-generated code with decreasing support. | Draw evidence from prior stages and new work. Review readiness against the observable target, including delivery and debugging, without a final memorization marathon. All capabilities. |
 
 Before choosing the next task, locate the current stage, map the candidate to one concrete capability gap, check prerequisites, then choose the smallest meaningful product outcome. Familiar work may naturally count as retention; it does not need to become a second assignment. Record a stage change only when the relevant evidence warrants it, with source and reason in learning-state.json milestones and current-state.md. Advancing stages does not mark every concept in the previous stage mastered.
-
-Near route: finish OPS-003, introduce repeatable behavior tests for its allowed/denied/conflict paths, then connect a small React interface to the verified API. These are planning signals; each estimate and commitment is confirmed only during refinement.
-
-## Instruction design references
-
-The programme connects objectives, activities and observable evidence as described by [Carnegie Mellon Eberly Center](https://www.cmu.edu/teaching/assessment/basics/alignment.html). Worked examples and spaced practice follow the broad recommendations of [IES](https://ies.ed.gov/ncee/wwc/PracticeGuide/1). OpsDesk's exact intervals, retirement threshold and task-first interaction are local design choices responsive to this learner, not universal research-prescribed numbers.

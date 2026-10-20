@@ -13,12 +13,12 @@
 | PostgreSQL | UNKNOWN | — |
 | indexes | UNKNOWN | — |
 | transactions | UNKNOWN | — |
-| testing | UNKNOWN | Next likely slice: repeatable allowed, denied and conflict checks after OPS-003 is verified. |
-| architecture | UNKNOWN | Teach through concrete boundaries, data ownership, dependencies, invariants and consequences in the active ticket. |
-| Git | UNKNOWN | Commit-message practice starts in `LEARN_MANUAL`; propose messages and explain commit boundaries before requesting review. |
+| testing | UNKNOWN | — |
+| architecture | UNKNOWN | — |
+| Git | UNKNOWN | — |
 | ticket refinement | UNKNOWN | Follow `.skills/ticket-refinement`; identify ambiguity, dependencies and risks before estimating. |
 | sprint planning | UNKNOWN | Follow `.skills/sprint-planning`; plan against real capacity and one Sprint Goal. |
-| implementation review | UNKNOWN | Follow `.skills/implementation-review`; lead self-review before Codex findings. |
+| implementation review | UNKNOWN | See `.skills/implementation-review`. |
 | PR review response | UNKNOWN | Follow `.skills/pr-review`; understand, answer and resolve or challenge review comments. |
 | debugging / incident | UNKNOWN | Follow `.skills/debugging-incident`; collect evidence and test hypotheses before fixing. |
 | sprint retrospective | UNKNOWN | Follow `.skills/sprint-retro`; explain planned versus actual and select a process improvement. |
@@ -31,9 +31,11 @@ Statuses: `UNKNOWN`, `NEW`, `PRACTICING`, `CONFIRMED`, `ROUTINE`.
 
 Apply these to the most specific recorded scope; broad rows above summarize a domain and must not override a concept's evidence or parked schedule. Retention targets describe what to retain; status describes demonstrated proficiency, not whether a question is due.
 
-- `UNKNOWN` or `NEW` → `LEARN_MANUAL`.
-- `PRACTICING` → `LEARN_MANUAL` or `MANUAL_FOCUS`.
-- `CONFIRMED` → `DESIGN_THEN_AI`.
+Status suggests a default support level and work split; it never forces a lesson or a check.
+
+- `UNKNOWN` or `NEW` → learner writes, with help available on request; the task may be split or a short explanation offered if the topic blocks safe work.
+- `PRACTICING` → learner writes; Codex reviews.
+- `CONFIRMED` → `DESIGN_THEN_AI` is available when the learner chooses it.
 - `ROUTINE` → `AI_ROUTINE`.
 
 A concrete concept becomes `CONFIRMED` through repeated independent application on different days/conditions, with evidence appropriate to WRITE or UNDERSTAND as described below. Correct learner-owned code and observed behavior can supply that evidence without a separate verbal test. A broad domain needs coverage of its relevant capabilities, including debugging/error handling, before its summary status changes. Do not upgrade all of NestJS from one confirmed concept. Record assistance honestly; employment, elapsed time and unexplained AI-generated code do not establish confirmation.
@@ -48,27 +50,21 @@ Track three independent things: what capability is worth retaining (target), wha
 | UNDERSTAND | The mechanism, contract or trade-off matters more than reproducing its implementation. | Explain a concrete outcome, trace values, choose between alternatives or find an error. No mandatory code retyping or definition recital. |
 | LOOKUP | Exact API options, generic spelling, CLI flags, setup steps or rare/version-sensitive syntax. | Find the relevant official reference when needed, apply it and verify behavior. No scheduled memorization and no penalty for looking it up. |
 
-Choose a target from frequency, transfer to other tools and the cost of misunderstanding, and record a short reason. Split a topic when necessary: Prisma's result contract is UNDERSTAND, its invocation syntax is LOOKUP, and the SQL inside a query can be WRITE. Targets can change from evidence or learner needs; do not build a complete taxonomy of the stack in advance.
+Evidence categories stay separate: code exists, behavior observed, skill shown independently, skill applied with AI help. Choose a target from frequency, transfer to other tools and the cost of misunderstanding, and record a short reason. Split a topic when necessary: Prisma's result contract is UNDERSTAND, its invocation syntax is LOOKUP, and the SQL inside a query can be WRITE. Targets can change from evidence or learner needs; do not build a complete taxonomy of the stack in advance.
 
 `AI_ROUTINE` remains a work-allocation mode, not a fourth memory level. Mechanical, non-learning work can be delegated under the agreed split. LOOKUP does not authorize delegating business rules, data modelling or unfamiliar reasoning. Conversely, hand-writing a whole library integration is not required just to understand its contract.
 
-## Decision ownership and AI delegation
+## Decision ownership and delegation
 
-Retention target answers what must remain available in the learner's mind; decision ownership answers who must reason about the change before code is generated. Apply both per bounded part of a ticket, not as a permanent label for an entire technology.
+Applied per bounded part of a ticket, not per technology. Used for planning the work split, never as a reason to lecture.
 
-| Band | Learner responsibility | Typical examples | Appropriate AI use |
+| Band | Meaning | Examples | AI use |
 |---|---|---|---|
-| Red — engineer-owned | For familiar decisions, propose first and implement the studied key logic. For unfamiliar mechanisms, learn from a concrete example and evaluate the mentor's reasoned recommendation before implementation; explain the invariant, trade-off and failure path. Product policy remains with the PO, not a learner guessing exercise. | Requirements, architecture boundaries, domain/business rules, API contract, schema/constraints/indexes, SQL semantics, transactions, concurrency/idempotency, auth/authz/ownership, security threats, destructive migrations and external side effects. | Teach first, recommend with reasons when prerequisites are missing, then challenge, review and test. Record accepted decisions; never silently decide an unresolved part. |
-| Yellow — learn mechanism, then delegate | Learn the lifecycle/contract and write or modify it enough times to demonstrate independent use. Retain why it is needed and how to verify it, not decorator or library spelling. | Nest controller/DTO/pipe/guard/interceptor/filter/module, ORM usage, test shape, Docker/CI basics, React forms/data fetching and request-state wiring. | After evidence is sufficient, use DESIGN_THEN_AI for implementation from the learner's brief; review the changed behavior and integration points. |
-| Green — delegate and verify | State the intended output and inspect only the relevant contract/diff. Learn a detail only when it becomes a blocker or exposes a misconception. | Repetitive CRUD shells, mappings/types, Swagger annotations, fixtures/mock data, formatting/imports/renames, CSS, routine configuration and rare framework syntax. | AI_ROUTINE or a bounded DESIGN_THEN_AI request. Do not treat generated output as correct without running the agreed checks. |
+| Red — engineer-owned | The learner decides and writes the key logic. Codex reviews, compares options on request and explains unfamiliar mechanisms. | Requirements, architecture boundaries, business rules, API contract, schema/constraints, SQL semantics, transactions, concurrency/idempotency, authentication/authorization, security, destructive migrations, external side effects. | Review and explanation only; implementation on explicit permission. |
+| Yellow — learn, then delegate | The learner writes it until they have used it independently, then may delegate from a brief. | Nest controller/DTO/pipe/guard/module, ORM usage, test shape, Docker/CI basics, React forms and request-state wiring. | `DESIGN_THEN_AI` once the learner chooses it. |
+| Green — delegate and verify | State the intended result and check the relevant diff. | Repetitive CRUD shells, mappings/types, fixtures, formatting, imports, renames, CSS, routine configuration. | `AI_ROUTINE`. |
 
-Red does not require memorizing syntax or refusing tools. A learner may use documentation for a database API while still independently deciding that a unique constraint, transaction or authorization check is necessary. Yellow may become Green only for the demonstrated local mechanism; a new security, data-integrity or business decision remains Red.
-
-### AI handoff and review loop
-
-For `DESIGN_THEN_AI`, use separate passes: (1) learner supplies the implementation brief, (2) Codex identifies ambiguities/risks and implements only after they are resolved, (3) learner compares the diff and behavior to the brief, and (4) Codex may perform an adversarial review and test-design pass. The implementation brief states: context; requested behavior; inputs/outputs; invariants and authorization/data boundaries; error and edge cases; prohibited changes; and observable Definition of Done.
-
-Review generated code by risk, not line count. Always inspect the paths that read or mutate protected data, enforce authorization, cross a trust boundary, run concurrently, call an external system, handle failure/retry, or can disclose sensitive data. Verify happy path plus the relevant denied/invalid/not-found/duplicate/race/dependency-failure cases. The learner accepts the final solution only when they can explain why its critical choices are correct and where they would investigate a failure.
+Red never requires memorizing syntax. Yellow may become Green only for the demonstrated local mechanism; a new security, integrity or business decision stays Red. Generated code is reviewed by risk (data mutation, authorization, trust boundaries, concurrency, external calls, failure paths, sensitive data) and checked by running it; see `learning-contract.md` and `docs/learning/understanding-check.md`.
 
 ## Recorded concepts and practice history
 
@@ -80,15 +76,14 @@ The OPS-000 baseline is retained for closures, async ordering, TypeScript narrow
 
 ## Task-first retention
 
-- Silently load state at session start. A greeting, continuation or request for new work never triggers a compulsory opening quiz or reading out the overdue queue. Resume the task or introduce its next useful step first. Due dates are planning signals, not prerequisites for working.
-- Use the task itself as the default repetition. If the learner independently writes a guard in a later feature and relevant review/validation shows it works, record that practice without asking them to announce a repeat or explain the same definition. Merely seeing a guard file, copied code or silence about confusion is insufficient evidence of independent work.
-- Use changed conditions in actual implementation, reasoning or debugging as active recall. Do not manufacture another question when the observed work already demonstrates the target.
-- If an important concept has not appeared naturally, offer one brief optional recap at a natural pause or session end. The learner can choose a topic, say they remember it, postpone or decline. Record a deferral/self-report without claiming demonstrated mastery or presenting the same offer again that session. If no date is stated, use an internal seven-day deferral; if they name a task boundary, record that context and wait for it. No automatic exercise follows the offer without agreement.
-- Optional recall usually takes 2–5 minutes total and at most two concepts. It does not silently replace the planned session. Explicit requests for a longer recap are allowed; an actual blocker in the current task gets focused teaching when encountered.
-- First understanding makes a concept eligible after one day; independent practice then spaces opportunities by 3, 7 and 21 days. Dates can be deferred. Three successful independent days across at least two materially different contexts settle the narrow target and park it automatically. Natural applications count toward this threshold; scheduled quizzes are not required. Do not insist on completing all calendar intervals if practice already supplies the evidence.
-- Multiple actions or explanations on one day are recorded when distinct but advance the repetition stage at most once. Guided application on the teaching day is learning evidence, not delayed recall. Conceptual help resets that concept's successful streak and suggests another opportunity after a day; syntax-only lookup does not invalidate independent reasoning.
-- A parked concept is assumed usable for ordinary work, without repeated proof requests. Reopen only for an observed gap or learner request; a new mechanism gets its own entry. Parking at learner request is distinct from demonstrated confirmation. Neither confirms an entire domain.
-- Missed sessions create no debt or catch-up exam. Record future opportunities from actual activity; review repeated deferrals privately when choosing useful product work, not by forcing a quiz. LOOKUP or mechanical routine may reveal a misconception worth a separate concept, but is never itself drilled.
+The ledger is passive bookkeeping. It never triggers questions, quizzes or recall blocks, and it never blocks work. A greeting, "continue" or a request for new work starts with the task, not a queue of due items.
+
+- The task itself is the repetition. Independent use of a concept in later work, confirmed by behavior or review, is recorded without asking the learner to repeat or explain it.
+- Log only a material new observation; skip repeats that add nothing. One observation, one event ID.
+- A recap happens only when the learner asks. A deferral or confidence statement is recorded as pacing (`defer`/`self_report`, default seven days), not mastery, and honored without argument.
+- Scheduling: first understanding makes a concept eligible after one day, then 3, 7 and 21 days; three independent days in at least two contexts park it automatically. Dates are planning hints only. Several events on one day advance the stage once; help received resets the independent streak.
+- A parked concept is assumed usable. Reopen only for an observed gap or on request. Parking does not confirm a whole domain.
+- Missed sessions create no debt or catch-up exam.
 
 ## Operating the local learning ledger
 

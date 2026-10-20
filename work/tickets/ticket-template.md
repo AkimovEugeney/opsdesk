@@ -21,9 +21,9 @@
 
 - [Requirement]
 
-The brief contains enough information to understand the business goal. Leave realistic open questions only when they are within the learner's reach; use the readiness check in `docs/learning/task-manager.md`.
+The brief states the business goal, the problem, expected behavior and rules. It does not name classes, decorators, files or patterns unless they are an accepted architectural constraint. Realistic open questions are fine when the learner can resolve them with the Product Owner; do not hide business requirements.
 
-Prepare consistent PO answers before presenting the brief and record clarification decisions in the requirements log; never invent answers retrospectively. Explain unfamiliar prerequisite knowledge and disclose missing infrastructure before dependent work. The intended project solution stays undisclosed; the learning purpose and teaching examples do not.
+Prepare consistent PO answers before presenting the brief and record clarification decisions in the requirements log; never invent answers retrospectively. Disclose missing infrastructure before dependent work. The intended solution stays with the learner; explanations are available on request.
 
 ## Acceptance criteria
 
@@ -31,7 +31,7 @@ Prepare consistent PO answers before presenting the brief and record clarificati
 
 ## AI mode
 
-`LEARN_MANUAL` | `MANUAL_FOCUS` | `DESIGN_THEN_AI` | `AI_ROUTINE`
+Learner writes (default) | `DESIGN_THEN_AI` | `AI_ROUTINE` — per part, see the work split. Support level: Supported | Independent | Work-like. (Older tickets use `LEARN_MANUAL` / `MANUAL_FOCUS`; both mean the learner writes.)
 
 ## SQL mode
 
@@ -39,7 +39,7 @@ Prepare consistent PO answers before presenting the brief and record clarificati
 
 ## Primary skill
 
-[One concrete concept and retention target from skills-matrix.md; state the purpose to the learner.]
+[Optional: the main engineering skill this task exercises; it is for planning, not a lesson.]
 
 ## Secondary skills
 
@@ -47,7 +47,7 @@ Prepare consistent PO answers before presenting the brief and record clarificati
 
 ## Readiness
 
-- [Relevant existing code/infrastructure and learner prerequisite evidence; gaps and decision to proceed, teach first, split or defer. Link the concept register for due repeats instead of duplicating its schedule.]
+- [Relevant existing code/infrastructure; missing prerequisites; decision to proceed or split.]
 
 ## Familiar parts
 
@@ -107,7 +107,9 @@ Create and link a separate `OPS-XXX-requirements-log.md` before clarification be
 - Commit history: [learner's rationale for the number and grouping of commits; link or summary].
 - Codex review: [result]
 - CI: [required checks and result; local equivalent if hosting integration is unavailable].
-- Understanding check: [result]
+- Design Review (when risk requires it): [proposal and outcome, or not required]
+- Code Review findings (BLOCKER / IMPROVEMENT / NIT) and their resolution: [result]
+- Evidence of understanding from the work: [short note, or none beyond the work itself]
 
 ## Outcome and learning evidence
 

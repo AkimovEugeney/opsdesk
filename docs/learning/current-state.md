@@ -1,22 +1,18 @@
 # Current learning state
 
-Last reconciled: 2026-10-03. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-10-19. This is a pointer, not a second ledger or requirements log.
+
+## Working model
+
+Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence): tasks without a prepared solution, own design, Design Review for risky changes, Code Review, help on request. See [learning contract](learning-contract.md). Earlier ticket records keep their original wording as history.
 
 ## Active work
 
-- OPS-009 is Done — local DTO validation for protected owner assignment; learner actual 20 min; direct/local delivery without Git operations.
-- OPS-003 remains Done — direct/local delivery through existing commit `3e0cafb`; no new Git operation is requested.
-- OPS-007 remains Done — direct/local delivery; its `node:test` matrix passed 5/5 and API build passed.
-- Routine frontend foundation: `apps/web` is a Next.js TypeScript App Router project. Build/lint passed; the local page rendered the static Russian title and empty state. The existing dev server on port 3001 belongs to a separate process and was not stopped.
-- Learning evidence: learner independently identified that `useState` is for changing local state; the `react-state-hooks` application is recorded and status remains `PRACTICING`.
-- Routine setup: `class-validator` and `class-transformer` installed. Local `ValidationPipe` behavior was verified by HTTP smoke checks; build and 5 existing service tests passed. `npm install` reported 6 high-severity audit findings; no audit fix was run.
-- OPS-010 is validated and awaiting only its learning/completion records: service tests 10/10, build passed, authenticated runtime matrix covered `401`, `403`, `404`, `409`, `200` and the DTO `400` cases; temporary database data restored; learner actual 1 h recorded.
-- [OPS-011](../../work/tickets/OPS-011.md) — show the active appeals queue in the web client. Deferred at refinement 2026-10-03: the learner rejected an anonymous first screen because the product's screens are authenticated; resumed once an authorization screen exists. Its fetch-boundary question stays open.
-- Direction: deepen backend work, then return to the frontend in roughly four learner sessions. Backend gaps grounded in the code: no session termination anywhere (`logout`/`clearCookie` absent), no `POST /appeals` so the `CLIENT` role has no product action, and only one test file (`apps/api/test/appeals.service.test.ts`) with no HTTP-level coverage.
-- OPS-012 is Done — direct/local delivery. Logout implemented, verified at runtime (`204` with an expired cookie, `401` on reuse of `GET /auth/me`, `PATCH /appeals/:id/close` and `PATCH /appeals/:id/owner`, other sessions untouched, and `500` without a cookie header when the store was unreachable), independently reviewed with PASS and the understanding check passed; learner actual 30 min. Open without blocking: no durable automated coverage, and the expired-row variant of the ended-session case.
-- OPS-013 is Done — direct/local delivery. `POST /appeals` created by a client; four divergences fixed; every acceptance criterion observed, including the `description`, missing-field and invalid-cookie cases that the independent reviewer found unproven; review verdict PASS. Learner reported 15 min for the implementation only — fix and verification time is unrecorded. Still open without blocking: no automated coverage for the create path, the reviewer's style suggestions, and one contract question (whether `description` should keep the 200-character limit or follow the close flow's 2000).
-- Sprint 3 is Closed 2026-10-03, inside its window: 7 tickets, recorded 7 h 15 min against a confirmed 3–4 h; four runtime matrices with cleanup verified and two independent reviews (both PASS). Full record in [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md).
-- Next session task: confirm the learner's capacity for the next iteration (2026-10-05 — 2026-10-11), then close OPS-010 with its single understanding check and plan the next slice.
+- No ticket is in progress. OPS-003, 007, 009, 010, 012 and 013 are Done (direct/local delivery); details, validation and open follow-ups are in their tickets under `work/tickets/`.
+- [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
+- Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
+- Known gaps in the product: no HTTP-level automated tests (one service test file); `GET /appeals` and `GET /appeals/:id` are public; the web client is a static page.
+- Next action: confirm capacity for the current week, then issue the next product ticket under `task-manager.md`. A candidate (customers see the status of their own appeals) was discussed but is not accepted or recorded.
 
 ## Learning evidence
 

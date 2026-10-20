@@ -11,7 +11,7 @@ Use after Sprint Review, before the next iteration is committed.
 2. Compare original estimates and actual time only where the original estimate exists.
 3. Review unfinished work, blockers, scope changes and carry-over decisions.
 4. Identify causes: decomposition, unknown technology, estimation, quality shortcuts, perfectionism, debugging, capacity or process friction. Ask when the cause is not recorded.
-5. Read ledger status under `docs/learning/skills-matrix.md`: independent applications, remaining gaps and deferrals. Reuse natural task evidence. An optional brief recap may be offered at a suitable boundary; a request to continue coding does not authorize a retention interview.
+5. Read ledger status under `docs/learning/skills-matrix.md`: independent applications, remaining gaps and deferrals. Reuse natural task evidence. A recap happens only if the learner asks; a request to continue coding never authorizes a retention interview.
 6. Record unlogged material observations through scripts/learning.py with stable event IDs; counts, dates and automatic retirement are computed from learning-state.json. Honor learner deferrals and avoid duplicate evidence. Update `current-state.md` from facts, not completion-based skill upgrades.
 7. Select at most one or two concrete teaching or process adjustments for the next sprint.
 

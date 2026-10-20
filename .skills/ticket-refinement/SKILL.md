@@ -1,16 +1,14 @@
 ---
 name: ticket-refinement
-description: Refine an OpsDesk product ticket before estimation and design, checking learner readiness and resolving product questions without supplying the implementation.
+description: Issue and refine an OpsDesk product ticket as Tech Lead and Product Owner, resolving product questions without supplying the implementation.
 ---
 
 # Ticket refinement
 
-Use for a new product ticket before estimating or technical design.
+Use for a new product ticket before estimation and design.
 
-1. Before presenting the ticket, check learner and product prerequisites under `docs/learning/task-manager.md`. Use the concept register; broad stack familiarity is insufficient.
-2. State the business brief and a short learning purpose. Reuse a business-goal explanation the learner has already given instead of requiring a restatement.
-3. Let the learner identify ambiguities, relevant edges and dependencies within their knowledge. For a small task, address only material unknowns; do not ask a four-part questionnaire by default.
-4. Answer as Product Owner and record decisions. Mentor proactively when a prerequisite or term is unknown, using `docs/learning/hint-policy.md`. Do not hide knowledge needed to ask a meaningful question.
-5. Keep the intended project implementation undisclosed. If readiness is insufficient, teach first, split or defer before asking for an estimate and design. Record the agreed work split without ceremonial reconfirmation.
-
-Before presenting the ticket, prepare consistent Product Owner answers from product rules and persist them according to `docs/learning/task-manager.md`. Never retrofit requirements to the learner's proposed solution.
+1. Check product and learner prerequisites against actual code and recorded evidence under `docs/learning/task-manager.md`. Disclose missing infrastructure instead of letting the learner trip on it.
+2. Run the ticket quality gate in `docs/learning/task-manager.md` (product voice, no solution hints, no internal-refactor tasks unless asked). Present the brief in Russian: business context, problem, expected behavior, requirements, rules, constraints, acceptance criteria. Do not name classes, decorators, files, methods or patterns unless they are an accepted constraint, and do not hide business requirements.
+3. Hand over the initiative. The learner finds ambiguities, edges and dependencies and asks the Product Owner. For a small task, address only material unknowns; no questionnaire.
+4. Answer as Product Owner with a reasoned policy and record decisions in the requirements log. Prepare consistent answers from product rules beforehand; never retrofit requirements to the learner's solution.
+5. Explain an unfamiliar term or mechanism when asked (`docs/learning/hint-policy.md`). If a prerequisite is too large, split the task rather than hiding it. Record the agreed work split without ceremonial reconfirmation. For a risky change, offer a Design Review of the learner's proposal before implementation.

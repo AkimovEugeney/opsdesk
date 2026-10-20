@@ -8,13 +8,13 @@
 
 ## Design before implementation
 
-Before a backend task is implemented, resolve the relevant data model and application of agreed business rules under `docs/learning/hint-policy.md`. For familiar decisions the learner proposes first; for unfamiliar mechanisms Codex teaches an example and gives a reasoned recommendation the learner may accept or challenge. Product policy is not a guessing exercise. Do not redesign an unchanged schema for a small read task. Discuss relevant error behavior and integrity trade-offs without writing the studied implementation for the learner.
+The learner reads the requirements and code and decides the approach. For a change to schema/migrations, authentication/authorization, transactions or concurrency, payments/external side effects, or a public contract, the learner gives a short proposal and Codex runs a Design Review (`docs/team/code-review.md`) before implementation. Unfamiliar mechanisms are explained on request or when the proposal is unsafe because of them; Codex can compare options and recommend one, and the learner decides. Product policy is not a guessing exercise: ask the Product Owner (Codex). A small read task needs no schema redesign and no separate design step. Do not write the studied implementation for the learner without permission.
 
 ## Data integrity
 
 Every write flow must deliberately consider transactions, concurrent requests and idempotency where retries or duplicate delivery are plausible. Do not assume ORM usage automatically provides the required guarantees.
 
-Codex checks these risks during readiness review; the learner is not expected to know untaught mechanisms. If safe implementation requires several major unknown concepts, defer or split the feature. Preserve integrity and access requirements rather than bypassing them to fit a lesson.
+Codex checks these risks in Design Review and Code Review, and explains an unfamiliar mechanism when the learner asks or when its absence makes a proposal unsafe. If safe implementation needs several major unknown concepts, split the feature. Integrity and access requirements are never bypassed to simplify the work.
 
 ## SQL learning mode
 

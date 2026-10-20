@@ -29,7 +29,7 @@ Build confidence entering a typical middle-level development team: receive produ
 
 None of the listed skills is confirmed by this profile. Sprint 0 determines the actual starting level; its evidence updates `skills-matrix.md` and the curriculum.
 
-## Teaching preferences — updated 2026-09-08
+## Teaching preferences — updated 2026-09-08 (historical; superseded where it conflicts with the 2026-10-19 section below)
 
 - The learner describes backend and SQL as being learned from the beginning despite prior exposure. Teach new mechanisms with plain explanations and worked examples before independent code; do not assume middle-level backend vocabulary from frontend employment.
 - Preserve manual work that builds understanding of fundamental logic and queries. Avoid memorizing API spelling or hand-writing every piece of boilerplate; explicitly distinguish WRITE, UNDERSTAND and LOOKUP targets.
@@ -37,3 +37,11 @@ None of the listed skills is confirmed by this profile. Sprint 0 determines the 
 - Basic controller/service/repository responsibilities have been discussed many times and feel firmly understood. Park these definition questions now; the learner's report supports ending repetitive prompts, not automatically confirming all NestJS or architecture skills.
 - The programme should feel like active mentoring during the task, with feedback on code and mechanisms, not only task assignment and a closing interview. Keep team process proportional so explanation and practice have room.
 - Latest clarification: begin or resume product work promptly. No compulsory opening quiz, repeated reminders or catch-up exam. Natural independent reuse counts as repetition; optional short recall may be offered at a pause/end, and the learner can choose a topic, report confidence or postpone. Codex owns tracking, counters and dates. Motivation and uninterrupted work are explicit teaching constraints.
+
+## Working preferences — updated 2026-10-19 (supersedes conflicting earlier preferences)
+
+- Chosen format: Tech Lead + Code Reviewer. Real tasks without a prepared solution, own design and implementation, Code Review, fixes. Frequent explain → question → predict → permission loops were slowing progress and are not wanted; an already-understood mechanism is not re-explained or re-tested.
+- Explanations, examples and hints are welcome on request, up to a full explanation immediately. After an explanation the initiative returns to the learner.
+- The learner is still building backend judgment and does not yet know what good code looks like. Therefore: Design Review before risky changes, professional Code Review, and occasional review of existing code to build taste (why a responsibility split or abstraction helps or hurts). Support shrinks as independence is shown, per task.
+- Parallel external course (NestJS, Stephen Grider, about half completed). Global `ValidationPipe`, DTOs, `class-validator`/`class-transformer` and dependency injection were useful and are treated as studied, not as practical mastery until applied.
+- No opening quiz, no mandatory recall, no re-proof for statuses. A topic the learner chooses to skip stays skipped unless a concrete safety/correctness reason exists.

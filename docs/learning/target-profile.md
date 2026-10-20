@@ -16,7 +16,7 @@ These capability IDs connect this target to `curriculum.md` and `learning-state.
 | quality | Select useful unit/integration/HTTP tests; reproduce defects, inspect logs, isolate causes; reason about transactions, concurrency, idempotency and retries where applicable. | Demonstrate a failure, choose a proportionate fix/test, and explain what is still not guaranteed. Do not demand distributed-system expertise. |
 | delivery | Clarify product intent, estimate/decompose, make explicit trade-offs, review changes, use Git/CI and basic deployment; control AI-generated work. | Own a changed requirement through a reviewable delivery, communicate a blocker, hand AI a bounded implementation brief, and debug an unfamiliar/AI-generated part without surrendering judgment to the tool. |
 
-Assess these through several real product changes with reduced support, including changed conditions and a debugging/review episode. A single successful recall confirms only its narrow concept. Use recorded evidence to choose the next gap; do not run a seven-area entrance exam on every visit. Team process supports technical learning and motivation rather than displacing them.
+Assess these through several real product changes with reduced support, including changed conditions and a debugging/review episode. A single successful application confirms only its narrow concept. Use recorded evidence to choose the next gap; do not run a seven-area entrance exam on every visit. Team process supports technical learning and motivation rather than displacing them.
 
 React, NestJS and PostgreSQL are the current training stack, not a professional identity. The transferable capabilities are to:
 
