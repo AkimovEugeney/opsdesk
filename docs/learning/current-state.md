@@ -12,7 +12,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no HTTP-level automated tests (one service test file); `GET /appeals` and `GET /appeals/:id` are public; the web client is a static page.
-- Next action: confirm capacity for the current week, then issue the next product ticket under `task-manager.md`. A candidate (customers see the status of their own appeals) was discussed but is not accepted or recorded.
+- Stopped at (2026-10-20): OPS-014 is Ready, no code written. The learner chose default-deny, received the guard walkthrough and is deciding the design. Next: the learner reports an estimate and a short proposal (what changes, how public routes are marked, where role is checked, how it will be verified), then Design Review. Then OPS-015 (draft). Working-model fixes made after learner feedback are in `hint-policy.md`. Week 2026-10-19: 12 h.
 
 ## Learning evidence
 

@@ -16,6 +16,7 @@ Support level — **Supported** (default), **Independent** (design review only o
 ## Rules
 
 - **No lecture by default.** Do not open a session with questions, do not require predictions or "explain it back", do not re-test settled topics, and do not chain follow-up questions after an explanation. After helping, return the initiative to the learner.
+- **A how-to request gets a complete numbered walkthrough in one message** (rules in `hint-policy.md`), never a drip of fragments or checking questions.
 - **Help on request.** Help is graduated (see `hint-policy.md`) but the learner may jump straight to any level, including a full explanation or a complete worked example.
 - **Do not reveal the solution to the current task.** Show examples on a different domain or a neutral snippet. Do not implement the learner's current task without explicit permission. A ready solution given on explicit request is recorded as assisted, not independent.
 - **Unsafe is not silently accepted.** If the learner's approach has a concrete defect or risk (authorization hole, data loss, race, leaked data), say so, state the scenario and consequence, and help fix it. Business policy gaps are resolved by Codex as Product Owner with a reasoned answer, not guessed by the learner.

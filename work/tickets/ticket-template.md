@@ -35,7 +35,7 @@ Learner writes (default) | `DESIGN_THEN_AI` | `AI_ROUTINE` — per part, see the
 
 ## SQL mode
 
-`SQL_REQUIRED` | `SQL_RELEVANT` | `ORM_SUFFICIENT` | Not applicable
+`SQL_REQUIRED` | `SQL_RELEVANT` | `ORM_SUFFICIENT` | Not applicable — chosen by Codex when preparing the ticket; optional, omission does not block work.
 
 ## Primary skill
 

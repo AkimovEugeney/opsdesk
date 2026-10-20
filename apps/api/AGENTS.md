@@ -18,7 +18,7 @@ Codex checks these risks in Design Review and Code Review, and explains an unfam
 
 ## SQL learning mode
 
-Follow the SQL mode stated in the current ticket:
+Codex picks the SQL mode when preparing the ticket, from the task's nature and the learner's stated wish to practise SQL; a missing mode never blocks implementation (assume `ORM_SUFFICIENT` unless SQL practice was requested). Ask one short question only if the choice really changes the learning goal. Modes:
 
 - `SQL_REQUIRED`: the user writes SQL independently;
 - `SQL_RELEVANT`: Prisma is allowed, then inspect the SQL it produces;
