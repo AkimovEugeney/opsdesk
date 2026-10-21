@@ -27,6 +27,8 @@ Explain the *why* of every decision inside the steps, including trivial-looking 
 
 Code handed over in a walkthrough is compiled or run against the learner's project (in a scratch copy, never in studied source) before sending; if that was not possible, say plainly that it is untested. Do not define an unfamiliar word by other unfamiliar words.
 
+Before recommending code or placement, inspect the relevant project conventions and consider team readability: cohesive files/modules, useful folder grouping and nesting, dependency direction, clear names, duplication and needless complexity. Explain a structural choice when introducing it; do not knowingly defer an avoidable design/readability problem to review. Keep teaching stages small when explicitly requested, but identify temporary scaffolding and the intended complete result. Code review applies the same maintainability criteria; shortcomings in Codex-supplied advice are owned as mentor errors, not attributed to the learner (see `../team/code-review.md`). This applies across the product, not only `auth`.
+
 Forbidden: one concept per message, "reply yes/no to continue", questions before the steps, a different summary instead of steps, code without a file path, new terms introduced without the step that uses them. If the learner is confused, restate the same steps more concretely with an example; never restart with another framing. The result is recorded as assisted; the task's design stays the learner's.
 
 ## When the learner's approach is wrong or unsafe
