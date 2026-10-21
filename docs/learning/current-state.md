@@ -8,11 +8,11 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Active work
 
-- No ticket is in progress. OPS-003, 007, 009, 010, 012 and 013 are Done (direct/local delivery); details, validation and open follow-ups are in their tickets under `work/tickets/`.
+- No ticket is in progress. OPS-003, 007, 009, 010, 012, 013 and 014 are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
-- Known gaps in the product: no HTTP-level automated tests (one service test file); `GET /appeals` and `GET /appeals/:id` are public; the web client is a static page.
-- Stopped at (2026-10-20): OPS-014 is Ready, no code written. The learner chose default-deny, received the guard walkthrough and is deciding the design. Next: the learner reports an estimate and a short proposal (what changes, how public routes are marked, where role is checked, how it will be verified), then Design Review. Then OPS-015 (draft). Working-model fixes made after learner feedback are in `hint-policy.md`. Week 2026-10-19: 12 h.
+- Known gaps in the product: no maintained HTTP test suite (one service test file; OPS-014 now has one-off real HTTP evidence); caller-specific appeal visibility remains OPS-015; the web client is a static page.
+- Stopped at (2026-10-21): OPS-014 accepted and delivered locally with learner-approved `feat: add global SessionGuard` on master; no push. [Independent final review](../../work/tickets/OPS-014-auth-review.md) has no BLOCKER; build, 10 service tests and 103 real HTTP checks pass. Approximately 6 h learner-reported actual; implementation assisted. Independent teaching/review-policy changes are excluded from the product commit and remain uncommitted. Next product work: refine OPS-015 (Draft, not started), customers see only their own appeals; learner owns estimate and design, with Design Review before access-boundary implementation. Docker remains running; temporary DBs/listeners removed. Teaching stays gradual. Week capacity 12 h, approximately 6 h recorded.
 
 ## Learning evidence
 

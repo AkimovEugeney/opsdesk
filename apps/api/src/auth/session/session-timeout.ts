@@ -9,7 +9,6 @@ export function isSessionExpired(
   const sessionAgeMs = now.getTime() - createdAt.getTime()
 
   return (
-    idleDurationMs >= SESSION_IDLE_TIMEOUT_MS ||
-    sessionAgeMs >= SESSION_ABSOLUTE_TIMEOUT_MS
+    idleDurationMs >= SESSION_IDLE_TIMEOUT_MS || sessionAgeMs >= SESSION_ABSOLUTE_TIMEOUT_MS
   )
 }

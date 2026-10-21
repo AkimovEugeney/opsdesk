@@ -7,17 +7,20 @@ import {
   Post,
   Req,
   Res,
-  UnauthorizedException,
 } from '@nestjs/common'
 import { Request, Response } from 'express'
 import { AuthService } from './auth.service'
+import { CurrentUser } from './decorators/current-user.decorator'
+import { Public } from './decorators/public.decorator'
 import { LoginDto } from './dto/login.dto'
-import { COOKIE_NAME, SESSION_ABSOLUTE_TIMEOUT_MS } from './session.constants'
+import { COOKIE_NAME, SESSION_ABSOLUTE_TIMEOUT_MS } from './session/session.constants'
+import { AuthenticatedUser } from './session/session.types'
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Public()
   @Post('login')
   @HttpCode(200)
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) response: Response) {
@@ -37,10 +40,7 @@ export class AuthController {
   }
 
   @Get('me')
-  async getMe(@Req() request: Request) {
-    const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
-    if (!sessionId) throw new UnauthorizedException('Session not found')
-    const currentUser = await this.authService.getCurrentUser(sessionId)
+  async getMe(@CurrentUser() currentUser: AuthenticatedUser) {
     return {
       id: currentUser.id,
       name: currentUser.name,
@@ -48,11 +48,12 @@ export class AuthController {
     }
   }
 
+  @Public()
   @Post('logout')
   @HttpCode(204)
   async logout(@Res({ passthrough: true }) response: Response, @Req() request: Request) {
-    const sessionId: string | undefined = request.cookies?.[COOKIE_NAME]
-    if (sessionId) {
+    const sessionId: unknown = request.cookies?.[COOKIE_NAME]
+    if (typeof sessionId === 'string' && sessionId.length > 0) {
       await this.authService.logout(sessionId)
     }
     response.clearCookie(COOKIE_NAME, { path: '/' })

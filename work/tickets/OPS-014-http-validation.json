@@ -1,0 +1,449 @@
+{
+  "date": "2026-10-21",
+  "kind": "Real HTTP with real Prisma/PostgreSQL in a disposable database",
+  "application": "Fresh dist AppModule, real global SessionGuard and services; no provider mocks",
+  "fixtureScope": "Dedicated generated local database; working database data not modified",
+  "priorAttempt": {
+    "passed": 90,
+    "failed": 13,
+    "classification": "Mentor-owned test fixture defect, not an application finding",
+    "cause": "Direct pg Date binding into timestamp without time zone shifted fixture instants by +10800000 ms when read through Prisma; affected expiry and activity assertions",
+    "correction": "Prepare session dates using the actual Prisma adapter and assert exact Date millisecond round trips; compare activity through Prisma",
+    "cleanup": "First attempt application closed and temporary database dropped; corrected run used another fresh temporary database"
+  },
+  "checks": [
+    {
+      "name": "Login and safe projection: client",
+      "result": "PASS"
+    },
+    {
+      "name": "Login and safe projection: client2",
+      "result": "PASS"
+    },
+    {
+      "name": "Login and safe projection: manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Login and safe projection: other",
+      "result": "PASS"
+    },
+    {
+      "name": "Login and safe projection: plain",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid password and unknown email produce identical 401 bodies",
+      "result": "PASS"
+    },
+    {
+      "name": "Public login validates input without requiring a session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: missing session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: empty session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: unknown session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: ended session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: absolute-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: idle-expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /auth/me: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected GET /appeals/:id: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected POST /appeals: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/owner: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected PATCH /appeals/:id/close: JSON-object session",
+      "result": "PASS"
+    },
+    {
+      "name": "Authentication before invalid body/parameter: POST /appeals",
+      "result": "PASS"
+    },
+    {
+      "name": "Authentication before invalid body/parameter: PATCH /appeals/abc/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Authentication before invalid body/parameter: PATCH /appeals/abc/close",
+      "result": "PASS"
+    },
+    {
+      "name": "Current user uses correct identity: client",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated appeal list and detail: client",
+      "result": "PASS"
+    },
+    {
+      "name": "Current user uses correct identity: manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated appeal list and detail: manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Valid session updates lastActivityAt",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated search can return an empty array",
+      "result": "PASS"
+    },
+    {
+      "name": "Default-deny protects a newly added unmarked controller",
+      "result": "PASS"
+    },
+    {
+      "name": "Public marker works at class level",
+      "result": "PASS"
+    },
+    {
+      "name": "Method metadata overrides a public controller marker",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range GET id=0",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=0/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=0/close",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range GET id=-1",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=-1/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=-1/close",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range GET id=2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=2147483648/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Numeric range PATCH id=2147483648/close",
+      "result": "PASS"
+    },
+    {
+      "name": "Integer parsing rejects abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Integer parsing rejects 1.5",
+      "result": "PASS"
+    },
+    {
+      "name": "Valid but absent appeal id returns 404",
+      "result": "PASS"
+    },
+    {
+      "name": "Client creates an appeal under the authenticated identity",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator cannot create client appeals",
+      "result": "PASS"
+    },
+    {
+      "name": "Owner assignment denied before record lookup: client/existing",
+      "result": "PASS"
+    },
+    {
+      "name": "Owner assignment denied before record lookup: client/missing",
+      "result": "PASS"
+    },
+    {
+      "name": "Owner assignment denied before record lookup: plain/existing",
+      "result": "PASS"
+    },
+    {
+      "name": "Owner assignment denied before record lookup: plain/missing",
+      "result": "PASS"
+    },
+    {
+      "name": "Permitted operator sees 404 for missing appeal on assignment",
+      "result": "PASS"
+    },
+    {
+      "name": "Assignment rejects a client as owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Assignment rejects a missing owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Assignment to a closed appeal returns conflict",
+      "result": "PASS"
+    },
+    {
+      "name": "Permitted operator assigns an appeal successfully",
+      "result": "PASS"
+    },
+    {
+      "name": "Client close is forbidden before lookup: existing",
+      "result": "PASS"
+    },
+    {
+      "name": "Client close is forbidden before lookup: missing",
+      "result": "PASS"
+    },
+    {
+      "name": "A different operator cannot close an assigned appeal",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator close on missing appeal returns 404",
+      "result": "PASS"
+    },
+    {
+      "name": "Assigned operator closes with trimmed outcome",
+      "result": "PASS"
+    },
+    {
+      "name": "Repeated close is a conflict",
+      "result": "PASS"
+    },
+    {
+      "name": "Idempotent public logout: missing",
+      "result": "PASS"
+    },
+    {
+      "name": "Idempotent public logout: empty",
+      "result": "PASS"
+    },
+    {
+      "name": "Idempotent public logout: unknown",
+      "result": "PASS"
+    },
+    {
+      "name": "Idempotent public logout: JSON-filter-object",
+      "result": "PASS"
+    },
+    {
+      "name": "Logout accepts and removes an expired session",
+      "result": "PASS"
+    },
+    {
+      "name": "A second device obtains a separate session",
+      "result": "PASS"
+    },
+    {
+      "name": "Logout ends only the supplied session and repeated logout stays 204",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: GET /auth/me",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: GET /appeals",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: GET /appeals/:id",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: POST /appeals",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: PATCH /appeals/:id/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Terminated cookie rejected: PATCH /appeals/:id/close",
+      "result": "PASS"
+    }
+  ],
+  "cleanup": {
+    "applicationClosed": true,
+    "temporaryDatabaseDropped": true
+  },
+  "migrationsApplied": [
+    "20260815135516_init",
+    "20260922170549_add_authentication_session",
+    "20260926110132_add_user_permissions",
+    "20261001181859_add_appeal_outcome",
+    "20261001181902_add_appeal_outcome"
+  ],
+  "processOwnership": "In-process Nest application built from dist; listener owned and closed by this harness",
+  "sourceSnapshotSha256": "5dcaa0b55a392951f6e8ce953cc358ba25407770703a8efcd69d6c848947ed7b",
+  "fixtureTimestampDiagnostic": {
+    "directPgDateBindingOffsetMs": 10800000,
+    "correctedFixtureMethod": "Prisma create/update plus exact Date millisecond round-trip assertions"
+  },
+  "summary": {
+    "passed": 103,
+    "failed": 0
+  }
+}

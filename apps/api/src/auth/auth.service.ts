@@ -1,8 +1,9 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { PrismaService } from '../prisma/prisma.service'
 import { verifyPassword } from './password'
-import { generateSessionId } from './session-id'
-import { isSessionExpired } from './session-timeout'
+import { generateSessionId } from './session/session-id'
+import { isSessionExpired } from './session/session-timeout'
+import { AuthenticatedUser } from './session/session.types'
 
 const DUMMY_PASSWORD_HASH =
   '$argon2id$v=19$m=65536,p=4,t=3$VQeHSnD7gBbypltXIM34UQ$LVzHYldhI15pF3Q8uO9tkxDPM0OSY3jq2FOer8M2wv0'
@@ -32,7 +33,7 @@ export class AuthService {
     }
   }
 
-  async getCurrentUser(sessionId: string) {
+  async getCurrentUser(sessionId: string): Promise<AuthenticatedUser> {
     const nowDate = new Date()
     const session = await this.prismaService.session.findUnique({
       where: { id: sessionId },
@@ -60,7 +61,7 @@ export class AuthService {
   }
 
   async logout(sessionId: string) {
-    await this.prismaService.session.deleteMany({where: {id: sessionId}})
+    await this.prismaService.session.deleteMany({ where: { id: sessionId } })
   }
 
   async findUserByEmail(email: string) {

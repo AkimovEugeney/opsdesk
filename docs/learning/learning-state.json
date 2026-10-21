@@ -707,6 +707,17 @@
       "verified": false,
       "on": "2026-10-03",
       "until": null
+    },
+    {
+      "id": "OPS-014-global-session-guard-assisted-2026-10-21",
+      "concept": "authentication",
+      "context": "OPS-014",
+      "source": "work/tickets/OPS-014.md",
+      "note": "Learner implemented a global default-deny session guard, explicit public markers, a current-user parameter decorator, a shared explicit caller contract and controller migration through mentor-supplied gradual walkthroughs. Learner questioned folder cohesion and generic numeric validation scope; no claim of independent implementation or broad mastery. Fresh build, ten service tests and 103 real HTTP checks on a disposable migrated PostgreSQL database verify the resulting behavior. Independent targeted review approved the technical change. The initial timestamp fixture failures were a mentor harness error, not learner evidence.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-21",
+      "until": null
     }
   ]
 }
