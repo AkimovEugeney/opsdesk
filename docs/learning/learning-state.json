@@ -718,6 +718,17 @@
       "verified": false,
       "on": "2026-10-21",
       "until": null
+    },
+    {
+      "id": "ops015-2026-10-22-assisted-read-authorization",
+      "concept": "authorization",
+      "context": "OPS-015",
+      "source": "work/tickets/OPS-015.md",
+      "note": "Learner proposed customer ownership filtering inside the database query and unrestricted operator detail access. Implementation of service dispatch, Prisma query shapes, null handling and naming followed supplied AI examples. Real list/detail HTTP matrix passed 149 cases after a delegated mentor fix to preexisting SQL escaping. Records assisted application, not independent authorization mastery.",
+      "kind": "assisted",
+      "verified": true,
+      "on": "2026-10-22",
+      "until": null
     }
   ]
 }

@@ -1,34 +1,30 @@
-import {
-  BadRequestException,
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Patch,
-  Post,
-  Query,
-} from '@nestjs/common'
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common'
 import { CurrentUser } from '../auth/decorators/current-user.decorator'
 import { AuthenticatedUser } from '../auth/session/session.types'
+import { ValidatePositiveInt32Pipe } from '../common/pipes/validate-positive-int32.pipe'
 import { AppealsService } from './appeals.service'
 import { AssignOwnerDto } from './dto/assign-owner.dto'
 import { CloseAppealDto } from './dto/close-appeal.dto'
 import { CreateAppealDto } from './dto/create-appeal.dto'
-import { ValidatePositiveInt32Pipe } from '../common/pipes/validate-positive-int32.pipe'
 
 @Controller('appeals')
 export class AppealsController {
   constructor(private readonly appealsService: AppealsService) {}
 
   @Get()
-  getActiveAppeals(@Query('search') search?: string) {
-    return this.appealsService.findActive(search)
+  getAppeals(
+   @CurrentUser() currentUser: AuthenticatedUser,
+   @Query('search') search?: string
+  ) {
+    return this.appealsService.findAll(currentUser, search)
   }
 
   @Get(':id')
-  getAppealById(@Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number) {
-    return this.appealsService.getAppealById(id)
+  getAppealById(
+    @CurrentUser() currentUser: AuthenticatedUser,
+    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
+  ) {
+    return this.appealsService.getAppealById(currentUser, id)
   }
 
   @Patch(':id/owner')
@@ -38,7 +34,6 @@ export class AppealsController {
     @Body()
     body: AssignOwnerDto,
   ) {
-
     return this.appealsService.approveOwner(id, body.ownerId, {
       id: currentUser.id,
       role: currentUser.role,

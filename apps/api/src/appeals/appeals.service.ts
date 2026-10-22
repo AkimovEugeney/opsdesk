@@ -6,6 +6,7 @@ import {
   NotFoundException,
 } from '@nestjs/common'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client'
+import { AuthenticatedUser } from '../auth/session/session.types'
 import { AppealStatus, Permissions, UserRole } from '../generated/prisma/enums'
 import { AppealsRepository } from './appeals.repository'
 
@@ -56,20 +57,38 @@ export class AppealsService {
     }
   }
 
-  async findActive(search?: string) {
+  async findAll(currentUser: AuthenticatedUser, search?: string) {
     const normalizedSearch = search?.trim() || undefined
-    if (normalizedSearch) {
+    if (currentUser.role === UserRole.CLIENT) {
+      return this.appealsRepository.findAllByClientId(currentUser.id, normalizedSearch)
+    }
+    if (currentUser.role === UserRole.OPERATOR) {
       return this.appealsRepository.findActive(normalizedSearch)
     }
-    return this.appealsRepository.findActive()
+
+    throw new ForbiddenException('Appeal reading is forbidden')
   }
 
-  async getAppealById(id: number) {
-    const appeal = await this.appealsRepository.findById(id)
+  async getAppealById(currentUser: AuthenticatedUser, id: number) {
+    const appeal = await this.findAppealForUser(currentUser, id)
+
     if (!appeal) {
-      throw new NotFoundException(`Обращение с ID ${id} не найдено`)
+      throw new NotFoundException('Appeal not found')
     }
+
     return appeal
+  }
+
+  private findAppealForUser(currentUser: AuthenticatedUser, id: number) {
+    if (currentUser.role === UserRole.CLIENT) {
+      return this.appealsRepository.findByIdAndClientId(id, currentUser.id)
+    }
+
+    if (currentUser.role === UserRole.OPERATOR) {
+      return this.appealsRepository.findById(id)
+    }
+
+    throw new ForbiddenException('Appeal reading is forbidden')
   }
 
   async closeAppeal(id: number, outcome: string, currentUser: { id: number; role: UserRole }) {
@@ -99,10 +118,10 @@ export class AppealsService {
     }
   }
 
-  async createAppeal(title: string, description: string, user: {id: number, role: string}) {
+  async createAppeal(title: string, description: string, user: { id: number; role: string }) {
     if (user.role != UserRole.CLIENT) {
-       throw new ForbiddenException('');
+      throw new ForbiddenException('')
     }
-    return await  this.appealsRepository.createAppeal(user.id, title,description)
+    return await this.appealsRepository.createAppeal(user.id, title, description)
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { Prisma } from '../generated/prisma/client'
 import { AppealStatus } from '../generated/prisma/enums'
 import { PrismaService } from '../prisma/prisma.service'
 
@@ -22,6 +23,28 @@ function escapeLikeLiteral(value: string): string {
 export class AppealsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
+  async findAllByClientId(clientId: number, search?: string) {
+    const filters: Prisma.AppealWhereInput = { clientId }
+    if (search) {
+      filters.title = {
+        contains: escapeLikeLiteral(search),
+        mode: 'insensitive',
+      }
+    }
+    return this.prismaService.appeal.findMany({
+      where: filters,
+      select: {
+        id: true,
+        status: true,
+        title: true,
+        createdAt: true,
+        outcome: true,
+        owner: { select: { name: true } },
+      },
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    })
+  }
+
   async findActive(search?: string) {
     const pattern = search ? `%${escapeLikeLiteral(search)}%` : '%'
 
@@ -40,7 +63,7 @@ export class AppealsRepository {
     LEFT JOIN "User" AS owner
         ON owner."id" = appeal."ownerId"
     WHERE appeal."status" IN ('NEW', 'IN_PROGRESS')
-    AND appeal."title" ILIKE ${pattern} ESCAPE '\'
+    AND appeal."title" ILIKE ${pattern} ESCAPE '\\'
     ORDER BY
   CASE appeal."status"
     WHEN 'NEW' THEN 1
@@ -63,7 +86,7 @@ export class AppealsRepository {
         status: true,
         title: true,
         description: true,
-        createdAt: true
+        createdAt: true,
       },
     })
   }
@@ -103,6 +126,26 @@ export class AppealsRepository {
     return await this.prismaService.appeal.findUnique({
       where: { id: appealId },
       select: { id: true, status: true, ownerId: true },
+    })
+  }
+
+  async findByIdAndClientId(id: number, clientId: number) {
+    return this.prismaService.appeal.findUnique({
+      where: { id, clientId },
+      select: {
+        id: true,
+        status: true,
+        title: true,
+        description: true,
+        createdAt: true,
+        closedAt: true,
+        outcome: true,
+        owner: {
+          select: {
+            name: true,
+          },
+        },
+      },
     })
   }
 

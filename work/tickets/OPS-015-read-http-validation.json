@@ -1,0 +1,713 @@
+{
+  "date": "2026-10-22",
+  "scope": "GET /appeals and GET /appeals/:id; writes not tested",
+  "method": "Fresh compiled AppModule, real HTTP login/session guard, real Prisma/PostgreSQL; no mocks",
+  "isolation": "Generated disposable local database with repository migrations; working data untouched",
+  "checks": [
+    {
+      "name": "Unfiltered list, exact scope/order/projection: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Unfiltered list, exact scope/order/projection: b",
+      "result": "PASS"
+    },
+    {
+      "name": "Unfiltered list, exact scope/order/projection: empty",
+      "result": "PASS"
+    },
+    {
+      "name": "Unfiltered list, exact scope/order/projection: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Unfiltered list, exact scope/order/projection: manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"   \": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"интернет\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \" ALPHA \": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"ForeignOnly\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"absent-title\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"_\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\\\\\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"100%\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"code_\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"path\\\\folder\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%_\\\\\": a",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"   \": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"интернет\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \" ALPHA \": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"ForeignOnly\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"absent-title\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"_\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\\\\\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"100%\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"code_\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"path\\\\folder\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%_\\\\\": b",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"   \": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"интернет\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \" ALPHA \": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"ForeignOnly\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"absent-title\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"_\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\\\\\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"100%\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"code_\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"path\\\\folder\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%_\\\\\": operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"   \": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"интернет\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \" ALPHA \": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"ForeignOnly\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"absent-title\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"_\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"\\\\\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"100%\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"code_\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"path\\\\folder\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Literal search \"%_\\\\\": manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty client search returns 200 []",
+      "result": "PASS"
+    },
+    {
+      "name": "Query-supplied identity/role cannot expand client list",
+      "result": "PASS"
+    },
+    {
+      "name": "Unauthenticated list rejects missing cookie",
+      "result": "PASS"
+    },
+    {
+      "name": "Unauthenticated list rejects unknown cookie",
+      "result": "PASS"
+    },
+    {
+      "name": "Unauthenticated list rejects JSON object cookie",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/1: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/2: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/3: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/4: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/5: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/6: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/7: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/8: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/9: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/10: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/11: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/12: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/13: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail a/14: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing detail: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/1: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/2: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/3: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/4: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/5: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/6: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/7: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/8: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/9: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/10: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/11: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/12: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/13: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail b/14: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing detail: b",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/1: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/2: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/3: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/4: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/5: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/6: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/7: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/8: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/9: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/10: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/11: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/12: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/13: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail empty/14: foreign hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing detail: empty",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/1: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/2: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/3: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/4: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/5: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/6: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/7: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/8: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/9: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/10: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/11: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/12: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/13: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail operator/14: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing detail: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/1: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/2: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/3: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/4: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/5: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/6: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/7: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/8: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/9: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/10: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/11: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/12: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/13: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail manager/14: allowed",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing detail: manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id abc: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 1.5: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 0: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id -1: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 2147483648: a",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id abc: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 1.5: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 0: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id -1: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid detail id 2147483648: operator",
+      "result": "PASS"
+    },
+    {
+      "name": "No session detail 1: authentication before validation",
+      "result": "PASS"
+    },
+    {
+      "name": "No session detail abc: authentication before validation",
+      "result": "PASS"
+    }
+  ],
+  "cleanup": {
+    "applicationClosed": true,
+    "temporaryDatabaseDropped": true
+  },
+  "migrations": [
+    "20260815135516_init",
+    "20260922170549_add_authentication_session",
+    "20260926110132_add_user_permissions",
+    "20261001181859_add_appeal_outcome",
+    "20261001181902_add_appeal_outcome"
+  ],
+  "sourceFiles": [
+    "src/appeals/appeals.controller.ts",
+    "src/appeals/appeals.service.ts",
+    "src/appeals/appeals.repository.ts",
+    "src/auth/session/session.guard.ts",
+    "src/auth/auth.service.ts",
+    "src/main.ts",
+    "prisma/schema.prisma"
+  ],
+  "sourceSnapshotSha256": "56c6318bd8b91282c6e959ff4d8d8da5af92e5c31a819cdcaf3af881b5ebf996",
+  "summary": {
+    "passed": 149,
+    "failed": 0
+  },
+  "priorAttempt": {
+    "summary": {
+      "passed": 135,
+      "failed": 14
+    },
+    "sourceSnapshotSha256": "860427d59e2ca34486934a77ea581d2d4d5ec633dc6b8979445c8aa10c417810",
+    "cleanup": {
+      "applicationClosed": true,
+      "temporaryDatabaseDropped": true
+    },
+    "failedChecks": [
+      {
+        "name": "Literal search \"%\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n  [\n+   9\n-   5\n  ]\n"
+      },
+      {
+        "name": "Literal search \"_\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n  [\n+   9\n-   7\n  ]\n"
+      },
+      {
+        "name": "Literal search \"\\\\\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   9\n- ]\n"
+      },
+      {
+        "name": "Literal search \"100%\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   5\n- ]\n"
+      },
+      {
+        "name": "Literal search \"code_\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   7\n- ]\n"
+      },
+      {
+        "name": "Literal search \"path\\\\folder\": operator",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   9\n- ]\n"
+      },
+      {
+        "name": "Literal search \"%\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n  [\n+   9\n-   5\n  ]\n"
+      },
+      {
+        "name": "Literal search \"_\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n  [\n+   9\n-   7\n  ]\n"
+      },
+      {
+        "name": "Literal search \"\\\\\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   9\n- ]\n"
+      },
+      {
+        "name": "Literal search \"100%\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   5\n- ]\n"
+      },
+      {
+        "name": "Literal search \"code_\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   7\n- ]\n"
+      },
+      {
+        "name": "Literal search \"path\\\\folder\": manager",
+        "result": "FAIL",
+        "detail": "Exact permitted ids and ordering\n+ actual - expected\n\n+ []\n- [\n-   9\n- ]\n"
+      },
+      {
+        "name": "Missing detail: operator",
+        "result": "FAIL",
+        "detail": "Existing operator error contract must be preserved\n+ actual - expected\n\n  {\n    error: 'Not Found',\n+   message: 'Appeal not found',\n-   message: 'Обращение с ID 2000000000 не найдено',\n    statusCode: 404\n  }\n"
+      },
+      {
+        "name": "Missing detail: manager",
+        "result": "FAIL",
+        "detail": "Existing operator error contract must be preserved\n+ actual - expected\n\n  {\n    error: 'Not Found',\n+   message: 'Appeal not found',\n-   message: 'Обращение с ID 2000000000 не найдено',\n    statusCode: 404\n  }\n"
+      }
+    ],
+    "resolution": "Operator SQL escape fixed by Codex at learner request; shared neutral operator 404 explicitly accepted by learner"
+  }
+}

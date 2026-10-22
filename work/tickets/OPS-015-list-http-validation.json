@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-22",
+  "scope": "GET /appeals only; detail and writes not tested",
+  "method": "Fresh compiled AppModule, real HTTP login/session guard, real Prisma/PostgreSQL; no mocks",
+  "isolation": "Generated disposable local database with repository migrations; working data untouched",
+  "checks": [],
+  "cleanup": {
+    "applicationClosed": false,
+    "temporaryDatabaseDropped": false
+  },
+  "runtimeFailure": "AggregateError",
+  "summary": {
+    "passed": 0,
+    "failed": 0
+  }
+}
