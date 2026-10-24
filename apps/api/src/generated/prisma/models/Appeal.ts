@@ -266,6 +266,7 @@ export type AppealWhereInput = {
   ownerId?: Prisma.IntNullableFilter<"Appeal"> | number | null
   client?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageListRelationFilter
 }
 
 export type AppealOrderByWithRelationInput = {
@@ -281,6 +282,7 @@ export type AppealOrderByWithRelationInput = {
   ownerId?: Prisma.SortOrderInput | Prisma.SortOrder
   client?: Prisma.UserOrderByWithRelationInput
   owner?: Prisma.UserOrderByWithRelationInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageOrderByRelationAggregateInput
 }
 
 export type AppealWhereUniqueInput = Prisma.AtLeast<{
@@ -299,6 +301,7 @@ export type AppealWhereUniqueInput = Prisma.AtLeast<{
   ownerId?: Prisma.IntNullableFilter<"Appeal"> | number | null
   client?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageListRelationFilter
 }, "id">
 
 export type AppealOrderByWithAggregationInput = {
@@ -344,7 +347,8 @@ export type AppealCreateInput = {
   updatedAt?: Date | string
   closedAt?: Date | string | null
   client: Prisma.UserCreateNestedOneWithoutClientAppealsInput
-  owner?: Prisma.UserCreateNestedOneWithoutOwnedAppealsInput
+  owner?: Prisma.UserCreateNestedOneWithoutOwnerAppealsInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageCreateNestedManyWithoutAppealInput
 }
 
 export type AppealUncheckedCreateInput = {
@@ -358,6 +362,7 @@ export type AppealUncheckedCreateInput = {
   updatedAt?: Date | string
   closedAt?: Date | string | null
   ownerId?: number | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedCreateNestedManyWithoutAppealInput
 }
 
 export type AppealUpdateInput = {
@@ -369,7 +374,8 @@ export type AppealUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   client?: Prisma.UserUpdateOneRequiredWithoutClientAppealsNestedInput
-  owner?: Prisma.UserUpdateOneWithoutOwnedAppealsNestedInput
+  owner?: Prisma.UserUpdateOneWithoutOwnerAppealsNestedInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealUncheckedUpdateInput = {
@@ -383,6 +389,7 @@ export type AppealUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ownerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealCreateManyInput = {
@@ -480,6 +487,11 @@ export type AppealSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
   ownerId?: Prisma.SortOrder
+}
+
+export type AppealScalarRelationFilter = {
+  is?: Prisma.AppealWhereInput
+  isNot?: Prisma.AppealWhereInput
 }
 
 export type AppealCreateNestedManyWithoutClientInput = {
@@ -586,6 +598,20 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type AppealCreateNestedOneWithoutAppealUpdateMessagesInput = {
+  create?: Prisma.XOR<Prisma.AppealCreateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedCreateWithoutAppealUpdateMessagesInput>
+  connectOrCreate?: Prisma.AppealCreateOrConnectWithoutAppealUpdateMessagesInput
+  connect?: Prisma.AppealWhereUniqueInput
+}
+
+export type AppealUpdateOneRequiredWithoutAppealUpdateMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.AppealCreateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedCreateWithoutAppealUpdateMessagesInput>
+  connectOrCreate?: Prisma.AppealCreateOrConnectWithoutAppealUpdateMessagesInput
+  upsert?: Prisma.AppealUpsertWithoutAppealUpdateMessagesInput
+  connect?: Prisma.AppealWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AppealUpdateToOneWithWhereWithoutAppealUpdateMessagesInput, Prisma.AppealUpdateWithoutAppealUpdateMessagesInput>, Prisma.AppealUncheckedUpdateWithoutAppealUpdateMessagesInput>
+}
+
 export type AppealCreateWithoutClientInput = {
   status: $Enums.AppealStatus
   title: string
@@ -594,7 +620,8 @@ export type AppealCreateWithoutClientInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
-  owner?: Prisma.UserCreateNestedOneWithoutOwnedAppealsInput
+  owner?: Prisma.UserCreateNestedOneWithoutOwnerAppealsInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageCreateNestedManyWithoutAppealInput
 }
 
 export type AppealUncheckedCreateWithoutClientInput = {
@@ -607,6 +634,7 @@ export type AppealUncheckedCreateWithoutClientInput = {
   updatedAt?: Date | string
   closedAt?: Date | string | null
   ownerId?: number | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedCreateNestedManyWithoutAppealInput
 }
 
 export type AppealCreateOrConnectWithoutClientInput = {
@@ -628,6 +656,7 @@ export type AppealCreateWithoutOwnerInput = {
   updatedAt?: Date | string
   closedAt?: Date | string | null
   client: Prisma.UserCreateNestedOneWithoutClientAppealsInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageCreateNestedManyWithoutAppealInput
 }
 
 export type AppealUncheckedCreateWithoutOwnerInput = {
@@ -640,6 +669,7 @@ export type AppealUncheckedCreateWithoutOwnerInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedCreateNestedManyWithoutAppealInput
 }
 
 export type AppealCreateOrConnectWithoutOwnerInput = {
@@ -700,6 +730,72 @@ export type AppealUpdateManyWithWhereWithoutOwnerInput = {
   data: Prisma.XOR<Prisma.AppealUpdateManyMutationInput, Prisma.AppealUncheckedUpdateManyWithoutOwnerInput>
 }
 
+export type AppealCreateWithoutAppealUpdateMessagesInput = {
+  status: $Enums.AppealStatus
+  title: string
+  description: string
+  outcome?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  closedAt?: Date | string | null
+  client: Prisma.UserCreateNestedOneWithoutClientAppealsInput
+  owner?: Prisma.UserCreateNestedOneWithoutOwnerAppealsInput
+}
+
+export type AppealUncheckedCreateWithoutAppealUpdateMessagesInput = {
+  id?: number
+  status: $Enums.AppealStatus
+  title: string
+  description: string
+  clientId: number
+  outcome?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  closedAt?: Date | string | null
+  ownerId?: number | null
+}
+
+export type AppealCreateOrConnectWithoutAppealUpdateMessagesInput = {
+  where: Prisma.AppealWhereUniqueInput
+  create: Prisma.XOR<Prisma.AppealCreateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedCreateWithoutAppealUpdateMessagesInput>
+}
+
+export type AppealUpsertWithoutAppealUpdateMessagesInput = {
+  update: Prisma.XOR<Prisma.AppealUpdateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedUpdateWithoutAppealUpdateMessagesInput>
+  create: Prisma.XOR<Prisma.AppealCreateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedCreateWithoutAppealUpdateMessagesInput>
+  where?: Prisma.AppealWhereInput
+}
+
+export type AppealUpdateToOneWithWhereWithoutAppealUpdateMessagesInput = {
+  where?: Prisma.AppealWhereInput
+  data: Prisma.XOR<Prisma.AppealUpdateWithoutAppealUpdateMessagesInput, Prisma.AppealUncheckedUpdateWithoutAppealUpdateMessagesInput>
+}
+
+export type AppealUpdateWithoutAppealUpdateMessagesInput = {
+  status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  client?: Prisma.UserUpdateOneRequiredWithoutClientAppealsNestedInput
+  owner?: Prisma.UserUpdateOneWithoutOwnerAppealsNestedInput
+}
+
+export type AppealUncheckedUpdateWithoutAppealUpdateMessagesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumAppealStatusFieldUpdateOperationsInput | $Enums.AppealStatus
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.IntFieldUpdateOperationsInput | number
+  outcome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ownerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
 export type AppealCreateManyClientInput = {
   id?: number
   status: $Enums.AppealStatus
@@ -732,7 +828,8 @@ export type AppealUpdateWithoutClientInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  owner?: Prisma.UserUpdateOneWithoutOwnedAppealsNestedInput
+  owner?: Prisma.UserUpdateOneWithoutOwnerAppealsNestedInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealUncheckedUpdateWithoutClientInput = {
@@ -745,6 +842,7 @@ export type AppealUncheckedUpdateWithoutClientInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ownerId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealUncheckedUpdateManyWithoutClientInput = {
@@ -768,6 +866,7 @@ export type AppealUpdateWithoutOwnerInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   client?: Prisma.UserUpdateOneRequiredWithoutClientAppealsNestedInput
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealUncheckedUpdateWithoutOwnerInput = {
@@ -780,6 +879,7 @@ export type AppealUncheckedUpdateWithoutOwnerInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  appealUpdateMessages?: Prisma.AppealUpdateMessageUncheckedUpdateManyWithoutAppealNestedInput
 }
 
 export type AppealUncheckedUpdateManyWithoutOwnerInput = {
@@ -795,6 +895,35 @@ export type AppealUncheckedUpdateManyWithoutOwnerInput = {
 }
 
 
+/**
+ * Count Type AppealCountOutputType
+ */
+
+export type AppealCountOutputType = {
+  appealUpdateMessages: number
+}
+
+export type AppealCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  appealUpdateMessages?: boolean | AppealCountOutputTypeCountAppealUpdateMessagesArgs
+}
+
+/**
+ * AppealCountOutputType without action
+ */
+export type AppealCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AppealCountOutputType
+   */
+  select?: Prisma.AppealCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AppealCountOutputType without action
+ */
+export type AppealCountOutputTypeCountAppealUpdateMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AppealUpdateMessageWhereInput
+}
+
 
 export type AppealSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -809,6 +938,8 @@ export type AppealSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   ownerId?: boolean
   client?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   owner?: boolean | Prisma.Appeal$ownerArgs<ExtArgs>
+  appealUpdateMessages?: boolean | Prisma.Appeal$appealUpdateMessagesArgs<ExtArgs>
+  _count?: boolean | Prisma.AppealCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["appeal"]>
 
 export type AppealSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -858,6 +989,8 @@ export type AppealOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type AppealInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   client?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   owner?: boolean | Prisma.Appeal$ownerArgs<ExtArgs>
+  appealUpdateMessages?: boolean | Prisma.Appeal$appealUpdateMessagesArgs<ExtArgs>
+  _count?: boolean | Prisma.AppealCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AppealIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   client?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -873,6 +1006,7 @@ export type $AppealPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   objects: {
     client: Prisma.$UserPayload<ExtArgs>
     owner: Prisma.$UserPayload<ExtArgs> | null
+    appealUpdateMessages: Prisma.$AppealUpdateMessagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1281,6 +1415,7 @@ export interface Prisma__AppealClient<T, Null = never, ExtArgs extends runtime.T
   readonly [Symbol.toStringTag]: "PrismaPromise"
   client<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   owner<T extends Prisma.Appeal$ownerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appeal$ownerArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  appealUpdateMessages<T extends Prisma.Appeal$appealUpdateMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Appeal$appealUpdateMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AppealUpdateMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1737,6 +1872,30 @@ export type Appeal$ownerArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   include?: Prisma.UserInclude<ExtArgs> | null
   where?: Prisma.UserWhereInput
+}
+
+/**
+ * Appeal.appealUpdateMessages
+ */
+export type Appeal$appealUpdateMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AppealUpdateMessage
+   */
+  select?: Prisma.AppealUpdateMessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AppealUpdateMessage
+   */
+  omit?: Prisma.AppealUpdateMessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AppealUpdateMessageInclude<ExtArgs> | null
+  where?: Prisma.AppealUpdateMessageWhereInput
+  orderBy?: Prisma.AppealUpdateMessageOrderByWithRelationInput | Prisma.AppealUpdateMessageOrderByWithRelationInput[]
+  cursor?: Prisma.AppealUpdateMessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AppealUpdateMessageScalarFieldEnum | Prisma.AppealUpdateMessageScalarFieldEnum[]
 }
 
 /**

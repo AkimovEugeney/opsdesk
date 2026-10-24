@@ -50,6 +50,11 @@ export type User = Prisma.UserModel
  */
 export type Appeal = Prisma.AppealModel
 /**
+ * Model AppealUpdateMessage
+ * 
+ */
+export type AppealUpdateMessage = Prisma.AppealUpdateMessageModel
+/**
  * Model Session
  * 
  */

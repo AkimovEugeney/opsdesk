@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-10-22. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-10-24. This is a pointer, not a second ledger or requirements log.
 
 ## Working model
 
@@ -8,11 +8,13 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Active work
 
-- No ticket is in progress. OPS-003, 007, 009, 010, 012, 013, 014 and [015](../../work/tickets/OPS-015.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
+- OPS-003, 007, 009, 010, 012, 013, 014 and [015](../../work/tickets/OPS-015.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
+- [OPS-016](../../work/tickets/OPS-016.md) is Deferred: learner explicitly prefers backend work for now; implementation not started.
+- [OPS-017](../../work/tickets/OPS-017.md) is In Progress: API implementation and review fixes. Learner estimate 3–4 h; actual time unknown. Review and validation details belong to the ticket.
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite (existing service tests and one-off real HTTP evidence for OPS-014/015); the web client is a static page and lacks an authorization screen.
-- Stopped at (2026-10-22): OPS-015 accepted Done: build, 149/149 read HTTP cases, 10/10 service tests and independent review pass. Customer ownership and role-dependent reads work in tested cases; operator escaping fixed by Codex at learner request, shared neutral 404 accepted. Temporary database/listener cleaned, working data untouched. Actual approximately 1.5 h versus pre-work 2–3 h. Week capacity 12 h, approximately 7.5 h recorded total. Learner authorized committing all OPS-015 implementation/records as one feature commit; push not requested. OPS-014/docs already pushed (2dbd7b3, 2d314c2). Next refine the next product slice; do not silently start deferred OPS-011.
+- Stopped at (2026-10-24): OPS-017 GET review fixes and API behavior validation remain. Learner requested later discussion of access lookup, method ordering/splitting and async/await across all three layers; topics are saved in the ticket, no automatic lesson. Frontend OPS-016/011 stays deferred. OPS-015 committed as 247a699, push not requested. Week capacity 12 h, approximately 7.5 h previously recorded; OPS-017 actuals unknown.
 
 ## Learning evidence
 
@@ -22,7 +24,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Connect a small React view to the verified API (mentor preliminary range: 4–6 h; estimate belongs to the learner at refinement).
+1. Resume OPS-017 from the intermediate checkpoint requested on 2026-10-24: GET fixes are present by inspection; next validate publish/read behavior, then complete required review. Deferred discussion topics remain in the ticket until requested. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
 
 ## Source map and history
 

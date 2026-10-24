@@ -10,5 +10,6 @@
  */
 export type * from './models/User'
 export type * from './models/Appeal'
+export type * from './models/AppealUpdateMessage'
 export type * from './models/Session'
 export type * from './commonInputTypes'

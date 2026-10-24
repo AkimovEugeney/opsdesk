@@ -5,6 +5,7 @@ import { ValidatePositiveInt32Pipe } from '../common/pipes/validate-positive-int
 import { AppealsService } from './appeals.service'
 import { AssignOwnerDto } from './dto/assign-owner.dto'
 import { CloseAppealDto } from './dto/close-appeal.dto'
+import { createAppealUpdateMessageDto } from './dto/create-appeal-update-message.dto'
 import { CreateAppealDto } from './dto/create-appeal.dto'
 
 @Controller('appeals')
@@ -12,10 +13,7 @@ export class AppealsController {
   constructor(private readonly appealsService: AppealsService) {}
 
   @Get()
-  getAppeals(
-   @CurrentUser() currentUser: AuthenticatedUser,
-   @Query('search') search?: string
-  ) {
+  getAppeals(@CurrentUser() currentUser: AuthenticatedUser, @Query('search') search?: string) {
     return this.appealsService.findAll(currentUser, search)
   }
 
@@ -25,6 +23,13 @@ export class AppealsController {
     @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
   ) {
     return this.appealsService.getAppealById(currentUser, id)
+  }
+  @Get('/:id/updateMessages')
+  getUpdateMessage(
+    @CurrentUser() currentUser: AuthenticatedUser,
+    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number
+  ){
+    return this.appealsService.getUpdateMessage(currentUser, id)
   }
 
   @Patch(':id/owner')
@@ -64,5 +69,14 @@ export class AppealsController {
       id: currentUser.id,
       role: currentUser.role,
     })
+  }
+
+  @Post('/:id/updateMessage')
+  async createUpdateMessage(
+    @CurrentUser() currentUser: AuthenticatedUser,
+    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
+    @Body() body: createAppealUpdateMessageDto,
+  ) {
+    return this.appealsService.createAppealUpdateMessage(currentUser, id, body.message)
   }
 }

@@ -399,6 +399,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   User: 'User',
   Appeal: 'Appeal',
+  AppealUpdateMessage: 'AppealUpdateMessage',
   Session: 'Session'
 } as const
 
@@ -415,7 +416,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "appeal" | "session"
+    modelProps: "user" | "appeal" | "appealUpdateMessage" | "session"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -567,6 +568,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AppealUpdateMessage: {
+      payload: Prisma.$AppealUpdateMessagePayload<ExtArgs>
+      fields: Prisma.AppealUpdateMessageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AppealUpdateMessageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AppealUpdateMessageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        findFirst: {
+          args: Prisma.AppealUpdateMessageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AppealUpdateMessageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        findMany: {
+          args: Prisma.AppealUpdateMessageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>[]
+        }
+        create: {
+          args: Prisma.AppealUpdateMessageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        createMany: {
+          args: Prisma.AppealUpdateMessageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AppealUpdateMessageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>[]
+        }
+        delete: {
+          args: Prisma.AppealUpdateMessageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        update: {
+          args: Prisma.AppealUpdateMessageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        deleteMany: {
+          args: Prisma.AppealUpdateMessageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AppealUpdateMessageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AppealUpdateMessageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>[]
+        }
+        upsert: {
+          args: Prisma.AppealUpdateMessageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppealUpdateMessagePayload>
+        }
+        aggregate: {
+          args: Prisma.AppealUpdateMessageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAppealUpdateMessage>
+        }
+        groupBy: {
+          args: Prisma.AppealUpdateMessageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppealUpdateMessageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AppealUpdateMessageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppealUpdateMessageCountAggregateOutputType> | number
+        }
+      }
+    }
     Session: {
       payload: Prisma.$SessionPayload<ExtArgs>
       fields: Prisma.SessionFieldRefs
@@ -707,6 +782,17 @@ export const AppealScalarFieldEnum = {
 } as const
 
 export type AppealScalarFieldEnum = (typeof AppealScalarFieldEnum)[keyof typeof AppealScalarFieldEnum]
+
+
+export const AppealUpdateMessageScalarFieldEnum = {
+  id: 'id',
+  message: 'message',
+  createdAt: 'createdAt',
+  appealId: 'appealId',
+  authorId: 'authorId'
+} as const
+
+export type AppealUpdateMessageScalarFieldEnum = (typeof AppealUpdateMessageScalarFieldEnum)[keyof typeof AppealUpdateMessageScalarFieldEnum]
 
 
 export const SessionScalarFieldEnum = {
@@ -999,6 +1085,7 @@ export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaC
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   appeal?: Prisma.AppealOmit
+  appealUpdateMessage?: Prisma.AppealUpdateMessageOmit
   session?: Prisma.SessionOmit
 }
 

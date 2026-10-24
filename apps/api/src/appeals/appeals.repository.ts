@@ -91,6 +91,43 @@ export class AppealsRepository {
     })
   }
 
+  async getUpdateMessages(appealId: number) {
+    return this.prismaService.appealUpdateMessage.findMany({
+      where: { appealId },
+      select: {
+        id: true,
+        message: true,
+        createdAt: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
+    })
+  }
+
+  async createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
+    return this.prismaService.appealUpdateMessage.create({
+      data: {
+        authorId,
+        appealId,
+        message,
+      },
+      select: {
+        id: true,
+        message: true,
+        createdAt: true,
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    })
+  }
+
   async closeAppeal(id: number, ownerId: number, outcome: string) {
     return await this.prismaService.appeal.update({
       where: { id, ownerId, status: AppealStatus.IN_PROGRESS },
@@ -125,7 +162,7 @@ export class AppealsRepository {
   async findStateById(appealId: number) {
     return await this.prismaService.appeal.findUnique({
       where: { id: appealId },
-      select: { id: true, status: true, ownerId: true },
+      select: { id: true, status: true, ownerId: true, clientId: true },
     })
   }
 

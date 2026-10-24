@@ -124,4 +124,31 @@ export class AppealsService {
     }
     return await this.appealsRepository.createAppeal(user.id, title, description)
   }
+
+  async createAppealUpdateMessage(
+    author: AuthenticatedUser,
+    appealId: number,
+    message: string,
+  ) {
+    if (author.role !== UserRole.OPERATOR) {
+      throw new ForbiddenException('Appeal messages creating is forbidden')
+    }
+
+    const appeal = await this.appealsRepository.findStateById(appealId)
+    if (!appeal) {
+      throw new NotFoundException('Appeal not found')
+    }
+
+    return await this.appealsRepository.createAppealUpdateMessage(author.id, appealId, message)
+  }
+
+  async getUpdateMessage(currentUser: AuthenticatedUser, appealId: number) {
+    const appeal = await this.findAppealForUser(currentUser, appealId)
+
+    if (!appeal) {
+      throw new NotFoundException('Appeal not found')
+    }
+
+    return this.appealsRepository.getUpdateMessages(appealId)
+  }
 }

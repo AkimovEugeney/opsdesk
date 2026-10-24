@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Appeal: 'Appeal',
+  AppealUpdateMessage: 'AppealUpdateMessage',
   Session: 'Session'
 } as const
 
@@ -99,6 +100,17 @@ export const AppealScalarFieldEnum = {
 } as const
 
 export type AppealScalarFieldEnum = (typeof AppealScalarFieldEnum)[keyof typeof AppealScalarFieldEnum]
+
+
+export const AppealUpdateMessageScalarFieldEnum = {
+  id: 'id',
+  message: 'message',
+  createdAt: 'createdAt',
+  appealId: 'appealId',
+  authorId: 'authorId'
+} as const
+
+export type AppealUpdateMessageScalarFieldEnum = (typeof AppealUpdateMessageScalarFieldEnum)[keyof typeof AppealUpdateMessageScalarFieldEnum]
 
 
 export const SessionScalarFieldEnum = {
