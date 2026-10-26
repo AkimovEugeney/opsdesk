@@ -10,11 +10,11 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 - OPS-003, 007, 009, 010, 012, 013, 014 and [015](../../work/tickets/OPS-015.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
 - [OPS-016](../../work/tickets/OPS-016.md) is Deferred: learner explicitly prefers backend work for now; implementation not started.
-- [OPS-017](../../work/tickets/OPS-017.md) is In Progress: API implementation and review fixes. Learner estimate 3–4 h; actual time unknown. Review and validation details belong to the ticket.
+- [OPS-017](../../work/tickets/OPS-017.md) is In Progress: API implementation and review fixes. Learner estimate 3–4 h; actual time 4 h (learner self-report, 2026-10-26). Review and validation details belong to the ticket.
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite (existing service tests and one-off real HTTP evidence for OPS-014/015); the web client is a static page and lacks an authorization screen.
-- Stopped at (2026-10-26): discussed caller-scoped appeal lookup, method grouping/splitting and async/await on current code. Learner applied async cleanup with guidance; review found no functional defect, API build and 10 existing service tests passed. No independent mastery or real HTTP/persistence validation claimed. Next validate OPS-017 publish/read behavior, then required independent review. Frontend OPS-016/011 stays deferred. Intermediate checkpoint b21567a and prior OPS-015 commit 247a699 were pushed on 2026-10-24. New cleanup checkpoint commit/push requested on 2026-10-26. OPS-017 actuals unknown.
+- Stopped at (2026-10-26): learner-selected validation fix passed 208 HTTP cases plus build/10 service tests. User-authorized independent read-only reviewer found no open BLOCKER and accepted current readability/design; required independent review gate is satisfied. One optional improvement concerns the Codex-authored search-test oracle. Learner removed explicit transform:false (default false); reviewer proved exact source difference and behavioral equivalence, reusing HTTP evidence with that stated limit. Review/risks/evidence are in OPS-017 and OPS-017-independent-review.md. No code or DB changes authorized in the review block; future code changes need explicit permission. Changes remain uncommitted over 13e482a; actual time 4 h (learner self-report, 2026-10-26). Next final DoD reconciliation. OPS-016/011 deferred; no independent-mastery claim.
 
 ## Learning evidence
 
@@ -24,7 +24,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Resume OPS-017 behavior validation: POST/GET access, input boundaries, neutral 404, ordering/empty history, author attribution and persistence/existing data; then required independent review. The saved discussion was covered on request on 2026-10-26; do not restart it or issue a quiz automatically. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
+1. Resume OPS-017 with remaining DoD reconciliation: independent review has passed, actual time is recorded as 4 h and delivery is uncommitted. Reuse reviewed source/equivalent-edit evidence; no automatic code fixes, commits or repeat review. Future code changes require explicit learner permission. Do not restart saved explanations or issue a quiz. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
 
 ## Source map and history
 

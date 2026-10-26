@@ -36,6 +36,8 @@ OPS-014 actual: approximately 6 h, reported by the learner on 2026-10-21 includi
 
 OPS-015 actual: approximately 1.5 h, reported by the learner on 2026-10-22 including discussion and fixes. Pre-work estimate 2–3 h remains unchanged. The current-week total now includes both known ticket actuals; no unreported time is inferred.
 
+OPS-017 actual: 4 h total, reported by the learner on 2026-10-26; pre-work estimate 3–4 h. Work spans more than one calendar week and the daily/weekly split is unknown, so this total is not allocated to a weekly row or added to a reconstructed weekly total.
+
 ## Ticket estimate policy
 
 Use a range before starting a ticket:

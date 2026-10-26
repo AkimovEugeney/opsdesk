@@ -1,5 +1,9 @@
 # Learning log
 
+## OPS-017 completion evidence — 2026-10-26
+
+Progress-update API behavior passed 208 real HTTP checks after a learner-selected, Codex-applied validation fix; independent review found no open BLOCKER. Actual time: 4 h reported by learner. Promise cleanup and validation-order decisions are recorded as assisted in learning-state.json. The earlier global-pipe interaction and search-oracle limitation are mentor errors, not learner gaps. No independent mastery or historical working-database migration evidence is inferred. Final delivery is explicitly authorized; Git execution results belong to the ticket.
+
 | Date | Ticket | Skill | AI mode | What was practiced | Evidence | Result / next step |
 |---|---|---|---|---|---|---|
 | 2026-08-12 | OPS-000 | JavaScript | LEARN_MANUAL | Closures and Promise versus timer order | Explained independent closure state after guided examples; initially missed async ordering | NEW; practise event loop through code. |

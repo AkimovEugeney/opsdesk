@@ -1,0 +1,742 @@
+{
+  "date": "2026-10-26",
+  "sourceCommit": "13e482afe098ba42bb425c11ba050e01bbc8d910",
+  "method": "Compiled dist/main.js in owned child processes; real HTTP, login, SessionGuard, Prisma and PostgreSQL; no mocks",
+  "isolation": "Unique disposable local database; working database is never queried or mutated",
+  "migrationMethod": "Execute repository migration SQL in filename order, with existing fixtures before OPS-017 migration; Prisma migration deployment ledger is not simulated",
+  "checks": [
+    {
+      "name": "OPS-017 migration preserves all existing fixture users/appeals/relations",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login and safe projection: Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login and safe projection: Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login and safe projection: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login and safe projection: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 1 readable after migration by Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 1: Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 1 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 1: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 1 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 1: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 2 readable after migration by Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 2: Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 2 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 2: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 2 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 2: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 3 readable after migration by Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 3: Client A",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 3 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 3: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 3 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 3: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 4 readable after migration by Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 4: Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 4 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 4: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 4 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 4: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 5 readable after migration by Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 5: Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 5 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 5: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 5 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 5: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 6 readable after migration by Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 6: Client B",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 6 readable after migration by Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 6: Operator",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing appeal 6 readable after migration by Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Empty history 6: Manager",
+      "result": "PASS"
+    },
+    {
+      "name": "Publish/read Operator on 1 NEW",
+      "result": "PASS"
+    },
+    {
+      "name": "Publish/read Manager on 1 NEW",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Operator on 2 IN_PROGRESS",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Manager on 2 IN_PROGRESS",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Operator on 3 CLOSED",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Manager on 3 CLOSED",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Operator on 4 NEW",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Manager on 4 NEW",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Operator on 5 IN_PROGRESS",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Manager on 5 IN_PROGRESS",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Operator on 6 CLOSED",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Publish/read Manager on 6 CLOSED",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (createdAt >= beforeTime && createdAt <= Date.now())\n"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client A, parent 4",
+      "result": "PASS"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client A, parent 5",
+      "result": "PASS"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client A, parent 6",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client A, parent 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client A, parent 4",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client A, parent 2147483647",
+      "result": "PASS"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client B, parent 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client B, parent 2",
+      "result": "PASS"
+    },
+    {
+      "name": "Neutral foreign/missing 404: Client B, parent 3",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client B, parent 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client B, parent 4",
+      "result": "PASS"
+    },
+    {
+      "name": "Client POST denied before disclosure: Client B, parent 2147483647",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator missing parent: Operator, GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator missing parent: Operator, POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator missing parent: Manager, GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Operator missing parent: Manager, POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":null}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":3}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":true}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":{}}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":[]}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":\"\"}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":\" \\n\\t \"}",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid text {\"message\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "result": "PASS"
+    },
+    {
+      "name": "Valid trimmed text length 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Valid trimmed text length 2000",
+      "result": "PASS"
+    },
+    {
+      "name": "Valid trimmed text length 14",
+      "result": "PASS"
+    },
+    {
+      "name": "Forged author/time/id/parent ignored and other parent unchanged",
+      "result": "FAIL",
+      "detail": "The expression evaluated to a falsy value:\n\n  (Date.parse(String(item.createdAt)) >= beforeTime)\n"
+    },
+    {
+      "name": "Repeated identical submissions append distinct saved rows",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Client A GET",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Client A POST",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n403 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 0: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 0: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Client A GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Client A POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Client B GET",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Client B POST",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n403 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 0: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 0: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Client B GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Client B POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Operator GET",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Operator POST",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 0: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 0: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Operator GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Operator POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id abc: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1.5: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Manager GET",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 1e2: Manager POST",
+      "result": "FAIL",
+      "detail": "Expected values to be strictly equal:\n\n404 !== 400\n"
+    },
+    {
+      "name": "Authenticated invalid id 0: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 0: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id -1: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 2147483648: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Manager GET",
+      "result": "PASS"
+    },
+    {
+      "name": "Authenticated invalid id 9007199254740993: Manager POST",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: GET 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: POST 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: GET abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: POST abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: GET 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: POST 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: GET 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Session missing before validation: POST 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: GET 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: POST 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: GET abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: POST abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: GET 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: POST 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: GET 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Session invalid before validation: POST 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: GET 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: POST 1",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: GET abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: POST abc",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: GET 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: POST 0",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: GET 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Session expired before validation: POST 2147483648",
+      "result": "PASS"
+    },
+    {
+      "name": "Oldest-first ordering with reverse insertion and tied timestamps",
+      "result": "PASS"
+    },
+    {
+      "name": "Original appeal business fields unchanged by all update requests",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing auth/create/read/list/assignment/close/logout flows",
+      "result": "PASS"
+    },
+    {
+      "name": "Saved history survives API process exit and a new process",
+      "result": "PASS"
+    }
+  ],
+  "processIds": [
+    29532,
+    20028
+  ],
+  "sourceFiles": [
+    "src/main.ts",
+    "src/app.module.ts",
+    "src/appeals/appeals.controller.ts",
+    "src/appeals/appeals.service.ts",
+    "src/appeals/appeals.repository.ts",
+    "src/appeals/dto/create-appeal-update-message.dto.ts",
+    "src/auth/auth.controller.ts",
+    "src/auth/auth.service.ts",
+    "src/auth/auth.module.ts",
+    "src/auth/session/session.guard.ts",
+    "src/auth/session/session.constants.ts",
+    "src/auth/session/session-timeout.ts",
+    "src/auth/password.ts",
+    "src/common/pipes/validate-positive-int32.pipe.ts",
+    "src/prisma/prisma.service.ts",
+    "prisma/schema.prisma"
+  ],
+  "sourceSha256": "88155244d56fbcd2ed61690a7df0601c34162ea928c87f69d09b494deedbee98",
+  "harnessSha256": "8c5c246d04e443148c26e6f452f4a6a4632421dbbecc25d21e2672dd0dd58a71",
+  "fixturePreconditions": {
+    "distinctCustomers": true,
+    "operatorWithoutPermission": true,
+    "managerPermission": true,
+    "parentStatuses": [
+      "NEW",
+      "IN_PROGRESS",
+      "CLOSED",
+      "NEW",
+      "IN_PROGRESS",
+      "CLOSED"
+    ],
+    "unassigned": true,
+    "otherAssigned": true
+  },
+  "cleanup": "Owned API processes stopped, fixture connections closed, exact disposable database dropped and absence verified",
+  "summary": {
+    "passed": 147,
+    "failed": 20
+  },
+  "exitCode": 1
+}

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common'
+import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, ValidationPipe } from '@nestjs/common'
 import { CurrentUser } from '../auth/decorators/current-user.decorator'
 import { AuthenticatedUser } from '../auth/session/session.types'
 import { ValidatePositiveInt32Pipe } from '../common/pipes/validate-positive-int32.pipe'
@@ -13,7 +13,10 @@ export class AppealsController {
   constructor(private readonly appealsService: AppealsService) {}
 
   @Get()
-  getAppeals(@CurrentUser() currentUser: AuthenticatedUser, @Query('search') search?: string) {
+  getAppeals(
+    @CurrentUser() currentUser: AuthenticatedUser,
+    @Query('search', new ValidationPipe({ transform: true })) search?: string,
+  ) {
     return this.appealsService.findAll(currentUser, search)
   }
 

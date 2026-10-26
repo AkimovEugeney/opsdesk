@@ -729,6 +729,28 @@
       "verified": true,
       "on": "2026-10-22",
       "until": null
+    },
+    {
+      "id": "ops017-2026-10-26-promise-forwarding-assisted",
+      "concept": "js-async-order",
+      "context": "OPS-017",
+      "source": "work/tickets/OPS-017.md",
+      "note": "Learner applied promise-forwarding cleanup after guided explanation of async/await and local rejection handling. Required lookup waits, logout ordering and P2025 handling remained. Build, 10 service tests and later real HTTP checks passed; no independent async mastery inferred.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-26",
+      "until": null
+    },
+    {
+      "id": "ops017-2026-10-26-validation-order-assisted",
+      "concept": "http-input-validation",
+      "context": "OPS-017",
+      "source": "work/tickets/OPS-017.md",
+      "note": "Learner questioned the mentor-proposed validation design and chose disabling global primitive transformation after explanation. Codex applied the authorized change and preserved search conversion locally. 208 real HTTP checks passed and independent review accepted the design. The missed global-pipe interaction and search-oracle limitation are mentor errors, not learner gaps; assisted decision/application only.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-26",
+      "until": null
     }
   ]
 }
