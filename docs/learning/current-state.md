@@ -8,13 +8,13 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Active work
 
-- OPS-003, 007, 009, 010, 012, 013, 014 and [015](../../work/tickets/OPS-015.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
+- OPS-003, 007, 009, 010, 012, 013, 014, [015](../../work/tickets/OPS-015.md) and [017](../../work/tickets/OPS-017.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
 - [OPS-016](../../work/tickets/OPS-016.md) is Deferred: learner explicitly prefers backend work for now; implementation not started.
-- [OPS-017](../../work/tickets/OPS-017.md) is In Progress: API implementation and review fixes. Learner estimate 3–4 h; actual time 4 h (learner self-report, 2026-10-26). Review and validation details belong to the ticket.
+- [OPS-018](../../work/tickets/OPS-018.md) is Ready: management-authorized operator workload summary, API-only. Learner estimate and short design proposal pending; implementation not started. See its requirements log for current PO policy.
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
-- Known gaps in the product: no maintained HTTP test suite (existing service tests and one-off real HTTP evidence for OPS-014/015); the web client is a static page and lacks an authorization screen.
-- Stopped at (2026-10-26): learner-selected validation fix passed 208 HTTP cases plus build/10 service tests. User-authorized independent read-only reviewer found no open BLOCKER and accepted current readability/design; required independent review gate is satisfied. One optional improvement concerns the Codex-authored search-test oracle. Learner removed explicit transform:false (default false); reviewer proved exact source difference and behavioral equivalence, reusing HTTP evidence with that stated limit. Review/risks/evidence are in OPS-017 and OPS-017-independent-review.md. No code or DB changes authorized in the review block; future code changes need explicit permission. Changes remain uncommitted over 13e482a; actual time 4 h (learner self-report, 2026-10-26). Next final DoD reconciliation. OPS-016/011 deferred; no independent-mastery claim.
+- Known gaps in the product: no maintained HTTP test suite integrated into CI (existing service tests and bounded HTTP evidence/harness for OPS-014/015/017); the web client is a static page and lacks an authorization screen.
+- Stopped at (2026-10-26): OPS-017 delivered via 3e31591 and authorized lockfile repair 0f7b0e3, pushed to origin/master. GitHub CI run 40341471768 succeeded; independent review has no open BLOCKER. Actual time 4 h. Evidence/limits are in the ticket; no independent mastery inferred. Learner requested the next task: OPS-018 is issued, estimate/design pending. No OPS-018 implementation authorized. Future source/test/config changes by Codex require explicit permission. OPS-016/011 stay deferred.
 
 ## Learning evidence
 
@@ -24,10 +24,10 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Resume OPS-017 with remaining DoD reconciliation: independent review has passed, actual time is recorded as 4 h and delivery is uncommitted. Reuse reviewed source/equivalent-edit evidence; no automatic code fixes, commits or repeat review. Future code changes require explicit learner permission. Do not restart saved explanations or issue a quiz. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
+1. Continue OPS-018 from the learner's initiative: estimate, product questions or design proposal. Review the permission/public-contract proposal before implementation; give no prepared technical solution. No automatic quiz or repeated async/access/validation lesson. OPS-016/011 remain deferred.
 
 ## Source map and history
 
-- Current requirements, decisions, validation and remaining defects: [OPS-003](../../work/tickets/OPS-003.md) and its [requirements log](../../work/tickets/OPS-003-requirements-log.md).
+- Current requirements and decisions: [OPS-018](../../work/tickets/OPS-018.md) and its [requirements log](../../work/tickets/OPS-018-requirements-log.md). Completed-task evidence remains in each ticket.
 - Sprint/capacity are planning and time records: [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md), [capacity plan](capacity-plan.md). No missing actual time is reconstructed.
 - Historical sprint, learning-log and session-audit entries are retained as history; they do not set active status.

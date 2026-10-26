@@ -4,6 +4,8 @@
 
 Progress-update API behavior passed 208 real HTTP checks after a learner-selected, Codex-applied validation fix; independent review found no open BLOCKER. Actual time: 4 h reported by learner. Promise cleanup and validation-order decisions are recorded as assisted in learning-state.json. The earlier global-pipe interaction and search-oracle limitation are mentor errors, not learner gaps. No independent mastery or historical working-database migration evidence is inferred. Final delivery is explicitly authorized; Git execution results belong to the ticket.
 
+Final delivery observed: commits 3e31591 and 0f7b0e3 pushed to origin/master; GitHub CI 40341471768 succeeded after explicitly authorized pnpm lockfile repair. Clean installation/build and 10 service tests passed in a temporary copy, then removed. OPS-017 is Done. Learner requested the next backend task; OPS-018 workload summary is issued without implementation or inferred learning evidence.
+
 | Date | Ticket | Skill | AI mode | What was practiced | Evidence | Result / next step |
 |---|---|---|---|---|---|---|
 | 2026-08-12 | OPS-000 | JavaScript | LEARN_MANUAL | Closures and Promise versus timer order | Explained independent closure state after guided examples; initially missed async ordering | NEW; practise event loop through code. |
