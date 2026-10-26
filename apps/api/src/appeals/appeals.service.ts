@@ -57,7 +57,7 @@ export class AppealsService {
     }
   }
 
-  async findAll(currentUser: AuthenticatedUser, search?: string) {
+  findAll(currentUser: AuthenticatedUser, search?: string) {
     const normalizedSearch = search?.trim() || undefined
     if (currentUser.role === UserRole.CLIENT) {
       return this.appealsRepository.findAllByClientId(currentUser.id, normalizedSearch)
@@ -118,11 +118,11 @@ export class AppealsService {
     }
   }
 
-  async createAppeal(title: string, description: string, user: { id: number; role: string }) {
+  createAppeal(title: string, description: string, user: { id: number; role: string }) {
     if (user.role != UserRole.CLIENT) {
       throw new ForbiddenException('')
     }
-    return await this.appealsRepository.createAppeal(user.id, title, description)
+    return this.appealsRepository.createAppeal(user.id, title, description)
   }
 
   async createAppealUpdateMessage(
@@ -138,8 +138,7 @@ export class AppealsService {
     if (!appeal) {
       throw new NotFoundException('Appeal not found')
     }
-
-    return await this.appealsRepository.createAppealUpdateMessage(author.id, appealId, message)
+    return this.appealsRepository.createAppealUpdateMessage(author.id, appealId, message)
   }
 
   async getUpdateMessage(currentUser: AuthenticatedUser, appealId: number) {

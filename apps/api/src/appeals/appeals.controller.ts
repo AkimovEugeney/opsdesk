@@ -27,13 +27,13 @@ export class AppealsController {
   @Get('/:id/updateMessages')
   getUpdateMessage(
     @CurrentUser() currentUser: AuthenticatedUser,
-    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number
-  ){
+    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
+  ) {
     return this.appealsService.getUpdateMessage(currentUser, id)
   }
 
   @Patch(':id/owner')
-  async approveOwner(
+  approveOwner(
     @CurrentUser() currentUser: AuthenticatedUser,
     @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
     @Body()
@@ -47,7 +47,7 @@ export class AppealsController {
   }
 
   @Patch(':id/close')
-  async closeAppeal(
+  closeAppeal(
     @CurrentUser() currentUser: AuthenticatedUser,
     @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
     @Body()
@@ -60,7 +60,7 @@ export class AppealsController {
   }
 
   @Post()
-  async createAppeal(
+  createAppeal(
     @CurrentUser() currentUser: AuthenticatedUser,
     @Body()
     dto: CreateAppealDto,
@@ -72,7 +72,7 @@ export class AppealsController {
   }
 
   @Post('/:id/updateMessage')
-  async createUpdateMessage(
+  createUpdateMessage(
     @CurrentUser() currentUser: AuthenticatedUser,
     @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
     @Body() body: createAppealUpdateMessageDto,

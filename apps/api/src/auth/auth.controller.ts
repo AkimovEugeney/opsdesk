@@ -40,7 +40,7 @@ export class AuthController {
   }
 
   @Get('me')
-  async getMe(@CurrentUser() currentUser: AuthenticatedUser) {
+  getMe(@CurrentUser() currentUser: AuthenticatedUser) {
     return {
       id: currentUser.id,
       name: currentUser.name,

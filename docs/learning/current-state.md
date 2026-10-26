@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-10-24. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-10-26. This is a pointer, not a second ledger or requirements log.
 
 ## Working model
 
@@ -14,7 +14,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite (existing service tests and one-off real HTTP evidence for OPS-014/015); the web client is a static page and lacks an authorization screen.
-- Stopped at (2026-10-24): OPS-017 GET review fixes and API behavior validation remain. Learner requested later discussion of access lookup, method ordering/splitting and async/await across all three layers; topics are saved in the ticket, no automatic lesson. Frontend OPS-016/011 stays deferred. OPS-015 committed as 247a699, push not requested. Week capacity 12 h, approximately 7.5 h previously recorded; OPS-017 actuals unknown.
+- Stopped at (2026-10-26): discussed caller-scoped appeal lookup, method grouping/splitting and async/await on current code. Learner applied async cleanup with guidance; review found no functional defect, API build and 10 existing service tests passed. No independent mastery or real HTTP/persistence validation claimed. Next validate OPS-017 publish/read behavior, then required independent review. Frontend OPS-016/011 stays deferred. Intermediate checkpoint b21567a and prior OPS-015 commit 247a699 were pushed on 2026-10-24. New cleanup checkpoint commit/push requested on 2026-10-26. OPS-017 actuals unknown.
 
 ## Learning evidence
 
@@ -24,7 +24,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Resume OPS-017 from the intermediate checkpoint requested on 2026-10-24: GET fixes are present by inspection; next validate publish/read behavior, then complete required review. Deferred discussion topics remain in the ticket until requested. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
+1. Resume OPS-017 behavior validation: POST/GET access, input boundaries, neutral 404, ordering/empty history, author attribution and persistence/existing data; then required independent review. The saved discussion was covered on request on 2026-10-26; do not restart it or issue a quiz automatically. Frontend OPS-016 and OPS-011 stay deferred until the learner chooses to resume them.
 
 ## Source map and history
 

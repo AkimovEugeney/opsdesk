@@ -23,7 +23,7 @@ function escapeLikeLiteral(value: string): string {
 export class AppealsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async findAllByClientId(clientId: number, search?: string) {
+   findAllByClientId(clientId: number, search?: string) {
     const filters: Prisma.AppealWhereInput = { clientId }
     if (search) {
       filters.title = {
@@ -45,7 +45,7 @@ export class AppealsRepository {
     })
   }
 
-  async findActive(search?: string) {
+   findActive(search?: string) {
     const pattern = search ? `%${escapeLikeLiteral(search)}%` : '%'
 
     return this.prismaService.$queryRaw`
@@ -73,8 +73,8 @@ export class AppealsRepository {
   `
   }
 
-  async createAppeal(clientId: number, title: string, description: string) {
-    return await this.prismaService.appeal.create({
+   createAppeal(clientId: number, title: string, description: string) {
+    return  this.prismaService.appeal.create({
       data: {
         clientId,
         title,
@@ -91,7 +91,7 @@ export class AppealsRepository {
     })
   }
 
-  async getUpdateMessages(appealId: number) {
+   getUpdateMessages(appealId: number) {
     return this.prismaService.appealUpdateMessage.findMany({
       where: { appealId },
       select: {
@@ -108,7 +108,7 @@ export class AppealsRepository {
     })
   }
 
-  async createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
+   createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
     return this.prismaService.appealUpdateMessage.create({
       data: {
         authorId,
@@ -128,8 +128,8 @@ export class AppealsRepository {
     })
   }
 
-  async closeAppeal(id: number, ownerId: number, outcome: string) {
-    return await this.prismaService.appeal.update({
+   closeAppeal(id: number, ownerId: number, outcome: string) {
+    return  this.prismaService.appeal.update({
       where: { id, ownerId, status: AppealStatus.IN_PROGRESS },
       data: { status: AppealStatus.CLOSED, closedAt: new Date(), outcome },
       select: {
@@ -142,7 +142,7 @@ export class AppealsRepository {
     })
   }
 
-  async updateAppealOwner(appealId: number, ownerId: number) {
+   updateAppealOwner(appealId: number, ownerId: number) {
     return this.prismaService.appeal.update({
       where: {
         id: appealId,
@@ -153,20 +153,20 @@ export class AppealsRepository {
     })
   }
 
-  async findUserRoleById(userId: number) {
+   findUserRoleById(userId: number) {
     return this.prismaService.user.findUnique({
       where: { id: userId },
       select: { id: true, role: true },
     })
   }
-  async findStateById(appealId: number) {
-    return await this.prismaService.appeal.findUnique({
+   findStateById(appealId: number) {
+    return  this.prismaService.appeal.findUnique({
       where: { id: appealId },
       select: { id: true, status: true, ownerId: true, clientId: true },
     })
   }
 
-  async findByIdAndClientId(id: number, clientId: number) {
+   findByIdAndClientId(id: number, clientId: number) {
     return this.prismaService.appeal.findUnique({
       where: { id, clientId },
       select: {

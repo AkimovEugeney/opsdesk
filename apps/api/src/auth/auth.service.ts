@@ -60,11 +60,11 @@ export class AuthService {
     return session.user
   }
 
-  async logout(sessionId: string) {
-    await this.prismaService.session.deleteMany({ where: { id: sessionId } })
+  logout(sessionId: string) {
+    return this.prismaService.session.deleteMany({ where: { id: sessionId } })
   }
 
-  async findUserByEmail(email: string) {
+  findUserByEmail(email: string) {
     return this.prismaService.user.findUnique({
       where: { email },
       select: { id: true, name: true, role: true, passwordHash: true },
