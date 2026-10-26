@@ -1,5 +1,11 @@
 # Learning log
 
+## OPS-018 new topic: read snapshots — 2026-10-26
+
+Learner explicitly requested a complete explanation of transactions and Repeatable Read and asked to record it as new learning. Prepared one connected walkthrough: group of database operations versus isolation guarantee, first-read snapshot under concurrent assignment, default ReadCommitted limitation, sequential Prisma $transaction query array/options/results, and transfer to the existing repository/service. A neutral user-directory example typechecked against the installed generated client in memory; no source file, DB snapshot behavior or completed workload fix was produced. Recorded once as introduced (NEW) under read-snapshot-consistency; understanding/application remain to be observed through the learner's work, without an exam. Row annotation discussion remains deferred.
+
+Later observed OPS-018 application: learner implemented the supplied transaction pattern, corrected object destructuring with help and added the derived mapper annotation. Authorized final matrix passed 30 real HTTP/DB scenarios, including a deterministic assignment between reads on separate backends; independent review found no open findings. These are assisted implementation and Codex-observed behavior, not independent transaction/locking mastery. The first report's mutable-reference artifact was mentor-authored and corrected in a fresh run; both temporary DB cleanups verified. Actual time remains unknown.
+
 ## OPS-017 completion evidence — 2026-10-26
 
 Progress-update API behavior passed 208 real HTTP checks after a learner-selected, Codex-applied validation fix; independent review found no open BLOCKER. Actual time: 4 h reported by learner. Promise cleanup and validation-order decisions are recorded as assisted in learning-state.json. The earlier global-pipe interaction and search-oracle limitation are mentor errors, not learner gaps. No independent mastery or historical working-database migration evidence is inferred. Final delivery is explicitly authorized; Git execution results belong to the ticket.
@@ -82,3 +88,7 @@ The learner approved the three corrective groups in [the session audit](session-
 ### OPS-015: caller-scoped appeal reads — 2026-10-22
 
 Learner proposed enforcing customer ownership in database queries while allowing operators to read any appeal card. Service branching, Prisma filters/projections, sorting and null handling were implemented with supplied AI examples and explanations. Learner challenged readability; the final small private service method selects the role-specific query while the public method handles missing results once. This is assisted application, recorded as one authorization episode; no independent mastery or gap is inferred from syntax questions. Real HTTP validation passed all 149 read cases after a preexisting SQL escaping bug was fixed by Codex at the learner's explicit request. The learner accepted one neutral 404 message for both roles and reported approximately 1.5 h actual against a 2–3 h pre-work estimate. Details and independent review are owned by the ticket.
+
+## 2026-10-26 — OPS-018 actual time and delivery authorization
+
+Learner reported 3 h actual (estimate 4 h) and explicitly requested expedited commit/push, deferring remaining discussion until tomorrow. No additional learning outcome or independent Git mastery inferred. Direct master delivery selected; remote CI/final closure must be reconciled. No new ticket issued.

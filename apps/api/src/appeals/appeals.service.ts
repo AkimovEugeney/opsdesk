@@ -57,6 +57,31 @@ export class AppealsService {
     }
   }
 
+  async getWorkload(currentUser: AuthenticatedUser) {
+    if (
+      currentUser.role !== UserRole.OPERATOR ||
+      !currentUser.permissions.includes(Permissions.CAN_MANAGE_APPEALS)
+    ) {
+      throw new ForbiddenException('Workload reading is forbidden')
+    }
+
+    const { countActiveAppeals, unassignedAppealsCount, operatorRows } =
+      await this.appealsRepository.getWorkloadSnapshot()
+
+    type OperatorWithCount = (typeof operatorRows)[number]
+    const operators = operatorRows.map((operator: OperatorWithCount) => ({
+      id: operator.id,
+      name: operator.name,
+      appealsCount: operator._count.ownerAppeals,
+    }))
+
+    return {
+      countActiveAppeals,
+      unassignedAppealsCount,
+      operators,
+    }
+  }
+
   findAll(currentUser: AuthenticatedUser, search?: string) {
     const normalizedSearch = search?.trim() || undefined
     if (currentUser.role === UserRole.CLIENT) {

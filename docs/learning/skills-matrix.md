@@ -12,7 +12,7 @@
 | SQL | PRACTICING | Wrote an active-appeals query with two joins, status filtering and custom `CASE` ordering for OPS-001; explained `LEFT JOIN` behaviour. OPS-005 added literal case-insensitive title matching with escaped `%` and `_` plus an optional filter; the learner explained both the escaping and the no-criterion path. |
 | PostgreSQL | UNKNOWN | — |
 | indexes | UNKNOWN | — |
-| transactions | UNKNOWN | — |
+| transactions | NEW | OPS-018: first requested explanation of read transactions, isolation and a Repeatable Read snapshot, with a typechecked neutral Prisma example. No independent application or broader write-transaction mastery claimed; bounded evidence is in learning-state.json. |
 | testing | UNKNOWN | — |
 | architecture | UNKNOWN | — |
 | Git | UNKNOWN | — |

@@ -397,6 +397,43 @@
           "docs/learning/learning-log.md"
         ]
       }
+    },
+    "read-snapshot-consistency": {
+      "title": "Read transactions and a stable Repeatable Read snapshot",
+      "capabilities": [
+        "data",
+        "quality"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No earlier independent evidence recorded. First bounded introduction requested during OPS-018; no broader transaction mastery inferred.",
+        "sources": [
+          "work/tickets/OPS-018.md",
+          "docs/learning/learning-log.md"
+        ]
+      }
+    },
+    "database-row-locks": {
+      "title": "PostgreSQL row locks and coordination of competing conditional writes",
+      "capabilities": [
+        "data",
+        "quality"
+      ],
+      "target": "UNDERSTAND",
+      "baseline": {
+        "status": "UNKNOWN",
+        "retention": "unintroduced",
+        "next_review_on": null,
+        "historical_repetition_count": null,
+        "summary": "No earlier independent evidence of database row-locking mechanics. Prior conditional update and P2025 evidence remains under authorization and is not erased or recast as new.",
+        "sources": [
+          "work/tickets/OPS-018.md"
+        ]
+      }
     }
   },
   "events": [
@@ -748,6 +785,39 @@
       "source": "work/tickets/OPS-017.md",
       "note": "Learner questioned the mentor-proposed validation design and chose disabling global primitive transformation after explanation. Codex applied the authorized change and preserved search conversion locally. 208 real HTTP checks passed and independent review accepted the design. The missed global-pipe interaction and search-oracle limitation are mentor errors, not learner gaps; assisted decision/application only.",
       "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-26",
+      "until": null
+    },
+    {
+      "id": "ops018-2026-10-26-repeatable-read-introduction",
+      "concept": "read-snapshot-consistency",
+      "context": "OPS-018",
+      "source": "work/tickets/OPS-018.md",
+      "note": "Learner explicitly identifies read transactions/isolation as a new topic and requests a complete explanation. Prepared transaction versus isolation walkthrough, snapshot interleaving, Prisma sequential transaction syntax, lazy query/outer-await behavior, and transfer guidance using a typechecked neutral user-directory example. No application implementation, real DB snapshot observation or learner-independent application is claimed.",
+      "kind": "introduced",
+      "verified": false,
+      "on": "2026-10-26",
+      "until": null
+    },
+    {
+      "id": "ops018-2026-10-26-repeatable-read-guided-application",
+      "concept": "read-snapshot-consistency",
+      "context": "OPS-018",
+      "source": "work/tickets/OPS-018.md",
+      "note": "After requested explanation learner accurately restated per-statement versus transaction snapshot visibility, then applied the mentor-supplied sequential RepeatableRead transaction and service integration. Corrected array/object destructuring with help. Actual source typechecks and stub-backed service/controller probes pass; real PostgreSQL snapshot and concurrent-assignment behavior remain unobserved. Assisted application only, no independent mastery or full runtime guarantee.",
+      "kind": "assisted",
+      "verified": false,
+      "on": "2026-10-26",
+      "until": null
+    },
+    {
+      "id": "ops018-2026-10-26-database-row-locking-introduction",
+      "concept": "database-row-locks",
+      "context": "OPS-018/closeAppeal",
+      "source": "work/tickets/OPS-018.md",
+      "note": "Learner requests database-level transaction grouping, competing-write and error explanation on the existing close flow. Prepared connection/autocommit boundaries, row-lock waiting and predicate recheck under ReadCommitted, and SQL zero-row result versus Prisma P2025/HTTP conflict distinction. Existing conditional-write knowledge is preserved; no actual DB race run or learner-independent locking application claimed.",
+      "kind": "introduced",
       "verified": false,
       "on": "2026-10-26",
       "until": null

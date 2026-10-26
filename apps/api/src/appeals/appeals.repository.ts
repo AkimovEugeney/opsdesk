@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Prisma } from '../generated/prisma/client'
-import { AppealStatus } from '../generated/prisma/enums'
+import { AppealStatus, UserRole } from '../generated/prisma/enums'
 import { PrismaService } from '../prisma/prisma.service'
 
 type AppealDetailsRow = {
@@ -23,7 +23,7 @@ function escapeLikeLiteral(value: string): string {
 export class AppealsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-   findAllByClientId(clientId: number, search?: string) {
+  findAllByClientId(clientId: number, search?: string) {
     const filters: Prisma.AppealWhereInput = { clientId }
     if (search) {
       filters.title = {
@@ -45,7 +45,7 @@ export class AppealsRepository {
     })
   }
 
-   findActive(search?: string) {
+  findActive(search?: string) {
     const pattern = search ? `%${escapeLikeLiteral(search)}%` : '%'
 
     return this.prismaService.$queryRaw`
@@ -73,8 +73,54 @@ export class AppealsRepository {
   `
   }
 
-   createAppeal(clientId: number, title: string, description: string) {
-    return  this.prismaService.appeal.create({
+  async getWorkloadSnapshot() {
+    const [countActiveAppeals, unassignedAppealsCount, operatorRows] =
+      await this.prismaService.$transaction(
+        [
+          this.countByStatuses([AppealStatus.IN_PROGRESS, AppealStatus.NEW]),
+          this.countByStatuses([AppealStatus.NEW]),
+          this.findOperatorWithWorkLoad(),
+        ],
+        {
+          isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
+        },
+      )
+
+    return {
+      countActiveAppeals,
+      unassignedAppealsCount,
+      operatorRows,
+    }
+  }
+
+  findOperatorWithWorkLoad() {
+    return this.prismaService.user.findMany({
+      where: { role: UserRole.OPERATOR },
+      select: {
+        id: true,
+        name: true,
+        _count: {
+          select: {
+            ownerAppeals: {
+              where: { status: AppealStatus.IN_PROGRESS },
+            },
+          },
+        },
+      },
+      orderBy: [{ id: 'asc' }],
+    })
+  }
+
+  countByStatuses(statuses: AppealStatus[]) {
+    return this.prismaService.appeal.count({
+      where: {
+        status: { in: statuses },
+      },
+    })
+  }
+
+  createAppeal(clientId: number, title: string, description: string) {
+    return this.prismaService.appeal.create({
       data: {
         clientId,
         title,
@@ -91,7 +137,7 @@ export class AppealsRepository {
     })
   }
 
-   getUpdateMessages(appealId: number) {
+  getUpdateMessages(appealId: number) {
     return this.prismaService.appealUpdateMessage.findMany({
       where: { appealId },
       select: {
@@ -108,7 +154,7 @@ export class AppealsRepository {
     })
   }
 
-   createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
+  createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
     return this.prismaService.appealUpdateMessage.create({
       data: {
         authorId,
@@ -128,8 +174,8 @@ export class AppealsRepository {
     })
   }
 
-   closeAppeal(id: number, ownerId: number, outcome: string) {
-    return  this.prismaService.appeal.update({
+  closeAppeal(id: number, ownerId: number, outcome: string) {
+    return this.prismaService.appeal.update({
       where: { id, ownerId, status: AppealStatus.IN_PROGRESS },
       data: { status: AppealStatus.CLOSED, closedAt: new Date(), outcome },
       select: {
@@ -142,7 +188,7 @@ export class AppealsRepository {
     })
   }
 
-   updateAppealOwner(appealId: number, ownerId: number) {
+  updateAppealOwner(appealId: number, ownerId: number) {
     return this.prismaService.appeal.update({
       where: {
         id: appealId,
@@ -153,20 +199,20 @@ export class AppealsRepository {
     })
   }
 
-   findUserRoleById(userId: number) {
+  findUserRoleById(userId: number) {
     return this.prismaService.user.findUnique({
       where: { id: userId },
       select: { id: true, role: true },
     })
   }
-   findStateById(appealId: number) {
-    return  this.prismaService.appeal.findUnique({
+  findStateById(appealId: number) {
+    return this.prismaService.appeal.findUnique({
       where: { id: appealId },
       select: { id: true, status: true, ownerId: true, clientId: true },
     })
   }
 
-   findByIdAndClientId(id: number, clientId: number) {
+  findByIdAndClientId(id: number, clientId: number) {
     return this.prismaService.appeal.findUnique({
       where: { id, clientId },
       select: {

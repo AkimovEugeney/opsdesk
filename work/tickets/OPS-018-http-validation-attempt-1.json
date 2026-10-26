@@ -1,0 +1,421 @@
+{
+  "date": "2026-10-26",
+  "baseCommit": "5e5455b5666ef85e0740e175e3a6a3100419965f",
+  "sourceState": "Uncommitted OPS-018 implementation; exact source and runtime fingerprints below",
+  "method": "Freshly compiled actual dist/main.js; real HTTP login/session guard/services/Prisma/PostgreSQL. Process-scoped pg driver barrier for deterministic concurrency only; no SQL, data or result replacement",
+  "isolation": "Unique disposable local DB; working DB is neither queried nor mutated. Admin connection targets postgres only",
+  "migrations": "Repository migration SQL in filename order, no Prisma deployment ledger simulation",
+  "buildEvidence": "Parent executed node node_modules/typescript/bin/tsc -p tsconfig.build.json successfully immediately before this run preparation",
+  "checks": [
+    {
+      "name": "Actual repository: no operators and no appeals gives empty snapshot",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: CLIENT 101",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: CLIENT 102",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: CLIENT 103",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: OPERATOR 41",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: OPERATOR 7",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: OPERATOR 83",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login: OPERATOR 19",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP no appeals: every operator present in exact ascending order with zero counts",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 101 (CLIENT) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 102 (CLIENT) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 103 (CLIENT) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 41 (OPERATOR) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 7 (OPERATOR) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "HTTP denied caller 19 (OPERATOR) gets safe 403",
+      "result": "PASS"
+    },
+    {
+      "name": "Real SessionGuard rejects missing session with 401",
+      "result": "PASS"
+    },
+    {
+      "name": "Real SessionGuard rejects invalid session with 401",
+      "result": "PASS"
+    },
+    {
+      "name": "Real SessionGuard rejects expired session with 401",
+      "result": "PASS"
+    },
+    {
+      "name": "Exact mixed-state workload, duplicate names, manager load, zeros and safe projection",
+      "result": "PASS"
+    },
+    {
+      "name": "Workload GET does not mutate appeal business records",
+      "result": "PASS"
+    },
+    {
+      "name": "Existing detail route and id validation preserved",
+      "result": "PASS"
+    },
+    {
+      "name": "Multiple progress updates do not inflate workload; history retained",
+      "result": "PASS"
+    },
+    {
+      "name": "Assignment reflects exact next summary and valid status/owner",
+      "result": "PASS"
+    },
+    {
+      "name": "Reassignment moves exactly one count between operators",
+      "result": "PASS"
+    },
+    {
+      "name": "Closing removes the active count, preserves history and historical outcome",
+      "result": "PASS"
+    },
+    {
+      "name": "Before concurrency window: exact known baseline",
+      "result": "PASS"
+    },
+    {
+      "name": "Actual HTTP/Prisma RepeatableRead survives assignment between second and third reads",
+      "result": "PASS"
+    },
+    {
+      "name": "ReadCommitted negative control reproduces original mixed-read defect",
+      "result": "PASS"
+    },
+    {
+      "name": "Protected read logout regression",
+      "result": "PASS"
+    },
+    {
+      "name": "Source identity unchanged throughout execution",
+      "result": "PASS"
+    }
+  ],
+  "sourceFiles": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "prisma/schema.prisma",
+    "src/_probe_cookie.ts",
+    "src/_probe_prisma.ts",
+    "src/app.module.ts",
+    "src/appeals/appeals.controller.ts",
+    "src/appeals/appeals.module.ts",
+    "src/appeals/appeals.repository.ts",
+    "src/appeals/appeals.service.ts",
+    "src/appeals/dto/assign-owner.dto.ts",
+    "src/appeals/dto/close-appeal.dto.ts",
+    "src/appeals/dto/create-appeal-update-message.dto.ts",
+    "src/appeals/dto/create-appeal.dto.ts",
+    "src/auth/auth.controller.ts",
+    "src/auth/auth.module.ts",
+    "src/auth/auth.service.ts",
+    "src/auth/decorators/current-user.decorator.ts",
+    "src/auth/decorators/public.decorator.ts",
+    "src/auth/dto/login.dto.ts",
+    "src/auth/password.ts",
+    "src/auth/session/session-id.ts",
+    "src/auth/session/session-timeout.ts",
+    "src/auth/session/session.constants.ts",
+    "src/auth/session/session.guard.ts",
+    "src/auth/session/session.types.ts",
+    "src/common/pipes/validate-positive-int32.pipe.ts",
+    "src/generated/prisma/browser.ts",
+    "src/generated/prisma/client.ts",
+    "src/generated/prisma/commonInputTypes.ts",
+    "src/generated/prisma/enums.ts",
+    "src/generated/prisma/internal/class.ts",
+    "src/generated/prisma/internal/prismaNamespace.ts",
+    "src/generated/prisma/internal/prismaNamespaceBrowser.ts",
+    "src/generated/prisma/models.ts",
+    "src/generated/prisma/models/Appeal.ts",
+    "src/generated/prisma/models/AppealUpdateMessage.ts",
+    "src/generated/prisma/models/Session.ts",
+    "src/generated/prisma/models/User.ts",
+    "src/main.ts",
+    "src/prisma/prisma.module.ts",
+    "src/prisma/prisma.service.ts",
+    "tsconfig.build.json",
+    "tsconfig.json"
+  ],
+  "sourceSha256": "f7a8ae53933c5eb2f69c0c8b6e4e63393faecb6370466b9edc158a3eca4c2884",
+  "harnessSha256": "032e9a91c18fc22c262eb9354455c0bd3b386d3aca0451c840d0cfd030af6dd7",
+  "probeServerSha256": "8c25fd54835f3d05f567a57c472c5112de23318488c5a568fe26fc9903a5d9f8",
+  "runtimeDependencies": {
+    "@nestjs/common": "11.2.5",
+    "@nestjs/core": "11.2.5",
+    "@prisma/client": "7.10.0",
+    "@prisma/adapter-pg": "7.10.0",
+    "pg": "8.23.0",
+    "argon2": "0.45.1",
+    "class-validator": "0.15.1",
+    "class-transformer": "0.5.1"
+  },
+  "runtimeArtifacts": {
+    "main.js": "75283ef1c9d4181226c8df63e5e848a24806349ca72dac779104a409a9be3b03",
+    "appeals/appeals.controller.js": "d16cb9d6da41b61563b402fa551e96c1ee6f717ff5097e63f463a14f6c91b1da",
+    "appeals/appeals.service.js": "23192f019d5c99b49d2c540b835b3f07ec77d4b7935b1dc7e6203a1b0b39554a",
+    "appeals/appeals.repository.js": "2fef005a301fdae33227b708576eb926a0276f2e7287125fed990f5ea7604e12"
+  },
+  "noOperatorLimit": "No real authorized OPERATOR HTTP caller can coexist with zero operators; actual empty-DB repository and earlier isolated service mapping cover that unreachable HTTP precondition separately",
+  "apiPid": 17148,
+  "fixturePreconditions": {
+    "operatorIdsInInsertionOrder": [
+      41,
+      7,
+      83,
+      19
+    ],
+    "expectedOrder": [
+      7,
+      19,
+      41,
+      83
+    ],
+    "duplicateOperatorNames": true,
+    "zeroLoadOperatorHasClosedAppeal": true,
+    "customersDistinct": true,
+    "adversarialClientHasManagementFlag": true
+  },
+  "initialSummary": {
+    "countActiveAppeals": 7,
+    "unassignedAppealsCount": 3,
+    "operators": [
+      {
+        "id": 7,
+        "name": "Same name",
+        "appealsCount": 1
+      },
+      {
+        "id": 19,
+        "name": "Zero active",
+        "appealsCount": 0
+      },
+      {
+        "id": 41,
+        "name": "Same name",
+        "appealsCount": 2
+      },
+      {
+        "id": 83,
+        "name": "Lead",
+        "appealsCount": 1
+      }
+    ]
+  },
+  "concurrency": {
+    "orchestration": "Pause after actual second COUNT driver result, assign via separate real HTTP request, verify committed parent state through another Prisma connection, release, compare old snapshot and next exact response",
+    "gate": {
+      "kind": "paused",
+      "pid": 658,
+      "firstPid": 658,
+      "readCount": 2,
+      "isolation": "RepeatableRead",
+      "inTransaction": true
+    },
+    "backendActivity": {
+      "state": "idle in transaction",
+      "datname": "ops018_validation_677710d92774434b8bc6d0b232d0ee70"
+    },
+    "events": [
+      {
+        "kind": "armed"
+      },
+      {
+        "kind": "count-complete",
+        "readCount": 1,
+        "pid": 658,
+        "isolation": "RepeatableRead",
+        "inTransaction": true,
+        "sql": "SELECT COUNT(*) AS \"_count$_all\" FROM (SELECT \"public\".\"Appeal\".\"id\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\"),CAST($2::text AS \"public\".\"AppealStatus\")) OFFSET $3) AS \"sub\""
+      },
+      {
+        "kind": "count-complete",
+        "readCount": 2,
+        "pid": 658,
+        "isolation": "RepeatableRead",
+        "inTransaction": true,
+        "sql": "SELECT COUNT(*) AS \"_count$_all\" FROM (SELECT \"public\".\"Appeal\".\"id\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\")) OFFSET $2) AS \"sub\""
+      },
+      {
+        "kind": "paused",
+        "pid": 658,
+        "firstPid": 658,
+        "readCount": 2,
+        "isolation": "RepeatableRead",
+        "inTransaction": true
+      },
+      {
+        "kind": "concurrent-write-start",
+        "pid": 659,
+        "sqlSha256": "b0ff342bc90bffe348847c85ab77c8cf47642048b001ac7a885f628eb6a45b5e"
+      },
+      {
+        "kind": "released"
+      },
+      {
+        "kind": "operator-read-complete",
+        "pid": 658,
+        "isolation": "RepeatableRead",
+        "inTransaction": true,
+        "sql": "SELECT \"public\".\"User\".\"id\", \"public\".\"User\".\"name\", COALESCE(\"aggr_selection_0_Appeal\".\"_aggr_count_ownerAppeals\", 0) AS \"_aggr_count_ownerAppeals\" FROM \"public\".\"User\" LEFT JOIN (SELECT \"public\".\"Appeal\".\"ownerId\", COUNT(*) AS \"_aggr_count_ownerAppeals\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") GROUP BY \"public\".\"Appeal\".\"ownerId\") AS \"aggr_selection_0_Appeal\" ON (\"public\".\"User\".\"id\" = \"aggr_selection_0_Appeal\".\"ownerId\") WHERE \"public\".\"User\".\"role\" = CAST($2::text AS \"public\".\"UserRole\") ORDER BY \"public\".\"User\".\"id\" ASC OFFSET $3"
+      },
+      {
+        "kind": "snapshot-end",
+        "pid": 658,
+        "operation": "COMMIT",
+        "isolation": "RepeatableRead"
+      }
+    ],
+    "snapshotBefore": {
+      "countActiveAppeals": 7,
+      "unassignedAppealsCount": 3,
+      "operators": [
+        {
+          "id": 7,
+          "name": "Same name",
+          "appealsCount": 1
+        },
+        {
+          "id": 19,
+          "name": "Zero active",
+          "appealsCount": 0
+        },
+        {
+          "id": 41,
+          "name": "Same name",
+          "appealsCount": 2
+        },
+        {
+          "id": 83,
+          "name": "Lead",
+          "appealsCount": 1
+        }
+      ]
+    },
+    "responseDuringAssignment": {
+      "countActiveAppeals": 7,
+      "unassignedAppealsCount": 3,
+      "operators": [
+        {
+          "id": 7,
+          "name": "Same name",
+          "appealsCount": 1
+        },
+        {
+          "id": 19,
+          "name": "Zero active",
+          "appealsCount": 0
+        },
+        {
+          "id": 41,
+          "name": "Same name",
+          "appealsCount": 2
+        },
+        {
+          "id": 83,
+          "name": "Lead",
+          "appealsCount": 1
+        }
+      ]
+    },
+    "responseAfterCommit": {
+      "countActiveAppeals": 8,
+      "unassignedAppealsCount": 3,
+      "operators": [
+        {
+          "id": 7,
+          "name": "Same name",
+          "appealsCount": 1
+        },
+        {
+          "id": 19,
+          "name": "Zero active",
+          "appealsCount": 0
+        },
+        {
+          "id": 41,
+          "name": "Same name",
+          "appealsCount": 3
+        },
+        {
+          "id": 83,
+          "name": "Lead",
+          "appealsCount": 1
+        }
+      ]
+    },
+    "assignmentCommittedBeforeRelease": true
+  },
+  "negativeControl": {
+    "method": "Separate explicit ReadCommitted SQL transaction with two counts before an actual HTTP assignment and operator aggregate after it; application transaction settings unchanged",
+    "total": 8,
+    "unassigned": 3,
+    "operators": [
+      {
+        "id": 7,
+        "name": "Same name",
+        "appealsCount": 2
+      },
+      {
+        "id": 19,
+        "name": "Zero active",
+        "appealsCount": 0
+      },
+      {
+        "id": 41,
+        "name": "Same name",
+        "appealsCount": 3
+      },
+      {
+        "id": 83,
+        "name": "Lead",
+        "appealsCount": 1
+      }
+    ],
+    "componentSum": 9,
+    "expectedViolation": true
+  },
+  "cleanup": "Owned API stopped, fixture connections closed, exact disposable database dropped and absence verified",
+  "summary": {
+    "passed": 30,
+    "failed": 0
+  },
+  "exitCode": 0
+}

@@ -49,3 +49,5 @@ Use a range before starting a ticket:
 | Larger flow or cross-module change | Split before estimating |
 
 OPS-001 has no valid estimate because it was not recorded before implementation. Its 2.5 h is a baseline for the next comparable ticket, not an overrun.
+
+OPS-018 actual: 3 h total, reported by the learner on 2026-10-26; pre-work estimate 4 h remains unchanged. The current week is unplanned; no capacity commitment or daily split is inferred.

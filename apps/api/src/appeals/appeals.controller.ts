@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, ValidationPipe } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Query,
+  ValidationPipe,
+} from '@nestjs/common'
 import { CurrentUser } from '../auth/decorators/current-user.decorator'
 import { AuthenticatedUser } from '../auth/session/session.types'
 import { ValidatePositiveInt32Pipe } from '../common/pipes/validate-positive-int32.pipe'
@@ -20,19 +30,25 @@ export class AppealsController {
     return this.appealsService.findAll(currentUser, search)
   }
 
-  @Get(':id')
-  getAppealById(
-    @CurrentUser() currentUser: AuthenticatedUser,
-    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
-  ) {
-    return this.appealsService.getAppealById(currentUser, id)
-  }
   @Get('/:id/updateMessages')
   getUpdateMessage(
     @CurrentUser() currentUser: AuthenticatedUser,
     @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
   ) {
     return this.appealsService.getUpdateMessage(currentUser, id)
+  }
+
+  @Get('/workload')
+  getWorkLoad(@CurrentUser() currentUser: AuthenticatedUser) {
+    return this.appealsService.getWorkload(currentUser)
+  }
+
+  @Get(':id')
+  getAppealById(
+    @CurrentUser() currentUser: AuthenticatedUser,
+    @Param('id', ParseIntPipe, new ValidatePositiveInt32Pipe('Id is not valid')) id: number,
+  ) {
+    return this.appealsService.getAppealById(currentUser, id)
   }
 
   @Patch(':id/owner')
