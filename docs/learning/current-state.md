@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-10-26. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-10-30. This is a pointer, not a second ledger or requirements log.
 
 ## Working model
 
@@ -10,7 +10,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 - OPS-003, 007, 009, 010, 012, 013, 014, [015](../../work/tickets/OPS-015.md) and [017](../../work/tickets/OPS-017.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
 - [OPS-016](../../work/tickets/OPS-016.md) is Deferred: learner explicitly prefers backend work for now; implementation not started.
-- [OPS-018](../../work/tickets/OPS-018.md) is In Progress: fresh build, 10 service tests, 30 real HTTP/DB scenarios and independent review passed. Routing/order/snapshot/row findings resolved. Actual time 3 h (estimate 4 h); learner authorized expedited commit/push. Final delivery/CI reconciliation pending.
+- [OPS-018](../../work/tickets/OPS-018.md) is Done (2026-10-30): 10 service tests, 30 real HTTP/DB scenarios, independent review and CI for commit 658e5be passed. Actual time 3 h (estimate 4 h).
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite integrated into CI (existing service tests and bounded HTTP evidence/harness for OPS-014/015/017); the web client is a static page and lacks an authorization screen.
@@ -25,7 +25,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Learner asked to defer remaining OPS-018 discussion until tomorrow. Actual time is recorded as 3 h and commit/push authorized. Resume final delivery/CI reconciliation and learner questions; tests and independent review already pass, so do not repeat them without source changes/new risk. No automatic source/config edits, quiz or new task. OPS-016/011 remain deferred.
+1. No ticket in progress. Next product task is chosen with the learner; OPS-016/011 remain deferred.
 
 ## Source map and history
 
