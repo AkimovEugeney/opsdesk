@@ -1,0 +1,19 @@
+{
+  "container": "ops019-validation-3ab5f6a00f0643cb9f6d92505f39d146",
+  "image": "postgres:17",
+  "imageDigest": "sha256:31ba9c94a03ada9988f2bb493a22a75eef3a185884533e5cdbcd498ea835b08f",
+  "method": "Owned fresh PostgreSQL container with tmpfs storage, random local port, synthetic credential via process environment only; no existing working DB/container started",
+  "commands": [
+    "open -a OrbStack",
+    "docker pull postgres:17",
+    "docker run --detach --name <owned> --tmpfs /var/lib/postgresql/data -e POSTGRES_PASSWORD -e POSTGRES_USER=ops019 -p 127.0.0.1::5432 postgres:17",
+    "docker exec <owned> pg_isready -U ops019 -d postgres",
+    "node /Users/eugeney/.hermes/cache/scratch/ops019-http-validation.cjs",
+    "docker rm --force <owned>",
+    "docker inspect <owned> (absence verification)"
+  ],
+  "postgresVersion": "postgres (PostgreSQL) 17.11 (Debian 17.11-1.pgdg13+2)",
+  "producerExitCode": 0,
+  "containerRemoved": true,
+  "containerAbsentVerified": true
+}

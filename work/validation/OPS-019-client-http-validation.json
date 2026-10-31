@@ -1,0 +1,2588 @@
+{
+  "startedAt": "2026-10-31T16:46:15+0300",
+  "scope": "Partial CLIENT cursor verification only; operator pagination excluded",
+  "method": "Fresh src/main.ts via standard ts-node/register, real Nest HTTP, login, SessionGuard, Prisma adapter and local PostgreSQL. No dist imports, mocks or result replacement.",
+  "isolation": "Only postgres administrative DB and unique disposable DB connected; working DB URL read programmatically solely to derive local connection settings, never connected",
+  "commands": {
+    "compile": "npm exec -- tsc -p tsconfig.build.json --noEmit --incremental false",
+    "compileExit": 0,
+    "producer": "node /Users/eugeney/.hermes/cache/scratch/ops019-http-validation.cjs",
+    "child": "node -r <apps/api/node_modules/ts-node/register> /Users/eugeney/.hermes/cache/scratch/ops019-source-server.cjs",
+    "childCwd": "/Volumes/easy/development/learning/opsdesk/apps/api"
+  },
+  "checks": [
+    {
+      "name": "Real login 101",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login 102",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login 103",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login 104",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login 105",
+      "result": "PASS"
+    },
+    {
+      "name": "Real login 201",
+      "result": "PASS"
+    },
+    {
+      "name": "Missing session yields 401 on list",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid session yields 401 on list",
+      "result": "PASS"
+    },
+    {
+      "name": "Default first page is exactly 15, ordered and bounded",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002
+        ],
+        "hasMore": true
+      }
+    },
+    {
+      "name": "Default-size full walk exact IDs and final null",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "actualIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "pages": [
+          {
+            "ids": [
+              1034,
+              1031,
+              1017,
+              1014,
+              1000,
+              1028,
+              1025,
+              1011,
+              1008,
+              1005,
+              1036,
+              1022,
+              1019,
+              1016,
+              1002
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1033,
+              1030,
+              1027,
+              1013,
+              1010,
+              1024,
+              1021,
+              1007,
+              1004,
+              1001,
+              1035,
+              1032,
+              1018,
+              1015,
+              1012
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1029,
+              1026,
+              1023,
+              1009,
+              1006,
+              1020,
+              1003
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Small size 3 full walk including date ties, no gaps/duplicates",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "actualIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "pages": [
+          {
+            "ids": [
+              1034,
+              1031,
+              1017
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1014,
+              1000,
+              1028
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1025,
+              1011,
+              1008
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1005,
+              1036,
+              1022
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1019,
+              1016,
+              1002
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1033,
+              1030,
+              1027
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1013,
+              1010,
+              1024
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1021,
+              1007,
+              1004
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1001,
+              1035,
+              1032
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1018,
+              1015,
+              1012
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1029,
+              1026,
+              1023
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1009,
+              1006,
+              1020
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1003
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Minimum size 1 full walk",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          3002,
+          3001,
+          3000
+        ],
+        "actualIds": [
+          3002,
+          3001,
+          3000
+        ],
+        "pages": [
+          {
+            "ids": [
+              3002
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              3001
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              3000
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Exact page size 3 is terminal (not false-positive hasMore)",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          3002,
+          3001,
+          3000
+        ],
+        "actualIds": [
+          3002,
+          3001,
+          3000
+        ],
+        "pages": [
+          {
+            "ids": [
+              3002,
+              3001,
+              3000
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Empty client list normal 200 envelope",
+      "result": "PASS"
+    },
+    {
+      "name": "Maximum size 50 returns bounded page and complete remainder",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          4052,
+          4039,
+          4026,
+          4022,
+          4013,
+          4009,
+          4000,
+          4048,
+          4044,
+          4035,
+          4031,
+          4018,
+          4005,
+          4001,
+          4053,
+          4040,
+          4036,
+          4027,
+          4023,
+          4014,
+          4010,
+          4049,
+          4045,
+          4032,
+          4019,
+          4015,
+          4006,
+          4002,
+          4054,
+          4050,
+          4041,
+          4037,
+          4028,
+          4024,
+          4011,
+          4046,
+          4033,
+          4029,
+          4020,
+          4016,
+          4007,
+          4003,
+          4055,
+          4051,
+          4042,
+          4038,
+          4025,
+          4012,
+          4008,
+          4047,
+          4043,
+          4034,
+          4030,
+          4021,
+          4017,
+          4004
+        ],
+        "actualIds": [
+          4052,
+          4039,
+          4026,
+          4022,
+          4013,
+          4009,
+          4000,
+          4048,
+          4044,
+          4035,
+          4031,
+          4018,
+          4005,
+          4001,
+          4053,
+          4040,
+          4036,
+          4027,
+          4023,
+          4014,
+          4010,
+          4049,
+          4045,
+          4032,
+          4019,
+          4015,
+          4006,
+          4002,
+          4054,
+          4050,
+          4041,
+          4037,
+          4028,
+          4024,
+          4011,
+          4046,
+          4033,
+          4029,
+          4020,
+          4016,
+          4007,
+          4003,
+          4055,
+          4051,
+          4042,
+          4038,
+          4025,
+          4012,
+          4008,
+          4047,
+          4043,
+          4034,
+          4030,
+          4021,
+          4017,
+          4004
+        ],
+        "pages": [
+          {
+            "ids": [
+              4052,
+              4039,
+              4026,
+              4022,
+              4013,
+              4009,
+              4000,
+              4048,
+              4044,
+              4035,
+              4031,
+              4018,
+              4005,
+              4001,
+              4053,
+              4040,
+              4036,
+              4027,
+              4023,
+              4014,
+              4010,
+              4049,
+              4045,
+              4032,
+              4019,
+              4015,
+              4006,
+              4002,
+              4054,
+              4050,
+              4041,
+              4037,
+              4028,
+              4024,
+              4011,
+              4046,
+              4033,
+              4029,
+              4020,
+              4016,
+              4007,
+              4003,
+              4055,
+              4051,
+              4042,
+              4038,
+              4025,
+              4012,
+              4008,
+              4047
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              4043,
+              4034,
+              4030,
+              4021,
+              4017,
+              4004
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Case-insensitive trimmed search across all pages",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "actualIds": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pages": [
+          {
+            "ids": [
+              1014,
+              1000
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1028,
+              1005
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1019,
+              1033
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1010,
+              1024
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1001,
+              1015
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1029,
+              1006
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1020
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Blank search preserves ordinary list across pages",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "actualIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "pages": [
+          {
+            "ids": [
+              1034,
+              1031,
+              1017,
+              1014,
+              1000,
+              1028,
+              1025
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1011,
+              1008,
+              1005,
+              1036,
+              1022,
+              1019,
+              1016
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1002,
+              1033,
+              1030,
+              1027,
+              1013,
+              1010,
+              1024
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1021,
+              1007,
+              1004,
+              1001,
+              1035,
+              1032,
+              1018
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1015,
+              1012,
+              1029,
+              1026,
+              1023,
+              1009,
+              1006
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1020,
+              1003
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "No-match search gives empty terminal envelope",
+      "result": "PASS"
+    },
+    {
+      "name": "Foreign customer complete walk never exposes primary customer",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          2004,
+          2000,
+          2008,
+          2012,
+          2016,
+          2024,
+          2020,
+          2028,
+          2032,
+          2036
+        ],
+        "actualIds": [
+          2004,
+          2000,
+          2008,
+          2012,
+          2016,
+          2024,
+          2020,
+          2028,
+          2032,
+          2036
+        ],
+        "pages": [
+          {
+            "ids": [
+              2004,
+              2000
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              2008,
+              2012
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              2016,
+              2024
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              2020,
+              2028
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              2032,
+              2036
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Forged foreign boundary with attacker clientId stays session scoped",
+      "result": "PASS",
+      "observation": {
+        "expectedIds": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "actualIds": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pages": [
+          {
+            "ids": [
+              1014,
+              1000
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1028,
+              1005
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1019,
+              1033
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1010,
+              1024
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1001,
+              1015
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1029,
+              1006
+            ],
+            "hasMore": true,
+            "nextCursorNull": false
+          },
+          {
+            "ids": [
+              1020
+            ],
+            "hasMore": false,
+            "nextCursorNull": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Newer insertion between requests leaves original remaining sequence unchanged",
+      "result": "PASS",
+      "observation": {
+        "originalIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "actualIds": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "newRowExcludedFromContinuation": true,
+        "newRowVisibleOnFreshFirstPage": true
+      }
+    },
+    {
+      "name": "400 invalid cursor: invalid JSON",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: null",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: array",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: string",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: number",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: boolean",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: missing fields",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: missing id",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id string",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id zero",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id negative",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id fractional",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id too large",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: id null",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: missing date",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: date number",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: invalid date",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: impossible date",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: noncanonical ISO",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: date timezone offset",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: empty",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: bad alphabet",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid cursor: oversize",
+      "result": "PASS",
+      "observation": {
+        "status": 400
+      }
+    },
+    {
+      "name": "400 invalid limit: \"0\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"-1\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"1.5\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"51\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"1000000\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"abc\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"NaN\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"Infinity\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 invalid limit: \"2147483648\"",
+      "result": "PASS"
+    },
+    {
+      "name": "400 repeated limit values",
+      "result": "PASS"
+    },
+    {
+      "name": "400 repeated cursor values",
+      "result": "PASS"
+    },
+    {
+      "name": "400 oversize search",
+      "result": "PASS"
+    },
+    {
+      "name": "Detail owned route remains reachable and foreign detail forbidden as 404",
+      "result": "PASS"
+    },
+    {
+      "name": "Workload static route reaches authorized operator and denies CLIENT",
+      "result": "PASS"
+    },
+    {
+      "name": "Real emitted SQL has ordering, scoping, keyset and bound",
+      "result": "PASS",
+      "observation": {
+        "sampleCount": 8,
+        "parameters": "Intentionally not captured (session/credentials never logged)"
+      }
+    },
+    {
+      "name": "Cleanup owned source API and verify process absent",
+      "result": "PASS"
+    },
+    {
+      "name": "Cleanup fixture SQL connection",
+      "result": "PASS"
+    },
+    {
+      "name": "Drop exact disposable DB and verify absent",
+      "result": "PASS"
+    },
+    {
+      "name": "Cleanup admin connection",
+      "result": "PASS"
+    },
+    {
+      "name": "Repository source/config/dependencies unchanged",
+      "result": "PASS"
+    }
+  ],
+  "sourceBefore": {
+    "sha256": "9cf10131854dab31c6c295ec4300d47d7674668cbd5ef39a0c318eb51b67eba7",
+    "files": {
+      ".github/workflows/ci.yml": "1c0e39d93d5790ad855b823959583e925b670f56bcc63b1f1eb7677d22a819b4",
+      ".gitignore": "558eb604be62dd8f63f937b0810769893977f3989bc638688fe38962dfe6442d",
+      ".skills/debugging-incident/SKILL.md": "267f667d15aa23993e88ea2f64524ab42766d60173f73167a776fc4a24dc420c",
+      ".skills/implementation-review/SKILL.md": "8cb1a525cf01698cab93ea956ab09180c1ab015b00d4df1b0e27ee90bf41977e",
+      ".skills/pr-review/SKILL.md": "68e39e626e0b4c681d247cc7f7ff8d7479d631c316847d7438fa94230e944b70",
+      ".skills/sprint-planning/SKILL.md": "4640f65d0ae45247bf74a333d635b5d4324ac8a7703813e74ca05c2f13f0a32f",
+      ".skills/sprint-retro/SKILL.md": "0612e08af69a31751324beaab1c5619d9e685e9f930d61ba1d37b0670ff33f15",
+      ".skills/ticket-refinement/SKILL.md": "4292e305d640623a24614e0f784d0dd33b6e93a265a1a9d7067234fe539c8a6b",
+      "AGENTS.md": "2d15e56b1fa5dec6f43b605f2fde8f7fd4687623eaaa62edfc2f0dc27dc2bb12",
+      "apps/api/AGENTS.md": "3cb5c20d59c56be8f7a6e11f14819b82e5d7831c694ae6b9c3947174fb4333ba",
+      "apps/api/_probe_update_filter.cjs": "2e522a404ce50992c570598a754204c5f3fdde0362187d02f328fec31ac2284a",
+      "apps/api/package-lock.json": "4ed2c473caf0f32ee310f8b2acc0600b62e6c431447e5b9ebfaf7b302e309482",
+      "apps/api/package.json": "d854c2d53b3569a3f3bd21f75904571497838a582f97e72ab06fb281031a8ac6",
+      "apps/api/pnpm-lock.yaml": "5bd6aa552e6136f92416562df28effea57ab1794fff24af0b1032155282ffa93",
+      "apps/api/pnpm-workspace.yaml": "495571068aaf76470c6cce969e4a79fbc0b4fe0748a16e0a4ec12ce445ba2163",
+      "apps/api/prisma.config.ts": "4f6b9f6b878824f244f41b37d9a56ba1a92a2a4c5cf3de98c5a99d5a63535a09",
+      "apps/api/prisma/migrations/20260815135516_init/migration.sql": "ce04decfc0536056d9fde66fc42abfb25c7ba1da833fa71e98e874333e03c144",
+      "apps/api/prisma/migrations/20260922170549_add_authentication_session/migration.sql": "5d028c220c880810c7d4d9aa9739c4dca5e6b2ec9dc042c21348d62ba5ec0448",
+      "apps/api/prisma/migrations/20260926110132_add_user_permissions/migration.sql": "a3c5557e3dbee01301a97f991c65650d05ebf75f18d09ea6717be3d29fc3e490",
+      "apps/api/prisma/migrations/20261001181859_add_appeal_outcome/migration.sql": "6faf2fc4347d07566d111ca8051b4e9ecb3bfc3d7e1f5745f7a1392751a4b5ee",
+      "apps/api/prisma/migrations/20261001181902_add_appeal_outcome/migration.sql": "122d743a0403e77ad7e0ed9447f5b8826f2fbdbc55612d936eff004dd13c2eec",
+      "apps/api/prisma/migrations/20261024121528_add_appeal_update_messages/migration.sql": "0b5f991764e37ccb8d25eadbea008fe9faa41bb259683205aee2194dc7b0dc5a",
+      "apps/api/prisma/migrations/migration_lock.toml": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "apps/api/prisma/schema.prisma": "54005ddf2de5b89283b50ee59b345579d11459aa3ab3dc0c25001b3b7cd0a7f8",
+      "apps/api/prisma/seed.sql": "8ee57b7d0d4681204eb870c8dd2da0d7cfe5874294dcbe46ddd7cc847e364d11",
+      "apps/api/src/_probe_cookie.ts": "895905fd1a470428f61aade694f7850df5b5e1b7bda56ff4cb018cb16a88c658",
+      "apps/api/src/_probe_prisma.ts": "ed63568f7ef2bdd55aa70d4a83deadd668bc043cd67c3f8a6a1c09a14a225695",
+      "apps/api/src/app.module.ts": "110e8406327cbc6be4dee607093ebc29d472cad350192c30581991b10509bf0c",
+      "apps/api/src/appeals/appeals.controller.ts": "f9f5c96a2b627ed029bc3f86fab5dd554477f0c5b45963f35a1b7047ab534058",
+      "apps/api/src/appeals/appeals.module.ts": "49ed359b8fa4ea4cdb678ad7aff9e9d033aa23e63f773bf7b674f969c862f392",
+      "apps/api/src/appeals/appeals.repository.ts": "3766fc42a8047aec7f0c9afc68f28b231ebd7b9ea1e3123cbf3efb1b724d5a1f",
+      "apps/api/src/appeals/appeals.service.ts": "abdb9280479bcd554a0378f54ce092e78c33544ef357df29099d1b209863edab",
+      "apps/api/src/appeals/dto/assign-owner.dto.ts": "7e2ac2cb4dbebe14170bd681a42a60184baafc37aae844e2ebbe43155d987348",
+      "apps/api/src/appeals/dto/close-appeal.dto.ts": "4c8b603365326b992ba7203df2bdc7b2188542199bc6a0633b4c897edf0f9606",
+      "apps/api/src/appeals/dto/create-appeal-update-message.dto.ts": "ca7475be1e1f97d5fca4d9665061e6fead32d650815f1508e255d74d506dfd9e",
+      "apps/api/src/appeals/dto/create-appeal.dto.ts": "b681fc44802683783841e5c2416f573e863d62e7adf6586f602e5f2feca0bca1",
+      "apps/api/src/appeals/dto/get-appeals-query.dto.ts": "7795fe33c449bbedff2a8ecd366ac3fd5ae657062777fcf5dff8792dceca437f",
+      "apps/api/src/auth/auth.controller.ts": "0e173c605148cd4b20fac744ed3f511ce53f359f0a5f961433c036661a607a26",
+      "apps/api/src/auth/auth.module.ts": "4e25d093ccc0ae794f61e2fe19657abab02067dc441c1d0a5c0b5aac261da584",
+      "apps/api/src/auth/auth.service.ts": "e315075048ff6f015ae48e630b906601ff52040bce5e919fe98664e4c6826523",
+      "apps/api/src/auth/decorators/current-user.decorator.ts": "acfab8f55c5e70112c5350b295af60b1c891d9852d59a10cd3c199d04d15b57e",
+      "apps/api/src/auth/decorators/public.decorator.ts": "c6e076808a7f35ae9799ded5131063173298103594bf085e4f2a0c82247dceaf",
+      "apps/api/src/auth/dto/login.dto.ts": "883b9aaee27623b325a66a238d03a0f7a870133fb2bc6455274dc5c0e40aac43",
+      "apps/api/src/auth/password.ts": "3b32764783253cd2e6286dbc3889597ec7516a8ac34a9afaf200d6268723610f",
+      "apps/api/src/auth/session/session-id.ts": "29c73fa7c93738009d8499a6832fa7f1cd744ae16816547d70a570a01cc8e0d2",
+      "apps/api/src/auth/session/session-timeout.ts": "f6e010fef5c15dbad7d0a7324c9b0556cf7747b1b0c98d13cd674f4b569d7ca5",
+      "apps/api/src/auth/session/session.constants.ts": "84900e9fdf6e2225f59272f34257ca77e9d62af434b2339b6e8bf7c4a97df10a",
+      "apps/api/src/auth/session/session.guard.ts": "1b5c330a018868769c6b9feff3fd3c7a694455c46e62ac4cb93a4f0256d6f1e1",
+      "apps/api/src/auth/session/session.types.ts": "2b64c7f20e51b1377ddc83a0c503d741cce211dff4d5f05beeb85fe1e120f304",
+      "apps/api/src/common/pipes/validate-positive-int32.pipe.ts": "833211928db69176cdccdfc003b21fbb3dd74ea697fbb044f059a5c316c68191",
+      "apps/api/src/generated/prisma/browser.ts": "d741f11a9034f1db837cf79cf6848bbb87a5e5de8532e9d667de1efe7985b10d",
+      "apps/api/src/generated/prisma/client.ts": "52033b63b71cdc17b9df54c2a366e67abbdab7880f74bc36267486368e1eed3f",
+      "apps/api/src/generated/prisma/commonInputTypes.ts": "944632edf4958362a927f416a6611aac11a02c5bde0ec3c40caeaf151ce607de",
+      "apps/api/src/generated/prisma/enums.ts": "91b4edf47091d1e50c4aefdf210fd4812a1d6cb3b3997a118902cad770a55d0c",
+      "apps/api/src/generated/prisma/internal/class.ts": "de1d43092d0d4519e38b6b31d9c8543f5c72660b5f75a2246fe6b489634150b3",
+      "apps/api/src/generated/prisma/internal/prismaNamespace.ts": "3d6186441899cb755a78ae6225a8d81c5dd840fbd30cbcc663993a0c20fa2354",
+      "apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts": "f5021c35991939e62cc1b7c31710e0c4f48e9d8cd591751057525f97cbc6f046",
+      "apps/api/src/generated/prisma/models.ts": "d25aee729b59ad4227379f42b75942b9a745db22c5e2f6e466bb6386d914aaaa",
+      "apps/api/src/generated/prisma/models/Appeal.ts": "7c26de2ca59ef86dd438857867abe542f73600ced0018a9ec9e801f08f3efa91",
+      "apps/api/src/generated/prisma/models/AppealUpdateMessage.ts": "c11c1a933234b51e0d24b53f62ce4b39bb74e3c8737b8e77f67d4da9700c9f9f",
+      "apps/api/src/generated/prisma/models/Session.ts": "3def4abc3465ba0cb08f65a82554d7e1733eeb87cee495bd7d5a852cddc77e8b",
+      "apps/api/src/generated/prisma/models/User.ts": "e1fe5e10160e03190d2eb86d4853f0ef0a76a26df1fea565e8b9219220b353b3",
+      "apps/api/src/main.ts": "08a14cb7ed20adadeaa17066ec33e81ffeb978808493904fa195301f47dbb689",
+      "apps/api/src/prisma/prisma.module.ts": "7473330093a11c74f6b121f7b5cc42531c0078d56a0f235ee25cce554a8a5a8c",
+      "apps/api/src/prisma/prisma.service.ts": "f9f397b73e83cbe50ec139c79212c8b6ba255462286a5f66ed70d6678907038b",
+      "apps/api/test/appeals.service.test.ts": "53e3559822fd9be0afa92545a7516a28f3e28f2c725e187c39cfbb5385b1cf58",
+      "apps/api/test/ops017-http-validation.ts": "8046d99d92e68afce14a6e8a1fac846998867821c789b0ca4f69abf52eac757f",
+      "apps/api/tsconfig.build.json": "2a9bbc2d59b8b5fcada287be7b6ca945ca27dba5112b79528720f037a7efe8d9",
+      "apps/api/tsconfig.json": "4ca83544a2f3601fc17af100ce2503509682dda8480c2febc0b6f62d16da45e5",
+      "apps/web/.gitignore": "207e265ff4901f9ad9f96d8ce08530e04f9fc600815472a66d0a446096d654cd",
+      "apps/web/AGENTS.md": "11ea0cd9d286958aa346b29e238d7ed9df59fae0e3f253a5594ff99e89ffd67a",
+      "apps/web/README.md": "0707def6190fedda7418aaef95fc6e086876f775dfafffd5380999380480d9e4",
+      "apps/web/eslint.config.mjs": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+      "apps/web/next.config.ts": "a777481c059230e3a573574cc5690ae4faa8cb569d978320dcadbac52dac8531",
+      "apps/web/package-lock.json": "024db6dca19675f7734c8690981ded76af843eaf90de6ffcc9e2da4ed25551fa",
+      "apps/web/package.json": "6793ec8afd57e165cd50b57dc94b5805a086432646440ad1bbda27180ea24860",
+      "apps/web/src/app/layout.tsx": "239b76e4d60bcb761234178148273582ca80a45b3ad27d9ccd26fc8178d54003",
+      "apps/web/src/app/page.module.scss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "apps/web/src/app/page.tsx": "98abbd2ba76a0f04d65aafef4dba6f556d7e072c85ee378be9072f03726fd288",
+      "apps/web/tsconfig.json": "5c51df4c59f4510d8c7dadf07a5c32132228826a3b331da5e286207b4df7ef9c",
+      "docs/architecture/decisions/ADR-000-template.md": "7fe6a1ae1422e29510afc5d9530ca7cc2f8edc2281ae5cfd292c31215c58d45d",
+      "docs/architecture/principles.md": "04641e4b1d9126f5cc8d2e0a724dd2a3e2cbbd1a450cf39f8b90946d26a8ca8a",
+      "docs/architecture/system-context.md": "5efba42a46883d56bdc7591cf0f57a6a7c79c1c4cd0addf12ac7862d514d75d1",
+      "docs/learning/capacity-plan.md": "5be17b2392c23d86b535c3e971e743b7e9d58573046908fe2875019e0a74828b",
+      "docs/learning/current-state.md": "459bc9c05c1a6d0a14b8e68dded03296976cf724f2e14ba0df572a928af01a1e",
+      "docs/learning/curriculum.md": "737334a2c5da1a77e6244cd6e0c375a3856598a47455889f32bd1bd7889305bb",
+      "docs/learning/hint-policy.md": "693dd2fe8a5927bebc7f45203b3a751ab955a34bc36511a81862715bbd08ce6d",
+      "docs/learning/learner-profile.md": "a1ee1bdedef8b4c3e4c4d58d52b4fd7ec17caefc39779b6a91ee68e933e4d127",
+      "docs/learning/learning-contract.md": "190bafa494a631d6ea46df39a835e609728bb0994a48444fe4820bc8faf134a8",
+      "docs/learning/learning-log.md": "976cffe885d59a7a43467d13597b547914a59e1f0e8708eb152a2ad6560bc4cb",
+      "docs/learning/learning-state.json": "33eb587dadc6f2ea231c11c9ae3d3e022716442f9aed2f3cdb2fb84fbaf0077b",
+      "docs/learning/session-audit-2026-09-23.md": "ab067614ed8f4b64fe1e0f6d346094d0087e36cf1b885cb33c439bf12fbaa225",
+      "docs/learning/skills-matrix.md": "c3fd9a25ccfa786dc2f8f59198f7f687210117085254b647b346b1866f3a41db",
+      "docs/learning/target-profile.md": "12463808a2868c45dee6240e3a131ac82483c3b5758afe6b6edd694fa7c525f8",
+      "docs/learning/task-manager.md": "1ffead5aeaab00c97076459b2beab686c0c6758742ecad81348ab1006aec5832",
+      "docs/learning/understanding-check.md": "28cb7f1e3072fb4571b81a4ab5d5f61a33b52666db0ae71f3d7ce917dfc55f0c",
+      "docs/product/glossary.md": "2a0609b368f89bab93d5442935d70004eab676b169366db6fd33b4e482a176b1",
+      "docs/product/product-brief.md": "9e17f394269b66ea394aed69ebca751a8f939c788bb41932c4fa6d17441dc4c9",
+      "docs/product/product-rules.md": "f85fa4b90118311431352bca87279a0bc7bc0ac97ea3900e0ed3e5397d6e94f6",
+      "docs/product/roles.md": "9a730238a9bb639f9f7b0fe58d519d8a00e0800065e0405903b3ca3e354c42ec",
+      "docs/product/vision.md": "26ed157d25459d66885f188874ae4681f06efefa08e4d4460f4a371e1bf570dc",
+      "docs/product/workflows.md": "bafe477b0cd2538f9b48122f6484c46803507ac74f5a477412b195348da27c67",
+      "docs/team/code-review.md": "68c9616f06890d51d4feac90d321b3c212a261cba554b801ac281021693116f5",
+      "docs/team/commit-messages.md": "9fc06234a94d4966027686ada37deeae9b22a8221c4c7bb1de3b008db047568a",
+      "docs/team/definition-of-done.md": "cd07ad81e3098445924e7cbc81320be4a8cbd21be5fc4086494b6d12d2946552",
+      "docs/team/workflow.md": "3f05ef4d85514f1a9ce0b9a32499470fa5a26d4f59e45c16bd735a97cdc822e8",
+      "infra/.env.example": "699a06d9cba8f1d78d2ab68ca459666488b19a729cc11e0ccad443078d036707",
+      "infra/docker-compose.yml": "4f8bb521b2c7c7d6ec6475aaff3ebaaee232cf07f59514e4e294910f054f8f64",
+      "scripts/learning.py": "6f1e26a98b21ce85e33d1157ced0bb258c0f3f60a95360700078c8b7010c96c2",
+      "scripts/test_learning.py": "8ea2461d7bfe20710b81e2349092e7fef6ecb46bd9613dbcf52a38826eb7d489",
+      "work/reviews/review-template.md": "984ef4d2c1169925f21f5d4cd0b2b51c32e4e804d3fc5bf07af71687226c2c86",
+      "work/sprints/2026-08-12-sprint-0.md": "ba82bd79eab793e0a79c9bb4574901789d72bd32790558e6678dae0dfca61c6c",
+      "work/sprints/2026-09-07-sprint-1.md": "8f782df978aa04eed8221b3da5cdb9a60cfda8035ed29eebd07b31c7b74bdf45",
+      "work/sprints/2026-09-21-sprint-2.md": "c11608a86d3f547f6d3a3ea823dc36a1edbca3300b8f067d2a7d9c04eff6d1f0",
+      "work/sprints/2026-09-28-sprint-3.md": "553086052ca0e7ef15b7b806fc94f13b8b9de670aa7a295d0dba2b004a6226df",
+      "work/sprints/sprint-template.md": "aaa7ffb75d5e2308f05110eb814f3e415f4c49d4a8e12b7a0497cbdc5a95c0b1",
+      "work/tickets/OPS-000-requirements-log.md": "1a9b8bb2db3b1d4294d73c2113be6a826aaae197c203e4fc9f947cbc2ac15922",
+      "work/tickets/OPS-000.md": "e8fb2bb5f0c36d3dfe29564af75f84325098de58f2a82c5216aa89b214d66ecf",
+      "work/tickets/OPS-001-requirements-log.md": "29b79de96f0ccf710902dd4a4c4a4786781a50c09ed998b51667bc8c8e19fa23",
+      "work/tickets/OPS-001.md": "aa5667ad5f8b71f51e5720d8f67890ea7c702e4cc43d126b121dc36b3d4bed32",
+      "work/tickets/OPS-002-requirements-log.md": "f593514749ed75345da7bf662c8ae2779bb3a3d0bfb5e8107da5253eb6d499ae",
+      "work/tickets/OPS-002.md": "6bef32f19ed67bfa0c80a17565fe30b4596a8154027512557fba73479422aa85",
+      "work/tickets/OPS-003-requirements-log.md": "d6c58e9904ccc41ada5a15574a87c46e926204e3d484f63a31ca4919afddf9f0",
+      "work/tickets/OPS-003.md": "29eaad9b8d8b4791c43a4a152b363d458fa5c37d4adb62580b0ed7af9da6916d",
+      "work/tickets/OPS-004-requirements-log.md": "2831dd8c9c59d783616c2dd22d96b2808823e8110c29cac819f6c0b34e83ee79",
+      "work/tickets/OPS-004.md": "82f8ae62fac04ea7b6052484dfbf68f4eb304958d510822e19efbfe24d5d7e0b",
+      "work/tickets/OPS-005-requirements-log.md": "eb423d1737663ce28fb7af141c494023f4d679a6c54fd27ced31498e114df4a6",
+      "work/tickets/OPS-005.md": "beb3188a042f29ea5d4372a1e2244678c6a62a01cbc40846e284530ca84015df",
+      "work/tickets/OPS-006-requirements-log.md": "fa9d9bb8a7b77507d197fab380fd7d52a391a3b9efeed11de8539b998e70add1",
+      "work/tickets/OPS-006.md": "f5bfe6483e5be20b3a39e5aed9cbd310d659a4cce967eae5a7434ad4f5241f64",
+      "work/tickets/OPS-007-requirements-log.md": "464b3f51bc4169d1885eaa63acf5ecb50cf89e6459a962105115fad5c88c6156",
+      "work/tickets/OPS-007.md": "17b66d5e781ee1391ff4a189bd9e7abcc22267dc38bfcff6e607e5efebc0deca",
+      "work/tickets/OPS-008-requirements-log.md": "b0c4c4299e30579d8eca7534b9877a80c1f9e64495c050a85dff8882c3c56d07",
+      "work/tickets/OPS-008.md": "39171e789e1498b488b6255caf4665734bb83e5560b27c3920a2d3b0dcba3df4",
+      "work/tickets/OPS-009-requirements-log.md": "24e9b3e2bed2f062197953451ef9f294ff3b31642926993a2fecb68f94932f75",
+      "work/tickets/OPS-009.md": "e9c6c23d581c5c857b3d0399d19b1c2813cbb9114cc9e7f25987e5995c368382",
+      "work/tickets/OPS-010-requirements-log.md": "48ba67b423bf7016cb5d2fd5193721e047f6d2c34529fdab1bc491c8ffc0e6fe",
+      "work/tickets/OPS-010.md": "6a06f3bab0f7b64132fa19684344c6c486ac0d17e7386b62355727f43d983061",
+      "work/tickets/OPS-011-requirements-log.md": "b83b05d1190a027f05ae554d3c5e4d4f3a84793540f034a602566093879d51c9",
+      "work/tickets/OPS-011.md": "251dc83101d0c13e09d897e2f2dd429d320cb6ee04ef47449e221861c013c769",
+      "work/tickets/OPS-012-requirements-log.md": "497cf8e2cbb92e47c4c46fde9d5b906e17cf592e9e86004662f5e01e0f15796a",
+      "work/tickets/OPS-012.md": "6c3f1c232b60a107315d9ca64186d74517029a627897fdb709f8ca7e19aab301",
+      "work/tickets/OPS-013-requirements-log.md": "180363294b491e496c21075b6789d3d65ef0741e8a003bea849ca24ce73fe505",
+      "work/tickets/OPS-013.md": "23d1fd100f0a15b6714ef357ad4993dfe97e1684bd18c7921f7ae7372ce4f951",
+      "work/tickets/OPS-014-auth-review.md": "3b173f6343a3174bd088efb2eaf05aca33afff71bc9cf82625c699f3d0944a5a",
+      "work/tickets/OPS-014-http-validation.json": "ee336f1f6dd60877b2cf3d5b30c89387d808c1e503a97444abf5d31c744560cb",
+      "work/tickets/OPS-014-requirements-log.md": "8e0aae3a8f7b2a11e8f0136caea1dea92a9c088a777b1f3f4be23463cb80ba34",
+      "work/tickets/OPS-014.md": "fea3b623e7696aada5151ff77fa10754a67c4275d5e9ab29cf82b8e13833165e",
+      "work/tickets/OPS-015-independent-review.md": "d372aeba03e3dd7ff65fd7ef06a837eb8ce8647b8f5cc57921e404a9e9f67c9a",
+      "work/tickets/OPS-015-list-http-validation.json": "a60f6a5ceed376759e67567c23c04fc591031533524bcd4ef08a08addaac5002",
+      "work/tickets/OPS-015-read-http-validation.json": "c4704017980f0b878ffb660c00d5ce54ce6f0d1ae6bc4d562a85290b39d5f49c",
+      "work/tickets/OPS-015-requirements-log.md": "76ffcfc0df0021f3a78d913b9918b14f407fa76955fad98fd0edb2a8eb71066e",
+      "work/tickets/OPS-015.md": "b88771f4dde56d5a4aa62ee87f99f117786b7f09febca0efd2a244371d557730",
+      "work/tickets/OPS-016-requirements-log.md": "4f146ea8e6129f02dd537cf21abbb6d3f7358d2f7e5434f4d208a56dd487bd66",
+      "work/tickets/OPS-016.md": "ead987c42dd1f8d37c82cf35242a13b9ab9c53acf8127e31b0fa6d8584cf413f",
+      "work/tickets/OPS-017-http-validation-attempt-1.json": "2d6ff68fc4bee2dacfdac2b3bcc92b367bae81062d0c5ff907aed7f2b7b27003",
+      "work/tickets/OPS-017-http-validation-attempt-2.json": "5710a2a7c0078b543de7971e8979a98394eb5ec63fadefc5a15b741bbc842502",
+      "work/tickets/OPS-017-http-validation.json": "838cd6584ea1a84d6514c0bdf1f9cbaeb62c188825250f9ee94d249354d62583",
+      "work/tickets/OPS-017-independent-review.md": "15986ca5bcd911c2641e70feaf25b7ef56af75d3f3c5866161c1f0c5fdc6e089",
+      "work/tickets/OPS-017-requirements-log.md": "74e4c63f5daacae8d7b696464466549309b468adfe06d2a6b88d8404f42bfe68",
+      "work/tickets/OPS-017-validation-plan.md": "ab4a459bc7a5c371b0271ad700d62bb67006491ce2088114d4c5fead9d13a5e0",
+      "work/tickets/OPS-017.md": "343ffab64a9c24fe3ec1ffb29bc04c4df089c3cc27fd1a793b3b4462d41feeb8",
+      "work/tickets/OPS-018-http-validation-attempt-1.json": "3b341add8f16231946c549ad464bc67d9f622da7bab784185caeaa755cfe193b",
+      "work/tickets/OPS-018-http-validation.json": "b7d17fe0169ffc99f05ea483905807034281ff38e9512e33529808b0ae0368c3",
+      "work/tickets/OPS-018-independent-review.md": "88b98041f602787f223ad24c27c3628da6f943466e5d74d020ef39706ad7cdb0",
+      "work/tickets/OPS-018-requirements-log.md": "5d0721c442700a8368962e31d17800a614d0e3437d8ae2a08efeef20e30c5f22",
+      "work/tickets/OPS-018-validation-plan.md": "e5ad73facb621c9a26a38ad677ff9bbaec926dbad02871eb74ecbd59c2489d06",
+      "work/tickets/OPS-018.md": "46eaea0de104aeb7fbb80b8c35a17e7c28e4a97f0c4b2395d7bdfe00af940055",
+      "work/tickets/OPS-019-requirements-log.md": "48a33ee181f7f762b1516aa2f00bd72d4bbf781a25a22730088249d1bd9180e0",
+      "work/tickets/OPS-019.md": "e6dad1bd3cd799b589eadb7293cac0b8ca6ba67d7c74e9f9eb964ed0b9386f62",
+      "work/tickets/ticket-template.md": "333f9b934c98fa97f5fd3a74e5962803838681979f622cb1e0a3494ad7a1b718",
+      "work/validation/OPS-018-http-validation.ts": "f58391ce21ad838643c4220c070d2d5abcc0a4a8692b656255a414d3c8584f8b",
+      "work/validation/OPS-018-probe-server.ts": "8c25fd54835f3d05f567a57c472c5112de23318488c5a568fe26fc9903a5d9f8"
+    }
+  },
+  "harnessSha256": "fd51d2af0f959303ff06590682b05b229ba4e2a7e945e936cdb7f60a62c8d2f2",
+  "serverSha256": "fbbbcc4aac323bbfdc31ab749304b74471ec9e14e982d19f40b54a569fc36731",
+  "head": "dab0c2469815ec3b65959766c5f487a91e9acb40",
+  "migrations": [
+    "20260815135516_init",
+    "20260922170549_add_authentication_session",
+    "20260926110132_add_user_permissions",
+    "20261001181859_add_appeal_outcome",
+    "20261001181902_add_appeal_outcome",
+    "20261024121528_add_appeal_update_messages"
+  ],
+  "migrationMethod": "Exact repository migration SQL in lexical order, no migration ledger simulated",
+  "timestampType": [
+    {
+      "data_type": "timestamp without time zone",
+      "datetime_precision": 3
+    }
+  ],
+  "fixtures": {
+    "users": 6,
+    "appeals": 106,
+    "client101": 37,
+    "foreign102": 10,
+    "exact104": 3,
+    "large105": 56,
+    "client103": 0,
+    "oracle": "Independent in-memory fixture array filtered by session client and case-insensitive title, sorted createdAt DESC then numeric id DESC. IDs shuffled across creation-time groups; equal-date ties cross page boundaries. Compared every ordered ID and each page envelope, not just counts.",
+    "rows": [
+      {
+        "id": 1000,
+        "clientId": 101,
+        "title": "Needle fixture 0",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2000,
+        "clientId": 102,
+        "title": "Needle foreign 0",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1017,
+        "clientId": 101,
+        "title": "Other fixture 1",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1034,
+        "clientId": 101,
+        "title": "Other fixture 2",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1014,
+        "clientId": 101,
+        "title": "Needle fixture 3",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1031,
+        "clientId": 101,
+        "title": "Other fixture 4",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2004,
+        "clientId": 102,
+        "title": "Needle foreign 4",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1011,
+        "clientId": 101,
+        "title": "Other fixture 5",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1028,
+        "clientId": 101,
+        "title": "Needle fixture 6",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1008,
+        "clientId": 101,
+        "title": "Other fixture 7",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1025,
+        "clientId": 101,
+        "title": "Other fixture 8",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2008,
+        "clientId": 102,
+        "title": "Needle foreign 8",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1005,
+        "clientId": 101,
+        "title": "Needle fixture 9",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1022,
+        "clientId": 101,
+        "title": "Other fixture 10",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1002,
+        "clientId": 101,
+        "title": "Other fixture 11",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1019,
+        "clientId": 101,
+        "title": "Needle fixture 12",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2012,
+        "clientId": 102,
+        "title": "Needle foreign 12",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1036,
+        "clientId": 101,
+        "title": "Other fixture 13",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1016,
+        "clientId": 101,
+        "title": "Other fixture 14",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1033,
+        "clientId": 101,
+        "title": "Needle fixture 15",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1013,
+        "clientId": 101,
+        "title": "Other fixture 16",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2016,
+        "clientId": 102,
+        "title": "Needle foreign 16",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1030,
+        "clientId": 101,
+        "title": "Other fixture 17",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1010,
+        "clientId": 101,
+        "title": "Needle fixture 18",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1027,
+        "clientId": 101,
+        "title": "Other fixture 19",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1007,
+        "clientId": 101,
+        "title": "Other fixture 20",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2020,
+        "clientId": 102,
+        "title": "Needle foreign 20",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1024,
+        "clientId": 101,
+        "title": "Needle fixture 21",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1004,
+        "clientId": 101,
+        "title": "Other fixture 22",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1021,
+        "clientId": 101,
+        "title": "Other fixture 23",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1001,
+        "clientId": 101,
+        "title": "Needle fixture 24",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2024,
+        "clientId": 102,
+        "title": "Needle foreign 24",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1018,
+        "clientId": 101,
+        "title": "Other fixture 25",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1035,
+        "clientId": 101,
+        "title": "Other fixture 26",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1015,
+        "clientId": 101,
+        "title": "Needle fixture 27",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1032,
+        "clientId": 101,
+        "title": "Other fixture 28",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2028,
+        "clientId": 102,
+        "title": "Needle foreign 28",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1012,
+        "clientId": 101,
+        "title": "Other fixture 29",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1029,
+        "clientId": 101,
+        "title": "Needle fixture 30",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1009,
+        "clientId": 101,
+        "title": "Other fixture 31",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1026,
+        "clientId": 101,
+        "title": "Other fixture 32",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2032,
+        "clientId": 102,
+        "title": "Needle foreign 32",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1006,
+        "clientId": 101,
+        "title": "Needle fixture 33",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1023,
+        "clientId": 101,
+        "title": "Other fixture 34",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1003,
+        "clientId": 101,
+        "title": "Other fixture 35",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1020,
+        "clientId": 101,
+        "title": "Needle fixture 36",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2036,
+        "clientId": 102,
+        "title": "Needle foreign 36",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3000,
+        "clientId": 104,
+        "title": "Exact fixture 0",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3001,
+        "clientId": 104,
+        "title": "Exact fixture 1",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3002,
+        "clientId": 104,
+        "title": "Exact fixture 2",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4000,
+        "clientId": 105,
+        "title": "Large fixture 0",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4013,
+        "clientId": 105,
+        "title": "Large fixture 1",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4026,
+        "clientId": 105,
+        "title": "Large fixture 2",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4039,
+        "clientId": 105,
+        "title": "Large fixture 3",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4052,
+        "clientId": 105,
+        "title": "Large fixture 4",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4009,
+        "clientId": 105,
+        "title": "Large fixture 5",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4022,
+        "clientId": 105,
+        "title": "Large fixture 6",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4035,
+        "clientId": 105,
+        "title": "Large fixture 7",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4048,
+        "clientId": 105,
+        "title": "Large fixture 8",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4005,
+        "clientId": 105,
+        "title": "Large fixture 9",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4018,
+        "clientId": 105,
+        "title": "Large fixture 10",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4031,
+        "clientId": 105,
+        "title": "Large fixture 11",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4044,
+        "clientId": 105,
+        "title": "Large fixture 12",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4001,
+        "clientId": 105,
+        "title": "Large fixture 13",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4014,
+        "clientId": 105,
+        "title": "Large fixture 14",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4027,
+        "clientId": 105,
+        "title": "Large fixture 15",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4040,
+        "clientId": 105,
+        "title": "Large fixture 16",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4053,
+        "clientId": 105,
+        "title": "Large fixture 17",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4010,
+        "clientId": 105,
+        "title": "Large fixture 18",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4023,
+        "clientId": 105,
+        "title": "Large fixture 19",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4036,
+        "clientId": 105,
+        "title": "Large fixture 20",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4049,
+        "clientId": 105,
+        "title": "Large fixture 21",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4006,
+        "clientId": 105,
+        "title": "Large fixture 22",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4019,
+        "clientId": 105,
+        "title": "Large fixture 23",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4032,
+        "clientId": 105,
+        "title": "Large fixture 24",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4045,
+        "clientId": 105,
+        "title": "Large fixture 25",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4002,
+        "clientId": 105,
+        "title": "Large fixture 26",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4015,
+        "clientId": 105,
+        "title": "Large fixture 27",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4028,
+        "clientId": 105,
+        "title": "Large fixture 28",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4041,
+        "clientId": 105,
+        "title": "Large fixture 29",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4054,
+        "clientId": 105,
+        "title": "Large fixture 30",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4011,
+        "clientId": 105,
+        "title": "Large fixture 31",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4024,
+        "clientId": 105,
+        "title": "Large fixture 32",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4037,
+        "clientId": 105,
+        "title": "Large fixture 33",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4050,
+        "clientId": 105,
+        "title": "Large fixture 34",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4007,
+        "clientId": 105,
+        "title": "Large fixture 35",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4020,
+        "clientId": 105,
+        "title": "Large fixture 36",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4033,
+        "clientId": 105,
+        "title": "Large fixture 37",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4046,
+        "clientId": 105,
+        "title": "Large fixture 38",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4003,
+        "clientId": 105,
+        "title": "Large fixture 39",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4016,
+        "clientId": 105,
+        "title": "Large fixture 40",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4029,
+        "clientId": 105,
+        "title": "Large fixture 41",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4042,
+        "clientId": 105,
+        "title": "Large fixture 42",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4055,
+        "clientId": 105,
+        "title": "Large fixture 43",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4012,
+        "clientId": 105,
+        "title": "Large fixture 44",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4025,
+        "clientId": 105,
+        "title": "Large fixture 45",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4038,
+        "clientId": 105,
+        "title": "Large fixture 46",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4051,
+        "clientId": 105,
+        "title": "Large fixture 47",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4008,
+        "clientId": 105,
+        "title": "Large fixture 48",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4021,
+        "clientId": 105,
+        "title": "Large fixture 49",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4034,
+        "clientId": 105,
+        "title": "Large fixture 50",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4047,
+        "clientId": 105,
+        "title": "Large fixture 51",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4004,
+        "clientId": 105,
+        "title": "Large fixture 52",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4017,
+        "clientId": 105,
+        "title": "Large fixture 53",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4030,
+        "clientId": 105,
+        "title": "Large fixture 54",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4043,
+        "clientId": 105,
+        "title": "Large fixture 55",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      }
+    ]
+  },
+  "apiPid": 6797,
+  "sqlSamples": [
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"clientId\" = $1 ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $2 OFFSET $3",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND (\"public\".\"Appeal\".\"createdAt\" < $2 OR (\"public\".\"Appeal\".\"createdAt\" = $3 AND \"public\".\"Appeal\".\"id\" < $4))) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $5 OFFSET $6",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%')) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $3 OFFSET $4",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%') AND (\"public\".\"Appeal\".\"createdAt\" < $3 OR (\"public\".\"Appeal\".\"createdAt\" = $4 AND \"public\".\"Appeal\".\"id\" < $5))) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $6 OFFSET $7",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"closedAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"id\" = $1 AND \"public\".\"Appeal\".\"clientId\" = $2) LIMIT $3 OFFSET $4",
+    "SELECT COUNT(*) AS \"_count$_all\" FROM (SELECT \"public\".\"Appeal\".\"id\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\"),CAST($2::text AS \"public\".\"AppealStatus\")) OFFSET $3) AS \"sub\"",
+    "SELECT COUNT(*) AS \"_count$_all\" FROM (SELECT \"public\".\"Appeal\".\"id\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\")) OFFSET $2) AS \"sub\"",
+    "SELECT \"public\".\"User\".\"id\", \"public\".\"User\".\"name\", COALESCE(\"aggr_selection_0_Appeal\".\"_aggr_count_ownerAppeals\", 0) AS \"_aggr_count_ownerAppeals\" FROM \"public\".\"User\" LEFT JOIN (SELECT \"public\".\"Appeal\".\"ownerId\", COUNT(*) AS \"_aggr_count_ownerAppeals\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") GROUP BY \"public\".\"Appeal\".\"ownerId\") AS \"aggr_selection_0_Appeal\" ON (\"public\".\"User\".\"id\" = \"aggr_selection_0_Appeal\".\"ownerId\") WHERE \"public\".\"User\".\"role\" = CAST($2::text AS \"public\".\"UserRole\") ORDER BY \"public\".\"User\".\"id\" ASC OFFSET $3"
+  ],
+  "ownedApiExited": {
+    "pid": 6797,
+    "exitCode": null,
+    "signal": "SIGTERM",
+    "processAbsent": true
+  },
+  "databaseCleanup": {
+    "database": "ops019_validation_4f510296fc90469798dd21f42af64ccd",
+    "absent": true
+  },
+  "sourceAfter": {
+    "sha256": "9cf10131854dab31c6c295ec4300d47d7674668cbd5ef39a0c318eb51b67eba7",
+    "files": {
+      ".github/workflows/ci.yml": "1c0e39d93d5790ad855b823959583e925b670f56bcc63b1f1eb7677d22a819b4",
+      ".gitignore": "558eb604be62dd8f63f937b0810769893977f3989bc638688fe38962dfe6442d",
+      ".skills/debugging-incident/SKILL.md": "267f667d15aa23993e88ea2f64524ab42766d60173f73167a776fc4a24dc420c",
+      ".skills/implementation-review/SKILL.md": "8cb1a525cf01698cab93ea956ab09180c1ab015b00d4df1b0e27ee90bf41977e",
+      ".skills/pr-review/SKILL.md": "68e39e626e0b4c681d247cc7f7ff8d7479d631c316847d7438fa94230e944b70",
+      ".skills/sprint-planning/SKILL.md": "4640f65d0ae45247bf74a333d635b5d4324ac8a7703813e74ca05c2f13f0a32f",
+      ".skills/sprint-retro/SKILL.md": "0612e08af69a31751324beaab1c5619d9e685e9f930d61ba1d37b0670ff33f15",
+      ".skills/ticket-refinement/SKILL.md": "4292e305d640623a24614e0f784d0dd33b6e93a265a1a9d7067234fe539c8a6b",
+      "AGENTS.md": "2d15e56b1fa5dec6f43b605f2fde8f7fd4687623eaaa62edfc2f0dc27dc2bb12",
+      "apps/api/AGENTS.md": "3cb5c20d59c56be8f7a6e11f14819b82e5d7831c694ae6b9c3947174fb4333ba",
+      "apps/api/_probe_update_filter.cjs": "2e522a404ce50992c570598a754204c5f3fdde0362187d02f328fec31ac2284a",
+      "apps/api/package-lock.json": "4ed2c473caf0f32ee310f8b2acc0600b62e6c431447e5b9ebfaf7b302e309482",
+      "apps/api/package.json": "d854c2d53b3569a3f3bd21f75904571497838a582f97e72ab06fb281031a8ac6",
+      "apps/api/pnpm-lock.yaml": "5bd6aa552e6136f92416562df28effea57ab1794fff24af0b1032155282ffa93",
+      "apps/api/pnpm-workspace.yaml": "495571068aaf76470c6cce969e4a79fbc0b4fe0748a16e0a4ec12ce445ba2163",
+      "apps/api/prisma.config.ts": "4f6b9f6b878824f244f41b37d9a56ba1a92a2a4c5cf3de98c5a99d5a63535a09",
+      "apps/api/prisma/migrations/20260815135516_init/migration.sql": "ce04decfc0536056d9fde66fc42abfb25c7ba1da833fa71e98e874333e03c144",
+      "apps/api/prisma/migrations/20260922170549_add_authentication_session/migration.sql": "5d028c220c880810c7d4d9aa9739c4dca5e6b2ec9dc042c21348d62ba5ec0448",
+      "apps/api/prisma/migrations/20260926110132_add_user_permissions/migration.sql": "a3c5557e3dbee01301a97f991c65650d05ebf75f18d09ea6717be3d29fc3e490",
+      "apps/api/prisma/migrations/20261001181859_add_appeal_outcome/migration.sql": "6faf2fc4347d07566d111ca8051b4e9ecb3bfc3d7e1f5745f7a1392751a4b5ee",
+      "apps/api/prisma/migrations/20261001181902_add_appeal_outcome/migration.sql": "122d743a0403e77ad7e0ed9447f5b8826f2fbdbc55612d936eff004dd13c2eec",
+      "apps/api/prisma/migrations/20261024121528_add_appeal_update_messages/migration.sql": "0b5f991764e37ccb8d25eadbea008fe9faa41bb259683205aee2194dc7b0dc5a",
+      "apps/api/prisma/migrations/migration_lock.toml": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "apps/api/prisma/schema.prisma": "54005ddf2de5b89283b50ee59b345579d11459aa3ab3dc0c25001b3b7cd0a7f8",
+      "apps/api/prisma/seed.sql": "8ee57b7d0d4681204eb870c8dd2da0d7cfe5874294dcbe46ddd7cc847e364d11",
+      "apps/api/src/_probe_cookie.ts": "895905fd1a470428f61aade694f7850df5b5e1b7bda56ff4cb018cb16a88c658",
+      "apps/api/src/_probe_prisma.ts": "ed63568f7ef2bdd55aa70d4a83deadd668bc043cd67c3f8a6a1c09a14a225695",
+      "apps/api/src/app.module.ts": "110e8406327cbc6be4dee607093ebc29d472cad350192c30581991b10509bf0c",
+      "apps/api/src/appeals/appeals.controller.ts": "f9f5c96a2b627ed029bc3f86fab5dd554477f0c5b45963f35a1b7047ab534058",
+      "apps/api/src/appeals/appeals.module.ts": "49ed359b8fa4ea4cdb678ad7aff9e9d033aa23e63f773bf7b674f969c862f392",
+      "apps/api/src/appeals/appeals.repository.ts": "3766fc42a8047aec7f0c9afc68f28b231ebd7b9ea1e3123cbf3efb1b724d5a1f",
+      "apps/api/src/appeals/appeals.service.ts": "abdb9280479bcd554a0378f54ce092e78c33544ef357df29099d1b209863edab",
+      "apps/api/src/appeals/dto/assign-owner.dto.ts": "7e2ac2cb4dbebe14170bd681a42a60184baafc37aae844e2ebbe43155d987348",
+      "apps/api/src/appeals/dto/close-appeal.dto.ts": "4c8b603365326b992ba7203df2bdc7b2188542199bc6a0633b4c897edf0f9606",
+      "apps/api/src/appeals/dto/create-appeal-update-message.dto.ts": "ca7475be1e1f97d5fca4d9665061e6fead32d650815f1508e255d74d506dfd9e",
+      "apps/api/src/appeals/dto/create-appeal.dto.ts": "b681fc44802683783841e5c2416f573e863d62e7adf6586f602e5f2feca0bca1",
+      "apps/api/src/appeals/dto/get-appeals-query.dto.ts": "7795fe33c449bbedff2a8ecd366ac3fd5ae657062777fcf5dff8792dceca437f",
+      "apps/api/src/auth/auth.controller.ts": "0e173c605148cd4b20fac744ed3f511ce53f359f0a5f961433c036661a607a26",
+      "apps/api/src/auth/auth.module.ts": "4e25d093ccc0ae794f61e2fe19657abab02067dc441c1d0a5c0b5aac261da584",
+      "apps/api/src/auth/auth.service.ts": "e315075048ff6f015ae48e630b906601ff52040bce5e919fe98664e4c6826523",
+      "apps/api/src/auth/decorators/current-user.decorator.ts": "acfab8f55c5e70112c5350b295af60b1c891d9852d59a10cd3c199d04d15b57e",
+      "apps/api/src/auth/decorators/public.decorator.ts": "c6e076808a7f35ae9799ded5131063173298103594bf085e4f2a0c82247dceaf",
+      "apps/api/src/auth/dto/login.dto.ts": "883b9aaee27623b325a66a238d03a0f7a870133fb2bc6455274dc5c0e40aac43",
+      "apps/api/src/auth/password.ts": "3b32764783253cd2e6286dbc3889597ec7516a8ac34a9afaf200d6268723610f",
+      "apps/api/src/auth/session/session-id.ts": "29c73fa7c93738009d8499a6832fa7f1cd744ae16816547d70a570a01cc8e0d2",
+      "apps/api/src/auth/session/session-timeout.ts": "f6e010fef5c15dbad7d0a7324c9b0556cf7747b1b0c98d13cd674f4b569d7ca5",
+      "apps/api/src/auth/session/session.constants.ts": "84900e9fdf6e2225f59272f34257ca77e9d62af434b2339b6e8bf7c4a97df10a",
+      "apps/api/src/auth/session/session.guard.ts": "1b5c330a018868769c6b9feff3fd3c7a694455c46e62ac4cb93a4f0256d6f1e1",
+      "apps/api/src/auth/session/session.types.ts": "2b64c7f20e51b1377ddc83a0c503d741cce211dff4d5f05beeb85fe1e120f304",
+      "apps/api/src/common/pipes/validate-positive-int32.pipe.ts": "833211928db69176cdccdfc003b21fbb3dd74ea697fbb044f059a5c316c68191",
+      "apps/api/src/generated/prisma/browser.ts": "d741f11a9034f1db837cf79cf6848bbb87a5e5de8532e9d667de1efe7985b10d",
+      "apps/api/src/generated/prisma/client.ts": "52033b63b71cdc17b9df54c2a366e67abbdab7880f74bc36267486368e1eed3f",
+      "apps/api/src/generated/prisma/commonInputTypes.ts": "944632edf4958362a927f416a6611aac11a02c5bde0ec3c40caeaf151ce607de",
+      "apps/api/src/generated/prisma/enums.ts": "91b4edf47091d1e50c4aefdf210fd4812a1d6cb3b3997a118902cad770a55d0c",
+      "apps/api/src/generated/prisma/internal/class.ts": "de1d43092d0d4519e38b6b31d9c8543f5c72660b5f75a2246fe6b489634150b3",
+      "apps/api/src/generated/prisma/internal/prismaNamespace.ts": "3d6186441899cb755a78ae6225a8d81c5dd840fbd30cbcc663993a0c20fa2354",
+      "apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts": "f5021c35991939e62cc1b7c31710e0c4f48e9d8cd591751057525f97cbc6f046",
+      "apps/api/src/generated/prisma/models.ts": "d25aee729b59ad4227379f42b75942b9a745db22c5e2f6e466bb6386d914aaaa",
+      "apps/api/src/generated/prisma/models/Appeal.ts": "7c26de2ca59ef86dd438857867abe542f73600ced0018a9ec9e801f08f3efa91",
+      "apps/api/src/generated/prisma/models/AppealUpdateMessage.ts": "c11c1a933234b51e0d24b53f62ce4b39bb74e3c8737b8e77f67d4da9700c9f9f",
+      "apps/api/src/generated/prisma/models/Session.ts": "3def4abc3465ba0cb08f65a82554d7e1733eeb87cee495bd7d5a852cddc77e8b",
+      "apps/api/src/generated/prisma/models/User.ts": "e1fe5e10160e03190d2eb86d4853f0ef0a76a26df1fea565e8b9219220b353b3",
+      "apps/api/src/main.ts": "08a14cb7ed20adadeaa17066ec33e81ffeb978808493904fa195301f47dbb689",
+      "apps/api/src/prisma/prisma.module.ts": "7473330093a11c74f6b121f7b5cc42531c0078d56a0f235ee25cce554a8a5a8c",
+      "apps/api/src/prisma/prisma.service.ts": "f9f397b73e83cbe50ec139c79212c8b6ba255462286a5f66ed70d6678907038b",
+      "apps/api/test/appeals.service.test.ts": "53e3559822fd9be0afa92545a7516a28f3e28f2c725e187c39cfbb5385b1cf58",
+      "apps/api/test/ops017-http-validation.ts": "8046d99d92e68afce14a6e8a1fac846998867821c789b0ca4f69abf52eac757f",
+      "apps/api/tsconfig.build.json": "2a9bbc2d59b8b5fcada287be7b6ca945ca27dba5112b79528720f037a7efe8d9",
+      "apps/api/tsconfig.json": "4ca83544a2f3601fc17af100ce2503509682dda8480c2febc0b6f62d16da45e5",
+      "apps/web/.gitignore": "207e265ff4901f9ad9f96d8ce08530e04f9fc600815472a66d0a446096d654cd",
+      "apps/web/AGENTS.md": "11ea0cd9d286958aa346b29e238d7ed9df59fae0e3f253a5594ff99e89ffd67a",
+      "apps/web/README.md": "0707def6190fedda7418aaef95fc6e086876f775dfafffd5380999380480d9e4",
+      "apps/web/eslint.config.mjs": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+      "apps/web/next.config.ts": "a777481c059230e3a573574cc5690ae4faa8cb569d978320dcadbac52dac8531",
+      "apps/web/package-lock.json": "024db6dca19675f7734c8690981ded76af843eaf90de6ffcc9e2da4ed25551fa",
+      "apps/web/package.json": "6793ec8afd57e165cd50b57dc94b5805a086432646440ad1bbda27180ea24860",
+      "apps/web/src/app/layout.tsx": "239b76e4d60bcb761234178148273582ca80a45b3ad27d9ccd26fc8178d54003",
+      "apps/web/src/app/page.module.scss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "apps/web/src/app/page.tsx": "98abbd2ba76a0f04d65aafef4dba6f556d7e072c85ee378be9072f03726fd288",
+      "apps/web/tsconfig.json": "5c51df4c59f4510d8c7dadf07a5c32132228826a3b331da5e286207b4df7ef9c",
+      "docs/architecture/decisions/ADR-000-template.md": "7fe6a1ae1422e29510afc5d9530ca7cc2f8edc2281ae5cfd292c31215c58d45d",
+      "docs/architecture/principles.md": "04641e4b1d9126f5cc8d2e0a724dd2a3e2cbbd1a450cf39f8b90946d26a8ca8a",
+      "docs/architecture/system-context.md": "5efba42a46883d56bdc7591cf0f57a6a7c79c1c4cd0addf12ac7862d514d75d1",
+      "docs/learning/capacity-plan.md": "5be17b2392c23d86b535c3e971e743b7e9d58573046908fe2875019e0a74828b",
+      "docs/learning/current-state.md": "459bc9c05c1a6d0a14b8e68dded03296976cf724f2e14ba0df572a928af01a1e",
+      "docs/learning/curriculum.md": "737334a2c5da1a77e6244cd6e0c375a3856598a47455889f32bd1bd7889305bb",
+      "docs/learning/hint-policy.md": "693dd2fe8a5927bebc7f45203b3a751ab955a34bc36511a81862715bbd08ce6d",
+      "docs/learning/learner-profile.md": "a1ee1bdedef8b4c3e4c4d58d52b4fd7ec17caefc39779b6a91ee68e933e4d127",
+      "docs/learning/learning-contract.md": "190bafa494a631d6ea46df39a835e609728bb0994a48444fe4820bc8faf134a8",
+      "docs/learning/learning-log.md": "976cffe885d59a7a43467d13597b547914a59e1f0e8708eb152a2ad6560bc4cb",
+      "docs/learning/learning-state.json": "33eb587dadc6f2ea231c11c9ae3d3e022716442f9aed2f3cdb2fb84fbaf0077b",
+      "docs/learning/session-audit-2026-09-23.md": "ab067614ed8f4b64fe1e0f6d346094d0087e36cf1b885cb33c439bf12fbaa225",
+      "docs/learning/skills-matrix.md": "c3fd9a25ccfa786dc2f8f59198f7f687210117085254b647b346b1866f3a41db",
+      "docs/learning/target-profile.md": "12463808a2868c45dee6240e3a131ac82483c3b5758afe6b6edd694fa7c525f8",
+      "docs/learning/task-manager.md": "1ffead5aeaab00c97076459b2beab686c0c6758742ecad81348ab1006aec5832",
+      "docs/learning/understanding-check.md": "28cb7f1e3072fb4571b81a4ab5d5f61a33b52666db0ae71f3d7ce917dfc55f0c",
+      "docs/product/glossary.md": "2a0609b368f89bab93d5442935d70004eab676b169366db6fd33b4e482a176b1",
+      "docs/product/product-brief.md": "9e17f394269b66ea394aed69ebca751a8f939c788bb41932c4fa6d17441dc4c9",
+      "docs/product/product-rules.md": "f85fa4b90118311431352bca87279a0bc7bc0ac97ea3900e0ed3e5397d6e94f6",
+      "docs/product/roles.md": "9a730238a9bb639f9f7b0fe58d519d8a00e0800065e0405903b3ca3e354c42ec",
+      "docs/product/vision.md": "26ed157d25459d66885f188874ae4681f06efefa08e4d4460f4a371e1bf570dc",
+      "docs/product/workflows.md": "bafe477b0cd2538f9b48122f6484c46803507ac74f5a477412b195348da27c67",
+      "docs/team/code-review.md": "68c9616f06890d51d4feac90d321b3c212a261cba554b801ac281021693116f5",
+      "docs/team/commit-messages.md": "9fc06234a94d4966027686ada37deeae9b22a8221c4c7bb1de3b008db047568a",
+      "docs/team/definition-of-done.md": "cd07ad81e3098445924e7cbc81320be4a8cbd21be5fc4086494b6d12d2946552",
+      "docs/team/workflow.md": "3f05ef4d85514f1a9ce0b9a32499470fa5a26d4f59e45c16bd735a97cdc822e8",
+      "infra/.env.example": "699a06d9cba8f1d78d2ab68ca459666488b19a729cc11e0ccad443078d036707",
+      "infra/docker-compose.yml": "4f8bb521b2c7c7d6ec6475aaff3ebaaee232cf07f59514e4e294910f054f8f64",
+      "scripts/learning.py": "6f1e26a98b21ce85e33d1157ced0bb258c0f3f60a95360700078c8b7010c96c2",
+      "scripts/test_learning.py": "8ea2461d7bfe20710b81e2349092e7fef6ecb46bd9613dbcf52a38826eb7d489",
+      "work/reviews/review-template.md": "984ef4d2c1169925f21f5d4cd0b2b51c32e4e804d3fc5bf07af71687226c2c86",
+      "work/sprints/2026-08-12-sprint-0.md": "ba82bd79eab793e0a79c9bb4574901789d72bd32790558e6678dae0dfca61c6c",
+      "work/sprints/2026-09-07-sprint-1.md": "8f782df978aa04eed8221b3da5cdb9a60cfda8035ed29eebd07b31c7b74bdf45",
+      "work/sprints/2026-09-21-sprint-2.md": "c11608a86d3f547f6d3a3ea823dc36a1edbca3300b8f067d2a7d9c04eff6d1f0",
+      "work/sprints/2026-09-28-sprint-3.md": "553086052ca0e7ef15b7b806fc94f13b8b9de670aa7a295d0dba2b004a6226df",
+      "work/sprints/sprint-template.md": "aaa7ffb75d5e2308f05110eb814f3e415f4c49d4a8e12b7a0497cbdc5a95c0b1",
+      "work/tickets/OPS-000-requirements-log.md": "1a9b8bb2db3b1d4294d73c2113be6a826aaae197c203e4fc9f947cbc2ac15922",
+      "work/tickets/OPS-000.md": "e8fb2bb5f0c36d3dfe29564af75f84325098de58f2a82c5216aa89b214d66ecf",
+      "work/tickets/OPS-001-requirements-log.md": "29b79de96f0ccf710902dd4a4c4a4786781a50c09ed998b51667bc8c8e19fa23",
+      "work/tickets/OPS-001.md": "aa5667ad5f8b71f51e5720d8f67890ea7c702e4cc43d126b121dc36b3d4bed32",
+      "work/tickets/OPS-002-requirements-log.md": "f593514749ed75345da7bf662c8ae2779bb3a3d0bfb5e8107da5253eb6d499ae",
+      "work/tickets/OPS-002.md": "6bef32f19ed67bfa0c80a17565fe30b4596a8154027512557fba73479422aa85",
+      "work/tickets/OPS-003-requirements-log.md": "d6c58e9904ccc41ada5a15574a87c46e926204e3d484f63a31ca4919afddf9f0",
+      "work/tickets/OPS-003.md": "29eaad9b8d8b4791c43a4a152b363d458fa5c37d4adb62580b0ed7af9da6916d",
+      "work/tickets/OPS-004-requirements-log.md": "2831dd8c9c59d783616c2dd22d96b2808823e8110c29cac819f6c0b34e83ee79",
+      "work/tickets/OPS-004.md": "82f8ae62fac04ea7b6052484dfbf68f4eb304958d510822e19efbfe24d5d7e0b",
+      "work/tickets/OPS-005-requirements-log.md": "eb423d1737663ce28fb7af141c494023f4d679a6c54fd27ced31498e114df4a6",
+      "work/tickets/OPS-005.md": "beb3188a042f29ea5d4372a1e2244678c6a62a01cbc40846e284530ca84015df",
+      "work/tickets/OPS-006-requirements-log.md": "fa9d9bb8a7b77507d197fab380fd7d52a391a3b9efeed11de8539b998e70add1",
+      "work/tickets/OPS-006.md": "f5bfe6483e5be20b3a39e5aed9cbd310d659a4cce967eae5a7434ad4f5241f64",
+      "work/tickets/OPS-007-requirements-log.md": "464b3f51bc4169d1885eaa63acf5ecb50cf89e6459a962105115fad5c88c6156",
+      "work/tickets/OPS-007.md": "17b66d5e781ee1391ff4a189bd9e7abcc22267dc38bfcff6e607e5efebc0deca",
+      "work/tickets/OPS-008-requirements-log.md": "b0c4c4299e30579d8eca7534b9877a80c1f9e64495c050a85dff8882c3c56d07",
+      "work/tickets/OPS-008.md": "39171e789e1498b488b6255caf4665734bb83e5560b27c3920a2d3b0dcba3df4",
+      "work/tickets/OPS-009-requirements-log.md": "24e9b3e2bed2f062197953451ef9f294ff3b31642926993a2fecb68f94932f75",
+      "work/tickets/OPS-009.md": "e9c6c23d581c5c857b3d0399d19b1c2813cbb9114cc9e7f25987e5995c368382",
+      "work/tickets/OPS-010-requirements-log.md": "48ba67b423bf7016cb5d2fd5193721e047f6d2c34529fdab1bc491c8ffc0e6fe",
+      "work/tickets/OPS-010.md": "6a06f3bab0f7b64132fa19684344c6c486ac0d17e7386b62355727f43d983061",
+      "work/tickets/OPS-011-requirements-log.md": "b83b05d1190a027f05ae554d3c5e4d4f3a84793540f034a602566093879d51c9",
+      "work/tickets/OPS-011.md": "251dc83101d0c13e09d897e2f2dd429d320cb6ee04ef47449e221861c013c769",
+      "work/tickets/OPS-012-requirements-log.md": "497cf8e2cbb92e47c4c46fde9d5b906e17cf592e9e86004662f5e01e0f15796a",
+      "work/tickets/OPS-012.md": "6c3f1c232b60a107315d9ca64186d74517029a627897fdb709f8ca7e19aab301",
+      "work/tickets/OPS-013-requirements-log.md": "180363294b491e496c21075b6789d3d65ef0741e8a003bea849ca24ce73fe505",
+      "work/tickets/OPS-013.md": "23d1fd100f0a15b6714ef357ad4993dfe97e1684bd18c7921f7ae7372ce4f951",
+      "work/tickets/OPS-014-auth-review.md": "3b173f6343a3174bd088efb2eaf05aca33afff71bc9cf82625c699f3d0944a5a",
+      "work/tickets/OPS-014-http-validation.json": "ee336f1f6dd60877b2cf3d5b30c89387d808c1e503a97444abf5d31c744560cb",
+      "work/tickets/OPS-014-requirements-log.md": "8e0aae3a8f7b2a11e8f0136caea1dea92a9c088a777b1f3f4be23463cb80ba34",
+      "work/tickets/OPS-014.md": "fea3b623e7696aada5151ff77fa10754a67c4275d5e9ab29cf82b8e13833165e",
+      "work/tickets/OPS-015-independent-review.md": "d372aeba03e3dd7ff65fd7ef06a837eb8ce8647b8f5cc57921e404a9e9f67c9a",
+      "work/tickets/OPS-015-list-http-validation.json": "a60f6a5ceed376759e67567c23c04fc591031533524bcd4ef08a08addaac5002",
+      "work/tickets/OPS-015-read-http-validation.json": "c4704017980f0b878ffb660c00d5ce54ce6f0d1ae6bc4d562a85290b39d5f49c",
+      "work/tickets/OPS-015-requirements-log.md": "76ffcfc0df0021f3a78d913b9918b14f407fa76955fad98fd0edb2a8eb71066e",
+      "work/tickets/OPS-015.md": "b88771f4dde56d5a4aa62ee87f99f117786b7f09febca0efd2a244371d557730",
+      "work/tickets/OPS-016-requirements-log.md": "4f146ea8e6129f02dd537cf21abbb6d3f7358d2f7e5434f4d208a56dd487bd66",
+      "work/tickets/OPS-016.md": "ead987c42dd1f8d37c82cf35242a13b9ab9c53acf8127e31b0fa6d8584cf413f",
+      "work/tickets/OPS-017-http-validation-attempt-1.json": "2d6ff68fc4bee2dacfdac2b3bcc92b367bae81062d0c5ff907aed7f2b7b27003",
+      "work/tickets/OPS-017-http-validation-attempt-2.json": "5710a2a7c0078b543de7971e8979a98394eb5ec63fadefc5a15b741bbc842502",
+      "work/tickets/OPS-017-http-validation.json": "838cd6584ea1a84d6514c0bdf1f9cbaeb62c188825250f9ee94d249354d62583",
+      "work/tickets/OPS-017-independent-review.md": "15986ca5bcd911c2641e70feaf25b7ef56af75d3f3c5866161c1f0c5fdc6e089",
+      "work/tickets/OPS-017-requirements-log.md": "74e4c63f5daacae8d7b696464466549309b468adfe06d2a6b88d8404f42bfe68",
+      "work/tickets/OPS-017-validation-plan.md": "ab4a459bc7a5c371b0271ad700d62bb67006491ce2088114d4c5fead9d13a5e0",
+      "work/tickets/OPS-017.md": "343ffab64a9c24fe3ec1ffb29bc04c4df089c3cc27fd1a793b3b4462d41feeb8",
+      "work/tickets/OPS-018-http-validation-attempt-1.json": "3b341add8f16231946c549ad464bc67d9f622da7bab784185caeaa755cfe193b",
+      "work/tickets/OPS-018-http-validation.json": "b7d17fe0169ffc99f05ea483905807034281ff38e9512e33529808b0ae0368c3",
+      "work/tickets/OPS-018-independent-review.md": "88b98041f602787f223ad24c27c3628da6f943466e5d74d020ef39706ad7cdb0",
+      "work/tickets/OPS-018-requirements-log.md": "5d0721c442700a8368962e31d17800a614d0e3437d8ae2a08efeef20e30c5f22",
+      "work/tickets/OPS-018-validation-plan.md": "e5ad73facb621c9a26a38ad677ff9bbaec926dbad02871eb74ecbd59c2489d06",
+      "work/tickets/OPS-018.md": "46eaea0de104aeb7fbb80b8c35a17e7c28e4a97f0c4b2395d7bdfe00af940055",
+      "work/tickets/OPS-019-requirements-log.md": "48a33ee181f7f762b1516aa2f00bd72d4bbf781a25a22730088249d1bd9180e0",
+      "work/tickets/OPS-019.md": "e6dad1bd3cd799b589eadb7293cac0b8ca6ba67d7c74e9f9eb964ed0b9386f62",
+      "work/tickets/ticket-template.md": "333f9b934c98fa97f5fd3a74e5962803838681979f622cb1e0a3494ad7a1b718",
+      "work/validation/OPS-018-http-validation.ts": "f58391ce21ad838643c4220c070d2d5abcc0a4a8692b656255a414d3c8584f8b",
+      "work/validation/OPS-018-probe-server.ts": "8c25fd54835f3d05f567a57c472c5112de23318488c5a568fe26fc9903a5d9f8"
+    }
+  },
+  "httpPageRequests": 61,
+  "summary": {
+    "passed": 65,
+    "failed": 0,
+    "total": 65
+  },
+  "producerExitCode": 0,
+  "finishedAt": "2026-10-31T16:46:16+0300"
+}

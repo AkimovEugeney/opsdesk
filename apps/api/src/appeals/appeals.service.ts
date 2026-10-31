@@ -50,7 +50,10 @@ export class AppealsService {
     try {
       return await this.appealsRepository.updateAppealOwner(id, ownerId)
     } catch (error) {
-      if (error instanceof PrismaClientKnownRequestError && error.code === 'P2025') {
+      if (
+        error instanceof PrismaClientKnownRequestError &&
+        error.code === 'P2025'
+      ) {
         throw new ConflictException('State changed before update')
       }
       throw error
@@ -82,13 +85,92 @@ export class AppealsService {
     }
   }
 
-  findAll(currentUser: AuthenticatedUser, search?: string) {
-    const normalizedSearch = search?.trim() || undefined
+  async findAll(
+    currentUser: AuthenticatedUser,
+    search?: string,
+    limit: number = 15,
+    cursor?: string,
+  ) {
     if (currentUser.role === UserRole.CLIENT) {
-      return this.appealsRepository.findAllByClientId(currentUser.id, normalizedSearch)
+      let decodedCursor: unknown = undefined
+      let after: { id: number; createdAt: Date } | undefined = undefined
+
+      if (cursor !== undefined) {
+        try {
+          const cursorJson = Buffer.from(cursor, 'base64url').toString('utf8')
+          decodedCursor = JSON.parse(cursorJson)
+
+          if (
+            typeof decodedCursor !== 'object' ||
+            decodedCursor === null ||
+            Array.isArray(decodedCursor)
+          ) {
+            throw new BadRequestException('Invalid cursor')
+          }
+
+          if (
+            !('id' in decodedCursor) ||
+            typeof decodedCursor.id !== 'number' ||
+            !Number.isInteger(decodedCursor.id) ||
+            decodedCursor.id < 1 ||
+            decodedCursor.id > 2147483647
+          ) {
+            throw new BadRequestException('Invalid cursor')
+          }
+
+          if (
+            !('createdAt' in decodedCursor) ||
+            typeof decodedCursor.createdAt !== 'string'
+          ) {
+            throw new BadRequestException('Invalid cursor')
+          }
+
+          const createdAt = new Date(decodedCursor.createdAt)
+
+          if (
+            Number.isNaN(createdAt.getTime()) ||
+            createdAt.toISOString() !== decodedCursor.createdAt
+          ) {
+            throw new BadRequestException('Invalid cursor')
+          }
+
+          after = {
+            id: decodedCursor.id,
+            createdAt,
+          }
+        } catch {
+          throw new BadRequestException('Invalid cursor')
+        }
+      }
+
+      const rows = await this.appealsRepository.findAllByClientId(
+        currentUser.id,
+        limit,
+        search,
+        after,
+      )
+
+      const hasMore = rows.length > limit
+      const items = rows.slice(0, limit)
+
+      const lastItem = items[items.length - 1]
+      let nextCursor: string | null = null
+
+      if (hasMore && lastItem) {
+        const cursorData = {
+          createdAt: lastItem.createdAt.toISOString(),
+          id: lastItem.id,
+        }
+
+        const cursorJson = JSON.stringify(cursorData)
+        nextCursor = Buffer.from(cursorJson).toString('base64url')
+      }
+
+      return { items, hasMore, nextCursor }
     }
+
     if (currentUser.role === UserRole.OPERATOR) {
-      return this.appealsRepository.findActive(normalizedSearch)
+      return this.appealsRepository.findActive(search)
     }
 
     throw new ForbiddenException('Appeal reading is forbidden')
@@ -116,7 +198,11 @@ export class AppealsService {
     throw new ForbiddenException('Appeal reading is forbidden')
   }
 
-  async closeAppeal(id: number, outcome: string, currentUser: { id: number; role: UserRole }) {
+  async closeAppeal(
+    id: number,
+    outcome: string,
+    currentUser: { id: number; role: UserRole },
+  ) {
     if (currentUser.role !== UserRole.OPERATOR) {
       throw new ForbiddenException('Appeal closing is forbidden')
     }
@@ -134,16 +220,27 @@ export class AppealsService {
     }
 
     try {
-      return await this.appealsRepository.closeAppeal(id, currentUser.id, outcome)
+      return await this.appealsRepository.closeAppeal(
+        id,
+        currentUser.id,
+        outcome,
+      )
     } catch (error) {
-      if (error instanceof PrismaClientKnownRequestError && error.code === 'P2025') {
+      if (
+        error instanceof PrismaClientKnownRequestError &&
+        error.code === 'P2025'
+      ) {
         throw new ConflictException('State changed before close')
       }
       throw error
     }
   }
 
-  createAppeal(title: string, description: string, user: { id: number; role: string }) {
+  createAppeal(
+    title: string,
+    description: string,
+    user: { id: number; role: string },
+  ) {
     if (user.role != UserRole.CLIENT) {
       throw new ForbiddenException('')
     }
@@ -163,7 +260,11 @@ export class AppealsService {
     if (!appeal) {
       throw new NotFoundException('Appeal not found')
     }
-    return this.appealsRepository.createAppealUpdateMessage(author.id, appealId, message)
+    return this.appealsRepository.createAppealUpdateMessage(
+      author.id,
+      appealId,
+      message,
+    )
   }
 
   async getUpdateMessage(currentUser: AuthenticatedUser, appealId: number) {

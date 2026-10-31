@@ -23,7 +23,12 @@ function escapeLikeLiteral(value: string): string {
 export class AppealsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  findAllByClientId(clientId: number, search?: string) {
+  findAllByClientId(
+    clientId: number,
+    limit: number,
+    search?: string,
+    after?: { id: number; createdAt: Date },
+  ) {
     const filters: Prisma.AppealWhereInput = { clientId }
     if (search) {
       filters.title = {
@@ -31,8 +36,19 @@ export class AppealsRepository {
         mode: 'insensitive',
       }
     }
+
+    if (after) {
+      filters.OR = [
+        { createdAt: { lt: after.createdAt } },
+        {
+          createdAt: after.createdAt,
+          id: { lt: after.id },
+        },
+      ]
+    }
     return this.prismaService.appeal.findMany({
       where: filters,
+      take: limit + 1,
       select: {
         id: true,
         status: true,
@@ -69,7 +85,8 @@ export class AppealsRepository {
     WHEN 'NEW' THEN 1
     WHEN 'IN_PROGRESS' THEN 2
   END,
-  appeal."createdAt" DESC
+  appeal."createdAt" DESC,
+  appeal."id" DESC
   `
   }
 
@@ -154,7 +171,11 @@ export class AppealsRepository {
     })
   }
 
-  createAppealUpdateMessage(authorId: number, appealId: number, message: string) {
+  createAppealUpdateMessage(
+    authorId: number,
+    appealId: number,
+    message: string,
+  ) {
     return this.prismaService.appealUpdateMessage.create({
       data: {
         authorId,
