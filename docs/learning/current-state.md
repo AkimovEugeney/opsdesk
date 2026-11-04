@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-10-31. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-11-04. This is a pointer, not a second ledger or requirements log.
 
 ## Working model
 
@@ -11,11 +11,11 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 - OPS-003, 007, 009, 010, 012, 013, 014, [015](../../work/tickets/OPS-015.md) and [017](../../work/tickets/OPS-017.md) are Done (direct/local delivery); details, validation and follow-ups are in their tickets under `work/tickets/`.
 - [OPS-016](../../work/tickets/OPS-016.md) is Deferred: learner explicitly prefers backend work for now; implementation not started.
 - [OPS-018](../../work/tickets/OPS-018.md) is Done (2026-10-30): 10 service tests, 30 real HTTP/DB scenarios, independent review and CI for commit 658e5be passed. Actual time 3 h (estimate 4 h).
-- [OPS-019](../../work/tickets/OPS-019.md) is In Progress: assisted CLIENT cursor implementation passed 65 isolated HTTP/DB checks, no-emit TypeScript and 10 existing service tests. OPERATOR pagination remains unimplemented. Estimate 3 h; actual unknown.
+- [OPS-019](../../work/tickets/OPS-019.md) is Done (direct/local acceptance). 69 HTTP/DB checks and 10 service tests passed. Actual time 6 h (estimate 3 h). Final diff remains local.
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite integrated into CI (existing service tests and bounded HTTP evidence/harness for OPS-014/015/017); the web client is a static page and lacks an authorization screen.
-- Stopped at (2026-10-31): learner requested save/commit/push and will return tomorrow. OPS-019 CLIENT verification passed; report in work/validation/OPS-019-client-http-validation.md. Learner then identified findAll readability and repeated cursor logic as the next concern. Resume by extracting CLIENT cursor parsing/validation and its type within appeals, preserving behavior; refactor not implemented yet. Then extend to OPERATOR and share only proven common encoding/page assembly, not a speculative app-wide pagination framework. Disposable DB/API/container removed; working DB untouched; OrbStack remains running. No new ticket or quiz. OPS-016/011 stay deferred.
+- Stopped at: OPS-019 closed after final HTTP/PostgreSQL verification and independent review. No active implementation ticket.
 
 ## Learning evidence
 
@@ -26,10 +26,10 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Resume OPS-019 at the requested readability/refactoring discussion before OPERATOR pagination. CLIENT behavior already has bounded real HTTP/DB evidence; rerun affected checks after refactoring. Full review and completion remain pending; do not claim Done from the CLIENT checks.
+1. Select the next backend ticket when the learner resumes.
 
 ## Source map and history
 
-- Current requirements and decisions: [OPS-019](../../work/tickets/OPS-019.md) and its [requirements log](../../work/tickets/OPS-019-requirements-log.md). Completed-task evidence remains in each ticket.
+- Latest completed requirements and decisions: [OPS-019](../../work/tickets/OPS-019.md) and its [requirements log](../../work/tickets/OPS-019-requirements-log.md). Completed-task evidence remains in each ticket.
 - Sprint/capacity are planning and time records: [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md), [capacity plan](capacity-plan.md). No missing actual time is reconstructed.
 - Historical sprint, learning-log and session-audit entries are retained as history; they do not set active status.

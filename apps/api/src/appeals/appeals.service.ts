@@ -10,6 +10,12 @@ import { AuthenticatedUser } from '../auth/session/session.types'
 import { AppealStatus, Permissions, UserRole } from '../generated/prisma/enums'
 import { AppealsRepository } from './appeals.repository'
 
+type ClientAppealsCursor = {
+  id: number
+  createdAt: Date
+  status?: unknown
+}
+
 @Injectable()
 export class AppealsService {
   constructor(private readonly appealsRepository: AppealsRepository) {}
@@ -92,57 +98,7 @@ export class AppealsService {
     cursor?: string,
   ) {
     if (currentUser.role === UserRole.CLIENT) {
-      let decodedCursor: unknown = undefined
-      let after: { id: number; createdAt: Date } | undefined = undefined
-
-      if (cursor !== undefined) {
-        try {
-          const cursorJson = Buffer.from(cursor, 'base64url').toString('utf8')
-          decodedCursor = JSON.parse(cursorJson)
-
-          if (
-            typeof decodedCursor !== 'object' ||
-            decodedCursor === null ||
-            Array.isArray(decodedCursor)
-          ) {
-            throw new BadRequestException('Invalid cursor')
-          }
-
-          if (
-            !('id' in decodedCursor) ||
-            typeof decodedCursor.id !== 'number' ||
-            !Number.isInteger(decodedCursor.id) ||
-            decodedCursor.id < 1 ||
-            decodedCursor.id > 2147483647
-          ) {
-            throw new BadRequestException('Invalid cursor')
-          }
-
-          if (
-            !('createdAt' in decodedCursor) ||
-            typeof decodedCursor.createdAt !== 'string'
-          ) {
-            throw new BadRequestException('Invalid cursor')
-          }
-
-          const createdAt = new Date(decodedCursor.createdAt)
-
-          if (
-            Number.isNaN(createdAt.getTime()) ||
-            createdAt.toISOString() !== decodedCursor.createdAt
-          ) {
-            throw new BadRequestException('Invalid cursor')
-          }
-
-          after = {
-            id: decodedCursor.id,
-            createdAt,
-          }
-        } catch {
-          throw new BadRequestException('Invalid cursor')
-        }
-      }
-
+      const after = this.parseAppealsCursor(cursor)
       const rows = await this.appealsRepository.findAllByClientId(
         currentUser.id,
         limit,
@@ -150,27 +106,20 @@ export class AppealsService {
         after,
       )
 
-      const hasMore = rows.length > limit
-      const items = rows.slice(0, limit)
-
-      const lastItem = items[items.length - 1]
-      let nextCursor: string | null = null
-
-      if (hasMore && lastItem) {
-        const cursorData = {
-          createdAt: lastItem.createdAt.toISOString(),
-          id: lastItem.id,
-        }
-
-        const cursorJson = JSON.stringify(cursorData)
-        nextCursor = Buffer.from(cursorJson).toString('base64url')
-      }
-
-      return { items, hasMore, nextCursor }
+      return this.buildAppealsPage(rows, limit, (item) => ({
+        id: item.id,
+        createdAt: item.createdAt.toISOString(),
+      }))
     }
 
     if (currentUser.role === UserRole.OPERATOR) {
-      return this.appealsRepository.findActive(search)
+      const after = this.parseOperatorCursor(cursor)
+      const rows = await this.appealsRepository.findActive(limit, search, after)
+      return this.buildAppealsPage(rows, limit, (item) => ({
+        id: item.id,
+        createdAt: item.createdAt.toISOString(),
+        status: item.status,
+      }))
     }
 
     throw new ForbiddenException('Appeal reading is forbidden')
@@ -184,6 +133,94 @@ export class AppealsService {
     }
 
     return appeal
+  }
+
+  private buildAppealsPage<T>(
+    rows: T[],
+    limit: number,
+    getCursorData: (item: T) => object,
+  ) {
+    const hasMore = rows.length > limit
+    const items = rows.slice(0, limit)
+
+    const lastItem = items[items.length - 1]
+    let nextCursor: string | null = null
+
+    if (hasMore && lastItem) {
+      const cursorData = getCursorData(lastItem)
+
+      const cursorJson = JSON.stringify(cursorData)
+      nextCursor = Buffer.from(cursorJson).toString('base64url')
+    }
+
+    return { items, hasMore, nextCursor }
+  }
+
+  private parseOperatorCursor(cursor?: string) {
+    const parsed = this.parseAppealsCursor(cursor)
+    if (parsed === undefined) {
+      return undefined
+    }
+
+    const { id, createdAt, status } = parsed
+
+    if (status !== AppealStatus.NEW && status !== AppealStatus.IN_PROGRESS) {
+      throw new BadRequestException('Invalid cursor')
+    }
+
+    return { id, createdAt, status }
+  }
+
+  private parseAppealsCursor(cursor?: string): ClientAppealsCursor | undefined {
+    if (cursor === undefined) {
+      return undefined
+    }
+    try {
+      const cursorJson = Buffer.from(cursor, 'base64url').toString('utf8')
+      const decodedCursor: unknown = JSON.parse(cursorJson)
+
+      if (
+        typeof decodedCursor !== 'object' ||
+        decodedCursor === null ||
+        Array.isArray(decodedCursor)
+      ) {
+        throw new BadRequestException('Invalid cursor')
+      }
+
+      if (
+        !('id' in decodedCursor) ||
+        typeof decodedCursor.id !== 'number' ||
+        !Number.isInteger(decodedCursor.id) ||
+        decodedCursor.id < 1 ||
+        decodedCursor.id > 2147483647
+      ) {
+        throw new BadRequestException('Invalid cursor')
+      }
+
+      if (
+        !('createdAt' in decodedCursor) ||
+        typeof decodedCursor.createdAt !== 'string'
+      ) {
+        throw new BadRequestException('Invalid cursor')
+      }
+
+      const createdAt = new Date(decodedCursor.createdAt)
+
+      if (
+        Number.isNaN(createdAt.getTime()) ||
+        createdAt.toISOString() !== decodedCursor.createdAt
+      ) {
+        throw new BadRequestException('Invalid cursor')
+      }
+
+      return {
+        id: decodedCursor.id,
+        createdAt,
+        status: 'status' in decodedCursor ? decodedCursor.status : undefined,
+      }
+    } catch {
+      throw new BadRequestException('Invalid cursor')
+    }
   }
 
   private findAppealForUser(currentUser: AuthenticatedUser, id: number) {

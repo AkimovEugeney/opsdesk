@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { Prisma } from '../generated/prisma/client'
 import { AppealStatus, UserRole } from '../generated/prisma/enums'
 import { PrismaService } from '../prisma/prisma.service'
+import { filter } from 'rxjs'
 
 type AppealDetailsRow = {
   id: number
@@ -61,33 +62,60 @@ export class AppealsRepository {
     })
   }
 
-  findActive(search?: string) {
-    const pattern = search ? `%${escapeLikeLiteral(search)}%` : '%'
+  async findActive(
+    limit: number,
+    search?: string,
+    after?: {
+      status: typeof AppealStatus.NEW | typeof AppealStatus.IN_PROGRESS
+      createdAt: Date
+      id: number
+    },
+  ) {
+    const filters: Prisma.AppealWhereInput = {
+      status: { in: [AppealStatus.NEW, AppealStatus.IN_PROGRESS] },
+    }
+    if (search) {
+      filters.title = {
+        contains: escapeLikeLiteral(search),
+        mode: 'insensitive',
+      }
+    }
 
-    return this.prismaService.$queryRaw`
-    SELECT
-        appeal."id",
-        appeal."status",
-        appeal."title",
-        appeal."description",
-        appeal."createdAt",
-        client."name" AS "clientName",
-        owner."name" AS "ownerName"
-    FROM "Appeal" AS appeal
-    JOIN "User" AS client
-        ON client."id" = appeal."clientId"
-    LEFT JOIN "User" AS owner
-        ON owner."id" = appeal."ownerId"
-    WHERE appeal."status" IN ('NEW', 'IN_PROGRESS')
-    AND appeal."title" ILIKE ${pattern} ESCAPE '\\'
-    ORDER BY
-  CASE appeal."status"
-    WHEN 'NEW' THEN 1
-    WHEN 'IN_PROGRESS' THEN 2
-  END,
-  appeal."createdAt" DESC,
-  appeal."id" DESC
-  `
+    if (after) {
+      filters.OR = [
+        { status: after.status, createdAt: { lt: after.createdAt } },
+        {
+          status: after.status,
+          createdAt: after.createdAt,
+          id: { lt: after.id },
+        },
+      ]
+
+      if (after.status === AppealStatus.NEW) {
+        filters.OR.push({ status: AppealStatus.IN_PROGRESS })
+      }
+    }
+
+    const rows = await this.prismaService.appeal.findMany({
+      where: filters,
+      take: limit + 1,
+      select: {
+        id: true,
+        status: true,
+        title: true,
+        description: true,
+        createdAt: true,
+        client: { select: { name: true } },
+        owner: { select: { name: true } },
+      },
+      orderBy: [{ status: 'asc' }, { createdAt: 'desc' }, { id: 'desc' }],
+    })
+
+    return rows.map(({ client, owner, ...appeal }) => ({
+      ...appeal,
+      clientName: client.name,
+      ownerName: owner?.name ?? null,
+    }))
   }
 
   async getWorkloadSnapshot() {
