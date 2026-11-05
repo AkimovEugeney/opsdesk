@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common'
 import { Prisma } from '../generated/prisma/client'
 import { AppealStatus, UserRole } from '../generated/prisma/enums'
 import { PrismaService } from '../prisma/prisma.service'
-import { filter } from 'rxjs'
 
 type AppealDetailsRow = {
   id: number
@@ -29,6 +28,7 @@ export class AppealsRepository {
     limit: number,
     search?: string,
     after?: { id: number; createdAt: Date },
+    filter?: 'closed',
   ) {
     const filters: Prisma.AppealWhereInput = { clientId }
     if (search) {
@@ -36,6 +36,10 @@ export class AppealsRepository {
         contains: escapeLikeLiteral(search),
         mode: 'insensitive',
       }
+    }
+
+    if (filter === 'closed') {
+      filters.status = AppealStatus.CLOSED
     }
 
     if (after) {
@@ -60,6 +64,57 @@ export class AppealsRepository {
       },
       orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
     })
+  }
+
+  async findClosed(
+    limit: number,
+    search?: string,
+    after?: {
+      createdAt: Date
+      id: number
+    },
+  ) {
+    const filters: Prisma.AppealWhereInput = {
+      status: AppealStatus.CLOSED,
+    }
+    if (search) {
+      filters.title = {
+        contains: escapeLikeLiteral(search),
+        mode: 'insensitive',
+      }
+    }
+
+    if (after) {
+      filters.OR = [
+        { createdAt: { lt: after.createdAt } },
+        {
+          createdAt: after.createdAt,
+          id: { lt: after.id },
+        },
+      ]
+    }
+
+    const rows = await this.prismaService.appeal.findMany({
+      where: filters,
+      take: limit + 1,
+      select: {
+        id: true,
+        status: true,
+        title: true,
+        description: true,
+        createdAt: true,
+        outcome: true,
+        client: { select: { name: true } },
+        owner: { select: { name: true } },
+      },
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    })
+
+    return rows.map(({ client, owner, ...appeal }) => ({
+      ...appeal,
+      clientName: client.name,
+      ownerName: owner?.name ?? null,
+    }))
   }
 
   async findActive(

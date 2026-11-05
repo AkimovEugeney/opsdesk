@@ -821,6 +821,17 @@
       "verified": false,
       "on": "2026-10-26",
       "until": null
+    },
+    {
+      "id": "ops020-filter-assisted-20261105",
+      "concept": "http-input-validation",
+      "context": "OPS-020",
+      "source": "work/tickets/OPS-020.md",
+      "note": "Learner proposed filter=closed and operator access, authored the implementation and corrected reviewed CLOSED predicate and outcome projection defects. Codex supplied IsIn syntax and explained the separate closed-list cursor path. Real HTTP/PostgreSQL acceptance passed 44 functional checks plus 5 cleanup/source-integrity checks (126 page requests). Records assisted application, not independent mastery or learner-owned test design.",
+      "kind": "assisted",
+      "verified": true,
+      "on": "2026-11-05",
+      "until": null
     }
   ]
 }

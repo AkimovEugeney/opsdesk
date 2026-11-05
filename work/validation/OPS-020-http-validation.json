@@ -1,0 +1,1576 @@
+{
+  "startedAt": "2026-11-05T18:16:45+0300",
+  "scope": "OPS-020 completed appeals for CLIENT and OPERATOR; baseline list regressions",
+  "method": "Fresh src/main.ts via standard ts-node/register, real Nest HTTP, login, SessionGuard, Prisma adapter and local PostgreSQL. No dist imports, mocks or result replacement.",
+  "isolation": "Fresh owned PostgreSQL 17 container with random local port and synthetic credentials. Working database URL was not read and working database was not connected.",
+  "commands": {
+    "compile": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.build.json",
+    "compileExit": 0,
+    "producer": "node /private/tmp/ops020-validation/ops020-http-validation.cjs",
+    "wrapper": "python3 /private/tmp/ops020-validation/run.py",
+    "child": "node -r <apps/api/node_modules/ts-node/register> /private/tmp/ops020-validation/ops020-source-server.cjs",
+    "childCwd": "/Volumes/easy/development/learning/opsdesk/apps/api"
+  },
+  "checks": [
+    {
+      "name": "Closed ordered walk 101 size 15",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 15
+      }
+    },
+    {
+      "name": "Closed ordered walk 101 size 1",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 1
+      }
+    },
+    {
+      "name": "Closed ordered walk 101 size 3",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "Closed ordered walk 101 size 50",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 50
+      }
+    },
+    {
+      "name": "Closed ordered walk 102 size 15",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000
+        ],
+        "pageSize": 15
+      }
+    },
+    {
+      "name": "Closed ordered walk 102 size 1",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000
+        ],
+        "pageSize": 1
+      }
+    },
+    {
+      "name": "Closed ordered walk 102 size 3",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000
+        ],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "Closed ordered walk 102 size 50",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000
+        ],
+        "pageSize": 50
+      }
+    },
+    {
+      "name": "Closed ordered walk 103 size 15",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 15
+      }
+    },
+    {
+      "name": "Closed ordered walk 103 size 1",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 1
+      }
+    },
+    {
+      "name": "Closed ordered walk 103 size 3",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "Closed ordered walk 103 size 50",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 50
+      }
+    },
+    {
+      "name": "Closed ordered walk 201 size 15",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000,
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 15
+      }
+    },
+    {
+      "name": "Closed ordered walk 201 size 1",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000,
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 1
+      }
+    },
+    {
+      "name": "Closed ordered walk 201 size 3",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000,
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "Closed ordered walk 201 size 50",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000,
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 50
+      }
+    },
+    {
+      "name": "Closed search 101 nEeDlE",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "Closed search 101 no-match",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "Closed search 101 %_",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "Closed search 201 nEeDlE",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000,
+          1014,
+          1000,
+          1028,
+          1005,
+          1019,
+          1033,
+          1010,
+          1024,
+          1001,
+          1015,
+          1029,
+          1006,
+          1020
+        ],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "Closed search 201 no-match",
+      "result": "PASS",
+      "observation": {
+        "ids": [],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "Closed search 201 %_",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          9004,
+          9003,
+          9002,
+          9001,
+          9000
+        ],
+        "pageSize": 2
+      }
+    },
+    {
+      "name": "No-filter regression 101",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          1034,
+          1031,
+          1017,
+          1014,
+          1000,
+          1028,
+          1025,
+          1011,
+          1008,
+          1005,
+          1036,
+          1022,
+          1019,
+          1016,
+          1002,
+          1033,
+          1030,
+          1027,
+          1013,
+          1010,
+          1024,
+          1021,
+          1007,
+          1004,
+          1001,
+          1035,
+          1032,
+          1018,
+          1015,
+          1012,
+          1029,
+          1026,
+          1023,
+          1009,
+          1006,
+          1020,
+          1003
+        ],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "No-filter regression 201",
+      "result": "PASS",
+      "observation": {
+        "ids": [
+          2004,
+          2000,
+          1034,
+          1031,
+          1017,
+          2008,
+          1025,
+          1011,
+          1008,
+          2012,
+          1036,
+          1022,
+          1016,
+          1002,
+          2016,
+          1030,
+          1027,
+          1013,
+          2024,
+          2020,
+          1021,
+          1007,
+          1004,
+          2028,
+          1035,
+          1032,
+          1018,
+          1012,
+          2032,
+          1026,
+          1023,
+          1009,
+          2036,
+          1003,
+          3002,
+          3001,
+          3000,
+          4052,
+          4039,
+          4026,
+          4022,
+          4013,
+          4009,
+          4000,
+          4048,
+          4044,
+          4035,
+          4031,
+          4018,
+          4005,
+          4001,
+          4053,
+          4040,
+          4036,
+          4027,
+          4023,
+          4014,
+          4010,
+          4049,
+          4045,
+          4032,
+          4019,
+          4015,
+          4006,
+          4002,
+          4054,
+          4050,
+          4041,
+          4037,
+          4028,
+          4024,
+          4011,
+          4046,
+          4033,
+          4029,
+          4020,
+          4016,
+          4007,
+          4003,
+          4055,
+          4051,
+          4042,
+          4038,
+          4025,
+          4012,
+          4008,
+          4047,
+          4043,
+          4034,
+          4030,
+          4021,
+          4017,
+          4004
+        ],
+        "pageSize": 3
+      }
+    },
+    {
+      "name": "Invalid filter 101 \"active\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 101 \"closedd\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 101 \"Closed\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 101 \"\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 101 \"closed,active\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 201 \"active\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 201 \"closedd\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 201 \"Closed\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 201 \"\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid filter 201 \"closed,active\"",
+      "result": "PASS"
+    },
+    {
+      "name": "Repeated filter 101",
+      "result": "PASS"
+    },
+    {
+      "name": "Repeated filter 201",
+      "result": "PASS"
+    },
+    {
+      "name": "No session",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 101 %%% ",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 101 e30",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 101 eyJpZCI6MCwiY3JlYXRlZEF0IjoiMjAyNi0wMS0wMVQwMDowMDowMC4wMDBaIn0",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 201 %%% ",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 201 e30",
+      "result": "PASS"
+    },
+    {
+      "name": "Invalid closed cursor 201 eyJpZCI6MCwiY3JlYXRlZEF0IjoiMjAyNi0wMS0wMVQwMDowMDowMC4wMDBaIn0",
+      "result": "PASS"
+    },
+    {
+      "name": "Foreign cursor retains CLIENT scope",
+      "result": "PASS"
+    },
+    {
+      "name": "Cleanup owned source API and verify process absent",
+      "result": "PASS"
+    },
+    {
+      "name": "Cleanup fixture SQL connection",
+      "result": "PASS"
+    },
+    {
+      "name": "Drop exact disposable DB and verify absent",
+      "result": "PASS"
+    },
+    {
+      "name": "Cleanup admin connection",
+      "result": "PASS"
+    },
+    {
+      "name": "Repository source/config/dependencies unchanged",
+      "result": "PASS"
+    }
+  ],
+  "sourceBefore": {
+    "sha256": "2c7994e3be1fddf035359201798ed66103f221addd31936aedebdb14d9404bfd",
+    "files": {
+      "apps/api/package.json": "d854c2d53b3569a3f3bd21f75904571497838a582f97e72ab06fb281031a8ac6",
+      "apps/api/pnpm-lock.yaml": "5bd6aa552e6136f92416562df28effea57ab1794fff24af0b1032155282ffa93",
+      "apps/api/prisma/migrations/20260815135516_init/migration.sql": "ce04decfc0536056d9fde66fc42abfb25c7ba1da833fa71e98e874333e03c144",
+      "apps/api/prisma/migrations/20260922170549_add_authentication_session/migration.sql": "5d028c220c880810c7d4d9aa9739c4dca5e6b2ec9dc042c21348d62ba5ec0448",
+      "apps/api/prisma/migrations/20260926110132_add_user_permissions/migration.sql": "a3c5557e3dbee01301a97f991c65650d05ebf75f18d09ea6717be3d29fc3e490",
+      "apps/api/prisma/migrations/20261001181859_add_appeal_outcome/migration.sql": "6faf2fc4347d07566d111ca8051b4e9ecb3bfc3d7e1f5745f7a1392751a4b5ee",
+      "apps/api/prisma/migrations/20261001181902_add_appeal_outcome/migration.sql": "122d743a0403e77ad7e0ed9447f5b8826f2fbdbc55612d936eff004dd13c2eec",
+      "apps/api/prisma/migrations/20261024121528_add_appeal_update_messages/migration.sql": "0b5f991764e37ccb8d25eadbea008fe9faa41bb259683205aee2194dc7b0dc5a",
+      "apps/api/prisma/migrations/migration_lock.toml": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "apps/api/prisma/schema.prisma": "54005ddf2de5b89283b50ee59b345579d11459aa3ab3dc0c25001b3b7cd0a7f8",
+      "apps/api/prisma/seed.sql": "8ee57b7d0d4681204eb870c8dd2da0d7cfe5874294dcbe46ddd7cc847e364d11",
+      "apps/api/src/_probe_cookie.ts": "895905fd1a470428f61aade694f7850df5b5e1b7bda56ff4cb018cb16a88c658",
+      "apps/api/src/_probe_prisma.ts": "ed63568f7ef2bdd55aa70d4a83deadd668bc043cd67c3f8a6a1c09a14a225695",
+      "apps/api/src/app.module.ts": "110e8406327cbc6be4dee607093ebc29d472cad350192c30581991b10509bf0c",
+      "apps/api/src/appeals/appeals.controller.ts": "708d254f2b4762c24d595f5721de003c11d394936ce8f02fee0fff57f613b38c",
+      "apps/api/src/appeals/appeals.module.ts": "49ed359b8fa4ea4cdb678ad7aff9e9d033aa23e63f773bf7b674f969c862f392",
+      "apps/api/src/appeals/appeals.repository.ts": "8d436c6dd46b7f5d915f01948c4d8d844c4d055c8203a891f8f51da48334158a",
+      "apps/api/src/appeals/appeals.service.ts": "a0beba6ad4b20330698b6851a0d8b10933e19c3cec75b54bb45d8ac4601e2593",
+      "apps/api/src/appeals/dto/assign-owner.dto.ts": "7e2ac2cb4dbebe14170bd681a42a60184baafc37aae844e2ebbe43155d987348",
+      "apps/api/src/appeals/dto/close-appeal.dto.ts": "4c8b603365326b992ba7203df2bdc7b2188542199bc6a0633b4c897edf0f9606",
+      "apps/api/src/appeals/dto/create-appeal-update-message.dto.ts": "ca7475be1e1f97d5fca4d9665061e6fead32d650815f1508e255d74d506dfd9e",
+      "apps/api/src/appeals/dto/create-appeal.dto.ts": "b681fc44802683783841e5c2416f573e863d62e7adf6586f602e5f2feca0bca1",
+      "apps/api/src/appeals/dto/get-appeals-query.dto.ts": "d5beb795f81809e3e786c98d3d6df112f055f3140d94a1282232871f09b3c76b",
+      "apps/api/src/auth/auth.controller.ts": "0e173c605148cd4b20fac744ed3f511ce53f359f0a5f961433c036661a607a26",
+      "apps/api/src/auth/auth.module.ts": "4e25d093ccc0ae794f61e2fe19657abab02067dc441c1d0a5c0b5aac261da584",
+      "apps/api/src/auth/auth.service.ts": "e315075048ff6f015ae48e630b906601ff52040bce5e919fe98664e4c6826523",
+      "apps/api/src/auth/decorators/current-user.decorator.ts": "acfab8f55c5e70112c5350b295af60b1c891d9852d59a10cd3c199d04d15b57e",
+      "apps/api/src/auth/decorators/public.decorator.ts": "c6e076808a7f35ae9799ded5131063173298103594bf085e4f2a0c82247dceaf",
+      "apps/api/src/auth/dto/login.dto.ts": "883b9aaee27623b325a66a238d03a0f7a870133fb2bc6455274dc5c0e40aac43",
+      "apps/api/src/auth/password.ts": "3b32764783253cd2e6286dbc3889597ec7516a8ac34a9afaf200d6268723610f",
+      "apps/api/src/auth/session/session-id.ts": "29c73fa7c93738009d8499a6832fa7f1cd744ae16816547d70a570a01cc8e0d2",
+      "apps/api/src/auth/session/session-timeout.ts": "f6e010fef5c15dbad7d0a7324c9b0556cf7747b1b0c98d13cd674f4b569d7ca5",
+      "apps/api/src/auth/session/session.constants.ts": "84900e9fdf6e2225f59272f34257ca77e9d62af434b2339b6e8bf7c4a97df10a",
+      "apps/api/src/auth/session/session.guard.ts": "1b5c330a018868769c6b9feff3fd3c7a694455c46e62ac4cb93a4f0256d6f1e1",
+      "apps/api/src/auth/session/session.types.ts": "2b64c7f20e51b1377ddc83a0c503d741cce211dff4d5f05beeb85fe1e120f304",
+      "apps/api/src/common/pipes/validate-positive-int32.pipe.ts": "833211928db69176cdccdfc003b21fbb3dd74ea697fbb044f059a5c316c68191",
+      "apps/api/src/generated/prisma/browser.ts": "d741f11a9034f1db837cf79cf6848bbb87a5e5de8532e9d667de1efe7985b10d",
+      "apps/api/src/generated/prisma/client.ts": "52033b63b71cdc17b9df54c2a366e67abbdab7880f74bc36267486368e1eed3f",
+      "apps/api/src/generated/prisma/commonInputTypes.ts": "944632edf4958362a927f416a6611aac11a02c5bde0ec3c40caeaf151ce607de",
+      "apps/api/src/generated/prisma/enums.ts": "91b4edf47091d1e50c4aefdf210fd4812a1d6cb3b3997a118902cad770a55d0c",
+      "apps/api/src/generated/prisma/internal/class.ts": "de1d43092d0d4519e38b6b31d9c8543f5c72660b5f75a2246fe6b489634150b3",
+      "apps/api/src/generated/prisma/internal/prismaNamespace.ts": "3d6186441899cb755a78ae6225a8d81c5dd840fbd30cbcc663993a0c20fa2354",
+      "apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts": "f5021c35991939e62cc1b7c31710e0c4f48e9d8cd591751057525f97cbc6f046",
+      "apps/api/src/generated/prisma/models.ts": "d25aee729b59ad4227379f42b75942b9a745db22c5e2f6e466bb6386d914aaaa",
+      "apps/api/src/generated/prisma/models/Appeal.ts": "7c26de2ca59ef86dd438857867abe542f73600ced0018a9ec9e801f08f3efa91",
+      "apps/api/src/generated/prisma/models/AppealUpdateMessage.ts": "c11c1a933234b51e0d24b53f62ce4b39bb74e3c8737b8e77f67d4da9700c9f9f",
+      "apps/api/src/generated/prisma/models/Session.ts": "3def4abc3465ba0cb08f65a82554d7e1733eeb87cee495bd7d5a852cddc77e8b",
+      "apps/api/src/generated/prisma/models/User.ts": "e1fe5e10160e03190d2eb86d4853f0ef0a76a26df1fea565e8b9219220b353b3",
+      "apps/api/src/main.ts": "08a14cb7ed20adadeaa17066ec33e81ffeb978808493904fa195301f47dbb689",
+      "apps/api/src/prisma/prisma.module.ts": "7473330093a11c74f6b121f7b5cc42531c0078d56a0f235ee25cce554a8a5a8c",
+      "apps/api/src/prisma/prisma.service.ts": "f9f397b73e83cbe50ec139c79212c8b6ba255462286a5f66ed70d6678907038b"
+    }
+  },
+  "harnessSha256": "c5177b68b2f0e5372962a55d79d2778474fcaa7706198385e12e1ffa8194a6ef",
+  "serverSha256": "fbbbcc4aac323bbfdc31ab749304b74471ec9e14e982d19f40b54a569fc36731",
+  "head": "6fb8f1f78b3185074178d4d173cbb45b95c3efba",
+  "migrations": [
+    "20260815135516_init",
+    "20260922170549_add_authentication_session",
+    "20260926110132_add_user_permissions",
+    "20261001181859_add_appeal_outcome",
+    "20261001181902_add_appeal_outcome",
+    "20261024121528_add_appeal_update_messages"
+  ],
+  "migrationMethod": "Exact repository migration SQL in lexical order, no migration ledger simulated",
+  "timestampType": [
+    {
+      "data_type": "timestamp without time zone",
+      "datetime_precision": 3
+    }
+  ],
+  "fixtures": {
+    "users": 6,
+    "appeals": 106,
+    "client101": 37,
+    "foreign102": 10,
+    "exact104": 3,
+    "large105": 56,
+    "client103": 0,
+    "oracle": "Independent in-memory fixtures filtered by actor, closed mode and case-insensitive title, sorted createdAt DESC / id DESC for closed lists; active operator baseline sorted status first. Every page compared to exact expected IDs, envelope and outcome.",
+    "rows": [
+      {
+        "id": 1000,
+        "clientId": 101,
+        "title": "Needle fixture 0",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2000,
+        "clientId": 102,
+        "title": "Needle foreign 0",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1017,
+        "clientId": 101,
+        "title": "Other fixture 1",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1034,
+        "clientId": 101,
+        "title": "Other fixture 2",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1014,
+        "clientId": 101,
+        "title": "Needle fixture 3",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1031,
+        "clientId": 101,
+        "title": "Other fixture 4",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2004,
+        "clientId": 102,
+        "title": "Needle foreign 4",
+        "createdAt": "2026-01-10T12:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1011,
+        "clientId": 101,
+        "title": "Other fixture 5",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1028,
+        "clientId": 101,
+        "title": "Needle fixture 6",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1008,
+        "clientId": 101,
+        "title": "Other fixture 7",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1025,
+        "clientId": 101,
+        "title": "Other fixture 8",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2008,
+        "clientId": 102,
+        "title": "Needle foreign 8",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1005,
+        "clientId": 101,
+        "title": "Needle fixture 9",
+        "createdAt": "2026-01-10T11:59:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1022,
+        "clientId": 101,
+        "title": "Other fixture 10",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1002,
+        "clientId": 101,
+        "title": "Other fixture 11",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1019,
+        "clientId": 101,
+        "title": "Needle fixture 12",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2012,
+        "clientId": 102,
+        "title": "Needle foreign 12",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1036,
+        "clientId": 101,
+        "title": "Other fixture 13",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1016,
+        "clientId": 101,
+        "title": "Other fixture 14",
+        "createdAt": "2026-01-10T11:58:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1033,
+        "clientId": 101,
+        "title": "Needle fixture 15",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1013,
+        "clientId": 101,
+        "title": "Other fixture 16",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2016,
+        "clientId": 102,
+        "title": "Needle foreign 16",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1030,
+        "clientId": 101,
+        "title": "Other fixture 17",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1010,
+        "clientId": 101,
+        "title": "Needle fixture 18",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1027,
+        "clientId": 101,
+        "title": "Other fixture 19",
+        "createdAt": "2026-01-10T11:57:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1007,
+        "clientId": 101,
+        "title": "Other fixture 20",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2020,
+        "clientId": 102,
+        "title": "Needle foreign 20",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1024,
+        "clientId": 101,
+        "title": "Needle fixture 21",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1004,
+        "clientId": 101,
+        "title": "Other fixture 22",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1021,
+        "clientId": 101,
+        "title": "Other fixture 23",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1001,
+        "clientId": 101,
+        "title": "Needle fixture 24",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2024,
+        "clientId": 102,
+        "title": "Needle foreign 24",
+        "createdAt": "2026-01-10T11:56:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1018,
+        "clientId": 101,
+        "title": "Other fixture 25",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1035,
+        "clientId": 101,
+        "title": "Other fixture 26",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1015,
+        "clientId": 101,
+        "title": "Needle fixture 27",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1032,
+        "clientId": 101,
+        "title": "Other fixture 28",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2028,
+        "clientId": 102,
+        "title": "Needle foreign 28",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1012,
+        "clientId": 101,
+        "title": "Other fixture 29",
+        "createdAt": "2026-01-10T11:55:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1029,
+        "clientId": 101,
+        "title": "Needle fixture 30",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1009,
+        "clientId": 101,
+        "title": "Other fixture 31",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1026,
+        "clientId": 101,
+        "title": "Other fixture 32",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 2032,
+        "clientId": 102,
+        "title": "Needle foreign 32",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1006,
+        "clientId": 101,
+        "title": "Needle fixture 33",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 1023,
+        "clientId": 101,
+        "title": "Other fixture 34",
+        "createdAt": "2026-01-10T11:54:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1003,
+        "clientId": 101,
+        "title": "Other fixture 35",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 1020,
+        "clientId": 101,
+        "title": "Needle fixture 36",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "CLOSED"
+      },
+      {
+        "id": 2036,
+        "clientId": 102,
+        "title": "Needle foreign 36",
+        "createdAt": "2026-01-10T11:53:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3000,
+        "clientId": 104,
+        "title": "Exact fixture 0",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3001,
+        "clientId": 104,
+        "title": "Exact fixture 1",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 3002,
+        "clientId": 104,
+        "title": "Exact fixture 2",
+        "createdAt": "2026-01-05T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4000,
+        "clientId": 105,
+        "title": "Large fixture 0",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4013,
+        "clientId": 105,
+        "title": "Large fixture 1",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4026,
+        "clientId": 105,
+        "title": "Large fixture 2",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4039,
+        "clientId": 105,
+        "title": "Large fixture 3",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4052,
+        "clientId": 105,
+        "title": "Large fixture 4",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4009,
+        "clientId": 105,
+        "title": "Large fixture 5",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4022,
+        "clientId": 105,
+        "title": "Large fixture 6",
+        "createdAt": "2026-01-01T00:00:00.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4035,
+        "clientId": 105,
+        "title": "Large fixture 7",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4048,
+        "clientId": 105,
+        "title": "Large fixture 8",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4005,
+        "clientId": 105,
+        "title": "Large fixture 9",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4018,
+        "clientId": 105,
+        "title": "Large fixture 10",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4031,
+        "clientId": 105,
+        "title": "Large fixture 11",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4044,
+        "clientId": 105,
+        "title": "Large fixture 12",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4001,
+        "clientId": 105,
+        "title": "Large fixture 13",
+        "createdAt": "2025-12-31T23:59:59.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4014,
+        "clientId": 105,
+        "title": "Large fixture 14",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4027,
+        "clientId": 105,
+        "title": "Large fixture 15",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4040,
+        "clientId": 105,
+        "title": "Large fixture 16",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4053,
+        "clientId": 105,
+        "title": "Large fixture 17",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4010,
+        "clientId": 105,
+        "title": "Large fixture 18",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4023,
+        "clientId": 105,
+        "title": "Large fixture 19",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4036,
+        "clientId": 105,
+        "title": "Large fixture 20",
+        "createdAt": "2025-12-31T23:59:58.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4049,
+        "clientId": 105,
+        "title": "Large fixture 21",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4006,
+        "clientId": 105,
+        "title": "Large fixture 22",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4019,
+        "clientId": 105,
+        "title": "Large fixture 23",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4032,
+        "clientId": 105,
+        "title": "Large fixture 24",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4045,
+        "clientId": 105,
+        "title": "Large fixture 25",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4002,
+        "clientId": 105,
+        "title": "Large fixture 26",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4015,
+        "clientId": 105,
+        "title": "Large fixture 27",
+        "createdAt": "2025-12-31T23:59:57.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4028,
+        "clientId": 105,
+        "title": "Large fixture 28",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4041,
+        "clientId": 105,
+        "title": "Large fixture 29",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4054,
+        "clientId": 105,
+        "title": "Large fixture 30",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4011,
+        "clientId": 105,
+        "title": "Large fixture 31",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4024,
+        "clientId": 105,
+        "title": "Large fixture 32",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4037,
+        "clientId": 105,
+        "title": "Large fixture 33",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4050,
+        "clientId": 105,
+        "title": "Large fixture 34",
+        "createdAt": "2025-12-31T23:59:56.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4007,
+        "clientId": 105,
+        "title": "Large fixture 35",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4020,
+        "clientId": 105,
+        "title": "Large fixture 36",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4033,
+        "clientId": 105,
+        "title": "Large fixture 37",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4046,
+        "clientId": 105,
+        "title": "Large fixture 38",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4003,
+        "clientId": 105,
+        "title": "Large fixture 39",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4016,
+        "clientId": 105,
+        "title": "Large fixture 40",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4029,
+        "clientId": 105,
+        "title": "Large fixture 41",
+        "createdAt": "2025-12-31T23:59:55.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4042,
+        "clientId": 105,
+        "title": "Large fixture 42",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4055,
+        "clientId": 105,
+        "title": "Large fixture 43",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4012,
+        "clientId": 105,
+        "title": "Large fixture 44",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4025,
+        "clientId": 105,
+        "title": "Large fixture 45",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4038,
+        "clientId": 105,
+        "title": "Large fixture 46",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4051,
+        "clientId": 105,
+        "title": "Large fixture 47",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4008,
+        "clientId": 105,
+        "title": "Large fixture 48",
+        "createdAt": "2025-12-31T23:59:54.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4021,
+        "clientId": 105,
+        "title": "Large fixture 49",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4034,
+        "clientId": 105,
+        "title": "Large fixture 50",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4047,
+        "clientId": 105,
+        "title": "Large fixture 51",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4004,
+        "clientId": 105,
+        "title": "Large fixture 52",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4017,
+        "clientId": 105,
+        "title": "Large fixture 53",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4030,
+        "clientId": 105,
+        "title": "Large fixture 54",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      },
+      {
+        "id": 4043,
+        "clientId": 105,
+        "title": "Large fixture 55",
+        "createdAt": "2025-12-31T23:59:53.000Z",
+        "status": "NEW"
+      }
+    ],
+    "note": "Inherited setup metadata describes the baseline before five additional CLOSED appeals for customer 102 were added. All CLOSED rows received outcome Verified resolution before requests. The live test oracle includes those five rows; stored baseline rows do not."
+  },
+  "apiPid": 55010,
+  "sqlSamples": [
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"status\" = CAST($2::text AS \"public\".\"AppealStatus\")) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $3 OFFSET $4",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"status\" = CAST($2::text AS \"public\".\"AppealStatus\") AND (\"public\".\"Appeal\".\"createdAt\" < $3 OR (\"public\".\"Appeal\".\"createdAt\" = $4 AND \"public\".\"Appeal\".\"id\" < $5))) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $6 OFFSET $7",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $2 OFFSET $3",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") AND (\"public\".\"Appeal\".\"createdAt\" < $2 OR (\"public\".\"Appeal\".\"createdAt\" = $3 AND \"public\".\"Appeal\".\"id\" < $4))) ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $5 OFFSET $6",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%') AND \"public\".\"Appeal\".\"status\" = CAST($3::text AS \"public\".\"AppealStatus\")) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $4 OFFSET $5",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%') AND \"public\".\"Appeal\".\"status\" = CAST($3::text AS \"public\".\"AppealStatus\") AND (\"public\".\"Appeal\".\"createdAt\" < $4 OR (\"public\".\"Appeal\".\"createdAt\" = $5 AND \"public\".\"Appeal\".\"id\" < $6))) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $7 OFFSET $8",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%')) ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $3 OFFSET $4",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"status\" = CAST($1::text AS \"public\".\"AppealStatus\") AND \"public\".\"Appeal\".\"title\" ILIKE ('%' || $2 || '%') AND (\"public\".\"Appeal\".\"createdAt\" < $3 OR (\"public\".\"Appeal\".\"createdAt\" = $4 AND \"public\".\"Appeal\".\"id\" < $5))) ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $6 OFFSET $7",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"clientId\" = $1 ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $2 OFFSET $3",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"outcome\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"clientId\" = $1 AND (\"public\".\"Appeal\".\"createdAt\" < $2 OR (\"public\".\"Appeal\".\"createdAt\" = $3 AND \"public\".\"Appeal\".\"id\" < $4))) ORDER BY \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $5 OFFSET $6",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE \"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\"),CAST($2::text AS \"public\".\"AppealStatus\")) ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $3 OFFSET $4",
+    "SELECT \"public\".\"Appeal\".\"id\", \"public\".\"Appeal\".\"status\"::text, \"public\".\"Appeal\".\"title\", \"public\".\"Appeal\".\"description\", \"public\".\"Appeal\".\"createdAt\", \"public\".\"Appeal\".\"clientId\", \"public\".\"Appeal\".\"ownerId\" FROM \"public\".\"Appeal\" WHERE (\"public\".\"Appeal\".\"status\" IN (CAST($1::text AS \"public\".\"AppealStatus\"),CAST($2::text AS \"public\".\"AppealStatus\")) AND ((\"public\".\"Appeal\".\"status\" = CAST($3::text AS \"public\".\"AppealStatus\") AND \"public\".\"Appeal\".\"createdAt\" < $4) OR (\"public\".\"Appeal\".\"status\" = CAST($5::text AS \"public\".\"AppealStatus\") AND \"public\".\"Appeal\".\"createdAt\" = $6 AND \"public\".\"Appeal\".\"id\" < $7) OR \"public\".\"Appeal\".\"status\" = CAST($8::text AS \"public\".\"AppealStatus\"))) ORDER BY \"public\".\"Appeal\".\"status\" ASC, \"public\".\"Appeal\".\"createdAt\" DESC, \"public\".\"Appeal\".\"id\" DESC LIMIT $9 OFFSET $10"
+  ],
+  "ownedApiExited": {
+    "pid": 55010,
+    "exitCode": null,
+    "signal": "SIGTERM",
+    "processAbsent": true
+  },
+  "databaseCleanup": {
+    "database": "ops020_validation_d2e5538753324f4399a0dd7dc97f2d8a",
+    "absent": true
+  },
+  "sourceAfter": {
+    "sha256": "2c7994e3be1fddf035359201798ed66103f221addd31936aedebdb14d9404bfd",
+    "files": {
+      "apps/api/package.json": "d854c2d53b3569a3f3bd21f75904571497838a582f97e72ab06fb281031a8ac6",
+      "apps/api/pnpm-lock.yaml": "5bd6aa552e6136f92416562df28effea57ab1794fff24af0b1032155282ffa93",
+      "apps/api/prisma/migrations/20260815135516_init/migration.sql": "ce04decfc0536056d9fde66fc42abfb25c7ba1da833fa71e98e874333e03c144",
+      "apps/api/prisma/migrations/20260922170549_add_authentication_session/migration.sql": "5d028c220c880810c7d4d9aa9739c4dca5e6b2ec9dc042c21348d62ba5ec0448",
+      "apps/api/prisma/migrations/20260926110132_add_user_permissions/migration.sql": "a3c5557e3dbee01301a97f991c65650d05ebf75f18d09ea6717be3d29fc3e490",
+      "apps/api/prisma/migrations/20261001181859_add_appeal_outcome/migration.sql": "6faf2fc4347d07566d111ca8051b4e9ecb3bfc3d7e1f5745f7a1392751a4b5ee",
+      "apps/api/prisma/migrations/20261001181902_add_appeal_outcome/migration.sql": "122d743a0403e77ad7e0ed9447f5b8826f2fbdbc55612d936eff004dd13c2eec",
+      "apps/api/prisma/migrations/20261024121528_add_appeal_update_messages/migration.sql": "0b5f991764e37ccb8d25eadbea008fe9faa41bb259683205aee2194dc7b0dc5a",
+      "apps/api/prisma/migrations/migration_lock.toml": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "apps/api/prisma/schema.prisma": "54005ddf2de5b89283b50ee59b345579d11459aa3ab3dc0c25001b3b7cd0a7f8",
+      "apps/api/prisma/seed.sql": "8ee57b7d0d4681204eb870c8dd2da0d7cfe5874294dcbe46ddd7cc847e364d11",
+      "apps/api/src/_probe_cookie.ts": "895905fd1a470428f61aade694f7850df5b5e1b7bda56ff4cb018cb16a88c658",
+      "apps/api/src/_probe_prisma.ts": "ed63568f7ef2bdd55aa70d4a83deadd668bc043cd67c3f8a6a1c09a14a225695",
+      "apps/api/src/app.module.ts": "110e8406327cbc6be4dee607093ebc29d472cad350192c30581991b10509bf0c",
+      "apps/api/src/appeals/appeals.controller.ts": "708d254f2b4762c24d595f5721de003c11d394936ce8f02fee0fff57f613b38c",
+      "apps/api/src/appeals/appeals.module.ts": "49ed359b8fa4ea4cdb678ad7aff9e9d033aa23e63f773bf7b674f969c862f392",
+      "apps/api/src/appeals/appeals.repository.ts": "8d436c6dd46b7f5d915f01948c4d8d844c4d055c8203a891f8f51da48334158a",
+      "apps/api/src/appeals/appeals.service.ts": "a0beba6ad4b20330698b6851a0d8b10933e19c3cec75b54bb45d8ac4601e2593",
+      "apps/api/src/appeals/dto/assign-owner.dto.ts": "7e2ac2cb4dbebe14170bd681a42a60184baafc37aae844e2ebbe43155d987348",
+      "apps/api/src/appeals/dto/close-appeal.dto.ts": "4c8b603365326b992ba7203df2bdc7b2188542199bc6a0633b4c897edf0f9606",
+      "apps/api/src/appeals/dto/create-appeal-update-message.dto.ts": "ca7475be1e1f97d5fca4d9665061e6fead32d650815f1508e255d74d506dfd9e",
+      "apps/api/src/appeals/dto/create-appeal.dto.ts": "b681fc44802683783841e5c2416f573e863d62e7adf6586f602e5f2feca0bca1",
+      "apps/api/src/appeals/dto/get-appeals-query.dto.ts": "d5beb795f81809e3e786c98d3d6df112f055f3140d94a1282232871f09b3c76b",
+      "apps/api/src/auth/auth.controller.ts": "0e173c605148cd4b20fac744ed3f511ce53f359f0a5f961433c036661a607a26",
+      "apps/api/src/auth/auth.module.ts": "4e25d093ccc0ae794f61e2fe19657abab02067dc441c1d0a5c0b5aac261da584",
+      "apps/api/src/auth/auth.service.ts": "e315075048ff6f015ae48e630b906601ff52040bce5e919fe98664e4c6826523",
+      "apps/api/src/auth/decorators/current-user.decorator.ts": "acfab8f55c5e70112c5350b295af60b1c891d9852d59a10cd3c199d04d15b57e",
+      "apps/api/src/auth/decorators/public.decorator.ts": "c6e076808a7f35ae9799ded5131063173298103594bf085e4f2a0c82247dceaf",
+      "apps/api/src/auth/dto/login.dto.ts": "883b9aaee27623b325a66a238d03a0f7a870133fb2bc6455274dc5c0e40aac43",
+      "apps/api/src/auth/password.ts": "3b32764783253cd2e6286dbc3889597ec7516a8ac34a9afaf200d6268723610f",
+      "apps/api/src/auth/session/session-id.ts": "29c73fa7c93738009d8499a6832fa7f1cd744ae16816547d70a570a01cc8e0d2",
+      "apps/api/src/auth/session/session-timeout.ts": "f6e010fef5c15dbad7d0a7324c9b0556cf7747b1b0c98d13cd674f4b569d7ca5",
+      "apps/api/src/auth/session/session.constants.ts": "84900e9fdf6e2225f59272f34257ca77e9d62af434b2339b6e8bf7c4a97df10a",
+      "apps/api/src/auth/session/session.guard.ts": "1b5c330a018868769c6b9feff3fd3c7a694455c46e62ac4cb93a4f0256d6f1e1",
+      "apps/api/src/auth/session/session.types.ts": "2b64c7f20e51b1377ddc83a0c503d741cce211dff4d5f05beeb85fe1e120f304",
+      "apps/api/src/common/pipes/validate-positive-int32.pipe.ts": "833211928db69176cdccdfc003b21fbb3dd74ea697fbb044f059a5c316c68191",
+      "apps/api/src/generated/prisma/browser.ts": "d741f11a9034f1db837cf79cf6848bbb87a5e5de8532e9d667de1efe7985b10d",
+      "apps/api/src/generated/prisma/client.ts": "52033b63b71cdc17b9df54c2a366e67abbdab7880f74bc36267486368e1eed3f",
+      "apps/api/src/generated/prisma/commonInputTypes.ts": "944632edf4958362a927f416a6611aac11a02c5bde0ec3c40caeaf151ce607de",
+      "apps/api/src/generated/prisma/enums.ts": "91b4edf47091d1e50c4aefdf210fd4812a1d6cb3b3997a118902cad770a55d0c",
+      "apps/api/src/generated/prisma/internal/class.ts": "de1d43092d0d4519e38b6b31d9c8543f5c72660b5f75a2246fe6b489634150b3",
+      "apps/api/src/generated/prisma/internal/prismaNamespace.ts": "3d6186441899cb755a78ae6225a8d81c5dd840fbd30cbcc663993a0c20fa2354",
+      "apps/api/src/generated/prisma/internal/prismaNamespaceBrowser.ts": "f5021c35991939e62cc1b7c31710e0c4f48e9d8cd591751057525f97cbc6f046",
+      "apps/api/src/generated/prisma/models.ts": "d25aee729b59ad4227379f42b75942b9a745db22c5e2f6e466bb6386d914aaaa",
+      "apps/api/src/generated/prisma/models/Appeal.ts": "7c26de2ca59ef86dd438857867abe542f73600ced0018a9ec9e801f08f3efa91",
+      "apps/api/src/generated/prisma/models/AppealUpdateMessage.ts": "c11c1a933234b51e0d24b53f62ce4b39bb74e3c8737b8e77f67d4da9700c9f9f",
+      "apps/api/src/generated/prisma/models/Session.ts": "3def4abc3465ba0cb08f65a82554d7e1733eeb87cee495bd7d5a852cddc77e8b",
+      "apps/api/src/generated/prisma/models/User.ts": "e1fe5e10160e03190d2eb86d4853f0ef0a76a26df1fea565e8b9219220b353b3",
+      "apps/api/src/main.ts": "08a14cb7ed20adadeaa17066ec33e81ffeb978808493904fa195301f47dbb689",
+      "apps/api/src/prisma/prisma.module.ts": "7473330093a11c74f6b121f7b5cc42531c0078d56a0f235ee25cce554a8a5a8c",
+      "apps/api/src/prisma/prisma.service.ts": "f9f397b73e83cbe50ec139c79212c8b6ba255462286a5f66ed70d6678907038b"
+    }
+  },
+  "httpPageRequests": 126,
+  "summary": {
+    "passed": 49,
+    "failed": 0,
+    "total": 49
+  },
+  "producerExitCode": 0,
+  "finishedAt": "2026-11-05T18:16:46+0300",
+  "containerEvidence": {
+    "container": "ops020-validation-bfe862a080384b578439c894a796d717",
+    "image": "postgres:17",
+    "imageDigest": "sha256:31ba9c94a03ada9988f2bb493a22a75eef3a185884533e5cdbcd498ea835b08f",
+    "method": "Owned fresh PostgreSQL container with tmpfs storage, random local port, synthetic credential via process environment only; no existing working DB/container started",
+    "commands": [
+      "docker run (owned postgres:17 with tmpfs and random port)",
+      "docker exec (owned pg_isready)",
+      "docker port (owned container)",
+      "node /private/tmp/ops020-validation/ops020-http-validation.cjs",
+      "docker rm --force (owned container)",
+      "docker inspect (owned container, absence check)"
+    ],
+    "postgresVersion": "postgres (PostgreSQL) 17.11 (Debian 17.11-1.pgdg13+2)",
+    "producerExitCode": 0,
+    "containerRemoved": true,
+    "containerAbsentVerified": true
+  },
+  "limitations": [
+    "Bounded manual acceptance harness, not a maintained CI suite.",
+    "No full legacy HTTP harness run or hosted CI run.",
+    "Existing 10 service tests exercise write flows, not this feature."
+  ]
+}

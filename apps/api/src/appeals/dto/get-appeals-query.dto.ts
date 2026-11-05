@@ -1,5 +1,6 @@
 import { Transform, Type } from 'class-transformer'
 import {
+  IsIn,
   IsInt,
   IsNumber,
   IsOptional,
@@ -29,4 +30,8 @@ export class GetAppealsQueryDto {
   @MaxLength(200)
   @Matches(/^[A-Za-z0-9_-]+$/)
   cursor?: string
+
+  @IsOptional()
+  @IsIn(['closed'])
+  filter?: 'closed'
 }

@@ -33,6 +33,7 @@ export class AppealsController {
       query.search,
       query.limit,
       query.cursor,
+      query.filter,
     )
   }
 

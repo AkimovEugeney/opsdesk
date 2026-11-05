@@ -1,6 +1,6 @@
 # Current learning state
 
-Last reconciled: 2026-11-04. This is a pointer, not a second ledger or requirements log.
+Last reconciled: 2026-11-05. This is a pointer, not a second ledger or requirements log.
 
 ## Working model
 
@@ -15,7 +15,7 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 - [OPS-011](../../work/tickets/OPS-011.md) (active appeals queue in the web client) is Deferred by the learner until an authorization screen exists.
 - Sprint 3 is Closed ([record](../../work/sprints/2026-09-28-sprint-3.md)). The current week is unplanned.
 - Known gaps in the product: no maintained HTTP test suite integrated into CI (existing service tests and bounded HTTP evidence/harness for OPS-014/015/017); the web client is a static page and lacks an authorization screen.
-- Stopped at: OPS-019 closed after final HTTP/PostgreSQL verification and independent review. No active implementation ticket.
+- [OPS-020](../../work/tickets/OPS-020.md) is Done (direct/local acceptance, 2026-11-05). 49/49 HTTP/PostgreSQL checks (44 functional, 5 cleanup/integrity; 126 page requests), API build and 10 service tests passed. Independent review PASS; source fingerprints match validation. Actual time 2 h, original estimate unreported. Final diff remains local. No active implementation ticket.
 
 ## Learning evidence
 
@@ -26,10 +26,13 @@ Since 2026-10-19 the format is Tech Lead + Code Reviewer (Supported Independence
 
 ## Near route — planning signals, not commitments
 
-1. Select the next backend ticket when the learner resumes.
+1. Select and issue the next backend ticket; candidate is operator self-claim, subject to existing assignment rules and Design Review.
+2. After OPS-020, prioritize an operator claiming an unassigned appeal. Confirm the permission rule and coexistence with manager assignment in Design Review. Acceptance should exercise competing HTTP requests against PostgreSQL and verify the persisted owner.
+3. Make the claim and access regression checks repeatable in CI as a bounded follow-up. The current workflow builds the API only. Use an isolated test database and verify that a broken invariant fails the job.
+4. Fold the proposed “My appeals” filter into the eventual operator web flow if the UI needs it. Keep the backend focus for now. When frontend work resumes, deliver sign-in first, then one usable queue flow covering loading, failure, and a claim lost to another operator.
 
 ## Source map and history
 
-- Latest completed requirements and decisions: [OPS-019](../../work/tickets/OPS-019.md) and its [requirements log](../../work/tickets/OPS-019-requirements-log.md). Completed-task evidence remains in each ticket.
+- Latest completed requirements and decisions: [OPS-020](../../work/tickets/OPS-020.md) and its [requirements log](../../work/tickets/OPS-020-requirements-log.md). Completed-task evidence remains in each ticket.
 - Sprint/capacity are planning and time records: [Sprint 3](../../work/sprints/2026-09-28-sprint-3.md), [capacity plan](capacity-plan.md). No missing actual time is reconstructed.
 - Historical sprint, learning-log and session-audit entries are retained as history; they do not set active status.

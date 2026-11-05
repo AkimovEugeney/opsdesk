@@ -96,6 +96,7 @@ export class AppealsService {
     search?: string,
     limit: number = 15,
     cursor?: string,
+    filter?: 'closed',
   ) {
     if (currentUser.role === UserRole.CLIENT) {
       const after = this.parseAppealsCursor(cursor)
@@ -104,6 +105,7 @@ export class AppealsService {
         limit,
         search,
         after,
+        filter,
       )
 
       return this.buildAppealsPage(rows, limit, (item) => ({
@@ -113,12 +115,26 @@ export class AppealsService {
     }
 
     if (currentUser.role === UserRole.OPERATOR) {
-      const after = this.parseOperatorCursor(cursor)
-      const rows = await this.appealsRepository.findActive(limit, search, after)
+      if (!filter) {
+        const after = this.parseActiveOperatorCursor(cursor)
+        const rows = await this.appealsRepository.findActive(
+          limit,
+          search,
+          after,
+        )
+        return this.buildAppealsPage(rows, limit, (item) => ({
+          id: item.id,
+          createdAt: item.createdAt.toISOString(),
+          status: item.status,
+        }))
+      }
+
+      const after = this.parseAppealsCursor(cursor)
+      const rows = await this.appealsRepository.findClosed(limit, search, after)
+
       return this.buildAppealsPage(rows, limit, (item) => ({
         id: item.id,
         createdAt: item.createdAt.toISOString(),
-        status: item.status,
       }))
     }
 
@@ -156,7 +172,7 @@ export class AppealsService {
     return { items, hasMore, nextCursor }
   }
 
-  private parseOperatorCursor(cursor?: string) {
+  private parseActiveOperatorCursor(cursor?: string) {
     const parsed = this.parseAppealsCursor(cursor)
     if (parsed === undefined) {
       return undefined
