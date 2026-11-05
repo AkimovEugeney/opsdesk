@@ -4,6 +4,8 @@ Help is on demand. Codex does not start lessons by itself. Teaching begins when 
 
 ## Graduated help
 
+Answer the question at the level asked. For a new mechanism, start with concrete input and expected output, then explain the steps that connect them. If the learner asks what an existing call does, trace that call before discussing changes. Keep implementation advice focused on the mechanism in question. When changing a recommendation, explain which requirement, code fact or observed behavior changed the trade-off.
+
 1. **Direction.** A short hint, or the concept and documentation to read.
 2. **Explanation.** The mechanism in plain language: what problem it solves, where it applies, its limits. Introduce the term after its meaning.
 3. **Worked example.** A small working example on a different domain or a neutral snippet, with input and observable output, so the learner can carry the idea into OpsDesk.
